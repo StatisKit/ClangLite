@@ -1,0 +1,7 @@
+build-scons
+.ipynb_checkpoints
+*.egg-info
+*~
+*.so
+*.pyc
+*.dblite
