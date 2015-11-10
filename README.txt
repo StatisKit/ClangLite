@@ -1,4 +1,8 @@
-====== PyClangLite ======
+# PyClangLite
+
+## Documentation
+
+Official documentation is available at [virtualplants.github.io](http://virtualplants.github.io)
 
 **Authors** : XXX
 
