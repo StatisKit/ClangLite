@@ -9,8 +9,8 @@ from vplants.autowig.front_end import preprocessing, postprocessing
 from .pyclanglite import *
 from .ast import AbstractSyntaxTree
 
-def front_end(asg, filepaths, flags, silent=False, bootstrap=False, maximum=1000, cache=None, **kwargs):
-    content = preprocessing(asg, filepaths, flags, cache)
+def front_end(asg, filepaths, flags, silent=False, bootstrap=False, maximum=1000, cache=None, force=False, **kwargs):
+    content = preprocessing(asg, filepaths, flags, cache, force)
     if content:
         tu = clang.tooling.build_ast_from_code_with_args(content, flags)
         with warnings.catch_warnings() as cw:
