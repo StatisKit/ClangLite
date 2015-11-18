@@ -497,7 +497,8 @@ def read_function(asg, decl):
                                             is_static=decl.is_static(),
                                             is_const=decl.is_const(),
                                             is_volatile=decl.is_volatile(),
-                                            is_virtual=decl.is_virtual())
+                                            is_virtual=decl.is_virtual(),
+                                            is_pure=decl.is_pure())
                                     #decl=decl)
                             else:
                                 asg._nodes[spelling] = dict(proxy=ConstructorProxy,
@@ -856,6 +857,10 @@ def read_tag(asg, decl, out=True):
             asg._base_edges[spelling] = []
             asg._syntax_edges[scope].append(spelling)
     if out and not spelling in asg._read and decl.is_complete_definition():
+        if spelling == 'struct ::statiskit::DiscreteUnivariateDistribution':
+            debug = True
+        else:
+            debug = False
         asg._read.add(spelling)
         if not asg[spelling].is_complete:
             asg._syntax_edges[scope].remove(spelling)
@@ -891,6 +896,9 @@ def read_tag(asg, decl, out=True):
                     pass
                     #warnings.warn(str(warning), warning.__class__)
             for child in decl.get_children():
+                if debug and child.get_name() == 'event_type':
+                    import pdb
+                    #pdb.set_trace()
                 try:
                     with warnings.catch_warnings():
                         warnings.simplefilter('error')
@@ -927,7 +935,7 @@ def read_typedef(asg, decl):
         with warnings.catch_warnings():
             warnings.simplefilter("error")
             parent = read_context_parent(asg, decl)
-            if isinstance(parent, (clang.TagDecl, clang.ClassTemplateDecl)):
+            if isinstance(parent, clang.ClassTemplateDecl):
                 warnings.warn('' + decl.get_name() + '\'', UserWarning)
     except Warning as warning:
         warnings.warn(str(warning) + ' for variable \'' + decl.get_name() + '\'', warning.__class__)
@@ -947,6 +955,12 @@ def read_typedef(asg, decl):
                 warnings.warn(spelling, MultipleDeclaredParentWarning)
                 return []
             spelling = scope + '::' + decl.get_name()
+            if spelling.startswith('class '):
+                spelling = spelling[6:]
+            elif spelling.startswith('union '):
+                spelling = spelling[6:]
+            elif spelling.startswith('struct '):
+                spelling = spelling[7:]
         try:
             with warnings.catch_warnings() as warning:
                 warnings.simplefilter("error")

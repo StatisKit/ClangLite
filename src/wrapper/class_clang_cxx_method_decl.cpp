@@ -32,5 +32,6 @@ void class_clang_cxx_method_decl()
             .def("is_static", method_pointer_8c049fcc04605980a0b50ac1fb25a821)
             .def("is_const", method_pointer_1385a27352f658c7a5e2e18d8e96e5d7)
             .def("is_volatile", method_pointer_6a9f6ec56ad05ecea9c3b0e028c5f658)
-            .def("is_virtual", method_pointer_4bc46c9c59875b8786259df46d0add46);
+            .def("is_virtual", method_pointer_4bc46c9c59875b8786259df46d0add46)
+            .def("is_pure", &::clang::CXXMethodDecl::isPure);
 }

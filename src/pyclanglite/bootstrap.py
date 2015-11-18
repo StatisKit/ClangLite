@@ -186,6 +186,7 @@ class BootstrapBackEndPlugin(object):
         asg.functions('^::clang::CXXMethodDecl::isConst', free=False).pop().boost_python_export = True
         asg.functions('^::clang::CXXMethodDecl::isVolatile', free=False).pop().boost_python_export = True
         asg.functions('^::clang::CXXMethodDecl::isVirtual', free=False).pop().boost_python_export = True
+        asg.functions('^::clang::CXXMethodDecl::isPure', free=False).pop().boost_python_export = True
 
         asg.functions('^::clang::TagDecl::isClass', free=False).pop().boost_python_export = True
         asg.functions('^::clang::TagDecl::isStruct', free=False).pop().boost_python_export = True
