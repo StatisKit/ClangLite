@@ -379,7 +379,7 @@ def read_variable(asg, decl):
                 return [spelling]
 
 def read_function(asg, decl):
-    if isinstance(decl, clang.FunctionTemplateDecl) or decl.is_implicit() or decl.is_deleted():
+    if isinstance(decl, clang.FunctionTemplateDecl) or decl.is_deleted():
         return []
     if decl.get_name() == '':
         warnings.warn('', AnonymousFunctionWarning)
@@ -857,10 +857,6 @@ def read_tag(asg, decl, out=True):
             asg._base_edges[spelling] = []
             asg._syntax_edges[scope].append(spelling)
     if out and not spelling in asg._read and decl.is_complete_definition():
-        if spelling == 'struct ::statiskit::DiscreteUnivariateDistribution':
-            debug = True
-        else:
-            debug = False
         asg._read.add(spelling)
         if not asg[spelling].is_complete:
             asg._syntax_edges[scope].remove(spelling)
@@ -896,9 +892,6 @@ def read_tag(asg, decl, out=True):
                     pass
                     #warnings.warn(str(warning), warning.__class__)
             for child in decl.get_children():
-                if debug and child.get_name() == 'event_type':
-                    import pdb
-                    #pdb.set_trace()
                 try:
                     with warnings.catch_warnings():
                         warnings.simplefilter('error')
