@@ -17,7 +17,16 @@ Nevertheless, note that PyClangLite needs LLVM/Clang installed as shared librari
 As a consequence, on a Ubuntu distribution, you should type
 
 ```
-cmake -G "Unix Makefiles" -DBUILD_SHARED_LIBS=1 -DLLVM_ENABLE_RTTI=1 path/to/llvm
+git clone git@github.com:llvm-mirror/llvm.git
+git clone git@github.com:llvm-mirror/clang.git
+cd llvm/tools
+ln -s ../../clang
+cd ../..
+mkdir build
+cd build
+cmake -G "Unix Makefiles" -DBUILD_SHARED_LIBS=1 -DLLVM_ENABLE_RTTI=1 ../llvm
+make
+sudo make install
 ```
 
 ## Contribute
