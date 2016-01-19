@@ -12,7 +12,8 @@ To install VPlants.AutoWIG, you need to install these dependencies:
   - Zlib (http://www.zlib.net/),
   - Boost.Python (https://github.com/boostorg/python),
   - SCons (https://github.com/azatoth/scons)
-  - SConsX (https://github.com/openalea/sconsx)
+  - OpenAlea.Deploy (https://github.com/openalea/deploy)
+  - OpenAlea.SConsX (https://github.com/openalea/sconsx)
   
 In particular to install LLVM and Clang, you need to follow instructions on the *Getting Started page of LLVM* (http://llvm.org/docs/GettingStarted.html) to install both LLVM and Clang .
 Nevertheless, note that PyClangLite needs LLVM/Clang installed as shared libraries and runtime type information.
