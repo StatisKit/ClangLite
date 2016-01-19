@@ -181,14 +181,16 @@ namespace autowig
         { mc->mangleCXXDtor(dynamic_cast< clang::CXXDestructorDecl * >(decl), clang::CXXDtorType::Dtor_Complete, frontendos); }
         else
         { mc->mangleName(decl, frontendos); }
-        llvm::DataLayout* data_layout = new llvm::DataLayout(ast.getTargetInfo().getTargetDescription());
+        /*llvm::DataLayout* data_layout = new llvm::DataLayout(ast.getTargetInfo().getTargetDescription());
         llvm::Mangler middleend(data_layout);
 
         std::string backend;
         llvm::raw_string_ostream backendos(backend);
         middleend.getNameWithPrefix(backendos, llvm::Twine(frontendos.str()));
         delete data_layout;
-        return backendos.str();
+        return backendos.str();*/
+	delete mc;
+	return frontendos.str();
     }
 }
 
