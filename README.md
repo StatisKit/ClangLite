@@ -32,7 +32,7 @@ cmake -G "Unix Makefiles" -DBUILD_SHARED_LIBS=1 -DLLVM_ENABLE_RTTI=1 ../llvm
 make
 sudo make install
 cd ..
-rm -rf build llvm clang
+rm -rf build
 sudo apt-get install libboost-python-dev zlib1g-dev scons
 git clone git@github.com:openalea/deploy.git
 cd deploy
