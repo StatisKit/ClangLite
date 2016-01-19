@@ -34,7 +34,7 @@ cmake -G "Unix Makefiles" -DBUILD_SHARED_LIBS=1 -DLLVM_ENABLE_RTTI=1 ../llvm
 make
 sudo make install
 cd ..
-rm -rf build
+rm -rf build llvm clang
 sudo apt-get install libboost-python-dev zlib1g-dev scons
 git clone git@github.com:openalea/deploy.git
 cd deploy
@@ -48,7 +48,8 @@ cd ..
 sudo rm -rf sconsx
 git clone git@github.com:VirtualPlants/PyClangLite.git
 cd PyClangLite
-python setup.py develop --user
+sudo python setup.py install
+rm -rf PyClangLite
 ```
 
 ## Contribute
