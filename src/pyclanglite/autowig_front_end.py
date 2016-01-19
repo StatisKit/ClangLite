@@ -9,8 +9,8 @@ from vplants.autowig.front_end import preprocessing, postprocessing
 from .pyclanglite import *
 from .ast import AbstractSyntaxTree
 
-def front_end(asg, filepaths, flags, silent=False, bootstrap=False, maximum=1000, cache=None, **kwargs):
-    content = preprocessing(asg, filepaths, flags, cache)
+def front_end(asg, filepaths, flags, silent=False, bootstrap=False, maximum=1000, cache=None, force=False, **kwargs):
+    content = preprocessing(asg, filepaths, flags, cache, force)
     if content:
         tu = clang.tooling.build_ast_from_code_with_args(content, flags)
         with warnings.catch_warnings() as cw:
@@ -379,7 +379,7 @@ def read_variable(asg, decl):
                 return [spelling]
 
 def read_function(asg, decl):
-    if isinstance(decl, clang.FunctionTemplateDecl) or decl.is_implicit() or decl.is_deleted():
+    if isinstance(decl, clang.FunctionTemplateDecl) or decl.is_deleted():
         return []
     if decl.get_name() == '':
         warnings.warn('', AnonymousFunctionWarning)
@@ -497,7 +497,8 @@ def read_function(asg, decl):
                                             is_static=decl.is_static(),
                                             is_const=decl.is_const(),
                                             is_volatile=decl.is_volatile(),
-                                            is_virtual=decl.is_virtual())
+                                            is_virtual=decl.is_virtual(),
+                                            is_pure=decl.is_pure())
                                     #decl=decl)
                             else:
                                 asg._nodes[spelling] = dict(proxy=ConstructorProxy,
@@ -927,7 +928,7 @@ def read_typedef(asg, decl):
         with warnings.catch_warnings():
             warnings.simplefilter("error")
             parent = read_context_parent(asg, decl)
-            if isinstance(parent, (clang.TagDecl, clang.ClassTemplateDecl)):
+            if isinstance(parent, clang.ClassTemplateDecl):
                 warnings.warn('' + decl.get_name() + '\'', UserWarning)
     except Warning as warning:
         warnings.warn(str(warning) + ' for variable \'' + decl.get_name() + '\'', warning.__class__)
@@ -947,6 +948,12 @@ def read_typedef(asg, decl):
                 warnings.warn(spelling, MultipleDeclaredParentWarning)
                 return []
             spelling = scope + '::' + decl.get_name()
+            if spelling.startswith('class '):
+                spelling = spelling[6:]
+            elif spelling.startswith('union '):
+                spelling = spelling[6:]
+            elif spelling.startswith('struct '):
+                spelling = spelling[7:]
         try:
             with warnings.catch_warnings() as warning:
                 warnings.simplefilter("error")
