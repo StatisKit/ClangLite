@@ -159,6 +159,8 @@ class BootstrapBackEndPlugin(object):
                 function.boost_python_export = True
                 break
 
+        asg.functions('^::clang::NamespaceDecl::isInline', free=False).pop().boost_python_export = True
+
         asg.functions('^::clang::LinkageSpecDecl::getLanguage', free=False).pop().boost_python_export = True
         asg.enums('(enum |)::clang::LinkageSpecDecl::LanguageIDs').pop().boost_python_export = True
 

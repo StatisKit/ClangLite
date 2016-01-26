@@ -20,8 +20,19 @@ namespace autowig
         for(unsigned int i = 0; i < args.size(); ++i)
         { args[i] = boost::python::extract< std::string >(_args[i]); }
         llvm::Twine code(_code);
-        return clang::tooling::buildASTFromCodeWithArgs(code, args).release();
+        clang::ASTUnit* tu = clang::tooling::buildASTFromCodeWithArgs(code, args).release();
+        clang::LangOptions lang;
+        lang.CPlusPlus = true;
+        clang::PrintingPolicy policy(lang);
+        policy.SuppressSpecifiers = false;
+        policy.SuppressScope = false;
+        policy.SuppressUnwrittenScope = true; 
+        tu->getASTContext().setPrintingPolicy(policy);
+        return tu;
     }
+
+    void unset_type_as_written(clang::ClassTemplateSpecializationDecl* decl)
+    { decl->setTypeAsWritten(nullptr); }
 
     unsigned int ast_get_nb_children(clang::ASTUnit& ast)
     {
@@ -75,6 +86,9 @@ namespace autowig
 
     std::string (clang::NamedDecl::*get_name_as_string)() const = &clang::NamedDecl::getNameAsString;
 
+    std::string named_decl_get_qualified_name(clang::NamedDecl* decl)
+    { return decl->getQualifiedNameAsString(); }
+
     std::string spec_get_name_as_string(clang::ClassTemplateSpecializationDecl* spec)
     {
         std::string spelling = "";
@@ -84,7 +98,9 @@ namespace autowig
         clang::LangOptions lang;
         lang.CPlusPlus = true;
         clang::PrintingPolicy policy(lang);
+        policy.SuppressSpecifiers = false;
         policy.SuppressScope = false;
+        policy.SuppressUnwrittenScope = true;
         clang::TemplateSpecializationType::PrintTemplateArgumentList(os, args.data(),
                                                                   args.size(),
                                                                   policy);
@@ -104,7 +120,9 @@ namespace autowig
         clang::LangOptions lang;
         lang.CPlusPlus = true;
         clang::PrintingPolicy policy(lang);
+        policy.SuppressSpecifiers = false;
         policy.SuppressScope = false;
+        policy.SuppressUnwrittenScope = true;        
         decl.getNameForDiagnostic(os, policy, true);
         return os.str();
     }
@@ -226,4 +244,6 @@ void export_namespace_clang_tooling()
     boost::python::def("cxxrecord_get_virtual_base", ::autowig::cxxrecord_get_virtual_base, boost::python::return_value_policy< boost::python::reference_existing_object >());
     boost::python::def("string_ref_str", ::autowig::string_ref_str);
     boost::python::def("func_get_mangling", ::autowig::func_get_mangling);
+    boost::python::def("named_decl_get_qualified_name", ::autowig::named_decl_get_qualified_name);
+    boost::python::def("unset_type_as_written", ::autowig::unset_type_as_written);
 }

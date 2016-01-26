@@ -206,3 +206,11 @@ if hasattr(clang.tooling, 'func_get_mangling'):
 if hasattr(clang.tooling, 'decl_context_cast'):
     clang.FunctionDecl.cast = clang.tooling.decl_context_cast
     del clang.tooling.decl_context_cast
+
+if hasattr(clang.tooling, 'named_decl_get_qualified_name'):
+    clang.NamedDecl.get_qualified_name = clang.tooling.named_decl_get_qualified_name
+    del clang.tooling.named_decl_get_qualified_name
+
+if hasattr(clang.tooling, 'unset_type_as_written'):
+    clang.ClassTemplateSpecializationDecl.unset_type_as_written = clang.tooling.unset_type_as_written
+    del clang.tooling.unset_type_as_written

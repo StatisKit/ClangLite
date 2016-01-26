@@ -1,4 +1,9 @@
-import asciitree
+try:
+	import asciitree
+except:
+	pass
+
+import subprocess
 from path import path
 
 from .pyclanglite import *
@@ -7,13 +12,35 @@ __all__ = ['AbstractSyntaxTree']
 
 class AbstractSyntaxTree(object):
 
-    def __init__(self, tu):#filepaths, flags):
+    def __init__(self, filepaths, flags):
         self._nodes = dict()
         self._children = dict()
-        #content = ""
-        #for filepath in filepaths:
-        #    content += '#include "' + str(path(filepath).abspath()) + '"\n'
-        #tu = clang.tooling.build_ast_from_code_with_args(content, flags)
+        content = ""
+        for filepath in filepaths:
+            content += '#include "' + str(path(filepath).abspath()) + '"\n'
+
+        if 'c' in flags:
+            language = 'c'
+            s = subprocess.Popen(['clang', '-x', 'c', '-v', '-E', '/dev/null'],
+                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        elif 'c++' in flags:
+            language = 'c++'
+            s = subprocess.Popen(['clang++', '-x', 'c++', '-v', '-E', '/dev/null'],
+                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        else:
+            language = None
+        if not language is None:
+            if s.returncode:
+                warnings.warn('System includes not computed: clang command failed', Warning)
+            else:
+                out, err = s.communicate()
+                sysincludes = err.splitlines()
+                if '#include <...> search starts here:' not in sysincludes or 'End of search list.' not in sysincludes:
+                    warnings.warn('System includes not computed: parsing clang command output failed', Warning)
+                else:
+                    sysincludes = sysincludes[sysincludes.index('#include <...> search starts here:')+1:sysincludes.index('End of search list.')]
+                    flags.extend(['-I'+str(path(sysinclude.strip()).abspath()) for sysinclude in sysincludes])
+        tu = clang.tooling.build_ast_from_code_with_args(content, flags)
         self._nodes[0] = tu
         self._children[0] = []
         self._node = 1
