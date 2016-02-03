@@ -9,7 +9,7 @@ Official documentation is available at [virtualplants.github.io](http://virtualp
 ## Install
 
 To install VPlants.AutoWIG, you need to install these dependencies:
-  - LLVM (http://llvm.org/git/llvm),
+  - LLVM (https://github.com/llvm-mirror/llvm.git),
   - Clang (https://github.com/llvm-mirror/clang.git),
   - Zlib (http://www.zlib.net/),
   - Boost.Python (https://github.com/boostorg/python),
@@ -22,8 +22,8 @@ Nevertheless, note that PyClangLite needs LLVM/Clang installed as shared librari
 As a consequence, on a Ubuntu distribution, you should type
 
 ```
-git clone git@github.com:llvm-mirror/llvm.git
-git clone git@github.com:llvm-mirror/clang.git
+git clone https://github.com/llvm-mirror/llvm.git
+git clone https://github.com/llvm-mirror/clang.git
 cd llvm/tools
 ln -s ../../clang
 cd ../..
@@ -36,17 +36,17 @@ sudo make install
 cd ..
 rm -rf build llvm clang
 sudo apt-get install libboost-python-dev zlib1g-dev scons
-git clone git@github.com:openalea/deploy.git
+git clone https://github.com/openalea/deploy.git
 cd deploy
 sudo python setup.py install
 cd ..
 sudo rm -rf deploy
-git clone git@github.com:openalea/sconsx.git
+git clone https://github.com/openalea/sconsx.git
 cd sconsx
 sudo python setup.py install
 cd ..
 sudo rm -rf sconsx
-git clone git@github.com:VirtualPlants/PyClangLite.git
+git clone https://github.com/pfernique/PyClangLite.git
 cd PyClangLite
 sudo python setup.py install
 rm -rf PyClangLite
