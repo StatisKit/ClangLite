@@ -16,6 +16,7 @@ namespace autowig
 {
     clang::ASTUnit* build_ast_from_code_with_args(const std::string& _code, boost::python::object _args)
     {
+        std::cout << _code << std::endl;
         std::vector< std::string > args(boost::python::len(_args));
         for(unsigned int i = 0; i < args.size(); ++i)
         { args[i] = boost::python::extract< std::string >(_args[i]); }

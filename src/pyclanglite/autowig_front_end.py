@@ -1,25 +1,18 @@
 import warnings
 import uuid
 from path import path
-from vplants.autowig.asg import *
-from vplants.autowig.middle_end import *
-from vplants.autowig.tools import remove_regex, split_scopes, remove_templates
-from vplants.autowig.custom_warnings import NotWrittenFileWarning, ErrorWarning, NoneTypeWarning,  UndeclaredParentWarning, MultipleDeclaredParentWarning, MultipleDefinitionWarning, NoDefinitionWarning, SideEffectWarning, ProtectedFileWarning, InfoWarning, TemplateParentWarning, TemplateParentWarning, AnonymousWarning, AnonymousFunctionWarning, AnonymousFieldWarning, AnonymousClassWarning, NotImplementedWarning, NotImplementedTypeWarning, NotImplementedDeclWarning, NotImplementedParentWarning, NotImplementedOperatorWarning, NotImplementedTemplateWarning
-from vplants.autowig.front_end import preprocessing, postprocessing
+from autowig.asg import *
+from autowig.front_end import preprocessing, postprocessing
+
 from .pyclanglite import *
 from .ast import AbstractSyntaxTree
 
-def front_end(asg, filepaths, flags, silent=False, bootstrap=False, maximum=1000, cache=None, force=False, inline=True, permissive=True, **kwargs):
-    content = preprocessing(asg, filepaths, flags, cache, force)
+def front_end(asg, headers, flags, bootstrap=True, maximum=1000, inline=True, permissive=True, **kwargs):
+    content = preprocessing(asg, headers, flags)
     if content:
         tu = clang.tooling.build_ast_from_code_with_args(content, flags)
-        with warnings.catch_warnings() as cw:
-            if silent:
-                warnings.simplefilter('ignore')
-            else:
-                warnings.simplefilter('always')
-            read_translation_unit(asg, tu, inline, permissive)
-            #del tu
+        read_translation_unit(asg, tu, inline, permissive)
+        print len(asg)
         if bootstrap:
             flags += ['-Wno-unused-value', '-ferror-limit=0']#['-w']
             index = 0
@@ -34,59 +27,59 @@ def front_end(asg, filepaths, flags, silent=False, bootstrap=False, maximum=1000
                 for node in asg.nodes():
                     if not node.clean:
                         white.append(node)
-                        black.add(node.node)
+                        black.add(node._node)
                 gray = set()
                 while len(white) > 0:
                     node = white.pop()
                     if isinstance(node, (TypedefProxy, VariableProxy)):
-                        target = node.type.target
-                        if not target.node in black:
+                        target = node.qualified_type.desugared_type.unqualified_type
+                        if not target._node in black:
                             white.append(target)
-                            black.add(target.node)
+                            black.add(target._node)
                     elif isinstance(node, FunctionProxy):
-                        result_type = node.result_type.target
-                        if not result_type.node in black:
-                            white.append(result_type)
-                            black.add(result_type.node)
+                        return_type = node.return_type.desugared_type.unqualified_type
+                        if not return_type._node in black:
+                            white.append(return_type)
+                            black.add(return_type._node)
                         for parameter in node.parameters:
-                            target = parameter.type.target
-                            if not target.node in black:
+                            target = parameter.desugared_type.unqualified_type
+                            if not target._node in black:
                                 white.append(target)
-                                black.add(target.node)
+                                black.add(target._node)
                     elif isinstance(node, ConstructorProxy):
                         for parameter in node.parameters:
-                            target = parameter.type.target
-                            if not target.node in black:
+                            target = parameter.desugared_type.unqualified_type
+                            if not target._node in black:
                                 white.append(target)
-                                black.add(target.node)
+                                black.add(target._node)
                     elif isinstance(node, ClassProxy):
                         for base in node.bases():
                             if base.access == 'public':
-                                if not base.node in black:
+                                if not base._node in black:
                                     white.append(base)
-                                    black.add(base.node)
+                                    black.add(base._node)
                         for dcl in node.declarations():
                             try:
                                 if dcl.access == 'public':
-                                    if not dcl.node in black:
+                                    if not dcl._node in black:
                                         white.append(dcl)
-                                        black.add(dcl.node)
+                                        black.add(dcl._node)
                             except:
                                 pass
                         if isinstance(node, ClassTemplateSpecializationProxy):
                             if not node.is_complete:
-                                gray.add(node.node)
+                                gray.add(node._node)
                             specialize = node.specialize
-                            if not specialize.node in black:
+                            if not specialize._node in black:
                                 white.append(node.specialize)
-                                black.add(node.specialize.node)
+                                black.add(node.specialize._node)
                         elif not node.is_complete:
-                            gray.add(node.node)
+                            gray.add(node._node)
                     elif isinstance(node, ClassTemplateProxy):
                         for specialization in node.specializations():
-                            if not specialization.node in black:
+                            if not specialization._node in black:
                                 white.append(specialization)
-                                black.add(specialization.node)
+                                black.add(specialization._node)
                 gray = list(gray)
                 for gray in [gray[index:index+maximum] for index in xrange(0, len(gray), maximum)]:
                     content = []
@@ -111,7 +104,9 @@ def front_end(asg, filepaths, flags, silent=False, bootstrap=False, maximum=1000
                         read_translation_unit(asg, tu, inline, permissive)
                     #del tu
                 index += 1
-    postprocessing(asg, filepaths, cache=cache, **kwargs)
+    print len(asg)
+    postprocessing(asg, headers, **kwargs)
+    print len(asg)
 
 def read_file(asg, spelling, decl):
     ast = decl.get_ast_context()
@@ -133,7 +128,7 @@ def read_file(asg, spelling, decl):
                     if includename:
                         includename = str(path(includename).abspath())
                         filenode = asg.add_file(includename, proxy=HeaderProxy)
-                        asg._include_edges[filename] = filenode.node
+                        asg._include_edges[filename] = filenode._node
                         filename = includename
                     else:
                         break
@@ -141,96 +136,97 @@ def read_file(asg, spelling, decl):
                     break
 
 def read_translation_unit(asg, tu, inline, permissive):
-        """
-        """
-        asg._read = set()
-        for child in tu.get_children():
-            try:
-                read_decl(asg, child, inline=inline, permissive=permissive)
-            except:
-                if not permissive:
-                    raise
-        del asg._read
+    """
+    """
+    asg._read = set()
+    print tu.get_children()
+    for child in tu.get_children():
+        try:
+            read_decl(asg, child, inline=inline, permissive=permissive)
+        except:
+            if not permissive:
+                raise
+    del asg._read
 
 def read_qualified_type(asg, qtype, inline):
-    specifiers = ' const' * qtype.is_local_const_qualified() + ' volatile' *  qtype.is_local_volatile_qualified()
+    qualifiers = ' const' * qtype.is_local_const_qualified() + ' volatile' *  qtype.is_local_volatile_qualified()
     ttype = qtype.get_type_ptr_or_null()
     while True:
         if ttype is None:
             raise warnings.warn(qtype.get_as_string(), NoneTypeWarning)
         elif ttype.get_type_class() in [clang.Type.type_class.TYPEDEF,  clang.Type.type_class.SUBST_TEMPLATE_TYPE_PARM, clang.Type.type_class.ELABORATED]:
             qtype = ttype.get_canonical_type_internal()
-            if qtype.is_local_const_qualified() and not specifiers.startswith(' const'):
-                specifiers = ' const' + specifiers
-            if qtype.is_local_volatile_qualified() and not specifiers.startswith(' volatile'):
-                specifiers = ' volatile' + specifiers
+            if qtype.is_local_const_qualified() and not qualifiers.startswith(' const'):
+                qualifiers = ' const' + qualifiers
+            if qtype.is_local_volatile_qualified() and not qualifiers.startswith(' volatile'):
+                qualifiers = ' volatile' + qualifiers
             ttype = qtype.get_type_ptr_or_null()
         elif any([ttype.is_structure_or_class_type(), ttype.is_enumeral_type(), ttype.is_union_type()]):
             tag = ttype.get_as_tag_decl()
             tag = read_tag(asg, tag, out=False, inline=inline, permissive=False)
-            return tag[0], specifiers
+            return tag[0], qualifiers
         elif ttype.is_pointer_type():
             qtype = ttype.get_pointee_type()
-            specifiers = ' const' * qtype.is_local_const_qualified() + ' volatile' * qtype.is_local_volatile_qualified() + ' *' + specifiers
+            qualifiers = ' const' * qtype.is_local_const_qualified() + ' volatile' * qtype.is_local_volatile_qualified() + ' *' + qualifiers
             ttype = qtype.get_type_ptr_or_null()
         elif ttype.is_rvalue_reference_type():
             qtype = ttype.get_pointee_type()
-            specifiers = ' const' * qtype.is_local_const_qualified() + ' volatile' * qtype.is_local_volatile_qualified() + ' &&' + specifiers
+            qualifiers = ' const' * qtype.is_local_const_qualified() + ' volatile' * qtype.is_local_volatile_qualified() + ' &&' + qualifiers
             ttype = qtype.get_type_ptr_or_null()
         elif ttype.is_lvalue_reference_type():
             qtype = ttype.get_pointee_type()
-            specifiers = ' const' * qtype.is_local_const_qualified() + ' volatile' * qtype.is_local_volatile_qualified() + ' &' + specifiers
+            qualifiers = ' const' * qtype.is_local_const_qualified() + ' volatile' * qtype.is_local_volatile_qualified() + ' &' + qualifiers
             ttype = qtype.get_type_ptr_or_null()
         elif ttype.is_builtin_type():
-            return read_builtin_type(asg, ttype), specifiers
+            return read_builtin_type(asg, ttype), qualifiers
         else:
             raise NotImplementedError('\'' + str(ttype.get_type_class()) + '\'')
 
 def read_builtin_type(asg, btype):
     if btype.is_specific_builtin_type(clang.BuiltinType.kind.BOOL):
-        return BoolTypeProxy.node
+        return BoolTypeProxy._node
     elif btype.is_specific_builtin_type(clang.BuiltinType.kind.CHAR_U):
-        return UnsignedCharTypeProxy.node
+        return UnsignedCharTypeProxy._node
     elif btype.is_specific_builtin_type(clang.BuiltinType.kind.CHAR_S):
-        return CharTypeProxy.node
+        return CharTypeProxy._node
     elif btype.is_specific_builtin_type(clang.BuiltinType.kind.CHAR_32):
-        return Char32TypeProxy.node
+        return Char32TypeProxy._node
     elif btype.is_specific_builtin_type(clang.BuiltinType.kind.CHAR_16):
-        return Char16TypeProxy.node
+        return Char16TypeProxy._node
     elif btype.is_specific_builtin_type(clang.BuiltinType.kind.DOUBLE):
-        return SignedDoubleTypeProxy.node
+        return SignedDoubleTypeProxy._node
     elif btype.is_specific_builtin_type(clang.BuiltinType.kind.FLOAT):
-        return SignedFloatTypeProxy.node
+        return SignedFloatTypeProxy._node
     elif btype.is_specific_builtin_type(clang.BuiltinType.kind.INT):
-        return SignedIntegerTypeProxy.node
+        return SignedIntegerTypeProxy._node
     elif btype.is_specific_builtin_type(clang.BuiltinType.kind.LONG_LONG):
-        return SignedLongLongIntegerTypeProxy.node
+        return SignedLongLongIntegerTypeProxy._node
     elif btype.is_specific_builtin_type(clang.BuiltinType.kind.LONG):
-        return SignedLongIntegerTypeProxy.node
+        return SignedLongIntegerTypeProxy._node
     elif btype.is_specific_builtin_type(clang.BuiltinType.kind.LONG_DOUBLE):
-        return SignedLongDoubleTypeProxy.node
+        return SignedLongDoubleTypeProxy._node
     elif btype.is_specific_builtin_type(clang.BuiltinType.kind.NULL_PTR):
-        return NullPtrTypeProxy.node
+        return NullPtrTypeProxy._node
     elif btype.is_specific_builtin_type(clang.BuiltinType.kind.SHORT):
-        return SignedShortIntegerTypeProxy.node
+        return SignedShortIntegerTypeProxy._node
     elif btype.is_specific_builtin_type(clang.BuiltinType.kind.S_CHAR):
-        return SignedCharTypeProxy.node
+        return SignedCharTypeProxy._node
     elif btype.is_specific_builtin_type(clang.BuiltinType.kind.U_LONG_LONG):
-        return UnsignedLongLongIntegerTypeProxy.node
+        return UnsignedLongLongIntegerTypeProxy._node
     elif btype.is_specific_builtin_type(clang.BuiltinType.kind.U_CHAR):
-        return UnsignedCharTypeProxy.node
+        return UnsignedCharTypeProxy._node
     elif btype.is_specific_builtin_type(clang.BuiltinType.kind.U_LONG):
-        return UnsignedLongIntegerTypeProxy.node
+        return UnsignedLongIntegerTypeProxy._node
     elif btype.is_specific_builtin_type(clang.BuiltinType.kind.U_INT):
-        return UnsignedIntegerTypeProxy.node
+        return UnsignedIntegerTypeProxy._node
     elif btype.is_specific_builtin_type(clang.BuiltinType.kind.U_SHORT):
-        return UnsignedShortIntegerTypeProxy.node
+        return UnsignedShortIntegerTypeProxy._node
     elif btype.is_specific_builtin_type(clang.BuiltinType.kind.VOID):
-        return VoidTypeProxy.node
+        return VoidTypeProxy._node
     elif btype.is_specific_builtin_type(clang.BuiltinType.kind.W_CHAR_S):
-        return WCharTypeProxy.node
+        return WCharTypeProxy._node
     elif btype.is_specific_builtin_type(clang.BuiltinType.kind.W_CHAR_U):
-        return WCharTypeProxy.node
+        return WCharTypeProxy._node
     else:
         raise NotImplementedError('\'' + str(btype.get_class_type()) + '\'')
 
@@ -261,13 +257,13 @@ def read_spelling(asg, decl, inline):
 def read_access(asg, access, *args):
     if access is clang.access_specifier.AS__PUBLIC:
         for arg in args:
-            asg._nodes[arg]['access'] = 'public'
+            asg._nodes[arg]['_access'] = 'public'
     elif access is clang.access_specifier.AS__PROTECTED:
         for arg in args:
-            asg._nodes[arg]['access'] = 'protected'
+            asg._nodes[arg]['_access'] = 'protected'
     elif access is clang.access_specifier.AS__PRIVATE:
         for arg in args:
-            asg._nodes[arg]['access'] = 'private'
+            asg._nodes[arg]['_access'] = 'private'
 
 def read_enum(asg, decl, inline, permissive, out=True):
     if decl.get_name() == '':
@@ -285,33 +281,47 @@ def read_enum(asg, decl, inline, permissive, out=True):
         read_access(asg, decl.get_access_unsafe(), *children)
         return children
     else:
-        scope, spelling = read_spelling(asg, decl, inline=inline)
-        if not spelling.startswith('enum '):
-            spelling = 'enum ' + spelling
-        if not spelling in asg._nodes:
-            asg._nodes[spelling] = dict(proxy=EnumProxy)
-            asg._syntax_edges[spelling] = []
-            asg._syntax_edges[scope].append(spelling)
-        if out and not spelling in asg._read and not asg[spelling].is_complete:
-            asg._read.add(spelling)
-            asg._syntax_edges[scope].remove(spelling)
-            asg._syntax_edges[scope].append(spelling)
-            for child in decl.get_children():
-                for childspelling in read_enum_constant(asg, child, inline=inline, permissive=permissive):
-                    dict.pop(asg._nodes[childspelling], "_header", None)
-            if asg[spelling].is_complete:
-                read_file(asg, spelling, decl)
-            asg._read.remove(spelling)
-            read_access(asg, decl.get_access_unsafe(), spelling)
-        return [spelling]
+        try:
+            scope, spelling = read_spelling(asg, decl, inline=inline)
+        except:
+            if permissive:
+                return []
+            else:
+                raise
+        else:
+            if not spelling.startswith('enum '):
+                spelling = 'enum ' + spelling
+            if not spelling in asg._nodes:
+                asg._nodes[spelling] = dict(_proxy=EnumerationProxy)
+                asg._syntax_edges[spelling] = []
+                asg._syntax_edges[scope].append(spelling)
+            if out and not spelling in asg._read and not asg[spelling].is_complete:
+                asg._read.add(spelling)
+                asg._syntax_edges[scope].remove(spelling)
+                asg._syntax_edges[scope].append(spelling)
+                for child in decl.get_children():
+                    for childspelling in read_enum_constant(asg, child, inline=inline, permissive=permissive):
+                        dict.pop(asg._nodes[childspelling], "_header", None)
+                if asg[spelling].is_complete:
+                    read_file(asg, spelling, decl)
+                asg._read.remove(spelling)
+                read_access(asg, decl.get_access_unsafe(), spelling)
+            return [spelling]
 
 def read_enum_constant(asg, decl, inline, permissive):
-    scope, spelling = read_spelling(asg, decl, inline=inline)
-    if not spelling in asg._nodes:
-        asg._nodes[spelling] = dict(proxy=EnumConstantProxy)
-        asg._syntax_edges[scope].append(spelling)
-        read_file(asg, spelling, decl)
-    return [spelling]
+    try:
+        scope, spelling = read_spelling(asg, decl, inline=inline)
+    except:
+        if permissive:
+            return []
+        else:
+            raise
+    else:
+        if not spelling in asg._nodes:
+            asg._nodes[spelling] = dict(_proxy=EnumeratorProxy)
+            asg._syntax_edges[scope].append(spelling)
+            read_file(asg, spelling, decl)
+        return [spelling]
 
 def read_variable(asg, decl, inline, permissive):
     if isinstance(decl, (clang.VarTemplateDecl, clang.VarTemplateSpecializationDecl)):
@@ -319,22 +329,29 @@ def read_variable(asg, decl, inline, permissive):
     elif decl.get_type().get_type_ptr_or_null().get_type_class() is clang.Type.type_class.TEMPLATE_TYPE_PARM:
         raise NotImplementedError('\'' + str(clang.Type.type_class.TEMPLATE_TYPE_PARM) + '\'')
     else:
-        scope, spelling = read_spelling(asg, decl, inline=inline)
-        if not spelling in asg._nodes:
-            target, specifiers = read_qualified_type(asg, decl.get_type(), inline=inline)
-            if isinstance(asg[scope], ClassProxy):
-                asg._nodes[spelling] = dict(proxy=FieldProxy,
-                        is_mutable=False,
-                        is_static=True)
-            elif isinstance(asg[scope], ClassTemplateProxy):
+        try:
+            scope, spelling = read_spelling(asg, decl, inline=inline)
+        except:
+            if permissive:
                 return []
             else:
-                asg._nodes[spelling] = dict(proxy=VariableProxy)
-            asg._type_edges[spelling] = dict(target=target, specifiers=specifiers)
-            asg._syntax_edges[scope].append(spelling)
-            read_file(asg, spelling, decl)
-            read_access(asg, decl.get_access_unsafe(), spelling)
-        return [spelling]
+                raise
+        else:
+            if not spelling in asg._nodes:
+                target, qualifiers = read_qualified_type(asg, decl.get_type(), inline=inline)
+                if isinstance(asg[scope], ClassProxy):
+                    asg._nodes[spelling] = dict(_proxy=FieldProxy,
+                            _is_mutable=False,
+                            _is_static=True)
+                elif isinstance(asg[scope], ClassTemplateProxy):
+                    return []
+                else:
+                    asg._nodes[spelling] = dict(_proxy=VariableProxy)
+                asg._type_edges[spelling] = dict(target=target, qualifiers=qualifiers)
+                asg._syntax_edges[scope].append(spelling)
+                read_file(asg, spelling, decl)
+                read_access(asg, decl.get_access_unsafe(), spelling)
+            return [spelling]
 
 def read_function(asg, decl, inline, permissive):
     if decl.is_deleted():
@@ -343,348 +360,387 @@ def read_function(asg, decl, inline, permissive):
         raise NotImplementedError('\'' + decl.__class__.__name__ + '\'')
     elif decl.get_name() == '':
         raise Exception('anonymous function')
-    scope, spelling = read_spelling(asg, decl, inline=inline)
-    if not isinstance(decl, clang.CXXDestructorDecl):
-        spelling += '::' + str(uuid.uuid5(uuid.NAMESPACE_X500, decl.get_mangling()))
-    if not spelling in asg._nodes:
-        if isinstance(decl, clang.CXXMethodDecl):
-            if isinstance(decl, clang.CXXConversionDecl):
-                raise NotImplementedError('\'' + decl.__class__.__name__ + '\'')
-            elif isinstance(asg[scope], NamespaceProxy):
-                if permissive:
-                    return []
-                else:
-                    raise Exception('method in namespace')
-            else:
-                if not isinstance(decl, clang.CXXDestructorDecl):
-                    asg._parameter_edges[spelling] = []
-                    try:
-                        for index, child in enumerate(decl.get_children()):
-                            target, specifiers = read_qualified_type(asg, child.get_type(), inline=inline)
-                            asg._parameter_edges[spelling].append(dict(name=child.get_name(), target=target, specifiers=specifiers))
-                    except:
-                        if permissive:
-                            asg._parameter_edges.pop(spelling, None)
-                            return []
-                        else:
-                            raise
+    try:
+        scope, spelling = read_spelling(asg, decl, inline=inline)
+    except:
+        if permissive:
+            return []
+        else:
+            raise
+    else:
+        if not isinstance(decl, clang.CXXDestructorDecl):
+            spelling += '::' + str(uuid.uuid5(uuid.NAMESPACE_X500, decl.get_mangling()))
+        if not spelling in asg._nodes:
+            if isinstance(decl, clang.CXXMethodDecl):
+                if isinstance(decl, clang.CXXConversionDecl):
+                    raise NotImplementedError('\'' + decl.__class__.__name__ + '\'')
+                elif isinstance(asg[scope], NamespaceProxy):
+                    if permissive:
+                        return []
                     else:
-                        if not isinstance(decl, clang.CXXConstructorDecl):
-                            try:
-                                target, specifiers = read_qualified_type(asg, decl.get_return_type(), inline=inline)
-                            except:
-                                if permissive:
-                                    asg._parameter_edges.pop(spelling)
-                                    return []
-                                else:
-                                    raise
+                        raise Exception('method in namespace')
+                else:
+                    if not isinstance(decl, clang.CXXDestructorDecl):
+                        asg._parameter_edges[spelling] = []
+                        try:
+                            for index, child in enumerate(decl.get_children()):
+                                target, qualifiers = read_qualified_type(asg, child.get_type(), inline=inline)
+                                asg._parameter_edges[spelling].append(dict(name=child.get_name(), target=target, qualifiers=qualifiers))
+                        except:
+                            if permissive:
+                                asg._parameter_edges.pop(spelling, None)
+                                return []
                             else:
-                                asg._type_edges[spelling] = dict(target=target, specifiers=specifiers)
-                                asg._nodes[spelling] = dict(proxy=MethodProxy,
-                                        is_static=decl.is_static(),
-                                        is_const=decl.is_const(),
-                                        is_volatile=decl.is_volatile(),
-                                        is_virtual=decl.is_virtual(),
-                                        is_pure=decl.is_pure())
+                                raise
                         else:
-                            asg._nodes[spelling] = dict(proxy=ConstructorProxy,
-                                    is_virtual=decl.is_virtual())
-                        asg._syntax_edges[scope].append(spelling)
+                            if not isinstance(decl, clang.CXXConstructorDecl):
+                                try:
+                                    target, qualifiers = read_qualified_type(asg, decl.get_return_type(), inline=inline)
+                                except:
+                                    if permissive:
+                                        asg._parameter_edges.pop(spelling)
+                                        return []
+                                    else:
+                                        raise
+                                else:
+                                    asg._type_edges[spelling] = dict(target=target, qualifiers=qualifiers)
+                                    asg._nodes[spelling] = dict(_proxy=MethodProxy,
+                                            _is_static=decl.is_static(),
+                                            _is_const=decl.is_const(),
+                                            _is_volatile=decl.is_volatile(),
+                                            _is_virtual=decl.is_virtual(),
+                                            _is_pure=decl.is_pure())
+                            else:
+                                asg._nodes[spelling] = dict(_proxy=ConstructorProxy,
+                                        _is_virtual=decl.is_virtual())
+                            asg._syntax_edges[scope].append(spelling)
+                            read_access(asg, decl.get_access_unsafe(), spelling)
+                            return [spelling]
+                    else:
+                        if not spelling in asg._nodes:
+                            asg._nodes[spelling] = dict(_proxy=DestructorProxy,
+                                    _is_virtual=decl.is_virtual())
+                            asg._syntax_edges[scope].append(spelling)
                         read_access(asg, decl.get_access_unsafe(), spelling)
                         return [spelling]
-                else:
-                    if not spelling in asg._nodes:
-                        asg._nodes[spelling] = dict(proxy=DestructorProxy,
-                                virtual=decl.is_virtual())
-                        asg._syntax_edges[scope].append(spelling)
-                    read_access(asg, decl.get_access_unsafe(), spelling)
-                    return [spelling]
-        else:
-            asg._parameter_edges[spelling] = []
-            try:
-                for index, child in enumerate(decl.get_children()):
-                    target, specifiers = read_qualified_type(asg, child.get_type(), inline=inline)
-                    asg._parameter_edges[spelling].append(dict(name=child.get_name(), target=target, specifiers=specifiers))
-            except:
-                if permissive:
-                    asg._parameter_edges.pop(spelling)
-                    return []
-                else:
-                    raise
             else:
+                asg._parameter_edges[spelling] = []
                 try:
-                    target, specifiers = read_qualified_type(asg, decl.get_return_type(), inline=inline)
+                    for index, child in enumerate(decl.get_children()):
+                        target, qualifiers = read_qualified_type(asg, child.get_type(), inline=inline)
+                        asg._parameter_edges[spelling].append(dict(name=child.get_name(), target=target, qualifiers=qualifiers))
                 except:
                     if permissive:
                         asg._parameter_edges.pop(spelling)
-                        asg._type_edges.pop(spelling, None)
                         return []
                     else:
                         raise
                 else:
-                    asg._type_edges[spelling] = dict(target=target, specifiers=specifiers)
-                    asg._nodes[spelling] = dict(proxy=FunctionProxy)
-                    asg._syntax_edges[scope].append(spelling)
-                    read_file(asg, spelling, decl)
-                    read_access(asg, decl.get_access_unsafe(), spelling)
-                    return [spelling]
+                    try:
+                        target, qualifiers = read_qualified_type(asg, decl.get_return_type(), inline=inline)
+                    except:
+                        if permissive:
+                            asg._parameter_edges.pop(spelling)
+                            asg._type_edges.pop(spelling, None)
+                            return []
+                        else:
+                            raise
+                    else:
+                        asg._type_edges[spelling] = dict(target=target, qualifiers=qualifiers)
+                        asg._nodes[spelling] = dict(_proxy=FunctionProxy)
+                        asg._syntax_edges[scope].append(spelling)
+                        read_file(asg, spelling, decl)
+                        read_access(asg, decl.get_access_unsafe(), spelling)
+                        return [spelling]
 
 def read_field(asg, decl, inline, permissive):
     if decl.get_name() == '':
         raise Exception('anonymous field')
-    scope, spelling = read_spelling(asg, decl, inline=inline)
-    if not spelling in asg._nodes:
-        try:
-            target, specifiers = read_qualified_type(asg, decl.get_type(), inline=inline)
-        except:
-            if permissive:
-                return []
-            else:
-                raise
+    try:
+        scope, spelling = read_spelling(asg, decl, inline=inline)
+    except:
+        if permissive:
+            return []
         else:
-            asg._type_edges[spelling] = dict(target=target, specifiers=specifiers)
-            asg._nodes[spelling] = dict(proxy=FieldProxy,
-                    is_mutable=decl.is_mutable(),
-                    is_static=False) # TODO
-            asg._syntax_edges[scope].append(spelling)
-            read_access(asg, decl.get_access_unsafe(), spelling)
-            return [spelling]
+            raise
+    else:
+        if not spelling in asg._nodes:
+            try:
+                target, qualifiers = read_qualified_type(asg, decl.get_type(), inline=inline)
+            except:
+                if permissive:
+                    return []
+                else:
+                    raise
+            else:
+                asg._type_edges[spelling] = dict(target=target, qualifiers=qualifiers)
+                asg._nodes[spelling] = dict(_proxy=FieldProxy,
+                        _is_mutable=decl.is_mutable(),
+                        _is_static=False) # TODO
+                asg._syntax_edges[scope].append(spelling)
+                read_access(asg, decl.get_access_unsafe(), spelling)
+                return [spelling]
 
 def read_class_template(asg, decl, inline, permissive, out=True):
     parent = read_context_parent(asg, decl)
     if isinstance(parent, (clang.ClassTemplateDecl, clang.ClassTemplatePartialSpecializationDecl)):
-        raise Exception('Parent of class \'' + parent.__class__.__name__ + '\' for child of class \'' + decl.__class__.__name__ + '\'')
-    scope, spelling = read_spelling(asg, decl, inline=inline)
-    #if scope == 'class ::arma::Mat<double>' and spelling.endswith('fixed'):
-    #    import pdb
-    #    pdb.set_trace()
-    spelling = 'class ' + spelling
-    if not spelling in asg._nodes:
-        asg._nodes[spelling] = dict(proxy=ClassTemplateProxy,
-                is_complete=decl.is_this_declaration_a_definition())
-        asg._syntax_edges[scope].append(spelling)
-        asg._specialization_edges[spelling] = set()
-        asg._syntax_edges[spelling] = []
-        read_file(asg, spelling, decl)
+        if permissive:
+            return []
+        else:
+            raise Exception('Parent of class \'' + parent.__class__.__name__ + '\' for child of class \'' + decl.__class__.__name__ + '\'')
+    try:
+        scope, spelling = read_spelling(asg, decl, inline=inline)
+    except:
+        if permissive:
+            return []
+        else:
+            raise
     else:
-        asg._nodes[spelling]['is_complete'] = asg._nodes[spelling]['is_complete'] or decl.is_this_declaration_a_definition()
-    if out:
-        for child in decl.get_children():
-            try:
-                asg._specialization_edges[spelling].update(set(read_tag(asg, child, out=out, inline=inline, permissive=permissive)))
-            except:
-                if not permissive:
-                    raise
-    read_access(asg, decl.get_access_unsafe(), spelling)
-    return [spelling]
+        spelling = 'class ' + spelling
+        if not spelling in asg._nodes:
+            if spelling == 'class ::arma::arma_rng::randi':
+                impoTrueb
+                pdb.set_trace()
+            asg._nodes[spelling] = dict(_proxy=ClassTemplateProxy,
+                    _is_complete=decl.is_this_declaration_a_definition())
+            asg._syntax_edges[scope].append(spelling)
+            asg._specialization_edges[spelling] = set()
+            asg._syntax_edges[spelling] = []
+            read_file(asg, spelling, decl)
+            read_access(asg, decl.get_access_unsafe(), spelling)
+        else:
+            asg._nodes[spelling]['_is_complete'] = asg._nodes[spelling]['_is_complete'] or decl.is_this_declaration_a_definition()
+        if out:
+            for child in decl.get_children():
+                try:
+                    asg._specialization_edges[spelling].update(set(read_tag(asg, child, out=out, inline=inline, permissive=permissive)))
+                except Exception as e:
+                    if not permissive:
+                        raise e
+        return [spelling]
 
 def read_tag(asg, decl, inline, permissive, out=True):
     if isinstance(decl, clang.EnumDecl):
         return read_enum(asg, decl, out=out, inline=inline, permissive=permissive)
     elif isinstance(decl, clang.ClassTemplatePartialSpecializationDecl):
         decl.unset_type_as_written()
-        scope, spelling = read_spelling(asg, decl, inline=inline)
-        if decl.is_class():
-            spelling = 'class ' + spelling
-        elif decl.is_struct():
-            spelling = 'struct ' + spelling
-        elif decl.is_union():
-            spelling = 'union ' + spelling
-        else:
-            NotImplementedError('\'' + decl.__class__.__name__ + '\'')
-        spelling = spelling.replace('_Bool', 'bool')
-        if not spelling in asg._nodes:
-            try:
-                specialize = read_class_template(asg, decl.get_specialized_template(), out=False, inline=inline, permissive=False)
-                if not len(specialize) == 1:
-                    raise Exception('cannot find one unique specialization')
-                else:
-                    specialize = specialize.pop()
-            except:
-                if permissive:
-                    return []
-                else:
-                    raise
+        try:
+            scope, spelling = read_spelling(asg, decl, inline=inline)
+        except:
+            if permissive:
+                return []
             else:
-                asg._nodes[spelling] = dict(proxy=ClassTemplatePartialSpecializationProxy)
-                asg._specialization_edges[specialize].add(spelling)
-                asg._syntax_edges[scope].append(spelling)
-                asg._syntax_edges[spelling] = []
-                read_file(asg, spelling, decl)
-            read_access(asg, decl.get_access_unsafe(), spelling)
-        return [spelling]
-    elif not decl.has_name_for_linkage():
-        raise Exception('anonymous class')
-    else:
-        if isinstance(decl, clang.ClassTemplateSpecializationDecl):
-            decl.unset_type_as_written()
-        scope, spelling = read_spelling(asg, decl, inline=inline)
-        if not decl.get_typedef_name_for_anon_decl() is None:
-            if not decl.get_name() == '':
-                spelling = '::'.join(spelling.split('::')[:-1]) + '::'
-            spelling += decl.get_typedef_name_for_anon_decl().get_name()
-        elif decl.get_name() == '':
-            raise Exception('anonymous class')
-        if decl.is_class():
-            spelling = 'class ' + spelling
-        elif decl.is_struct():
-            spelling = 'struct ' + spelling
-        elif decl.is_union():
-            spelling = 'union ' + spelling
+                raise
         else:
-            NotImplementedError('\'' + decl.__class__.__name__ + '\'')
-        if isinstance(decl, clang.ClassTemplateSpecializationDecl):
-            spelling = spelling.replace('_Bool', 'bool')
-        if not spelling in asg._nodes:
             if decl.is_class():
-                default_access = 'private'
+                spelling = 'class ' + spelling
+            elif decl.is_struct():
+                spelling = 'struct ' + spelling
+            elif decl.is_union():
+                spelling = 'union ' + spelling
             else:
-                default_access = 'public'
-            if isinstance(decl, clang.ClassTemplateSpecializationDecl):
+                NotImplementedError('\'' + decl.__class__.__name__ + '\'')
+            spelling = spelling.replace('_Bool', 'bool')
+            if not spelling in asg._nodes:
                 try:
-                    specialize = read_class_template(asg, decl.get_specialized_template(), out=False, inline=inline, permissive=False)
+                    specialize = read_class_template(asg, decl.get_specialized_template(), out=False, inline=inline, permissive=permissive)
                     if not len(specialize) == 1:
                         raise Exception('cannot find one unique specialization')
                     else:
                         specialize = specialize.pop()
-                    templates = decl.get_template_args()
-                    template_edges = []
-                    for template in [templates.get(index) for index in range(templates.size())]:
-                        if template.get_kind() is clang.TemplateArgument.arg_kind.TYPE:
-                            target, specifiers = read_qualified_type(asg, template.get_as_type(), inline=inline)
-                            template_edges.append(dict(target = target, specifiers = specifiers))
-                        elif template.get_kind() is clang.TemplateArgument.arg_kind.DECLARATION:
-                            target, specifiers = read_qualified_type(asg, template.get_as_decl().get_type(), inline=inline)
-                            template_edges.append(dict(target = target, specifiers = specifiers))
-                        elif template.get_kind() is clang.TemplateArgument.arg_kind.INTEGRAL:
-                            target, specifiers = read_qualified_type(asg, template.get_integral_type(), inline=inline)
-                            template_edges.append(dict(target = target, specifiers = specifiers))
-                        else:
-                            raise NotImplementedError(str(template.get_kind()))
                 except:
                     if permissive:
                         return []
                     else:
                         raise
                 else:
-                    asg._nodes[spelling] = dict(proxy=ClassTemplateSpecializationProxy,
-                        _scope = scope,
-                        default_access=default_access,
-                        is_abstract=False,
-                        _is_copyable=True,
-                        is_complete=False)
+                    asg._nodes[spelling] = dict(_proxy=ClassTemplatePartialSpecializationProxy)
                     asg._specialization_edges[specialize].add(spelling)
+                    asg._syntax_edges[scope].append(spelling)
+                    asg._syntax_edges[spelling] = []
+                    read_file(asg, spelling, decl)
+                read_access(asg, decl.get_access_unsafe(), spelling)
+            return [spelling]
+    elif not decl.has_name_for_linkage():
+        raise Exception('anonymous class')
+    else:
+        if isinstance(decl, clang.ClassTemplateSpecializationDecl):
+            decl.unset_type_as_written()
+        try:
+            scope, spelling = read_spelling(asg, decl, inline=inline)
+        except:
+            if permissive:
+                return []
+            else:
+                raise
+        else:
+            if not decl.get_typedef_name_for_anon_decl() is None:
+                if not decl.get_name() == '':
+                    spelling = '::'.join(spelling.split('::')[:-1]) + '::'
+                spelling += decl.get_typedef_name_for_anon_decl().get_name()
+            elif decl.get_name() == '':
+                raise Exception('anonymous class')
+            if decl.is_class():
+                spelling = 'class ' + spelling
+            elif decl.is_struct():
+                spelling = 'struct ' + spelling
+            elif decl.is_union():
+                spelling = 'union ' + spelling
+            else:
+                NotImplementedError('\'' + decl.__class__.__name__ + '\'')
+            if isinstance(decl, clang.ClassTemplateSpecializationDecl):
+                spelling = spelling.replace('_Bool', 'bool')
+            if not spelling in asg._nodes:
+                if decl.is_class():
+                    default_access = 'private'
+                else:
+                    default_access = 'public'
+                if isinstance(decl, clang.ClassTemplateSpecializationDecl):
+                    try:
+                        specialize = read_class_template(asg, decl.get_specialized_template(), out=False, inline=inline, permissive=permissive)
+                        if not len(specialize) == 1:
+                            raise Exception('cannot find one unique specialization')
+                        else:
+                            specialize = specialize.pop()
+                        templates = decl.get_template_args()
+                        template_edges = []
+                        for template in [templates.get(index) for index in range(templates.size())]:
+                            if template.get_kind() is clang.TemplateArgument.arg_kind.TYPE:
+                                target, qualifiers = read_qualified_type(asg, template.get_as_type(), inline=inline)
+                                template_edges.append(dict(target = target, qualifiers = qualifiers))
+                            elif template.get_kind() is clang.TemplateArgument.arg_kind.DECLARATION:
+                                target, qualifiers = read_qualified_type(asg, template.get_as_decl().get_type(), inline=inline)
+                                template_edges.append(dict(target = target, qualifiers = qualifiers))
+                            elif template.get_kind() is clang.TemplateArgument.arg_kind.INTEGRAL:
+                                target, qualifiers = read_qualified_type(asg, template.get_integral_type(), inline=inline)
+                                template_edges.append(dict(target = target, qualifiers = qualifiers))
+                            else:
+                                raise NotImplementedError(str(template.get_kind()))
+                    except:
+                        if permissive:
+                            return []
+                        else:
+                            raise
+                    else:
+                        asg._nodes[spelling] = dict(_proxy=ClassTemplateSpecializationProxy,
+                            #_scope = scope,
+                            #default_access=default_access,
+                            _is_abstract=False,
+                            _is_copyable=True,
+                            _is_complete=False,
+                            _is_explicit=True)
+                        asg._specialization_edges[specialize].add(spelling)
+                        asg._syntax_edges[spelling] = []
+                        asg._base_edges[spelling] = []
+                        asg._syntax_edges[scope].append(spelling)
+                        asg._template_edges[spelling] = template_edges
+                        read_access(asg, decl.get_access_unsafe(), spelling)
+                else:
+                    asg._nodes[spelling] = dict(_proxy=ClassProxy,
+                        #_scope = scope,
+                        #default_access=default_access,
+                        _is_abstract=False,
+                        _is_copyable=True,
+                        _is_complete=False)
                     asg._syntax_edges[spelling] = []
                     asg._base_edges[spelling] = []
                     asg._syntax_edges[scope].append(spelling)
-                    asg._template_edges[spelling] = template_edges
                     read_access(asg, decl.get_access_unsafe(), spelling)
-            else:
-                asg._nodes[spelling] = dict(proxy=ClassProxy,
-                    _scope = scope,
-                    default_access=default_access,
-                    is_abstract=False,
-                    _is_copyable=True,
-                    is_complete=False)
-                asg._syntax_edges[spelling] = []
-                asg._base_edges[spelling] = []
-                asg._syntax_edges[scope].append(spelling)
-                read_access(asg, decl.get_access_unsafe(), spelling)
     if out and not spelling in asg._read and decl.is_complete_definition():
         asg._read.add(spelling)
         if not asg[spelling].is_complete:
             asg._syntax_edges[scope].remove(spelling)
             asg._syntax_edges[scope].append(spelling)
             if isinstance(decl, clang.CXXRecordDecl):
-                asg._nodes[spelling]['is_abstract'] = decl.is_abstract()
+                asg._nodes[spelling]['_is_abstract'] = decl.is_abstract()
                 asg._nodes[spelling]['_is_copyable'] = decl.is_copyable()
             else:
-                asg._nodes[spelling]['is_abstract'] = False
+                asg._nodes[spelling]['_is_abstract'] = False
                 asg._nodes[spelling]['_is_copyable'] = True
-            asg._nodes[spelling]['is_complete'] = True
+            if isinstance(decl, clang.ClassTemplateSpecializationDecl):
+                asg._nodes[spelling]['_is_explicit'] = decl.is_explicit_specialization()
+            asg._nodes[spelling]['_is_complete'] = True
             asg._base_edges[spelling] = []
             for base in decl.get_bases():
                 try:
-                    basespelling, specifiers = read_qualified_type(asg, base.get_type(), inline=inline)
-                    asg._base_edges[spelling].append(dict(base=asg[basespelling].node,
-                        access=str(base.get_access_specifier()).strip('AS_').lower(),
-                        is_virtual=False))
+                    basespelling, qualifiers = read_qualified_type(asg, base.get_type(), inline=inline)
+                    asg._base_edges[spelling].append(dict(base=asg[basespelling]._node,
+                        _access=str(base.get_access_specifier()).strip('AS_').lower(),
+                        _is_virtual=False))
                 except:
                     if not permissive:
                         raise
             for base in decl.get_virtual_bases():
                 try:
-                    basespelling, specifiers = read_qualified_type(asg, base.get_type(), inline=inline)
-                    asg._base_edges[spelling].append(dict(base=asg[basespelling].node,
-                        access=str(base.get_access_specifier()).strip('AS_').lower(),
-                        is_virtual=True))
+                    basespelling, qualifiers = read_qualified_type(asg, base.get_type(), inline=inline)
+                    asg._base_edges[spelling].append(dict(base=asg[basespelling]._node,
+                        _access=str(base.get_access_specifier()).strip('AS_').lower(),
+                        _is_virtual=True))
                 except:
                     if not permissive:
                         raise
             for child in decl.get_children():
-                try:
-                    #    access = str(child.get_access_unsafe()).strip('AS_').lower()
-                    children = read_decl(asg, child, inline=inline, permissive=False)
-                    #    for childspelling in children:
-                    #        asg._nodes[childspelling]["access"] = access
-                except:
-                    if not permissive:
-                        raise
-            asg._nodes[spelling]['is_complete'] = len(asg._syntax_edges[spelling])+len(asg._base_edges[spelling]) > 0
+                #    access = str(child.get_access_unsafe()).strip('AS_').lower()
+                children = read_decl(asg, child, inline=inline, permissive=permissive)
+                #    for childspelling in children:
+                #        asg._nodes[childspelling]["access"] = access
+            asg._nodes[spelling]['_is_complete'] = len(asg._syntax_edges[spelling])+len(asg._base_edges[spelling]) > 0
             if asg[spelling].is_complete:
                 read_file(asg, spelling, decl)
         else:
             for child in decl.get_children():
-                try:
-                    if isinstance(child, clang.TagDecl):
-                        #access = str(child.get_access_unsafe()).strip('AS_').lower()
-                        children = read_tag(asg, child, out=out, permissive=False, inline=inline)
-                        #for childspelling in children:
-                        #    asg._nodes[childspelling]["access"] = access
-                except:
-                    if not permissive:
-                        raise
+                if isinstance(child, clang.TagDecl):
+                    #access = str(child.get_access_unsafe()).strip('AS_').lower()
+                    children = read_tag(asg, child, out=out, permissive=permissive, inline=inline)
+                    #for childspelling in children:
+                    #    asg._nodes[childspelling]["access"] = access
         asg._read.remove(spelling)
     return [spelling]
 
 def read_typedef(asg, decl, inline, permissive):
-    scope, spelling = read_spelling(asg, decl, inline=inline)
-    if not spelling in asg._nodes:
-        target, specifiers = read_qualified_type(asg, decl.get_underlying_type(), inline=inline)
-        asg._type_edges[spelling] = dict(target=target, specifiers=specifiers)
-        asg._nodes[spelling] = dict(proxy=TypedefProxy)
-        asg._syntax_edges[scope].append(spelling)
-        read_file(asg, spelling, decl)
-        read_access(asg, decl.get_access_unsafe(), spelling)
-    return [spelling]
+    try:
+        scope, spelling = read_spelling(asg, decl, inline=inline)
+    except:
+        if permissive:
+            return []
+        else:
+            raise
+    else:
+        if not spelling in asg._nodes:
+            target, qualifiers = read_qualified_type(asg, decl.get_underlying_type(), inline=inline)
+            asg._type_edges[spelling] = dict(target=target, qualifiers=qualifiers)
+            asg._nodes[spelling] = dict(_proxy=TypedefProxy)
+            asg._syntax_edges[scope].append(spelling)
+            read_file(asg, spelling, decl)
+            read_access(asg, decl.get_access_unsafe(), spelling)
+        return [spelling]
 
 def read_namespace(asg, decl, inline, permissive, out=True):
     if decl.get_name() == '' or inline and decl.is_inline():
         children = []
         for child in decl.get_children():
-            try:
-                children.extend(read_decl(asg, child, inline=inline, permissive=False))
-            except:
-                if not permissive:
-                    raise
+            children.extend(read_decl(asg, child, inline=inline, permissive=permissive))
         return children
     else:
-        scope, spelling = read_spelling(asg, decl, inline=inline)
-        if not spelling in asg._nodes:
-            asg._nodes[spelling] = dict(proxy=NamespaceProxy, is_inline=decl.is_inline())
-            asg._syntax_edges[spelling] = []
-        if not spelling in asg._syntax_edges[scope]:
-            asg._syntax_edges[scope].append(spelling)
-        if out and not spelling in asg._read:
-            asg._read.add(spelling)
-            for child in decl.get_children():
-                try:
-                    read_decl(asg, child, inline=inline, permissive=False)
-                except:
-                    if not permissive:
-                        raise
-            asg._read.remove(spelling)
-        return [spelling]
+        try:
+            scope, spelling = read_spelling(asg, decl, inline=inline)
+        except:
+            if permissive:
+                return []
+            else:
+                raise
+        else:
+            if not spelling in asg._nodes:
+                asg._nodes[spelling] = dict(_proxy=NamespaceProxy, _is_inline=decl.is_inline())
+                asg._syntax_edges[spelling] = []
+            if not spelling in asg._syntax_edges[scope]:
+                asg._syntax_edges[scope].append(spelling)
+            if out and not spelling in asg._read:
+                asg._read.add(spelling)
+                for child in decl.get_children():
+                    read_decl(asg, child, inline=inline, permissive=permissive)
+                asg._read.remove(spelling)
+            return [spelling]
 
 def read_decl(asg, decl, **kwargs):
     """
