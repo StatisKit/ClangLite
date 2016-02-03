@@ -23,7 +23,13 @@ As a consequence, on a Ubuntu distribution, you should type
 
 ```
 git clone https://github.com/llvm-mirror/llvm.git
+cd llvm
+git reset --hard ccdf189
+cd ..
 git clone https://github.com/llvm-mirror/clang.git
+cd clang
+git reset --hard 334563d
+cd ..
 cd llvm/tools
 ln -s ../../clang
 cd ../..
@@ -49,7 +55,8 @@ sudo rm -rf sconsx
 git clone https://github.com/pfernique/PyClangLite.git
 cd PyClangLite
 sudo python setup.py install
-rm -rf PyClangLite
+cd ..
+sudo rm -rf PyClangLite
 ```
 
 ## Contribute
