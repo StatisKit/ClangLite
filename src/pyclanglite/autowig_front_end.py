@@ -2,7 +2,7 @@ import warnings
 import uuid
 from path import path
 from autowig.asg import *
-from autowig.front_end import preprocessing, postprocessing
+from autowig.front_end import preprocessing, postprocessing, resolve_templates
 
 from .pyclanglite import *
 from .ast import AbstractSyntaxTree
@@ -20,6 +20,7 @@ def front_end(asg, headers, flags, bootstrap=True, maximum=1000, inline=True, pe
             nodes = 0
             forbidden = set()
             while not nodes == len(asg) and index < bootstrap:
+                resolve_templates(asg)
                 nodes = len(asg)
                 white = []
                 black = set()
@@ -41,13 +42,13 @@ def front_end(asg, headers, flags, bootstrap=True, maximum=1000, inline=True, pe
                             white.append(return_type)
                             black.add(return_type._node)
                         for parameter in node.parameters:
-                            target = parameter.desugared_type.unqualified_type
+                            target = parameter.qualified_type.desugared_type.unqualified_type
                             if not target._node in black:
                                 white.append(target)
                                 black.add(target._node)
                     elif isinstance(node, ConstructorProxy):
                         for parameter in node.parameters:
-                            target = parameter.desugared_type.unqualified_type
+                            target = parameter.qualified_type.desugared_type.unqualified_type
                             if not target._node in black:
                                 white.append(target)
                                 black.add(target._node)
@@ -81,9 +82,11 @@ def front_end(asg, headers, flags, bootstrap=True, maximum=1000, inline=True, pe
                                 black.add(specialization._node)
                 gray = list(gray)
                 for gray in [gray[index:index+maximum] for index in xrange(0, len(gray), maximum)]:
-                    content = []
-                    for header in asg.headers(*[asg[node] for node in gray]):
-                        content.append("#include \"" + header.globalname + "\"")
+                    content = ["#include \"" + header + "\"" for header in headers]
+                    #for header in asg.headers(*[asg[node] for node in gray]):
+                    #    content.append("#include \"" + header.globalname + "\"")
+                    #import pdb
+                    #pdb.set_trace()
                     content.append("")
                     content.append("int main(void)")
                     content.append("{")
@@ -95,12 +98,7 @@ def front_end(asg, headers, flags, bootstrap=True, maximum=1000, inline=True, pe
                     content = '\n'.join(content)
                     forbidden.update(set(gray))
                     tu = clang.tooling.build_ast_from_code_with_args(content, flags)
-                    with warnings.catch_warnings() as cw:
-                        if silent:
-                            warnings.simplefilter('ignore')
-                        else:
-                            warnings.simplefilter('always')
-                        read_translation_unit(asg, tu, inline, permissive)
+                    read_translation_unit(asg, tu, inline, permissive)
                     #del tu
                 index += 1
     postprocessing(asg, headers, **kwargs)
@@ -291,6 +289,7 @@ def read_enum(asg, decl, inline, permissive, out=True):
                 asg._nodes[spelling] = dict(_proxy=EnumerationProxy)
                 asg._syntax_edges[spelling] = []
                 asg._syntax_edges[scope].append(spelling)
+                read_access(asg, decl.get_access_unsafe(), spelling)
             if out and not spelling in asg._read and not asg[spelling].is_complete:
                 asg._read.add(spelling)
                 asg._syntax_edges[scope].remove(spelling)
@@ -676,20 +675,14 @@ def read_tag(asg, decl, inline, permissive, out=True):
                     if not permissive:
                         raise
             for child in decl.get_children():
-                #    access = str(child.get_access_unsafe()).strip('AS_').lower()
                 children = read_decl(asg, child, inline=inline, permissive=permissive)
-                #    for childspelling in children:
-                #        asg._nodes[childspelling]["access"] = access
             asg._nodes[spelling]['_is_complete'] = len(asg._syntax_edges[spelling])+len(asg._base_edges[spelling]) > 0
             if asg[spelling].is_complete:
                 read_file(asg, spelling, decl)
         else:
             for child in decl.get_children():
                 if isinstance(child, clang.TagDecl):
-                    #access = str(child.get_access_unsafe()).strip('AS_').lower()
                     children = read_tag(asg, child, out=out, permissive=permissive, inline=inline)
-                    #for childspelling in children:
-                    #    asg._nodes[childspelling]["access"] = access
         asg._read.remove(spelling)
     return [spelling]
 
