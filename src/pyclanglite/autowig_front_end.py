@@ -12,7 +12,6 @@ def front_end(asg, headers, flags, bootstrap=True, maximum=1000, inline=True, pe
     if content:
         tu = clang.tooling.build_ast_from_code_with_args(content, flags)
         read_translation_unit(asg, tu, inline, permissive)
-        print len(asg)
         if bootstrap:
             flags += ['-Wno-unused-value', '-ferror-limit=0']#['-w']
             index = 0
@@ -104,9 +103,7 @@ def front_end(asg, headers, flags, bootstrap=True, maximum=1000, inline=True, pe
                         read_translation_unit(asg, tu, inline, permissive)
                     #del tu
                 index += 1
-    print len(asg)
     postprocessing(asg, headers, **kwargs)
-    print len(asg)
 
 def read_file(asg, spelling, decl):
     ast = decl.get_ast_context()
@@ -139,7 +136,6 @@ def read_translation_unit(asg, tu, inline, permissive):
     """
     """
     asg._read = set()
-    print tu.get_children()
     for child in tu.get_children():
         try:
             read_decl(asg, child, inline=inline, permissive=permissive)
