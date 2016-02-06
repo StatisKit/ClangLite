@@ -21,7 +21,7 @@ In particular to install LLVM and Clang, you need to follow instructions on the 
 Nevertheless, note that PyClangLite needs LLVM/Clang installed as shared libraries and runtime type information.
 As a consequence, on a Ubuntu distribution, you should type
 
-```
+```bash
 git clone https://github.com/llvm-mirror/llvm.git
 cd llvm
 git reset --hard ccdf189
