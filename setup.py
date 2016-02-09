@@ -107,7 +107,7 @@ setup(
 
     # Declare scripts and wralea as entry_points (extensions) of your package
     entry_points = {
-        'autowig.front_end': ['pyclanglite = pyclanglite.autowig_front_end:front_end'],
+        'autowig.parser': ['pyclanglite = pyclanglite.autowig_parser:parser'],
         #'console_scripts': [
         #       'fake_script = openalea.fakepackage.amodule:console_script', ],
         # 'gui_scripts': [
