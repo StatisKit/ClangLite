@@ -2,15 +2,15 @@ import warnings
 import uuid
 from path import path
 from autowig.asg import *
-from autowig.parser import preprocessing, postprocessing, resolve_templates
+from autowig.parser import preprocessing
 
 from .pyclanglite import *
 from .ast import AbstractSyntaxTree
 
-def parser(asg, headers, flags, bootstrap=True, maximum=1000, inline=True, permissive=True, **kwargs):
-    content = preprocessing(asg, headers, flags)
-    if content:
-        tu = clang.tooling.build_ast_from_code_with_args(content, flags)
+def autowig_parser(asg, headers, flags, bootstrap=True, maximum=1000, inline=True, permissive=True, **kwargs):
+    header = preprocessing(asg, headers, flags)
+    if header:
+        tu = clang.tooling.build_ast_from_code_with_args(header, flags)
         read_translation_unit(asg, tu, inline, permissive)
         if bootstrap:
             flags += ['-Wno-unused-value', '-ferror-limit=0']#['-w']
@@ -20,7 +20,6 @@ def parser(asg, headers, flags, bootstrap=True, maximum=1000, inline=True, permi
             nodes = 0
             forbidden = set()
             while not nodes == len(asg) and index < bootstrap:
-                resolve_templates(asg)
                 nodes = len(asg)
                 white = []
                 black = set()
@@ -82,24 +81,23 @@ def parser(asg, headers, flags, bootstrap=True, maximum=1000, inline=True, permi
                                 black.add(specialization._node)
                 gray = list(gray)
                 for gray in [gray[index:index+maximum] for index in xrange(0, len(gray), maximum)]:
-                    content = []
+                    header = []
                     for header in asg.headers(*[asg[node] for node in gray]):
-                        content.append("#include \"" + header.globalname + "\"")
-                    content.append("")
-                    content.append("int main(void)")
-                    content.append("{")
+                        header.append("#include \"" + header.globalname + "\"")
+                    header.append("")
+                    header.append("int main(void)")
+                    header.append("{")
                     for _index, spc in enumerate(gray):
                         if not spc in forbidden:
-                            content.append("\tsizeof(" + spc + ");")
-                    content.append("\treturn 0;")
-                    content.append("}")
-                    content = '\n'.join(content)
+                            header.append("\tsizeof(" + spc + ");")
+                    header.append("\treturn 0;")
+                    header.append("}")
+                    header = '\n'.join(header)
                     forbidden.update(set(gray))
-                    tu = clang.tooling.build_ast_from_code_with_args(content, flags)
+                    tu = clang.tooling.build_ast_from_code_with_args(header, flags)
                     read_translation_unit(asg, tu, inline, permissive)
                     #del tu
                 index += 1
-    postprocessing(asg, headers, **kwargs)
 
 def read_file(asg, spelling, decl):
     ast = decl.get_ast_context()
