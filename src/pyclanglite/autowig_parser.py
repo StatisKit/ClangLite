@@ -518,6 +518,9 @@ def read_class_template(asg, decl, inline, permissive, out=True):
         return [spelling]
 
 def read_tag(asg, decl, inline, permissive, out=True):
+    if decl.spelling == '::llvm::AlignOf<llvm::detail::AlignerImpl<llvm::detail::DenseMapPair<clang::sema::FunctionScopeInfo::WeakObjectProfileTy, llvm::SmallVector<clang::sema::FunctionScopeInfo::WeakUseTy, 4> > [8], llvm::SmallDenseMap<clang::sema::FunctionScopeInfo::WeakObjectProfileTy, llvm::SmallVector<clang::sema::FunctionScopeInfo::WeakUseTy, 4>, 8, clang::sema::FunctionScopeInfo::WeakObjectProfileTy::DenseMapInfo, llvm::detail::DenseMapPair<clang::sema::FunctionScopeInfo::WeakObjectProfileTy, llvm::SmallVector<clang::sema::FunctionScopeInfo::WeakUseTy, 4> > >::LargeRep, char, char, char, char, char, char, char, char> >':
+            import pdb
+            pdb.set_trace()
     if isinstance(decl, clang.EnumDecl):
         return read_enum(asg, decl, out=out, inline=inline, permissive=permissive)
     elif isinstance(decl, clang.ClassTemplatePartialSpecializationDecl):
