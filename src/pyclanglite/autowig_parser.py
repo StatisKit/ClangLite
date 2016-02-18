@@ -81,18 +81,18 @@ def autowig_parser(asg, headers, flags, bootstrap=True, maximum=1000, inline=Tru
                                 black.add(specialization._node)
                 gray = list(gray)
                 for gray in [gray[index:index+maximum] for index in xrange(0, len(gray), maximum)]:
-                    header = []
+                    headers = []
                     for header in asg.headers(*[asg[node] for node in gray]):
-                        header.append("#include \"" + header.globalname + "\"")
-                    header.append("")
-                    header.append("int main(void)")
-                    header.append("{")
+                        headers.append("#include \"" + header.globalname + "\"")
+                    headers.append("")
+                    headers.append("int main(void)")
+                    headers.append("{")
                     for _index, spc in enumerate(gray):
                         if not spc in forbidden:
-                            header.append("\tsizeof(" + spc + ");")
-                    header.append("\treturn 0;")
-                    header.append("}")
-                    header = '\n'.join(header)
+                            headers.append("\tsizeof(" + spc + ");")
+                    headers.append("\treturn 0;")
+                    headers.append("}")
+                    header = '\n'.join(headers)
                     forbidden.update(set(gray))
                     tu = clang.tooling.build_ast_from_code_with_args(header, flags)
                     read_translation_unit(asg, tu, inline, permissive)
@@ -234,7 +234,7 @@ def read_spelling(asg, decl, inline):
     else:
         scope = read_decl(asg, parent, out=False, permissive=True, inline=inline)
         if not len(scope) == 1:
-            raise Exception('parent not found')
+            raise NotImplementedError('parent not found')
         scope = scope.pop()
         spelling = scope + '::' + decl.get_name()
         if spelling.startswith('enum '):
@@ -324,9 +324,15 @@ def read_enum_constant(asg, decl, inline, permissive):
 
 def read_variable(asg, decl, inline, permissive):
     if isinstance(decl, (clang.VarTemplateDecl, clang.VarTemplateSpecializationDecl)):
-        raise NotImplementedError('\'' + decl.__class__.__name__ + '\'')
+        if permissive:
+            return []
+        else:
+            raise NotImplementedError('\'' + decl.__class__.__name__ + '\'')
     elif decl.get_type().get_type_ptr_or_null().get_type_class() is clang.Type.type_class.TEMPLATE_TYPE_PARM:
-        raise NotImplementedError('\'' + str(clang.Type.type_class.TEMPLATE_TYPE_PARM) + '\'')
+        if permissive:
+            return []
+        else:
+            raise NotImplementedError('\'' + str(clang.Type.type_class.TEMPLATE_TYPE_PARM) + '\'')
     else:
         try:
             scope, spelling = read_spelling(asg, decl, inline=inline)
@@ -337,26 +343,38 @@ def read_variable(asg, decl, inline, permissive):
                 raise
         else:
             if not spelling in asg._nodes:
-                target, qualifiers = read_qualified_type(asg, decl.get_type(), inline=inline)
-                if isinstance(asg[scope], ClassProxy):
-                    asg._nodes[spelling] = dict(_proxy=FieldProxy,
-                            _is_mutable=False,
-                            _is_static=True)
-                elif isinstance(asg[scope], ClassTemplateProxy):
-                    return []
+                try:
+                    target, qualifiers = read_qualified_type(asg, decl.get_type(), inline=inline)
+                    if isinstance(asg[scope], ClassProxy):
+                        asg._nodes[spelling] = dict(_proxy=FieldProxy,
+                                _is_mutable=False,
+                                _is_static=True)
+                    elif isinstance(asg[scope], ClassTemplateProxy):
+                        return []
+                    else:
+                        asg._nodes[spelling] = dict(_proxy=VariableProxy)
+                    asg._type_edges[spelling] = dict(target=target, qualifiers=qualifiers)
+                    asg._syntax_edges[scope].append(spelling)
+                    read_file(asg, spelling, decl)
+                    read_access(asg, decl.get_access_unsafe(), spelling)
+                except NotImplementedError:
+                    if not permissive:
+                        raise
+                    else:
+                        return []
                 else:
-                    asg._nodes[spelling] = dict(_proxy=VariableProxy)
-                asg._type_edges[spelling] = dict(target=target, qualifiers=qualifiers)
-                asg._syntax_edges[scope].append(spelling)
-                read_file(asg, spelling, decl)
-                read_access(asg, decl.get_access_unsafe(), spelling)
-            return [spelling]
+                    return [spelling]
+            else:
+                return [spelling]
 
 def read_function(asg, decl, inline, permissive):
     if decl.is_deleted():
         return []
     elif isinstance(decl, clang.FunctionTemplateDecl):
-        raise NotImplementedError('\'' + decl.__class__.__name__ + '\'')
+        if permissive:
+            return []
+        else:
+            raise NotImplementedError('\'' + decl.__class__.__name__ + '\'')
     elif decl.get_name() == '':
         return []
     try:
@@ -372,7 +390,10 @@ def read_function(asg, decl, inline, permissive):
         if not spelling in asg._nodes:
             if isinstance(decl, clang.CXXMethodDecl):
                 if isinstance(decl, clang.CXXConversionDecl):
-                    raise NotImplementedError('\'' + decl.__class__.__name__ + '\'')
+                    if permissive:
+                        return []
+                    else:
+                        raise NotImplementedError('\'' + decl.__class__.__name__ + '\'')
                 elif isinstance(asg[scope], NamespaceProxy):
                     if permissive:
                         return []
@@ -518,9 +539,9 @@ def read_class_template(asg, decl, inline, permissive, out=True):
         return [spelling]
 
 def read_tag(asg, decl, inline, permissive, out=True):
-    if decl.spelling == '::llvm::AlignOf<llvm::detail::AlignerImpl<llvm::detail::DenseMapPair<clang::sema::FunctionScopeInfo::WeakObjectProfileTy, llvm::SmallVector<clang::sema::FunctionScopeInfo::WeakUseTy, 4> > [8], llvm::SmallDenseMap<clang::sema::FunctionScopeInfo::WeakObjectProfileTy, llvm::SmallVector<clang::sema::FunctionScopeInfo::WeakUseTy, 4>, 8, clang::sema::FunctionScopeInfo::WeakObjectProfileTy::DenseMapInfo, llvm::detail::DenseMapPair<clang::sema::FunctionScopeInfo::WeakObjectProfileTy, llvm::SmallVector<clang::sema::FunctionScopeInfo::WeakUseTy, 4> > >::LargeRep, char, char, char, char, char, char, char, char> >':
-            import pdb
-            pdb.set_trace()
+    #if decl.spelling() == '::llvm::AlignOf<llvm::detail::AlignerImpl<llvm::detail::DenseMapPair<clang::sema::FunctionScopeInfo::WeakObjectProfileTy, llvm::SmallVector<clang::sema::FunctionScopeInfo::WeakUseTy, 4> > [8], llvm::SmallDenseMap<clang::sema::FunctionScopeInfo::WeakObjectProfileTy, llvm::SmallVector<clang::sema::FunctionScopeInfo::WeakUseTy, 4>, 8, clang::sema::FunctionScopeInfo::WeakObjectProfileTy::DenseMapInfo, llvm::detail::DenseMapPair<clang::sema::FunctionScopeInfo::WeakObjectProfileTy, llvm::SmallVector<clang::sema::FunctionScopeInfo::WeakUseTy, 4> > >::LargeRep, char, char, char, char, char, char, char, char> >' and out:
+    #        import pdb
+    #        pdb.set_trace()
     if isinstance(decl, clang.EnumDecl):
         return read_enum(asg, decl, out=out, inline=inline, permissive=permissive)
     elif isinstance(decl, clang.ClassTemplatePartialSpecializationDecl):
@@ -707,20 +728,34 @@ def read_typedef(asg, decl, inline, permissive):
             raise
     else:
         if not spelling in asg._nodes:
-            target, qualifiers = read_qualified_type(asg, decl.get_underlying_type(), inline=inline)
-            asg._type_edges[spelling] = dict(target=target, qualifiers=qualifiers)
-            asg._nodes[spelling] = dict(_proxy=TypedefProxy)
-            asg._syntax_edges[scope].append(spelling)
-            read_file(asg, spelling, decl)
-            read_access(asg, decl.get_access_unsafe(), spelling)
+            try:
+                target, qualifiers = read_qualified_type(asg, decl.get_underlying_type(), inline=inline)
+                asg._type_edges[spelling] = dict(target=target, qualifiers=qualifiers)
+                asg._nodes[spelling] = dict(_proxy=TypedefProxy)
+                asg._syntax_edges[scope].append(spelling)
+                read_file(asg, spelling, decl)
+                read_access(asg, decl.get_access_unsafe(), spelling)
+            except NotImplementedError:
+                if not permissive:
+                    raise
+                else:
+                    return []
         return [spelling]
 
 def read_namespace(asg, decl, inline, permissive, out=True):
+    #if decl.spelling() == '::stat_tool' and out:
+    #    import pdb
+    #    pdb.set_trace()
     if decl.get_name() == '' or inline and decl.is_inline():
         children = []
         for child in decl.get_children():
-            _children = read_decl(asg, child, inline=inline, permissive=permissive)
-            children.extend(_children)
+            try:
+                _children = read_decl(asg, child, inline=inline, permissive=permissive)
+            except NotImplementedError:
+                if not permissive:
+                    raise
+            else:
+                children.extend(_children)
         return children
     else:
         try:
@@ -738,14 +773,13 @@ def read_namespace(asg, decl, inline, permissive, out=True):
                 asg._syntax_edges[scope].append(spelling)
             if out and not spelling in asg._read:
                 asg._read.add(spelling)
-                try:
-                    for child in decl.get_children():
+                for child in decl.get_children():
+                    try:
                         read_decl(asg, child, inline=inline, permissive=permissive)
-                except:
-                    asg._read.remove(spelling)
-                    raise
-                else:
-                    asg._read.remove(spelling)
+                    except NotImplementedError:
+                        if not permissive:
+                            raise
+                asg._read.remove(spelling)
             return [spelling]
 
 def read_decl(asg, decl, **kwargs):
@@ -759,7 +793,11 @@ def read_decl(asg, decl, **kwargs):
             asg._language = 'c++'
         children = []
         for child in decl.get_children():
-            children = read_decl(asg, child, **kwargs)
+            try:
+                children = read_decl(asg, child, **kwargs)
+            except NotImplementedError:
+                if not kwargs.get('permissive', True):
+                    raise
         asg._language = language
         return children
     elif isinstance(decl, clang.VarDecl):
