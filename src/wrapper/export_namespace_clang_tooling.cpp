@@ -31,6 +31,13 @@ namespace autowig
         return tu;
     }
 
+    std::string get_comment(clang::Decl* decl)
+    {
+        clang::ASTContext & ast = decl->getASTContext();
+        clang::SourceManager &  sm = ast.getSourceManager();
+        return ast.getRawCommentForDeclNoCache(decl)->getRawText(sm).str();
+    }
+
     void unset_type_as_written(clang::ClassTemplateSpecializationDecl* decl)
     { decl->setTypeAsWritten(nullptr); }
 
@@ -223,6 +230,7 @@ void export_namespace_clang_tooling()
     boost::python::scope().attr("tooling") = tooling_module;
     boost::python::scope tooling_scope = tooling_module;
     boost::python::def("build_ast_from_code_with_args", ::autowig::build_ast_from_code_with_args, boost::python::return_value_policy< boost::python::manage_new_object >());
+    boost::python::def("get_comment", &::autowig::get_comment);
     boost::python::def("get_name", &::clang::NamedDecl::getNameAsString);
     boost::python::def("ast_get_nb_children", ::autowig::ast_get_nb_children);
     boost::python::def("decl_get_nb_children", ::autowig::decl_get_nb_children);
