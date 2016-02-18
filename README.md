@@ -21,9 +21,15 @@ In particular to install LLVM and Clang, you need to follow instructions on the 
 Nevertheless, note that PyClangLite needs LLVM/Clang installed as shared libraries and runtime type information.
 As a consequence, on a Ubuntu distribution, you should type
 
-```
+```bash
 git clone https://github.com/llvm-mirror/llvm.git
+cd llvm
+git reset --hard ccdf189
+cd ..
 git clone https://github.com/llvm-mirror/clang.git
+cd clang
+git reset --hard 334563d
+cd ..
 cd llvm/tools
 ln -s ../../clang
 cd ../..
@@ -36,20 +42,21 @@ sudo make install
 cd ..
 rm -rf build llvm clang
 sudo apt-get install libboost-python-dev zlib1g-dev scons
-git clone git@github.com:openalea/deploy.git
+git clone https://github.com/openalea/deploy.git
 cd deploy
 sudo python setup.py install
 cd ..
 sudo rm -rf deploy
-git clone git@github.com:openalea/sconsx.git
+git clone https://github.com/openalea/sconsx.git
 cd sconsx
 sudo python setup.py install
 cd ..
 sudo rm -rf sconsx
-git clone git@github.com:VirtualPlants/PyClangLite.git
+git clone https://github.com/pfernique/PyClangLite.git
 cd PyClangLite
 sudo python setup.py install
-rm -rf PyClangLite
+cd ..
+sudo rm -rf PyClangLite
 ```
 
 ## Contribute
