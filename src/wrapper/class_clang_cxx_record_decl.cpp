@@ -30,5 +30,7 @@ void class_clang_cxx_record_decl()
         boost::python::class_< class ::clang::CXXRecordDecl, class ::clang::CXXRecordDecl *, boost::python::bases< class ::clang::RecordDecl >, boost::noncopyable >("CXXRecordDecl", boost::python::no_init)
             .def("get_num_bases", method_pointer_3ae2df53a25d5cbea70dae1b1aa9f4da)
             .def("get_num_v_bases", method_pointer_548915aa91fe54178926fd2a7bb8a131)
-            .def("is_abstract", method_pointer_219649b9814c588cbd9e6fe0db5bc00e);
+            .def("is_abstract", method_pointer_219649b9814c588cbd9e6fe0db5bc00e)
+            .def("has_simple_destructor", &::clang::CXXRecordDecl::hasSimpleDestructor)
+            .def("get_destructor", &::clang::CXXRecordDecl::getDestructor, boost::python::return_value_policy< boost::python::reference_existing_object >());
 }

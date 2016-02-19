@@ -153,17 +153,20 @@ namespace autowig
     bool cxxrecord_is_copyable(const clang::CXXRecordDecl& decl)
     {
         auto it = decl.ctor_begin();
-        bool res = true;//(it != decl.ctor_end());
-        while(res && it != decl.ctor_end())
+        bool res = decl.hasSimpleDestructor() && it != decl.ctor_end();
+        if(res)
         {
-            res = !(*it)->isCopyConstructor();
-            if(res)
-            { ++it; }
+            while(res && it != decl.ctor_end())
+            {
+                res = !(*it)->isCopyConstructor();
+                if(res)
+                { ++it; }
+            }
+            if(!res)
+            { res = (*it)->isDeleted() || (*it)->getAccess() != clang::AccessSpecifier::AS_public; }
+            else
+            { res = !res; }
         }
-        if(!res)
-        { res = (*it)->isDeleted() || (*it)->getAccess() != clang::AccessSpecifier::AS_public; }
-        else
-        { res = !res; }
         return !res;
     }
 
