@@ -35,7 +35,11 @@ namespace autowig
     {
         clang::ASTContext & ast = decl->getASTContext();
         clang::SourceManager &  sm = ast.getSourceManager();
-        return ast.getRawCommentForDeclNoCache(decl)->getRawText(sm).str();
+        std::string comment = "";
+        clang::RawComment* rawcomment = ast.getRawCommentForDeclNoCache(decl);
+        if(rawcomment)
+        { comment = rawcomment->getRawText(sm).str(); }
+        return comment;
     }
 
     void unset_type_as_written(clang::ClassTemplateSpecializationDecl* decl)

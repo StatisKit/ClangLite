@@ -285,11 +285,14 @@ def read_enum(asg, decl, inline, permissive, out=True):
             if not spelling.startswith('enum '):
                 spelling = 'enum ' + spelling
             if not spelling in asg._nodes:
-                asg._nodes[spelling] = dict(_proxy=EnumerationProxy)
+                asg._nodes[spelling] = dict(_proxy=EnumerationProxy,
+                        _comment = "")
                 asg._syntax_edges[spelling] = []
                 asg._syntax_edges[scope].append(spelling)
                 read_access(asg, decl.get_access_unsafe(), spelling)
             if out and not spelling in asg._read and not asg[spelling].is_complete:
+                if not asg[spelling].comment:
+                    asg._nodes[spelling]['_comment'] = decl.get_comment()
                 asg._read.add(spelling)
                 try:
                     asg._syntax_edges[scope].remove(spelling)
@@ -347,8 +350,9 @@ def read_variable(asg, decl, inline, permissive):
                     target, qualifiers = read_qualified_type(asg, decl.get_type(), inline=inline)
                     if isinstance(asg[scope], ClassProxy):
                         asg._nodes[spelling] = dict(_proxy=FieldProxy,
-                                _is_mutable=False,
-                                _is_static=True)
+                                    _is_mutable=False,
+                                    _is_static=True,
+                                    _is_bit_field=False)
                     elif isinstance(asg[scope], ClassTemplateProxy):
                         return []
                     else:
@@ -429,7 +433,8 @@ def read_function(asg, decl, inline, permissive):
                                             _is_const=decl.is_const(),
                                             _is_volatile=decl.is_volatile(),
                                             _is_virtual=decl.is_virtual(),
-                                            _is_pure=decl.is_pure())
+                                            _is_pure=decl.is_pure(),
+                                            _comment = decl.get_comment())
                             else:
                                 asg._nodes[spelling] = dict(_proxy=ConstructorProxy,
                                         _is_virtual=decl.is_virtual())
@@ -439,7 +444,8 @@ def read_function(asg, decl, inline, permissive):
                     else:
                         if not spelling in asg._nodes:
                             asg._nodes[spelling] = dict(_proxy=DestructorProxy,
-                                    _is_virtual=decl.is_virtual())
+                                    _is_virtual=decl.is_virtual(),
+                                    _comment = decl.get_comment())
                             asg._syntax_edges[scope].append(spelling)
                         read_access(asg, decl.get_access_unsafe(), spelling)
                         return [spelling]
@@ -467,7 +473,8 @@ def read_function(asg, decl, inline, permissive):
                             raise
                     else:
                         asg._type_edges[spelling] = dict(target=target, qualifiers=qualifiers)
-                        asg._nodes[spelling] = dict(_proxy=FunctionProxy)
+                        asg._nodes[spelling] = dict(_proxy=FunctionProxy,
+                                _comment = decl.get_comment())
                         asg._syntax_edges[scope].append(spelling)
                         read_file(asg, spelling, decl)
                         read_access(asg, decl.get_access_unsafe(), spelling)
@@ -498,7 +505,8 @@ def read_field(asg, decl, inline, permissive):
                 asg._type_edges[spelling] = dict(target=target, qualifiers=qualifiers)
                 asg._nodes[spelling] = dict(_proxy=FieldProxy,
                         _is_mutable=decl.is_mutable(),
-                        _is_static=False) # TODO
+                        _is_static=False,
+                        _is_bit_field=decl.is_bit_field()) # TODO
                 asg._syntax_edges[scope].append(spelling)
                 read_access(asg, decl.get_access_unsafe(), spelling)
                 return [spelling]
@@ -650,7 +658,8 @@ def read_tag(asg, decl, inline, permissive, out=True):
                             _is_abstract=False,
                             _is_copyable=True,
                             _is_complete=False,
-                            _is_explicit=True)
+                            _is_explicit=True,
+                            _comment = "")
                         asg._specialization_edges[specialize].add(spelling)
                         asg._syntax_edges[spelling] = []
                         asg._base_edges[spelling] = []
@@ -669,6 +678,8 @@ def read_tag(asg, decl, inline, permissive, out=True):
                     asg._syntax_edges[scope].append(spelling)
                     read_access(asg, decl.get_access_unsafe(), spelling)
     if out and not spelling in asg._read and decl.is_complete_definition():
+        if not asg[spelling].comment:
+            asg._nodes[spelling]['_comment'] = decl.get_comment()
         asg._read.add(spelling)
         try:
             if not asg[spelling].is_complete:

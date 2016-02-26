@@ -44,6 +44,10 @@ if hasattr(clang.tooling, 'cxx_record_get_nb_constructors'):
     clang.CXXRecordDecl.cxx_record_get_nb_constructors = clang.tooling.cxx_record_get_nb_constructors
     del clang.tooling.cxx_record_get_nb_constructors
 
+if hasattr(clang.tooling, 'get_comment'):
+    clang.Decl.get_comment = clang.tooling.get_comment
+    del clang.tooling.get_comment
+
 if hasattr(clang.tooling, 'decl_cast_as_namespace'):
     clang.DeclContext.cast_as_namespace = clang.tooling.decl_cast_as_namespace
     del clang.tooling.decl_cast_as_namespace
