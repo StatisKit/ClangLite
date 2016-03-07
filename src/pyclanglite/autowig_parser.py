@@ -666,7 +666,7 @@ def read_tag(asg, decl, inline, permissive, out=True):
                         asg._syntax_edges[spelling] = []
                         asg._base_edges[spelling] = []
                         asg._syntax_edges[scope].append(spelling)
-                        asg._template_edges[sptemplate <class U, class D> shared_ptr (U* p, D del);elling] = template_edges
+                        asg._template_edges[spelling] = template_edges
                         read_access(asg, decl.get_access_unsafe(), spelling)
                 else:
                     asg._nodes[spelling] = dict(_proxy=ClassProxy,
