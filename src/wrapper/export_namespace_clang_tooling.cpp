@@ -157,7 +157,8 @@ namespace autowig
     bool cxxrecord_is_copyable(const clang::CXXRecordDecl& decl)
     {
         auto it = decl.ctor_begin();
-        bool res = decl.hasSimpleDestructor() && it != decl.ctor_end();
+        clang::CXXDestructorDecl* dtor = decl.getDestructor();
+        bool res = !decl.hasUninitializedReferenceMember() && dtor && dtor->getAccess() == clang::AccessSpecifier::AS_public && !dtor->isDeleted() && it != decl.ctor_end();
         if(res)
         {
             while(res && it != decl.ctor_end())
