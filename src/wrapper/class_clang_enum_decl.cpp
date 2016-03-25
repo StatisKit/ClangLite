@@ -24,5 +24,6 @@ void class_clang_enum_decl()
         boost::python::object clang_7bbff48d109853e88270b3595c663a99_module(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(clang_7bbff48d109853e88270b3595c663a99_name.c_str()))));
         boost::python::scope().attr("clang") = clang_7bbff48d109853e88270b3595c663a99_module;
         boost::python::scope clang_7bbff48d109853e88270b3595c663a99_scope = clang_7bbff48d109853e88270b3595c663a99_module;
-        boost::python::class_< class ::clang::EnumDecl, class ::clang::EnumDecl *, boost::python::bases< class ::clang::TagDecl >, boost::noncopyable >("EnumDecl", boost::python::no_init);
+        boost::python::class_< class ::clang::EnumDecl, class ::clang::EnumDecl *, boost::python::bases< class ::clang::TagDecl >, boost::noncopyable >("EnumDecl", boost::python::no_init)
+            .def("is_scoped", &::clang::EnumDecl::isScoped);
 }

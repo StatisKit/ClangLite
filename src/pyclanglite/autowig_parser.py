@@ -288,11 +288,13 @@ def read_enum(asg, decl, inline, permissive, out=True):
                 spelling = 'enum ' + spelling
             if not spelling in asg._nodes:
                 asg._nodes[spelling] = dict(_proxy=EnumerationProxy,
-                        _comment = "")
+                        _comment = "",
+                        _is_scoped = decl.is_scoped())
                 asg._syntax_edges[spelling] = []
                 asg._syntax_edges[scope].append(spelling)
                 read_access(asg, decl.get_access_unsafe(), spelling)
             if out and not spelling in asg._read and not asg[spelling].is_complete:
+                asg._nodes[spelling]['_is_scoped'] = decl.is_scoped()
                 if not asg[spelling].comment:
                     asg._nodes[spelling]['_comment'] = decl.get_comment()
                 asg._read.add(spelling)
@@ -680,9 +682,6 @@ def read_tag(asg, decl, inline, permissive, out=True):
                     asg._syntax_edges[scope].append(spelling)
                     read_access(asg, decl.get_access_unsafe(), spelling)
     if out and not spelling in asg._read and decl.is_complete_definition():
-        if spelling == '':
-            import pdb
-            pdb.set_trace()
         if not asg[spelling].comment:
             asg._nodes[spelling]['_comment'] = decl.get_comment()
         asg._read.add(spelling)
@@ -798,6 +797,12 @@ def read_namespace(asg, decl, inline, permissive, out=True):
                 asg._read.remove(spelling)
             return [spelling]
 
+def read_friend(asg, decl, **kwargs):
+    """
+    """
+    friend = decl.get_friend_decl()
+    return read_decl(asg, friend, **kwargs)
+
 def read_decl(asg, decl, **kwargs):
     """
     """
@@ -830,11 +835,12 @@ def read_decl(asg, decl, **kwargs):
         return read_namespace(asg, decl, **kwargs)
     elif isinstance(decl, clang.TypedefDecl):
         return read_typedef(asg, decl, **kwargs)
+    elif isinstance(decl, clang.FriendDecl):
+        return read_friend(asg, decl, **kwargs)
     elif isinstance(decl, (clang.AccessSpecDecl,
         clang.BlockDecl, clang.CapturedDecl,
         clang.ClassScopeFunctionSpecializationDecl,
-        clang.EmptyDecl, clang.FileScopeAsmDecl,
-        clang.FriendDecl, clang.FriendTemplateDecl,
+        clang.EmptyDecl, clang.FileScopeAsmDecl, clang.FriendTemplateDecl,
         clang.StaticAssertDecl, clang.LabelDecl,
         clang.NamespaceAliasDecl, clang.TemplateDecl,
         clang.TemplateTypeParmDecl, clang.UsingDecl,
