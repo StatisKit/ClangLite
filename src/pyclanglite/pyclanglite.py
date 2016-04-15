@@ -218,3 +218,17 @@ if hasattr(clang.tooling, 'named_decl_get_qualified_name'):
 if hasattr(clang.tooling, 'unset_type_as_written'):
     clang.ClassTemplateSpecializationDecl.unset_type_as_written = clang.tooling.unset_type_as_written
     del clang.tooling.unset_type_as_written
+
+#def wrapper(f):
+#    @wraps(f)
+#    def get_comment(self):
+#        #return ''
+#        #if any(name in self.get_name() for name in ['char', 'wchar_t', 'operator>>', 'integer_traits_base<_Bool, false, true>', 'no_operator', 'any']):
+#        #    return ''
+#        #else:
+#        with open('log.txt', 'a') as fh:
+#            fh.write(self.get_name()+'\n')
+#        return f(self)
+#    return get_comment
+#
+#clang.Decl.get_comment = wrapper(clang.Decl.get_comment)

@@ -557,7 +557,6 @@ def read_tag(asg, decl, inline, permissive, out=True):
     if isinstance(decl, clang.EnumDecl):
         return read_enum(asg, decl, out=out, inline=inline, permissive=permissive)
     elif isinstance(decl, clang.ClassTemplatePartialSpecializationDecl):
-        decl.unset_type_as_written()
         try:
             scope, spelling = read_spelling(asg, decl, inline=inline)
         except NotImplementedError:
@@ -598,8 +597,6 @@ def read_tag(asg, decl, inline, permissive, out=True):
     elif not decl.has_name_for_linkage():
         return []
     else:
-        if isinstance(decl, clang.ClassTemplateSpecializationDecl):
-            decl.unset_type_as_written()
         try:
             scope, spelling = read_spelling(asg, decl, inline=inline)
         except NotImplementedError:
@@ -683,7 +680,8 @@ def read_tag(asg, decl, inline, permissive, out=True):
                     read_access(asg, decl.get_access_unsafe(), spelling)
     if out and not spelling in asg._read and decl.is_complete_definition():
         if not asg[spelling].comment:
-            asg._nodes[spelling]['_comment'] = decl.get_comment()
+            if not isinstance(decl, clang.ClassTemplateSpecializationDecl) or decl.is_explicit_specialization():
+                asg._nodes[spelling]['_comment'] = decl.get_comment()
         asg._read.add(spelling)
         try:
             if not asg[spelling].is_complete:

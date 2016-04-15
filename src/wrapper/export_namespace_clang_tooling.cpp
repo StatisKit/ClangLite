@@ -43,7 +43,7 @@ namespace autowig
     }
 
     void unset_type_as_written(clang::ClassTemplateSpecializationDecl* decl)
-    { decl->setTypeAsWritten(nullptr); }
+    { /*decl->setTypeAsWritten(nullptr);*/ }
 
     unsigned int ast_get_nb_children(clang::ASTUnit& ast)
     {
@@ -102,6 +102,8 @@ namespace autowig
 
     std::string spec_get_name_as_string(clang::ClassTemplateSpecializationDecl* spec)
     {
+        clang::TypeSourceInfo* tsi = spec->getTypeAsWritten();
+        spec->setTypeAsWritten(nullptr);
         std::string spelling = "";
         llvm::raw_string_ostream os(spelling);
         os << spec->getName();
@@ -115,6 +117,7 @@ namespace autowig
         clang::TemplateSpecializationType::PrintTemplateArgumentList(os, args.data(),
                                                                   args.size(),
                                                                   policy);
+        spec->setTypeAsWritten(tsi);        
         return os.str();
     }
 
