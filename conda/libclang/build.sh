@@ -8,7 +8,12 @@ srcdir=`pwd`
 cd ..
 mkdir build
 cd build
-cmake -G "Unix Makefiles" -DBUILD_SHARED_LIBS=1 \
+cmake -G "Unix Makefiles" -DLLVM_INCLUDE_TESTS=OFF \
+                          -DLLVM_INCLUDE_UTILS=OFF \
+                          -DLLVM_INCLUDE_DOCS=OFF \
+                          -DLLVM_INCLUDE_EXAMPLES=OFF \
+                          -DLLVM_ENABLE_TERMINFO=OFF
+                          -DBUILD_SHARED_LIBS=1 \
                           -DLLVM_ENABLE_RTTI=1 \
                           -DCMAKE_INSTALL_PREFIX=${PREFIX} \
                           -DCMAKE_BUILD_TYPE=Release \
@@ -16,7 +21,5 @@ cmake -G "Unix Makefiles" -DBUILD_SHARED_LIBS=1 \
                           -DCMAKE_CXX_COMPILER=${PREFIX}/bin/g++ \
                           -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,${PREFIX}/lib -L${PREFIX}/lib" \
                           $srcdir
-timeout -k 22m 20m make || true
-timeout -k 22m 20m make || true
-make
+make -j4
 make install
