@@ -1,7 +1,6 @@
 #if [ "$(uname)" == "Linux" ]; then
 #    sudo apt-get install cmake zlib1g-dev scons 
 #fi
-strings ~/.miniconda2/envs/traviscii/lib/libstdc++.so.6 | grep GLIBCXX
 strings ${PREFIX}/lib/libstdc++.so.6 | grep GLIBCXX
 CC=${PREFIX}/bin/gcc
 CXX=${PREFIX}/bin/g++
