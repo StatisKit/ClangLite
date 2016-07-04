@@ -3,11 +3,9 @@ build: false
 environment:
   matrix:
     - PYTHON_VERSION: 2.7
-      MINICONDA: C:\Miniconda2
+      MINICONDA: C:\Miniconda
 
 install:
-  - powershell .\\continuous-integration\\appveyor\\install.ps1
-  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
