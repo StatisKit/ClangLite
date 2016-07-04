@@ -13,6 +13,6 @@ srcdir=`pwd`
 cd ..
 mkdir build
 cd build
-cmake -G "Unix Makefiles" -DBUILD_SHARED_LIBS=1 -DLLVM_ENABLE_RTTI=1 -DCMAKE_INSTALL_PREFIX=${PREFIX} -DCMAKE_BUILD_TYPE=Release $srcdir
+cmake -G "Unix Makefiles" -DBUILD_SHARED_LIBS=1 -DLLVM_ENABLE_RTTI=1 -DCMAKE_INSTALL_PREFIX=${PREFIX} -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=${PREFIX}/bin/gcc -DCMAKE_CXX_COMPILER=${PREFIX}/bin/g++ $srcdir
 make
 make install

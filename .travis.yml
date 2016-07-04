@@ -17,9 +17,12 @@ before_install:
     - "conda update -q conda"
     - "conda info -a"
     - "conda install conda-build"
-    - "conda build conda/libclang"
+    - "conda create travisci"
+    - "source activate travisci"
+    - "strings ~/.miniconda2/envs/traviscii/lib/libstdc++.so.6 | grep GLIBCXX"
 
 install:
+    - "conda build conda/libclang"
     - "conda build conda/python-clanglite"
 
 after_success:
