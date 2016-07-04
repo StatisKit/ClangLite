@@ -30,4 +30,6 @@ after_success:
         CONDA_FILE=`conda build conda/python-clanglite --output`; 
         anaconda upload --user ${ANACONDA_CHANNEL%%} ${CONDA_FILE%%};
       fi
-    - coveralls
+    - if [[ "$TRAVIS_OS_NAME" = "linux" ]]; then
+        coveralls;
+      fi

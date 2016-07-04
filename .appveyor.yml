@@ -13,3 +13,11 @@ install:
   - conda install conda-build
   - conda build conda/libclang
 
+after_success:
+    - if %APPVEYOR_REPO_BRANCH% == "master" (
+        anaconda login --username ${ANACONDA_USERNAME%%} --password ${ANACONDA_PASSWORD%%}
+        CONDA_FILE=`conda build conda/libclang --output`
+        anaconda upload --user ${ANACONDA_CHANNEL%%} ${CONDA_FILE%%}
+        CONDA_FILE=`conda build conda/python-clanglite --output`
+        anaconda upload --user ${ANACONDA_CHANNEL%%} ${CONDA_FILE%%}
+      )
