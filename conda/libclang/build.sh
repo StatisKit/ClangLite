@@ -16,6 +16,7 @@ cmake -G "Unix Makefiles" -DBUILD_SHARED_LIBS=1 \
                           -DCMAKE_CXX_COMPILER=${PREFIX}/bin/g++ \
                           -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,${PREFIX}/lib -L${PREFIX}/lib" \
                           $srcdir
-timeout -k 45s 30s make || true
-timeout -k 45s 30s make || true
-#make install
+timeout -k 35m 30m make || true
+timeout -k 35m 30m make || true
+make
+make install
