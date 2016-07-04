@@ -14,13 +14,3 @@ before_install:
 
 install:
     - "conda build conda/python-clanglite"
-
-after_success:
-    - if [ "$TRAVIS_BRANCH" = "master" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
-        anaconda login --username ${ANACONDA_USERNAME%%} --password ${ANACONDA_PASSWORD%%};
-      fi
-    - CONDA_FILE=`conda build conda/libclang --output`; 
-    - anaconda upload --user ${ANACONDA_CHANNEL%%} ${CONDA_FILE%%};
-    - CONDA_FILE=`conda build conda/python-clanglite --output`; 
-    - anaconda upload --user ${ANACONDA_CHANNEL%%} ${CONDA_FILE%%};
-    - coveralls
