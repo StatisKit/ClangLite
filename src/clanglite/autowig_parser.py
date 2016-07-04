@@ -551,9 +551,6 @@ def read_class_template(asg, decl, inline, permissive, out=True):
         return [spelling]
 
 def read_tag(asg, decl, inline, permissive, out=True):
-    #if decl.spelling() == '::llvm::AlignOf<llvm::detail::AlignerImpl<llvm::detail::DenseMapPair<clang::sema::FunctionScopeInfo::WeakObjectProfileTy, llvm::SmallVector<clang::sema::FunctionScopeInfo::WeakUseTy, 4> > [8], llvm::SmallDenseMap<clang::sema::FunctionScopeInfo::WeakObjectProfileTy, llvm::SmallVector<clang::sema::FunctionScopeInfo::WeakUseTy, 4>, 8, clang::sema::FunctionScopeInfo::WeakObjectProfileTy::DenseMapInfo, llvm::detail::DenseMapPair<clang::sema::FunctionScopeInfo::WeakObjectProfileTy, llvm::SmallVector<clang::sema::FunctionScopeInfo::WeakUseTy, 4> > >::LargeRep, char, char, char, char, char, char, char, char> >' and out:
-    #        import pdb
-    #        pdb.set_trace()
     if isinstance(decl, clang.EnumDecl):
         return read_enum(asg, decl, out=out, inline=inline, permissive=permissive)
     elif isinstance(decl, clang.ClassTemplatePartialSpecializationDecl):
@@ -599,6 +596,31 @@ def read_tag(asg, decl, inline, permissive, out=True):
     else:
         try:
             scope, spelling = read_spelling(asg, decl, inline=inline)
+            if isinstance(decl, clang.ClassTemplateSpecializationDecl):
+                count = 1
+                index = -2
+                while not count == 0:
+                    if spelling[index] == '>':
+                        count += 1
+                    elif spelling[index] == '<':
+                        count -= 1
+                    index -= 1
+                _spelling = spelling[:index+1]
+                templates = decl.get_template_args()
+                template_names = []
+                for template in [templates.get(index) for index in range(templates.size())]:
+                    if template.get_kind() is clang.TemplateArgument.arg_kind.TYPE:
+                        target, qualifiers = read_qualified_type(asg, template.get_as_type(), inline=inline)
+                        template_names.append(target.strip('::') + qualifiers)
+                    elif template.get_kind() is clang.TemplateArgument.arg_kind.DECLARATION:
+                        target, qualifiers = read_qualified_type(asg, template.get_as_decl().get_type(), inline=inline)
+                        template_names.append(target.strip('::') + qualifiers)
+                    elif template.get_kind() is clang.TemplateArgument.arg_kind.INTEGRAL:
+                        target, qualifiers = read_qualified_type(asg, template.get_integral_type(), inline=inline)
+                        template_names.append(template.spelling())
+                    else:
+                        raise NotImplementedError(str(template.get_kind()))
+                spelling = _spelling + '< ' + ', '.join(template_names) + ' >'
         except NotImplementedError:
             if permissive:
                 return []
@@ -611,14 +633,15 @@ def read_tag(asg, decl, inline, permissive, out=True):
                 spelling += decl.get_typedef_name_for_anon_decl().get_name()
             elif decl.get_name() == '':
                 return []
-            if decl.is_class():
-                spelling = 'class ' + spelling
-            elif decl.is_struct():
-                spelling = 'struct ' + spelling
-            elif decl.is_union():
-                spelling = 'union ' + spelling
             else:
-                NotImplementedError('\'' + decl.__class__.__name__ + '\'')
+                if decl.is_class():
+                    spelling = 'class ' + spelling
+                elif decl.is_struct():
+                    spelling = 'struct ' + spelling
+                elif decl.is_union():
+                    spelling = 'union ' + spelling
+                else:
+                    NotImplementedError('\'' + decl.__class__.__name__ + '\'')
             if isinstance(decl, clang.ClassTemplateSpecializationDecl):
                 spelling = spelling.replace('_Bool', 'bool')
             if not spelling in asg._nodes:

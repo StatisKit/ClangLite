@@ -100,32 +100,48 @@ namespace autowig
     std::string named_decl_get_qualified_name(clang::NamedDecl* decl)
     { return decl->getQualifiedNameAsString(); }
 
-    std::string spec_get_name_as_string(clang::ClassTemplateSpecializationDecl* spec)
+    void unset_as_written(std::map< clang::ClassTemplateSpecializationDecl*, clang::TypeSourceInfo* >& mapping, clang::ClassTemplateSpecializationDecl* spec)
     {
-        clang::TypeSourceInfo* tsi = spec->getTypeAsWritten();
+        mapping[spec] = spec->getTypeAsWritten();
         spec->setTypeAsWritten(nullptr);
-        std::string spelling = "";
-        llvm::raw_string_ostream os(spelling);
-        os << spec->getName();
-        const clang::TemplateArgumentList &args = spec->getTemplateArgs();
-        clang::LangOptions lang;
-        lang.CPlusPlus = true;
-        clang::PrintingPolicy policy(lang);
-        policy.SuppressSpecifiers = false;
-        policy.SuppressScope = false;
-        policy.SuppressUnwrittenScope = true;
-        clang::TemplateSpecializationType::PrintTemplateArgumentList(os, args.data(),
-                                                                  args.size(),
-                                                                  policy);
-        spec->setTypeAsWritten(tsi);        
-        return os.str();
+        const clang::TemplateArgumentList &args = spec->getTemplateArgs();        
+        for(unsigned int i = 0; i < args.size(); ++i)
+        {
+            const clang::TemplateArgument & arg = args[i];
+            if(arg.getKind() == clang::TemplateArgument::ArgKind::Type)
+            {
+                clang::QualType qtype = arg.getAsType();
+                const clang::Type* ttype = qtype.getTypePtrOrNull();
+                if(ttype && ttype->isClassType())
+                {
+                    clang::ClassTemplateSpecializationDecl* nspec = dynamic_cast< clang::ClassTemplateSpecializationDecl* >(ttype->getAsTagDecl());
+                    if(nspec)
+                    { unset_as_written(mapping, nspec); }
+                }
+            }
+        }
     }
 
-    clang::NamespaceDecl * decl_cast_as_namespace(clang::DeclContext * decl)
-    { return static_cast< clang::NamespaceDecl * >(decl); }
-
-    clang::RecordDecl * decl_cast_as_record(clang::DeclContext * decl)
-    { return static_cast< clang::RecordDecl * >(decl); }
+    void set_as_written(std::map< clang::ClassTemplateSpecializationDecl*, clang::TypeSourceInfo* >& mapping, clang::ClassTemplateSpecializationDecl* spec)
+    {
+        spec->setTypeAsWritten(mapping[spec]);
+        const clang::TemplateArgumentList &args = spec->getTemplateArgs();        
+        for(unsigned int i = 0; i < args.size(); ++i)
+        {
+            const clang::TemplateArgument & arg = args[i];
+            if(arg.getKind() == clang::TemplateArgument::ArgKind::Type)
+            {
+                clang::QualType qtype = arg.getAsType();
+                const clang::Type* ttype = qtype.getTypePtrOrNull();
+                if(ttype && ttype->isClassType())
+                {
+                    clang::ClassTemplateSpecializationDecl* nspec = dynamic_cast< clang::ClassTemplateSpecializationDecl* >(ttype->getAsTagDecl());
+                    if(nspec)
+                    { set_as_written(mapping, nspec); }
+                }
+            }
+        }
+    }
 
     std::string decl_spelling(const clang::NamedDecl& decl)
     {
@@ -140,6 +156,51 @@ namespace autowig
         decl.getNameForDiagnostic(os, policy, true);
         return os.str();
     }
+
+    std::string ta_spelling(const clang::TemplateArgument& ta)
+    {
+        std::string spelling = "";
+        llvm::raw_string_ostream os(spelling);
+        clang::LangOptions lang;
+        lang.CPlusPlus = true;
+        clang::PrintingPolicy policy(lang);
+        policy.SuppressSpecifiers = false;
+        policy.SuppressScope = false;
+        policy.SuppressUnwrittenScope = true;        
+        ta.print(policy, os);
+        return os.str();
+    }
+
+    std::string spec_get_name_as_string(clang::ClassTemplateSpecializationDecl* spec)
+    {
+        std::map< clang::ClassTemplateSpecializationDecl*, clang::TypeSourceInfo* > mapping;
+        unset_as_written(mapping, spec);
+        //clang::TypeSourceInfo* tsi = spec->getTypeAsWritten();
+        //spec->setTypeAsWritten(nullptr);
+        std::string spelling = "";
+        llvm::raw_string_ostream os(spelling);
+        os << spec->getName();
+        const clang::TemplateArgumentList &args = spec->getTemplateArgs();
+        clang::LangOptions lang;
+        lang.CPlusPlus = true;
+        clang::PrintingPolicy policy(lang);
+        policy.SuppressSpecifiers = false;
+        policy.SuppressScope = false;
+        policy.SuppressUnwrittenScope = true;
+        clang::TemplateSpecializationType::PrintTemplateArgumentList(os, args.data(),
+                                                                  args.size(),
+                                                                  policy);
+        std::string res = os.str();
+        set_as_written(mapping, spec);        
+        //spec->setTypeAsWritten(tsi);        
+        return res;
+    }
+
+    clang::NamespaceDecl * decl_cast_as_namespace(clang::DeclContext * decl)
+    { return static_cast< clang::NamespaceDecl * >(decl); }
+
+    clang::RecordDecl * decl_cast_as_record(clang::DeclContext * decl)
+    { return static_cast< clang::RecordDecl * >(decl); }
 
     unsigned int cxxrecord_get_nb_constructors(const clang::CXXRecordDecl& decl)
     {
@@ -255,6 +316,7 @@ void export_namespace_clang_tooling()
     boost::python::def("decl_cast_as_namespace", ::autowig::decl_cast_as_namespace, boost::python::return_value_policy< boost::python::reference_existing_object >());
     boost::python::def("decl_cast_as_record", ::autowig::decl_cast_as_record, boost::python::return_value_policy< boost::python::reference_existing_object >());
     boost::python::def("decl_spelling", ::autowig::decl_spelling);
+    boost::python::def("ta_spelling", ::autowig::ta_spelling);
     boost::python::def("cxxrecord_get_nb_constructors", ::autowig::cxxrecord_get_nb_constructors);
     boost::python::def("cxxrecord_get_constructor", ::autowig::cxxrecord_get_constructor, boost::python::return_value_policy< boost::python::reference_existing_object >());
     boost::python::def("cxxrecord_is_copyable", ::autowig::cxxrecord_is_copyable);

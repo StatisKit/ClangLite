@@ -150,6 +150,10 @@ if hasattr(clang.tooling, 'decl_spelling'):
     clang.NamedDecl._spelling = clang.tooling.decl_spelling
     del clang.tooling.decl_spelling
 
+if hasattr(clang.tooling, 'ta_spelling'):
+    clang.TemplateArgument.spelling = clang.tooling.ta_spelling
+    del clang.tooling.ta_spelling
+
 def spelling(self):
     spelling = re.sub('::(:*)', '::', re.sub(r'\(anonymous\)', '', self._spelling()))
     if spelling.endswith('::'):
