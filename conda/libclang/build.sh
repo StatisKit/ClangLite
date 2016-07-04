@@ -16,5 +16,6 @@ cmake -G "Unix Makefiles" -DBUILD_SHARED_LIBS=1 \
                           -DCMAKE_CXX_COMPILER=${PREFIX}/bin/g++ \
                           -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,${PREFIX}/lib -L${PREFIX}/lib" \
                           $srcdir
-make -j3
-make install
+timeout 15s make
+timeout 15s make
+#make install
