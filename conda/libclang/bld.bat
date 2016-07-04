@@ -3,7 +3,8 @@ cd tools
 git clone https://github.com/llvm-mirror/clang.git
 cd clang
 git checkout release_38
-cd ../..
+cd ..
+cd ..
 set "srcdir=%cd%"
 cd ..
 mkdir build
