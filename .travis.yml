@@ -13,7 +13,18 @@ before_install:
     - "conda config --set always_yes yes --set changeps1 no"
     - "conda update -q conda"
     - "conda info -a"
+    - "conda install conda-build"
     - "conda build conda/libclang"
 
 install:
     - "conda build conda/python-clanglite"
+
+after_success:
+    - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]]; then
+        anaconda login --username ${ANACONDA_USERNAME%%} --password ${ANACONDA_PASSWORD%%};
+        CONDA_FILE=`conda build conda/libclang --output`; 
+        anaconda upload --user ${ANACONDA_CHANNEL%%} ${CONDA_FILE%%};
+        CONDA_FILE=`conda build conda/python-clanglite --output`; 
+        anaconda upload --user ${ANACONDA_CHANNEL%%} ${CONDA_FILE%%};
+      fi
+    - coveralls
