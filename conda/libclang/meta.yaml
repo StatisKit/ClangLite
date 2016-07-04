@@ -17,3 +17,4 @@ requirements:
     - cmake
     - gcc >=4.8 [linux]
     - libgcc [linux]
+    - gnuwin32 [win]

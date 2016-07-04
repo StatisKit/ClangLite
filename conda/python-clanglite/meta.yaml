@@ -1,0 +1,20 @@
+package:
+  name: python-clanglite
+  version: "3.8"
+
+source:
+  path: ../..
+
+build:
+  number: 1
+
+about:
+  home: pyclanglite.readthedocs.org
+  license: CeCILL-C
+
+requirements:
+  build:
+    - libclang
+  run:
+    - libclang
+    - python

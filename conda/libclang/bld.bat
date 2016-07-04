@@ -1,4 +1,3 @@
-dir
 git checkout release_38
 cd tools
 git clone https://github.com/llvm-mirror/clang.git
@@ -6,12 +5,10 @@ cd clang
 git checkout release_38
 cd ..
 cd ..
-dir
 set "srcdir=%cd%"
 cd ..
 mkdir build
 cd build
-dir
 cmake -G "Visual Studio 12" ^
       -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
       -DLLVM_INCLUDE_TESTS=OFF ^
