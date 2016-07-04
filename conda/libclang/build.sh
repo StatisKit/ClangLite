@@ -1,7 +1,8 @@
 #if [ "$(uname)" == "Linux" ]; then
 #    sudo apt-get install cmake zlib1g-dev scons 
 #fi
-
+CC=${PREFIX}/bin/gcc
+CXX=${PREFIX}/bin/g++
 git checkout release_38
 cd tools
 git clone https://github.com/llvm-mirror/clang.git
