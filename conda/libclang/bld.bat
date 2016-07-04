@@ -12,6 +12,17 @@ cd ..
 mkdir build
 cd build
 dir
-cmake -DBUILD_SHARED_LIBS=1 -DLLVM_ENABLE_RTTI=1 -DCMAKE_INSTALL_PREFIX=%PREFIX% -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,%PREFIX%/lib -L%PREFIX%/lib" %srcdir%
-cmake --build .
-cnmake --build . --target install
+cmake -G "Visual Studio 12" ^
+      -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
+      -DLLVM_INCLUDE_TESTS=OFF ^
+      -DLLVM_INCLUDE_UTILS=OFF ^
+      -DLLVM_INCLUDE_DOCS=OFF ^
+      -DLLVM_INCLUDE_EXAMPLES=OFF ^
+      -DBUILD_SHARED_LIBS=1 ^
+      -DLLVM_ENABLE_RTTI=1 ^
+      -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
+      -DCMAKE_BUILD_TYPE=Release ^
+      -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,%PREFIX%/lib -L%PREFIX%/lib" ^
+      %srcdir%
+cmake --build . --config Release
+cmake --build . --target install --config Release
