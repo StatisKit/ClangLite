@@ -1,6 +1,7 @@
 #if [ "$(uname)" == "Linux" ]; then
 #    sudo apt-get install cmake zlib1g-dev scons 
 #fi
+ls ${PREFIX}
 ls ${PREFIX}/lib | grep libstdc++
 strings ${PREFIX}/lib/libstdc++.so.6 | grep GLIBCXX
 CC=${PREFIX}/bin/gcc
