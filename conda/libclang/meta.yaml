@@ -1,5 +1,5 @@
 package:
-  name: libllvm
+  name: libclang
   version: "3.8"
 
 source:
