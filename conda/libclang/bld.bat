@@ -5,11 +5,13 @@ cd clang
 git checkout release_38
 cd ..
 cd ..
+dir
 set "srcdir=%cd%"
 cd ..
 mkdir build
 cd build
-cmake -G "Visual Studio 12"
+dir
+cmake -G "Visual Studio 9 2008"
       -DBUILD_SHARED_LIBS=1
       -DLLVM_ENABLE_RTTI=1
       -DCMAKE_INSTALL_PREFIX=%PREFIX%
