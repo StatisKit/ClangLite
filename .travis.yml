@@ -17,9 +17,9 @@ before_install:
     - "conda update -q conda"
     - "conda info -a"
     - "conda install conda-build"
+    - "conda build conda/libclang"
 
 install:
-    - "conda build conda/libclang"
     - "conda build conda/python-clanglite"
 
 after_success:
