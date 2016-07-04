@@ -13,5 +13,5 @@ mkdir build
 cd build
 dir
 cmake -DBUILD_SHARED_LIBS=1 -DLLVM_ENABLE_RTTI=1 -DCMAKE_INSTALL_PREFIX=%PREFIX% -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,%PREFIX%/lib -L%PREFIX%/lib" %srcdir%
-make
-make install
+nmake
+nmake install
