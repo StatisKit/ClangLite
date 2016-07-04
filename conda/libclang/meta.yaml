@@ -16,3 +16,4 @@ requirements:
   build:
     - cmake
     - gcc >=4.8
+    - libgcc
