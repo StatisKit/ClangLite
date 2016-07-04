@@ -2,102 +2,104 @@ import warnings
 import uuid
 from path import path
 from autowig.asg import *
-from autowig.parser import preprocessing
+from autowig.parser import pre_processing, post_processing
 
 from .pyclanglite import *
 from .ast import AbstractSyntaxTree
 
-def autowig_parser(asg, headers, flags, bootstrap=True, maximum=1000, inline=True, permissive=True, **kwargs):
-    header = preprocessing(asg, headers, flags)
+def autowig_parser(asg, headers, flags, inline=True, permissive=True, **kwargs):
+    header = pre_processing(asg, headers, flags, **kwargs)
     if header:
         tu = clang.tooling.build_ast_from_code_with_args(header, flags)
         read_translation_unit(asg, tu, inline, permissive)
-        if bootstrap:
-            flags += ['-Wno-unused-value', '-ferror-limit=0']#['-w']
-            index = 0
-            if isinstance(bootstrap, bool):
-                bootstrap = float("Inf")
-            nodes = 0
-            forbidden = set()
-            while not nodes == len(asg) and index < bootstrap:
-                nodes = len(asg)
-                white = []
-                black = set()
-                for node in asg.nodes():
-                    if not node.clean:
-                        white.append(node)
-                        black.add(node._node)
-                gray = set()
-                while len(white) > 0:
-                    node = white.pop()
-                    if isinstance(node, (TypedefProxy, VariableProxy)):
-                        target = node.qualified_type.desugared_type.unqualified_type
-                        if not target._node in black:
-                            white.append(target)
-                            black.add(target._node)
-                    elif isinstance(node, FunctionProxy):
-                        return_type = node.return_type.desugared_type.unqualified_type
-                        if not return_type._node in black:
-                            white.append(return_type)
-                            black.add(return_type._node)
-                        for parameter in node.parameters:
-                            target = parameter.qualified_type.desugared_type.unqualified_type
-                            if not target._node in black:
-                                white.append(target)
-                                black.add(target._node)
-                    elif isinstance(node, ConstructorProxy):
-                        for parameter in node.parameters:
-                            target = parameter.qualified_type.desugared_type.unqualified_type
-                            if not target._node in black:
-                                white.append(target)
-                                black.add(target._node)
-                    elif isinstance(node, ClassProxy):
-                        for base in node.bases():
-                            if base.access == 'public':
-                                if not base._node in black:
-                                    white.append(base)
-                                    black.add(base._node)
-                        for dcl in node.declarations():
-                            try:
-                                if dcl.access == 'public':
-                                    if not dcl._node in black:
-                                        white.append(dcl)
-                                        black.add(dcl._node)
-                            except:
-                                pass
-                        if isinstance(node, ClassTemplateSpecializationProxy):
-                            if not node.is_complete:
-                                gray.add(node._node)
-                            specialize = node.specialize
-                            if not specialize._node in black:
-                                white.append(node.specialize)
-                                black.add(node.specialize._node)
-                        elif not node.is_complete:
-                            gray.add(node._node)
-                    elif isinstance(node, ClassTemplateProxy):
-                        for specialization in node.specializations():
-                            if not specialization._node in black:
-                                white.append(specialization)
-                                black.add(specialization._node)
-                gray = list(gray)
-                for gray in [gray[index:index+maximum] for index in xrange(0, len(gray), maximum)]:
-                    headers = []
-                    for header in asg.headers(*[asg[node] for node in gray]):
-                        headers.append("#include \"" + header.globalname + "\"")
-                    headers.append("")
-                    headers.append("int main(void)")
-                    headers.append("{")
-                    for _index, spc in enumerate(gray):
-                        if not spc in forbidden:
-                            headers.append("\tsizeof(" + spc + ");")
-                    headers.append("\treturn 0;")
-                    headers.append("}")
-                    header = '\n'.join(headers)
-                    forbidden.update(set(gray))
-                    tu = clang.tooling.build_ast_from_code_with_args(header, flags)
-                    read_translation_unit(asg, tu, inline, permissive)
-                    #del tu
-                index += 1
+    post_processing(asg, flags, **kwargs)
+    return asg
+    #    if bootstrap:
+    #        flags += ['-Wno-unused-value', '-ferror-limit=0']#['-w']
+    #        index = 0
+    #        if isinstance(bootstrap, bool):
+    #            bootstrap = float("Inf")
+    #        nodes = 0
+    #        forbidden = set()
+    #        while not nodes == len(asg) and index < bootstrap:
+    #            nodes = len(asg)
+    #            white = []
+    #            black = set()
+    #            for node in asg.nodes():
+    #                if not node.clean:
+    #                    white.append(node)
+    #                    black.add(node._node)
+    #            gray = set()
+    #            while len(white) > 0:
+    #                node = white.pop()
+    #                if isinstance(node, (TypedefProxy, VariableProxy)):
+    #                    target = node.qualified_type.desugared_type.unqualified_type
+    #                    if not target._node in black:
+    #                        white.append(target)
+    #                        black.add(target._node)
+    #                elif isinstance(node, FunctionProxy):
+    #                    return_type = node.return_type.desugared_type.unqualified_type
+    #                    if not return_type._node in black:
+    #                        white.append(return_type)
+    #                        black.add(return_type._node)
+    #                    for parameter in node.parameters:
+    #                        target = parameter.qualified_type.desugared_type.unqualified_type
+    #                        if not target._node in black:
+    #                            white.append(target)
+    #                            black.add(target._node)
+    #                elif isinstance(node, ConstructorProxy):
+    #                    for parameter in node.parameters:
+    #                        target = parameter.qualified_type.desugared_type.unqualified_type
+    #                        if not target._node in black:
+    #                            white.append(target)
+    #                            black.add(target._node)
+    #                elif isinstance(node, ClassProxy):
+    #                    for base in node.bases():
+    #                        if base.access == 'public':
+    #                            if not base._node in black:
+    #                                white.append(base)
+    #                                black.add(base._node)
+    #                    for dcl in node.declarations():
+    #                        try:
+    #                            if dcl.access == 'public':
+    #                                if not dcl._node in black:
+    #                                    white.append(dcl)
+    #                                    black.add(dcl._node)
+    #                        except:
+    #                            pass
+    #                    if isinstance(node, ClassTemplateSpecializationProxy):
+    #                        if not node.is_complete:
+    #                            gray.add(node._node)
+    #                        specialize = node.specialize
+    #                        if not specialize._node in black:
+    #                            white.append(node.specialize)
+    #                            black.add(node.specialize._node)
+    #                    elif not node.is_complete:
+    #                        gray.add(node._node)
+    #                elif isinstance(node, ClassTemplateProxy):
+    #                    for specialization in node.specializations():
+    #                        if not specialization._node in black:
+    #                            white.append(specialization)
+    #                            black.add(specialization._node)
+    #            gray = list(gray)
+    #            for gray in [gray[index:index+maximum] for index in xrange(0, len(gray), maximum)]:
+    #                headers = []
+    #                for header in asg.headers(*[asg[node] for node in gray]):
+    #                    headers.append("#include \"" + header.globalname + "\"")
+    #                headers.append("")
+    #                headers.append("int main(void)")
+    #                headers.append("{")
+    #                for _index, spc in enumerate(gray):
+    #                    if not spc in forbidden:
+    #                        headers.append("\tsizeof(" + spc + ");")
+    #                headers.append("\treturn 0;")
+    #                headers.append("}")
+    #                header = '\n'.join(headers)
+    #                forbidden.update(set(gray))
+    #                tu = clang.tooling.build_ast_from_code_with_args(header, flags)
+    #                read_translation_unit(asg, tu, inline, permissive)
+    #                #del tu
+    #            index += 1
 
 def read_file(asg, spelling, decl):
     ast = decl.get_ast_context()
@@ -285,11 +287,16 @@ def read_enum(asg, decl, inline, permissive, out=True):
             if not spelling.startswith('enum '):
                 spelling = 'enum ' + spelling
             if not spelling in asg._nodes:
-                asg._nodes[spelling] = dict(_proxy=EnumerationProxy)
+                asg._nodes[spelling] = dict(_proxy=EnumerationProxy,
+                        _comment = "",
+                        _is_scoped = decl.is_scoped())
                 asg._syntax_edges[spelling] = []
                 asg._syntax_edges[scope].append(spelling)
                 read_access(asg, decl.get_access_unsafe(), spelling)
             if out and not spelling in asg._read and not asg[spelling].is_complete:
+                asg._nodes[spelling]['_is_scoped'] = decl.is_scoped()
+                if not asg[spelling].comment:
+                    asg._nodes[spelling]['_comment'] = decl.get_comment()
                 asg._read.add(spelling)
                 try:
                     asg._syntax_edges[scope].remove(spelling)
@@ -347,8 +354,9 @@ def read_variable(asg, decl, inline, permissive):
                     target, qualifiers = read_qualified_type(asg, decl.get_type(), inline=inline)
                     if isinstance(asg[scope], ClassProxy):
                         asg._nodes[spelling] = dict(_proxy=FieldProxy,
-                                _is_mutable=False,
-                                _is_static=True)
+                                    _is_mutable=False,
+                                    _is_static=True,
+                                    _is_bit_field=False)
                     elif isinstance(asg[scope], ClassTemplateProxy):
                         return []
                     else:
@@ -429,7 +437,8 @@ def read_function(asg, decl, inline, permissive):
                                             _is_const=decl.is_const(),
                                             _is_volatile=decl.is_volatile(),
                                             _is_virtual=decl.is_virtual(),
-                                            _is_pure=decl.is_pure())
+                                            _is_pure=decl.is_pure(),
+                                            _comment = decl.get_comment())
                             else:
                                 asg._nodes[spelling] = dict(_proxy=ConstructorProxy,
                                         _is_virtual=decl.is_virtual())
@@ -439,7 +448,8 @@ def read_function(asg, decl, inline, permissive):
                     else:
                         if not spelling in asg._nodes:
                             asg._nodes[spelling] = dict(_proxy=DestructorProxy,
-                                    _is_virtual=decl.is_virtual())
+                                    _is_virtual=decl.is_virtual(),
+                                    _comment = decl.get_comment())
                             asg._syntax_edges[scope].append(spelling)
                         read_access(asg, decl.get_access_unsafe(), spelling)
                         return [spelling]
@@ -467,7 +477,8 @@ def read_function(asg, decl, inline, permissive):
                             raise
                     else:
                         asg._type_edges[spelling] = dict(target=target, qualifiers=qualifiers)
-                        asg._nodes[spelling] = dict(_proxy=FunctionProxy)
+                        asg._nodes[spelling] = dict(_proxy=FunctionProxy,
+                                _comment = decl.get_comment())
                         asg._syntax_edges[scope].append(spelling)
                         read_file(asg, spelling, decl)
                         read_access(asg, decl.get_access_unsafe(), spelling)
@@ -498,7 +509,8 @@ def read_field(asg, decl, inline, permissive):
                 asg._type_edges[spelling] = dict(target=target, qualifiers=qualifiers)
                 asg._nodes[spelling] = dict(_proxy=FieldProxy,
                         _is_mutable=decl.is_mutable(),
-                        _is_static=False) # TODO
+                        _is_static=False,
+                        _is_bit_field=decl.is_bit_field()) # TODO
                 asg._syntax_edges[scope].append(spelling)
                 read_access(asg, decl.get_access_unsafe(), spelling)
                 return [spelling]
@@ -545,7 +557,6 @@ def read_tag(asg, decl, inline, permissive, out=True):
     if isinstance(decl, clang.EnumDecl):
         return read_enum(asg, decl, out=out, inline=inline, permissive=permissive)
     elif isinstance(decl, clang.ClassTemplatePartialSpecializationDecl):
-        decl.unset_type_as_written()
         try:
             scope, spelling = read_spelling(asg, decl, inline=inline)
         except NotImplementedError:
@@ -586,8 +597,6 @@ def read_tag(asg, decl, inline, permissive, out=True):
     elif not decl.has_name_for_linkage():
         return []
     else:
-        if isinstance(decl, clang.ClassTemplateSpecializationDecl):
-            decl.unset_type_as_written()
         try:
             scope, spelling = read_spelling(asg, decl, inline=inline)
         except NotImplementedError:
@@ -650,7 +659,8 @@ def read_tag(asg, decl, inline, permissive, out=True):
                             _is_abstract=False,
                             _is_copyable=True,
                             _is_complete=False,
-                            _is_explicit=True)
+                            _is_explicit=True,
+                            _comment = "")
                         asg._specialization_edges[specialize].add(spelling)
                         asg._syntax_edges[spelling] = []
                         asg._base_edges[spelling] = []
@@ -669,6 +679,9 @@ def read_tag(asg, decl, inline, permissive, out=True):
                     asg._syntax_edges[scope].append(spelling)
                     read_access(asg, decl.get_access_unsafe(), spelling)
     if out and not spelling in asg._read and decl.is_complete_definition():
+        if not asg[spelling].comment:
+            if not isinstance(decl, clang.ClassTemplateSpecializationDecl) or decl.is_explicit_specialization():
+                asg._nodes[spelling]['_comment'] = decl.get_comment()
         asg._read.add(spelling)
         try:
             if not asg[spelling].is_complete:
@@ -782,6 +795,12 @@ def read_namespace(asg, decl, inline, permissive, out=True):
                 asg._read.remove(spelling)
             return [spelling]
 
+def read_friend(asg, decl, **kwargs):
+    """
+    """
+    friend = decl.get_friend_decl()
+    return read_decl(asg, friend, **kwargs)
+
 def read_decl(asg, decl, **kwargs):
     """
     """
@@ -814,11 +833,12 @@ def read_decl(asg, decl, **kwargs):
         return read_namespace(asg, decl, **kwargs)
     elif isinstance(decl, clang.TypedefDecl):
         return read_typedef(asg, decl, **kwargs)
+    elif isinstance(decl, clang.FriendDecl):
+        return read_friend(asg, decl, **kwargs)
     elif isinstance(decl, (clang.AccessSpecDecl,
         clang.BlockDecl, clang.CapturedDecl,
         clang.ClassScopeFunctionSpecializationDecl,
-        clang.EmptyDecl, clang.FileScopeAsmDecl,
-        clang.FriendDecl, clang.FriendTemplateDecl,
+        clang.EmptyDecl, clang.FileScopeAsmDecl, clang.FriendTemplateDecl,
         clang.StaticAssertDecl, clang.LabelDecl,
         clang.NamespaceAliasDecl, clang.TemplateDecl,
         clang.TemplateTypeParmDecl, clang.UsingDecl,

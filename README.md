@@ -24,11 +24,11 @@ As a consequence, on a Ubuntu distribution, you should type
 ```bash
 git clone https://github.com/llvm-mirror/llvm.git
 cd llvm
-git reset --hard ccdf189
+git checkout release_38
 cd ..
 git clone https://github.com/llvm-mirror/clang.git
 cd clang
-git reset --hard 334563d
+git checkout release_38
 cd ..
 cd llvm/tools
 ln -s ../../clang

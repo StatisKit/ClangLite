@@ -35,11 +35,15 @@ namespace autowig
     {
         clang::ASTContext & ast = decl->getASTContext();
         clang::SourceManager &  sm = ast.getSourceManager();
-        return ast.getRawCommentForDeclNoCache(decl)->getRawText(sm).str();
+        std::string comment = "";
+        clang::RawComment* rawcomment = ast.getRawCommentForDeclNoCache(decl);
+        if(rawcomment)
+        { comment = rawcomment->getRawText(sm).str(); }
+        return comment;
     }
 
     void unset_type_as_written(clang::ClassTemplateSpecializationDecl* decl)
-    { decl->setTypeAsWritten(nullptr); }
+    { /*decl->setTypeAsWritten(nullptr);*/ }
 
     unsigned int ast_get_nb_children(clang::ASTUnit& ast)
     {
@@ -98,6 +102,8 @@ namespace autowig
 
     std::string spec_get_name_as_string(clang::ClassTemplateSpecializationDecl* spec)
     {
+        clang::TypeSourceInfo* tsi = spec->getTypeAsWritten();
+        spec->setTypeAsWritten(nullptr);
         std::string spelling = "";
         llvm::raw_string_ostream os(spelling);
         os << spec->getName();
@@ -111,6 +117,7 @@ namespace autowig
         clang::TemplateSpecializationType::PrintTemplateArgumentList(os, args.data(),
                                                                   args.size(),
                                                                   policy);
+        spec->setTypeAsWritten(tsi);        
         return os.str();
     }
 
@@ -153,17 +160,21 @@ namespace autowig
     bool cxxrecord_is_copyable(const clang::CXXRecordDecl& decl)
     {
         auto it = decl.ctor_begin();
-        bool res = true;//(it != decl.ctor_end());
-        while(res && it != decl.ctor_end())
+        clang::CXXDestructorDecl* dtor = decl.getDestructor();
+        bool res = !decl.hasUninitializedReferenceMember() && dtor && dtor->getAccess() == clang::AccessSpecifier::AS_public && !dtor->isDeleted() && it != decl.ctor_end();
+        if(res)
         {
-            res = !(*it)->isCopyConstructor();
-            if(res)
-            { ++it; }
+            while(res && it != decl.ctor_end())
+            {
+                res = !(*it)->isCopyConstructor();
+                if(res)
+                { ++it; }
+            }
+            if(!res)
+            { res = (*it)->isDeleted() || (*it)->getAccess() != clang::AccessSpecifier::AS_public; }
+            else
+            { res = !res; }
         }
-        if(!res)
-        { res = (*it)->isDeleted() || (*it)->getAccess() != clang::AccessSpecifier::AS_public; }
-        else
-        { res = !res; }
         return !res;
     }
 
