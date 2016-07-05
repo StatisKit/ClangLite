@@ -1,3 +1,4 @@
+conda install ninja -c conda-forge
 git checkout release_38
 cd tools
 git clone https://github.com/llvm-mirror/clang.git
