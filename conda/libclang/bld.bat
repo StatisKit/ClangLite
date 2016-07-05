@@ -1,6 +1,7 @@
 git checkout release_38
 cd tools
 git clone https://github.com/llvm-mirror/clang.git
+if errorlevel 1 exit 1
 cd clang
 git checkout release_38
 cd ..
@@ -21,7 +22,9 @@ cmake -G "Ninja" ^
       -DCMAKE_BUILD_TYPE=Release ^
       -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,%PREFIX%/lib -L%PREFIX%/lib" ^
       %srcdir%
+if errorlevel 1 exit 1
 ninja lld
+if errorlevel 1 exit 1
 REM msbuild LLVM.sln /m /target:"lld executables\lld"
 REM cmake --build . --config Release
 REM cmake --build . --target install --config Release
