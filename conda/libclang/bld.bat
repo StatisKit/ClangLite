@@ -9,7 +9,7 @@ set "srcdir=%cd%"
 cd ..
 mkdir build
 cd build
-cmake -G "Visual Studio 12" ^
+cmake -G "Visual Studio 12 2013" ^
       -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
       -DLLVM_INCLUDE_TESTS=OFF ^
       -DLLVM_INCLUDE_UTILS=OFF ^
@@ -17,7 +17,7 @@ cmake -G "Visual Studio 12" ^
       -DLLVM_INCLUDE_EXAMPLES=OFF ^
       -DBUILD_SHARED_LIBS=1 ^
       -DLLVM_ENABLE_RTTI=1 ^
-      -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
+      -DCMAKE_INSTALL_PREFIX:PATH=%LIBRARY_PREFIX% ^
       -DCMAKE_BUILD_TYPE=Release ^
       -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,%PREFIX%/lib -L%PREFIX%/lib" ^
       %srcdir%
