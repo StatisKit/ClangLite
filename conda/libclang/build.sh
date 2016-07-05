@@ -21,5 +21,5 @@ cmake -G "Unix Makefiles" -DLLVM_INCLUDE_TESTS=OFF \
                           -DCMAKE_CXX_COMPILER=${PREFIX}/bin/g++ \
                           -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,${PREFIX}/lib -L${PREFIX}/lib" \
                           $srcdir
-make -j4
+make -j6
 make install
