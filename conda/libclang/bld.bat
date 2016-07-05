@@ -9,7 +9,7 @@ set "srcdir=%cd%"
 cd ..
 mkdir build
 cd build
-cmake -G ninja ^
+cmake -G "Ninja" ^
       -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
       -DLLVM_INCLUDE_TESTS=OFF ^
       -DLLVM_INCLUDE_UTILS=OFF ^
