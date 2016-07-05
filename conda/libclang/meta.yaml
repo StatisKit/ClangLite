@@ -15,8 +15,8 @@ about:
 requirements:
   build:
     - cmake
-    - gcc >=4.8 [linux]
-    - libgcc [linux]
+    - gcc >=4.8 [not win]
+    - libgcc [not win]
     - gnuwin32 [win]
 
 test:
