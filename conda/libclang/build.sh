@@ -23,6 +23,7 @@ if [ `uname` == "Linux" ]; then
                           -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,${PREFIX}/lib -L${PREFIX}/lib" \
                           $srcdir;
 else
+    ls ${PREFIX}/bin
     cmake -G "Unix Makefiles" -DLLVM_INCLUDE_TESTS=OFF \
                           -DLLVM_INCLUDE_UTILS=OFF \
                           -DLLVM_INCLUDE_DOCS=OFF \
