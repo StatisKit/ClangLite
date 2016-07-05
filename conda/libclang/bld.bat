@@ -21,5 +21,6 @@ cmake -G "Visual Studio 12 2013" ^
       -DCMAKE_BUILD_TYPE=Release ^
       -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,%PREFIX%/lib -L%PREFIX%/lib" ^
       %srcdir%
-cmake --build . --config Release
-cmake --build . --target install --config Release
+msbuild LLVM.sln /m /target:"lld executables\lld"
+REM cmake --build . --config Release
+REM cmake --build . --target install --config Release

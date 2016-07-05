@@ -18,3 +18,8 @@ requirements:
     - gcc >=4.8 [linux]
     - libgcc [linux]
     - gnuwin32 [win]
+
+test:
+  commands:
+    - llvm-config --libs   [not win]
+    - llc -version         [not win]
