@@ -24,6 +24,7 @@ requirements:
     - libgcc [not win]
     - system [linux]
     - curl [win]
+    - xz [win]
     - gnuwin32 [win]
   run:
     - system [linux]
