@@ -23,8 +23,9 @@ cmake -G "Ninja" ^
       -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,%PREFIX%/lib -L%PREFIX%/lib" ^
       %srcdir%
 if errorlevel 1 exit 1
-ninja lld
+REM ninja lld
+REM if errorlevel 1 exit 1
+msbuild LLVM.sln /target:"lld executables\lld"
 if errorlevel 1 exit 1
-REM msbuild LLVM.sln /m /target:"lld executables\lld"
 REM cmake --build . --config Release
 REM cmake --build . --target install --config Release
