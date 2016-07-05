@@ -23,6 +23,7 @@ requirements:
     - gcc >=4.8 [not win]
     - libgcc [not win]
     - system [linux]
+    - curl [win]
     - gnuwin32 [win]
   run:
     - system [linux]

@@ -1,10 +1,14 @@
-git checkout release_38
+REM git checkout release_38
 cd tools
-git clone https://github.com/llvm-mirror/clang.git
-if errorlevel 1 exit 1
-cd clang
-git checkout release_38
-cd ..
+cd tools
+curl http://llvm.org/releases/3.8.0/cfe-3.8.0.src.tar.xz -O cfe-3.8.0.src.tar.xz
+tar -xvf cfe-3.8.0.src.tar.xz
+mv cfe-3.8.0.src clang
+REM git clone https://github.com/llvm-mirror/clang.git
+REM if errorlevel 1 exit 1
+REM cd clang
+REM git checkout release_38
+REM cd ..
 cd ..
 set "srcdir=%cd%"
 cd ..
