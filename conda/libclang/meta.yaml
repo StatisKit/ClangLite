@@ -3,8 +3,12 @@ package:
   version: "3.8"
 
 source:
-  git_url: https://github.com/llvm-mirror/llvm.git
+  fn: llvm-3.8.0.src.tar.xz
+  url: http://llvm.org/releases/3.8.0/llvm-3.8.0.src.tar.xz
 
+#source:
+#  git_url: https://github.com/llvm-mirror/llvm.git
+#
 build:
   number: 1
 

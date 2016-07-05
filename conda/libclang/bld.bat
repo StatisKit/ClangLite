@@ -26,7 +26,10 @@ if errorlevel 1 exit 1
 cmake --build . --config Release
 dir
 cd Release
+dir
 cd lib
+dir
+cd %LIBRARY_PREFIX%
 dir
 if errorlevel 1 exit 1
 cmake --build . --target install --config Release

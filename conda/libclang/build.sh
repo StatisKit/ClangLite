@@ -1,9 +1,13 @@
-git checkout release_38
+#git checkout release_38
 cd tools
-git clone https://github.com/llvm-mirror/clang.git
-cd clang
-git checkout release_38
-cd ../..
+wget http://llvm.org/releases/3.8.0/cfe-3.8.0.src.tar.xz
+tar -xvf cfe-3.8.0.src.tar.xz
+mv cfe-3.8.0.src clang
+#git clone https://github.com/llvm-mirror/clang.git
+#cd clang
+#git checkout release_38
+#cd ../..
+cd ..
 srcdir=`pwd`
 cd ..
 mkdir build
@@ -37,6 +41,6 @@ else
                           -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,${PREFIX}/lib -L${PREFIX}/lib" \
                           $srcdir;
 fi
-make -j6
+make -j6 VERBOSE=1
 make install
 rm -fr build
