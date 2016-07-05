@@ -10,7 +10,7 @@ set "srcdir=%cd%"
 cd ..
 mkdir build
 cd build
-cmake -G "Visual Studio 9 2008" ^
+cmake -G "Visual Studio 9 2013" ^
       -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
       -DLLVM_INCLUDE_TESTS=OFF ^
       -DLLVM_INCLUDE_UTILS=OFF ^
