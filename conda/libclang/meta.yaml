@@ -15,12 +15,13 @@ about:
 requirements:
   build:
     - cmake
+    - zlib
     - gcc >=4.8 [not win]
     - libgcc [not win]
-    - system [not win]
+    - system [linux]
     - gnuwin32 [win]
   run:
-    - system [not win]
+    - system [linux]
 
 test:
   commands:

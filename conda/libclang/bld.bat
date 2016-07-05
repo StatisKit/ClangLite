@@ -20,7 +20,7 @@ cmake -G "Visual Studio 12 2013" ^
       -DLLVM_ENABLE_RTTI=1 ^
       -DCMAKE_INSTALL_PREFIX:PATH=%LIBRARY_PREFIX% ^
       -DCMAKE_BUILD_TYPE=Release ^
-      -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,%PREFIX%/lib -L%PREFIX%/lib" ^
+      -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,%LIBRARY_PREFIX%/lib -L%LIBRARY_PREFIX%/lib" ^
       %srcdir%
 if errorlevel 1 exit 1
 REM ninja lld
