@@ -23,11 +23,11 @@ cmake -G "Visual Studio 12 2013" ^
       -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,%LIBRARY_PREFIX%/lib -L%LIBRARY_PREFIX%/lib" ^
       %srcdir%
 if errorlevel 1 exit 1
-REM ninja lld
-REM if errorlevel 1 exit 1
-REM msbuild LLVM.sln /target:"lld executables\lld"
-REM if errorlevel 1 exit 1
 cmake --build . --config Release
+dir
+cd Release
+cd lib
+dir
 if errorlevel 1 exit 1
 cmake --build . --target install --config Release
 if errorlevel 1 exit 1
