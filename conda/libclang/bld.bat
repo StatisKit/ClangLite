@@ -1,9 +1,9 @@
-git checkout release_37
+git checkout release_38
 cd tools
 git clone https://github.com/llvm-mirror/clang.git
 if errorlevel 1 exit 1
 cd clang
-git checkout release_37
+git checkout release_38
 cd ..
 cd ..
 set "srcdir=%cd%"
@@ -25,7 +25,9 @@ cmake -G "Visual Studio 12 2013" ^
 if errorlevel 1 exit 1
 REM ninja lld
 REM if errorlevel 1 exit 1
-msbuild LLVM.sln /target:"lld executables\lld"
+REM msbuild LLVM.sln /target:"lld executables\lld"
+REM if errorlevel 1 exit 1
+cmake --build . --config Release
 if errorlevel 1 exit 1
-REM cmake --build . --config Release
-REM cmake --build . --target install --config Release
+cmake --build . --target install --config Release
+if errorlevel 1 exit 1

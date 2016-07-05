@@ -1,9 +1,8 @@
-sudo apt-get install libpthread-stubs0-dev
-git checkout release_37
+git checkout release_38
 cd tools
 git clone https://github.com/llvm-mirror/clang.git
 cd clang
-git checkout release_37
+git checkout release_38
 cd ../..
 srcdir=`pwd`
 cd ..
