@@ -1,8 +1,8 @@
-git checkout release_38
+git checkout release_37
 cd tools
 git clone https://github.com/llvm-mirror/clang.git
 cd clang
-git checkout release_38
+git checkout release_37
 cd ../..
 srcdir=`pwd`
 cd ..

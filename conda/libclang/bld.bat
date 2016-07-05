@@ -1,16 +1,16 @@
-git checkout release_38
+git checkout release_37
 cd tools
 git clone https://github.com/llvm-mirror/clang.git
 if errorlevel 1 exit 1
 cd clang
-git checkout release_38
+git checkout release_37
 cd ..
 cd ..
 set "srcdir=%cd%"
 cd ..
 mkdir build
 cd build
-cmake -G "Ninja" ^
+cmake -G "na" ^
       -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
       -DLLVM_INCLUDE_TESTS=OFF ^
       -DLLVM_INCLUDE_UTILS=OFF ^
