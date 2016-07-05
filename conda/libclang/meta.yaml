@@ -18,6 +18,7 @@ requirements:
     - gcc >=4.8 [linux]
     - libgcc [linux]
     - gnuwin32 [win]
+    - ninja [win]
 
 test:
   commands:

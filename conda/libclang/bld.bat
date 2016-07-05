@@ -9,7 +9,7 @@ set "srcdir=%cd%"
 cd ..
 mkdir build
 cd build
-cmake -G "Visual Studio 12 2013" ^
+cmake -G ninja ^
       -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
       -DLLVM_INCLUDE_TESTS=OFF ^
       -DLLVM_INCLUDE_UTILS=OFF ^
@@ -21,6 +21,7 @@ cmake -G "Visual Studio 12 2013" ^
       -DCMAKE_BUILD_TYPE=Release ^
       -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,%PREFIX%/lib -L%PREFIX%/lib" ^
       %srcdir%
-msbuild LLVM.sln /m /target:"lld executables\lld"
+ninja lld
+REM msbuild LLVM.sln /m /target:"lld executables\lld"
 REM cmake --build . --config Release
 REM cmake --build . --target install --config Release
