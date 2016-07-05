@@ -22,8 +22,7 @@ if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
                           -DCMAKE_CXX_COMPILER=${PREFIX}/bin/g++ \
                           -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,${PREFIX}/lib -L${PREFIX}/lib" \
                           $srcdir;
-fi
-if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+elif [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
     cmake -G "Unix Makefiles" -DLLVM_INCLUDE_TESTS=OFF \
                           -DLLVM_INCLUDE_UTILS=OFF \
                           -DLLVM_INCLUDE_DOCS=OFF \
