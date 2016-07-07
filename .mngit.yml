@@ -1,0 +1,18 @@
+about:
+  authors:
+  - Pierre Fernique
+  - Christophe Pradal
+  brief: A restricted *Python* interface to **Clang** based on the **Boost.Python** library
+  email: statiskit@googlegroups.com
+  name: PyClangLite
+  version: 0.1.0
+authors:
+  basename: AUTHORS.rst
+  format: '* {name} <{email}> ({score})'
+  plugin: commit
+license:
+  basename: LICENSE.rst
+  plugin: CeCILL-C
+  width: 78
+version:
+  plugin: semantic

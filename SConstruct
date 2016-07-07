@@ -1,29 +1,94 @@
 # -*-python-*-
 
 import os
-from openalea.sconsx import config, environ
+import sys
 import subprocess
 
-
-ALEASolution = config.ALEASolution
-
-pj = os.path.join
+AddOption('--prefix',
+  dest='prefix',
+  type='string',
+  nargs=1,
+  action='store',
+  metavar='DIR',
+  help='installation prefix',
+  default='build')
 
 SConsignFile()
 
-options = Variables(['../options.py', 'options.py'], ARGUMENTS)
-tools = ['boost_python']
+# Compiler
+variables = Variables()
 
-env = ALEASolution(options, tools)
+variables.Add(BoolVariable('debug', 
+                      'compilation in a debug mode',
+                       False))
+variables.Add(BoolVariable('warnings',
+                      'compilation with -Wall and similar',
+                      False))
+variables.Add(BoolVariable('static',
+                      '',
+                      False))
+
+operating_system = os.name.lower()
+platform = sys.platform.lower()
+
+if operating_system == 'posix':
+    compilers = ['gcc', 'clang']
+elif operating_system == 'nt' and platform.startswith('win'):
+    compilers = ['mingw', 'msvc']
+else:
+    raise "Add compiler support for the " + operating_system + " operating system"
+
+variables.Add(EnumVariable('compiler',
+                          'compiler tool used for the build',
+                          compilers[0],
+                          compilers))
+
+
+# Update
+
+env = Environment(PREFIX = GetOption('prefix'))
+variables.Update(env)
+
+if platform == 'cygwin':
+    env.AppendUnique(CPPDEFINES = 'SYSTEM_IS__CYGWIN')
+elif platform.startswith('win'):
+    env.AppendUnique(CPPDEFINES = 'WIN32')
+    if env['compiler'] == 'mingw':
+        env['compiler_libs_suffix'] = '-mgw'
+    elif env['compiler'] == 'msvc':
+        env['compiler_libs_suffix'] = '-vc80'
+    else:
+        raise "Add library suffixes support for the " + env['compiler'] + " compiler"
+
+
+# env['build_prefix'] = os.path.abspath(env['build_prefix'])
+# env['build_dir'] = os.path.join(env['build_prefix'], 'src')
+# env['build_bindir'] = os.path.join(env['build_prefix'], 'bin')
+# env['build_libdir'] = os.path.join(env['build_prefix'], 'lib')
+# env['build_includedir'] = os.path.join(env['build_prefix'], 'include')
+
+# for suffix in ['prefix', 'dir', 'bindir', 'libdir', 'includedir']:
+#     if not os.path.exists(env['build_' + suffix]):
+#         os.makedirs(env['build_' + suffix])
+
+env.Prepend(CPPPATH='$PREFIX/include')
+env.Prepend(LIBPATH='$PREFIX/lib')
+
 
 process = subprocess.Popen(['llvm-config', '--includedir'], stdout=subprocess.PIPE)
 out, err = process.communicate()
-env.AppendUnique(CPPPATH=out.strip(),
+cpppath = out.strip()
+if not isinstance(cpppath, list):
+  cpppath = [cpppath]
+env.AppendUnique(CPPPATH=cpppath,
                  CXXFLAGS='-std=c++0x')
 
 process = subprocess.Popen(['llvm-config', '--libdir'], stdout=subprocess.PIPE)
 out, err = process.communicate()
-env.AppendUnique(LIBPATH=out.strip(),
+libpath = out.strip()
+if not isinstance(libpath, list):
+  libpath = [libpath]
+env.AppendUnique(LIBPATH=libpath,
                  LIBS=['boost_python',
                        'clangIndex',
                        'clangARCMigrate',
@@ -54,10 +119,7 @@ process = subprocess.Popen(['llvm-config', '--system-libs'], stdout=subprocess.P
 out, err = process.communicate()
 env.AppendUnique(LIBS=[lib.strip() for lib in out.strip().split('-l') if lib])
 
-# Set build directory
-prefix = env['build_prefix']
-
 # Build stage
-SConscript(pj(prefix,"src/wrapper/SConscript"), exports="env")
+SConscript(os.path.join('src', 'py', 'SConscript'), exports="env")
 
-Default("build")
+Default("python")

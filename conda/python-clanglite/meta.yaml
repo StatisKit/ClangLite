@@ -1,6 +1,6 @@
 package:
   name: python-clanglite
-  version: "3.8"
+  version: "3.8.0"
 
 source:
   path: ../..
@@ -15,6 +15,10 @@ about:
 requirements:
   build:
     - libclang
+    - libboost
+    - scons
+    - pyyaml
   run:
     - libclang
+    - libboost
     - python
