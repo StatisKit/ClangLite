@@ -1,0 +1,26 @@
+package:
+  name: libclang
+  version: "3.8.0"
+
+source:
+  git_url: https://github.com/llvm-mirror/llvm.git
+
+build:
+  number: 1
+
+about:
+  home: http://www.llwm.org/
+  license: The University of Illinois/NCSA Open Source License
+
+requirements:
+  build:
+    - cmake
+    - zlib
+    - system [linux]
+  run:
+    - system [linux]
+
+test:
+  commands:
+    - llvm-config --libs   [not win]
+    - llc -version         [not win]

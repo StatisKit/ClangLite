@@ -1,5 +1,5 @@
-import _pyclanglite
-from __pyclanglite import *
+import _clanglite
+from __clanglite import *
 
 clang.LinkageSpecDecl.language_ids = clang._linkage_spec_decl.language_i_ds
 

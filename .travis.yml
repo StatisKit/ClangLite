@@ -1,0 +1,36 @@
+sudo: required
+
+os:
+    - linux
+    - osx
+
+python: "2.7"
+
+before_install:
+    - if [[ "$TRAVIS_OS_NAME" = "linux" ]]; then
+        wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh;
+      elif [[ "$TRAVIS_OS_NAME" = "osx" ]]; then
+        curl https://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh -o miniconda.sh;
+      fi
+    - "bash miniconda.sh -b -p $HOME/miniconda"
+    - "export PATH=$HOME/miniconda/bin:$PATH"
+    - "conda config --set always_yes yes --set changeps1 no"
+    - "conda update -q conda"
+    - "conda info -a"
+    - "conda install conda-build"
+    - "conda build conda/libclang"
+
+install:
+    - "conda build conda/python-clanglite"
+
+after_success:
+    - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]]; then
+        anaconda login --username ${ANACONDA_USERNAME%%} --password ${ANACONDA_PASSWORD%%};
+        CONDA_FILE=`conda build conda/libclang --output`; 
+        anaconda upload --user ${ANACONDA_CHANNEL%%} ${CONDA_FILE%%};
+        CONDA_FILE=`conda build conda/python-clanglite --output`; 
+        anaconda upload --user ${ANACONDA_CHANNEL%%} ${CONDA_FILE%%};
+      fi
+    - if [[ "$TRAVIS_OS_NAME" = "linux" ]]; then
+        coveralls;
+      fi

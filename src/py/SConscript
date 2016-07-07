@@ -1,0 +1,57 @@
+# -*-python-*-
+
+import os
+import sys
+import itertools
+from distutils import sysconfig
+
+operating_system = os.name.lower()
+platform = sys.platform.lower()
+
+Import("env")
+
+pyenv = env.Clone()
+print pyenv.subst('$CPPPATH')
+
+targets = list(itertools.chain(*[pyenv.SharedObject(None, source) for source in pyenv.Glob('*.cpp')]))
+source = pyenv.File('response_file.rsp')
+with open(source.abspath, 'w') as filehandler:
+    filehandler.write(' '.join(target.abspath.replace('\\','/') + ' ' for target in targets))
+
+pyenv.AppendUnique(LINKFLAGS = ['@' + source.abspath])
+#-c -x c++ -std=c++0x -ftemplate-depth-100 -fPIC -DBOOST_PYTHON_DYNAMIC_LIB -Ibuild/include -I/usr/include/python2.7
+target = str(pyenv.File("clanglite/__clanglite").srcnode()) 
+
+pyenv.AppendUnique(LIBS = ['boost_python', 'python' + sysconfig.get_python_version()])
+pyenv.AppendUnique(CPPPATH = [sysconfig.get_python_inc()])
+
+kwargs = dict()
+
+if operating_system == 'nt':
+    kwargs['SHLIBSUFFIX'] = '.pyd'
+else:
+    kwargs['SHLIBSUFFIX'] = '.so'
+
+kwargs['SHLIBPREFIX'] = ''
+
+if operating_system == "posix":
+    pyenv.AppendUnique(CXXFLAGS = ['-ftemplate-depth-100'])
+pyenv.AppendUnique(CPPDEFINES = ['BOOST_PYTHON_DYNAMIC_LIB'])
+
+if pyenv['compiler'] == 'msvc' and '8.0' in pyenv['MSVS_VERSION']:
+    kwargs['SHLINKCOM'] = [pyenv['SHLINKCOM'],
+    'mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;2']
+
+#if len(targets) > 0:
+if operating_system == 'nt':
+    # Fix bug with Scons 0.97, Solved in newer versions.
+    wrap = pyenv.SharedLibrary(target, [], **kwargs)
+elif platform == 'darwin':
+    wrap = pyenv.LoadableModule(target, [], LDMODULESUFFIX='.so',
+        FRAMEWORKSFLAGS = '-flat_namespace -undefined suppress', **kwargs)
+else:
+    print pyenv.subst('$CPPPATH')
+    wrap = pyenv.LoadableModule(target, [], **kwargs)
+    
+pyenv.Depends(wrap, targets)
+Alias("python", wrap)
