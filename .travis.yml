@@ -17,6 +17,7 @@ before_install:
     - "conda update -q conda"
     - "conda info -a"
     - "conda install conda-build"
+    - "conda install gcc"
     - "conda install -c StatisKit libclang"
 
 install:
