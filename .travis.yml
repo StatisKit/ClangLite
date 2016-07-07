@@ -20,7 +20,7 @@ before_install:
     - "conda install -c StatisKit libclang"
 
 install:
-    - "conda build conda/python-clanglite"
+    - "conda build conda/python-clanglite -c StatisKit"
 
 after_success:
     - coveralls;
