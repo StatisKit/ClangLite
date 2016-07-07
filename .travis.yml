@@ -21,6 +21,16 @@ before_install:
     - "conda install -c salford_systems libgcc-5=5.3.0"
 
 install:
+    - "export export CC=$HOME/miniconda/bin/gcc"
+    - "export CXX=$HOME/miniconda/bin/g++"
+    - "export CPP=$HOME/miniconda/bin/cpp"
+    - "export LD=$HOME/miniconda/bin/gcc"
+    - "alias c++=$HOME/miniconda/bin/c++"
+    - "alias g++=$HOME/miniconda/bin/g++"
+    - "alias gcc=$HOME/miniconda/bin/gcc"
+    - "alias cpp=$HOME/miniconda/bin/cpp"
+    - "alias ld=$HOME/miniconda/bin/gcc"
+    - "alias cc=$HOME/miniconda/bin/gcc"
     - "conda build conda/python-clanglite -c StatisKit"
 
 after_success:
