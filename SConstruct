@@ -74,6 +74,7 @@ elif platform.startswith('win'):
 env.Prepend(CPPPATH='$PREFIX/include')
 env.Prepend(LIBPATH='$PREFIX/lib')
 
+env.Append(CPPDEFINES = '__STDC_LIMIT_MACROS')
 
 process = subprocess.Popen(['llvm-config', '--includedir'], stdout=subprocess.PIPE)
 out, err = process.communicate()
