@@ -16,14 +16,16 @@ requirements:
   build:
     - cmake
     - zlib
-    - system [linux]
-    - gcc-5 [linux]
+    - system   [linux]
+    - gcc-5    [linux]
     - libgcc-5 [linux]
+
   run:
-  - zlib
-  - system [linux]
-  - gcc-5 [linux]
-  - libgcc-5 [linux]
+    - zlib
+    - system   [linux]
+    - gcc-5    [linux]
+    - libgcc-5 [linux]
+
 test:
   commands:
   - llvm-config --libs   [not win]

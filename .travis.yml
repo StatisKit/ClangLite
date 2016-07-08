@@ -17,6 +17,7 @@ before_install:
     - "conda update -q conda"
     - "conda info -a"
     - "conda install conda-build"
+    - "sudo apt-get install binutils*"
     #- "conda install -c salford_systems gcc-5=5.3.0"
     #- "conda install -c salford_systems libgcc-5=5.3.0"
 
