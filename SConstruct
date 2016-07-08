@@ -3,6 +3,8 @@
 import os
 os.system('which gcc')
 os.system('which g++')
+os.system('which ld')
+os.system('ld --version')
 import sys
 import subprocess
 
@@ -83,7 +85,7 @@ env.Prepend(CPPPATH='$PREFIX/include')
 env.Prepend(LIBPATH='$PREFIX/lib')
 
 env.AppendUnique(CXXFLAGS=['-std=c++0x', '-fvisibility-inlines-hidden',
-                     '-ffunction-sections', '-fdata-sections', '-nodefaultlibs'])
+                     '-ffunction-sections', '-fdata-sections', '-Wno-deprecated-declarations'])
 env.Append(CPPDEFINES = ['_GNU_SOURCE', '__STDC_CONSTANT_MACROS',
                          '__STDC_FORMAT_MACROS', '__STDC_LIMIT_MACROS'])
 
