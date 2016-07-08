@@ -51,6 +51,12 @@ variables.Add(EnumVariable('compiler',
 env = Environment(PREFIX = GetOption('prefix'))
 variables.Update(env)
 
+env['CC'] = env['PREFIX'] + os.sep + 'bin' + os.sep + 'gcc'
+env['CXX'] = env['PREFIX'] + os.sep + 'bin' + os.sep + 'g++'
+print env['CC']
+print env['CXX']
+
+
 if platform == 'cygwin':
     env.AppendUnique(CPPDEFINES = 'SYSTEM_IS__CYGWIN')
 elif platform.startswith('win'):
@@ -77,8 +83,7 @@ env.Prepend(CPPPATH='$PREFIX/include')
 env.Prepend(LIBPATH='$PREFIX/lib')
 
 env.AppendUnique(CXXFLAGS=['-std=c++0x', '-fvisibility-inlines-hidden',
-                     '-ffunction-sections', '-fdata-sections',
-                     '-fno-exceptions'])
+                     '-ffunction-sections', '-fdata-sections'])
 env.Append(CPPDEFINES = ['_GNU_SOURCE', '__STDC_CONSTANT_MACROS',
                          '__STDC_FORMAT_MACROS', '__STDC_LIMIT_MACROS'])
 
