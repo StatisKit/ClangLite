@@ -1,7 +1,8 @@
 # -*-python-*-
 
 import os
-os.system('gcc --version')
+os.system('which gcc')
+os.system('which g++')
 import sys
 import subprocess
 
