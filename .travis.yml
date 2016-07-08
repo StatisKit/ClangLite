@@ -11,29 +11,17 @@ before_install:
       elif [[ "$TRAVIS_OS_NAME" = "osx" ]]; then
         curl https://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh -o miniconda.sh;
       fi
-    - "bash miniconda.sh -b -p $HOME/miniconda"
-    - "export PATH=$HOME/miniconda/bin:$PATH"
-    - "conda config --set always_yes yes --set changeps1 no"
-    - "conda update -q conda"
-    - "conda info -a"
-    - "conda install conda-build"
-    - "sudo apt-get install binutils*"
-    #- "conda install -c salford_systems gcc-5=5.3.0"
-    #- "conda install -c salford_systems libgcc-5=5.3.0"
+    - bash miniconda.sh -b -p $HOME/miniconda
+    - export PATH=$HOME/miniconda/bin:$PATH
+    - conda config --set always_yes yes --set changeps1 no
+    - conda update -q conda
+    - conda info -a
+    - conda install conda-build
+    - sudo apt-get install binutils binutils-dev
 
 install:
-    #- "export export CC=$HOME/miniconda/bin/gcc"
-    #- "export CXX=$HOME/miniconda/bin/g++"
-    #- "export CPP=$HOME/miniconda/bin/cpp"
-    #- "export LD=$HOME/miniconda/bin/gcc"
-    #- "alias c++=$HOME/miniconda/bin/c++"
-    #- "alias g++=$HOME/miniconda/bin/g++"
-    #- "alias gcc=$HOME/miniconda/bin/gcc"
-    #- "alias cpp=$HOME/miniconda/bin/cpp"
-    #- "alias ld=$HOME/miniconda/bin/gcc"
-    #- "alias cc=$HOME/miniconda/bin/gcc"
-    - "conda build conda/python-clanglite -c StatisKit -c salford_systems"
+    - conda build conda/python-clanglite -c StatisKit -c salford_systems
 
 after_success:
-    - coveralls;
+    - coveralls
 
