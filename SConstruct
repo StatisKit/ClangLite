@@ -1,6 +1,7 @@
 # -*-python-*-
 
 import os
+os.system('gcc --version')
 import sys
 import subprocess
 
@@ -78,7 +79,7 @@ env.AppendUnique(CXXFLAGS=['-std=c++0x', '-fvisibility-inlines-hidden',
                      '-ffunction-sections', '-fdata-sections',
                      '-fno-exceptions'])
 env.Append(CPPDEFINES = ['_GNU_SOURCE', '__STDC_CONSTANT_MACROS',
-                         '__STDC_FORMAT_MACROS', '__STDC_LIMIT_MACROS']
+                         '__STDC_FORMAT_MACROS', '__STDC_LIMIT_MACROS'])
 
 #process = subprocess.Popen(['llvm-config', '--includedir'], stdout=subprocess.PIPE)
 #out, err = process.communicate()
