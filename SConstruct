@@ -83,7 +83,7 @@ env.Prepend(CPPPATH='$PREFIX/include')
 env.Prepend(LIBPATH='$PREFIX/lib')
 
 env.AppendUnique(CXXFLAGS=['-std=c++0x', '-fvisibility-inlines-hidden',
-                     '-ffunction-sections', '-fdata-sections'])
+                     '-ffunction-sections', '-fdata-sections', '-nodefaultlibs'])
 env.Append(CPPDEFINES = ['_GNU_SOURCE', '__STDC_CONSTANT_MACROS',
                          '__STDC_FORMAT_MACROS', '__STDC_LIMIT_MACROS'])
 
