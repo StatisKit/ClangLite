@@ -31,7 +31,7 @@ install:
     #- "alias cpp=$HOME/miniconda/bin/cpp"
     #- "alias ld=$HOME/miniconda/bin/gcc"
     #- "alias cc=$HOME/miniconda/bin/gcc"
-    - "conda build conda/python-clanglite -c StatisKit"
+    - "conda build conda/python-clanglite -c StatisKit -c salford_systems"
 
 after_success:
     - coveralls;
