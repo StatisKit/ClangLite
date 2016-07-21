@@ -28,6 +28,7 @@ setup(packages = packages.keys(),
       license = config['license']['plugin'],
       package_data = {package: [ "*.so", "*.dll"] for package in packages},
       entry_points = {'autowig.parser': ['pyclanglite = clanglite.autowig_parser:autowig_parser']},
+      zip_safe = False
     )
 
 
