@@ -20,7 +20,7 @@ before_install:
     - sudo apt-get install binutils binutils-dev
 
 install:
-    - conda build conda/python-clanglite -c StatisKit -c salford_systems
+    - conda build conda/python-clanglite -c statiskit
 
 after_success:
     - coveralls
