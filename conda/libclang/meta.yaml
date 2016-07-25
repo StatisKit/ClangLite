@@ -17,14 +17,14 @@ requirements:
     - cmake
     - zlib
     - system   [linux]
-    - gcc    [linux]
-    - libgcc [linux]
+    #- gcc    [linux]
+    #- libgcc [linux]
 
   run:
     - zlib
     - system   [linux]
-    - gcc    [linux]
-    - libgcc [linux]
+    #- gcc    [linux]
+    #- libgcc [linux]
 
 test:
   commands:

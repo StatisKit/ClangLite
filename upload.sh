@@ -1,7 +1,5 @@
 set -e
 
-anaconda login
-
 cd conda
 for i in 'libclang' 'python-clanglite'; do
     conda build ${i%%/} -c statiskit;
