@@ -53,10 +53,10 @@ variables.Add(EnumVariable('compiler',
 env = Environment(PREFIX = GetOption('prefix'))
 variables.Update(env)
 
-env['CC'] = env['PREFIX'] + os.sep + 'bin' + os.sep + 'gcc'
-env['CXX'] = env['PREFIX'] + os.sep + 'bin' + os.sep + 'g++'
-print env['CC']
-print env['CXX']
+#env['CC'] = env['PREFIX'] + os.sep + 'bin' + os.sep + 'gcc'
+#env['CXX'] = env['PREFIX'] + os.sep + 'bin' + os.sep + 'g++'
+#print env['CC']
+#print env['CXX']
 
 
 if platform == 'cygwin':
