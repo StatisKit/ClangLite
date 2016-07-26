@@ -18,14 +18,30 @@ before_install:
     - conda info -a
     - conda install conda-build
     #- sudo apt-get install binutils binutils-dev
-    - if [ "$CXX" == "g++" ]; then sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test; fi
-    - if [ "$CXX" == "clang++" ]; then sudo add-apt-repository -y ppa:h-rayflood/llvm; fi
+    - if [ "$CXX" == "g++" ]; then
+        sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+      fi
+    - if [ "$CXX" == "clang++" ]; then
+        sudo add-apt-repository -y ppa:h-rayflood/llvm;
+      fi
     - sudo apt-get update -qq
-    - if [ "$CXX" = "g++" ]; then sudo apt-get install g++-5; sudo apt-get upgrade; sudo apt-get dist-upgrade; fi
-    - if [ "$CXX" = "g++" ]; then export CXX="g++-5"; fi
-    - if [ "$CXX" == "clang++" ]; then sudo apt-get install --allow-unauthenticated -qq clang-3.4; fi
-    - if [ "$CXX" == "clang++" ]; then export CXX="clang++-3.4"; fi
-
+    - if [ "$CXX" = "g++" ]; then
+        sudo apt-get install g++-5;
+      fi
+    - if [ "$CXX" == "clang++" ]; then 
+        sudo apt-get install --allow-unauthenticated -qq clang-3.4;
+      fi
+    - sudo apt-get upgrade;
+    - sudo apt-get dist-upgrade;
+    - if [ "$CXX" = "g++" ]; then
+        sudo update-alternatives --auto g++;
+        sudo update-alternatives --auto gcc;
+      fi
+    - if [ "$CXX" == "clang++" ]; then 
+        sudo update-alternatives --auto clang++;
+        sudo update-alternatives --auto clang;
+      fi
+      
 install:
     - conda build conda/python-clanglite -c statiskit
 
