@@ -34,6 +34,8 @@ before_install:
     - if [ "$CXX" = "g++" ]; then
         sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 100;
         sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 100;
+        sudo update-alternatives --set g++ /usr/bin/g++-5;
+        sudo update-alternatives --set gcc /usr/bin/gcc-5;
       fi
     - if [ "$CXX" == "clang++" ]; then 
         sudo update-alternatives --auto clang++;
