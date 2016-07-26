@@ -37,6 +37,8 @@ before_install:
         sudo update-alternatives --set g++ /usr/bin/g++-5;
         sudo update-alternatives --set gcc /usr/bin/gcc-5;
       fi
+    - g++ --version
+    - gcc --version
     - if [ "$CXX" == "clang++" ]; then 
         sudo update-alternatives --auto clang++;
         sudo update-alternatives --auto clang;
