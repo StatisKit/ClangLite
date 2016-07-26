@@ -29,7 +29,7 @@ before_install:
     - if [ "$CXX" == "clang++" ]; then 
         sudo apt-get install --allow-unauthenticated -qq clang-3.4;
       fi
-    - sudo apt-get -y upgrade;
+    #- sudo apt-get -y upgrade;
     #- sudo apt-get dist-upgrade;
     - if [ "$CXX" = "g++" ]; then
         sudo update-alternatives --auto g++;
@@ -41,6 +41,7 @@ before_install:
       fi
 
 install:
+    - conda build conda/libclang -c statiskit
     - conda build conda/python-clanglite -c statiskit
 
 after_success:
