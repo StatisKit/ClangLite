@@ -19,7 +19,7 @@ before_install:
     - conda install conda-build
     #- sudo apt-get install binutils binutils-dev
     - if [ "$CXX" == "g++" ]; then
-        sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+        sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test;
       fi
     - if [ "$CXX" == "clang++" ]; then
         sudo add-apt-repository -y ppa:h-rayflood/llvm;
@@ -41,7 +41,7 @@ before_install:
         sudo update-alternatives --auto clang++;
         sudo update-alternatives --auto clang;
       fi
-      
+
 install:
     - conda build conda/python-clanglite -c statiskit
 
