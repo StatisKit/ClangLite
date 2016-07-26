@@ -36,6 +36,8 @@ before_install:
         sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 100;
         sudo update-alternatives --set g++ /usr/bin/g++-5;
         sudo update-alternatives --set gcc /usr/bin/gcc-5;
+        export CC=/usr/bin/gcc-5;
+        export CXX=/user/bin/g++-5;
       fi
     - g++ --version
     - gcc --version
