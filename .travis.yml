@@ -31,8 +31,8 @@ before_install:
     - if [ "$CXX" == "clang++" ]; then 
         sudo apt-get install --allow-unauthenticated -qq clang-3.4;
       fi
-    - sudo apt-get upgrade;
-    - sudo apt-get dist-upgrade;
+    #- sudo apt-get upgrade;
+    #- sudo apt-get dist-upgrade;
     - if [ "$CXX" = "g++" ]; then
         sudo update-alternatives --auto g++;
         sudo update-alternatives --auto gcc;
