@@ -17,7 +17,7 @@ before_install:
     - conda info -a
     - conda install conda-build
 
-install:
+script:
     - conda build conda/python-clanglite -c statiskit
 
 #after_success:
