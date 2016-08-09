@@ -16,9 +16,20 @@ before_install:
     - conda update -q conda
     - conda info -a
     - conda install conda-build
+    - pip install python-coveralls
+
+before_script:
+  - conda build conda/python-clanglite -c statiskit --no-test
 
 script:
-    - conda build conda/python-clanglite -c statiskit
-
-#after_success:
-#    - coveralls
+  - conda install python-clanglite -c statiskit --use-local
+  #- nosetest test -v --with-coverage --cover-package=autowig
+  
+after_success:
+  - coveralls
+  - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]]; then
+      conda install anaconda-client
+      anaconda login --username ${ANACONDA_USERNAME%%} --password ${ANACONDA_PASSWORD%%};
+      CONDA_FILE=`conda build conda/python-clanglite --output`; 
+      anaconda upload --user ${ANACONDA_CHANNEL%%} ${CONDA_FILE%%};
+    fi
