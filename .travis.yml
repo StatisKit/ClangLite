@@ -1,10 +1,8 @@
 sudo: required
+dist: trusty
+language: cpp
 
-os:
-    - linux
-    - osx
-
-python: "2.7"
+os: linux
 
 before_install:
     - if [[ "$TRAVIS_OS_NAME" = "linux" ]]; then
@@ -12,25 +10,26 @@ before_install:
       elif [[ "$TRAVIS_OS_NAME" = "osx" ]]; then
         curl https://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh -o miniconda.sh;
       fi
-    - "bash miniconda.sh -b -p $HOME/miniconda"
-    - "export PATH=$HOME/miniconda/bin:$PATH"
-    - "conda config --set always_yes yes --set changeps1 no"
-    - "conda update -q conda"
-    - "conda info -a"
-    - "conda install conda-build"
-    - "conda build conda/libclang"
+    - bash miniconda.sh -b -p $HOME/miniconda
+    - export PATH=$HOME/miniconda/bin:$PATH
+    - conda config --set always_yes yes --set changeps1 no
+    - conda update -q conda
+    - conda info -a
+    - conda install conda-build
+    - pip install python-coveralls
 
-install:
-    - "conda build conda/python-clanglite"
+before_script:
+  - conda build conda/python-clanglite -c statiskit --no-test
 
+script:
+  - conda install python-clanglite -c statiskit --use-local
+  #- nosetest test -v --with-coverage --cover-package=autowig
+  
 after_success:
-    - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]]; then
-        anaconda login --username ${ANACONDA_USERNAME%%} --password ${ANACONDA_PASSWORD%%};
-        CONDA_FILE=`conda build conda/libclang --output`; 
-        anaconda upload --user ${ANACONDA_CHANNEL%%} ${CONDA_FILE%%};
-        CONDA_FILE=`conda build conda/python-clanglite --output`; 
-        anaconda upload --user ${ANACONDA_CHANNEL%%} ${CONDA_FILE%%};
-      fi
-    - if [[ "$TRAVIS_OS_NAME" = "linux" ]]; then
-        coveralls;
-      fi
+  - coveralls
+  - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]]; then
+      conda install anaconda-client
+      anaconda login --username ${ANACONDA_USERNAME%%} --password ${ANACONDA_PASSWORD%%};
+      CONDA_FILE=`conda build conda/python-clanglite --output`; 
+      anaconda upload --user ${ANACONDA_CHANNEL%%} ${CONDA_FILE%%};
+    fi

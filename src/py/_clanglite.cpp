@@ -145,7 +145,7 @@ void class_clang_class_template_specialization_decl();
 void class_clang_cxx_constructor_decl();
 void class_clang_class_template_partial_specialization_decl();
 
-BOOST_PYTHON_MODULE(__pyclanglite)
+BOOST_PYTHON_MODULE(__clanglite)
 {
     enumeration_clang_builtin_type_kind();
     class_clang_qual_type();

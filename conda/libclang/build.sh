@@ -13,13 +13,14 @@ cmake -G "Unix Makefiles" -DLLVM_INCLUDE_TESTS=OFF \
                           -DLLVM_INCLUDE_DOCS=OFF \
                           -DLLVM_INCLUDE_EXAMPLES=OFF \
                           -DLLVM_ENABLE_TERMINFO=OFF \
-                          -DBUILD_SHARED_LIBS=1 \
                           -DLLVM_ENABLE_RTTI=1 \
                           -DCMAKE_INSTALL_PREFIX=${PREFIX} \
                           -DCMAKE_BUILD_TYPE=Release \
-                          -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,${PREFIX}/lib -L${PREFIX}/lib" \
+                          -DGCC_INSTALL_PREFIX=${PREFIX} \
+                          -DCMAKE_CXX_LINK_FLAGS="-L${PREFIX}/lib -Wl,-rpath,${PREFIX}/lib" \
                           $SRC_DIR;
 make -j$CPU_COUNT VERBOSE=1
 make install
 cd ..
 rm -fr $BLD_DIR
+echo "FINISHED"

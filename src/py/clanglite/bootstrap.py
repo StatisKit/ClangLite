@@ -1,8 +1,8 @@
 import re
 import time
-from vplants.autowig.asg import FileProxy
-from vplants.autowig.middle_end import middle_end
-from vplants.autowig.tools import lower
+from autowig.asg import FileProxy
+from autowig.middle_end import middle_end
+from autowig.tools import lower
 
 class BootstrapMiddleEndPlugin(object):
     """PyClangLite bootstrap plugin for the AutoWIG middle-end"""

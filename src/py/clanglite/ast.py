@@ -6,7 +6,7 @@ except:
 import subprocess
 from path import path
 
-from .pyclanglite import *
+from .clanglite import *
 
 __all__ = ['AbstractSyntaxTree']
 

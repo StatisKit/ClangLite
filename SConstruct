@@ -1,6 +1,10 @@
 # -*-python-*-
 
 import os
+os.system('which gcc')
+os.system('which g++')
+os.system('which ld')
+os.system('ld --version')
 import sys
 import subprocess
 
@@ -49,6 +53,12 @@ variables.Add(EnumVariable('compiler',
 env = Environment(PREFIX = GetOption('prefix'))
 variables.Update(env)
 
+#env['CC'] = env['PREFIX'] + os.sep + 'bin' + os.sep + 'gcc'
+#env['CXX'] = env['PREFIX'] + os.sep + 'bin' + os.sep + 'g++'
+#print env['CC']
+#print env['CXX']
+
+
 if platform == 'cygwin':
     env.AppendUnique(CPPDEFINES = 'SYSTEM_IS__CYGWIN')
 elif platform.startswith('win'):
@@ -74,22 +84,26 @@ elif platform.startswith('win'):
 env.Prepend(CPPPATH='$PREFIX/include')
 env.Prepend(LIBPATH='$PREFIX/lib')
 
+env.AppendUnique(CXXFLAGS=['-std=c++0x', '-fvisibility-inlines-hidden',
+                     '-ffunction-sections', '-fdata-sections', '-Wno-deprecated-declarations'])
+env.Append(CPPDEFINES = ['_GNU_SOURCE', '__STDC_CONSTANT_MACROS',
+                         '__STDC_FORMAT_MACROS', '__STDC_LIMIT_MACROS'])
 
-process = subprocess.Popen(['llvm-config', '--includedir'], stdout=subprocess.PIPE)
-out, err = process.communicate()
-cpppath = out.strip()
-if not isinstance(cpppath, list):
-  cpppath = [cpppath]
-env.AppendUnique(CPPPATH=cpppath,
-                 CXXFLAGS='-std=c++0x')
+#process = subprocess.Popen(['llvm-config', '--includedir'], stdout=subprocess.PIPE)
+#out, err = process.communicate()
+#cpppath = out.strip()
+#if not isinstance(cpppath, list):
+#  cpppath = [cpppath]
+#env.AppendUnique(CPPPATH=cpppath,
+#                 CXXFLAGS='-std=c++0x')
 
-process = subprocess.Popen(['llvm-config', '--libdir'], stdout=subprocess.PIPE)
-out, err = process.communicate()
-libpath = out.strip()
-if not isinstance(libpath, list):
-  libpath = [libpath]
-env.AppendUnique(LIBPATH=libpath,
-                 LIBS=['boost_python',
+#process = subprocess.Popen(['llvm-config', '--libdir'], stdout=subprocess.PIPE)
+#out, err = process.communicate()
+#libpath = out.strip()
+#if not isinstance(libpath, list):
+# libpath = [libpath]
+#env.AppendUnique(LIBPATH=libpath)
+env.AppendUnique(LIBS=['boost_python',
                        'clangIndex',
                        'clangARCMigrate',
                        'clangRewriteFrontend',

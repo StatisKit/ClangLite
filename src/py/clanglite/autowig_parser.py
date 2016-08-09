@@ -4,7 +4,7 @@ from path import path
 from autowig.asg import *
 from autowig.parser import pre_processing, post_processing
 
-from .pyclanglite import *
+from .clanglite import *
 from .ast import AbstractSyntaxTree
 
 def autowig_parser(asg, headers, flags, inline=True, permissive=True, **kwargs):

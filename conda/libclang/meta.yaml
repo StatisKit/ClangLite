@@ -6,7 +6,7 @@ source:
   git_url: https://github.com/llvm-mirror/llvm.git
 
 build:
-  number: 1
+  number: 0
 
 about:
   home: http://www.llwm.org/
@@ -16,11 +16,17 @@ requirements:
   build:
     - cmake
     - zlib
-    - system [linux]
+    #- system   [linux]
+    #- gcc    [linux]
+    #- libgcc [linux]
+
   run:
-    - system [linux]
+    - zlib
+    #- system   [linux]
+    #- gcc    [linux]
+    #- libgcc [linux]
 
 test:
   commands:
-    - llvm-config --libs   [not win]
-    - llc -version         [not win]
+  - llvm-config --libs   [not win]
+  - llc -version         [not win]
