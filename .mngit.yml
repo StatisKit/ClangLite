@@ -2,7 +2,7 @@ about:
   authors:
   - Pierre Fernique
   - Christophe Pradal
-  brief: A restricted *Python* interface to **Clang** based on the **Boost.Python** library
+  brief: A *Python* interface to **Clang**
   email: statiskit@googlegroups.com
   name: PyClangLite
   version: 0.1.0
