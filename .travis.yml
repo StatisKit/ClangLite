@@ -16,39 +16,8 @@ before_install:
     - conda update -q conda
     - conda info -a
     - conda install conda-build
-    #- sudo apt-get install binutils binutils-dev
-    # - if [ "$CXX" == "g++" ]; then
-    #     sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test;
-    #   fi
-    # - if [ "$CXX" == "clang++" ]; then
-    #     sudo add-apt-repository -y ppa:h-rayflood/llvm;
-    #   fi
-    # - sudo apt-get update -qq
-    # - if [ "$CXX" = "g++" ]; then
-    #     sudo apt-get install g++-5;
-    #   fi
-    # - if [ "$CXX" == "clang++" ]; then 
-    #     sudo apt-get install --allow-unauthenticated -qq clang-3.4;
-    #   fi
-    # #- sudo apt-get -y upgrade;
-    # #- sudo apt-get dist-upgrade;
-    # - if [ "$CXX" = "g++" ]; then
-    #     sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 100;
-    #     sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 100;
-    #     sudo update-alternatives --set g++ /usr/bin/g++-5;
-    #     sudo update-alternatives --set gcc /usr/bin/gcc-5;
-    #     export CC=/usr/bin/gcc-5;
-    #     export CXX=/user/bin/g++-5;
-    #   fi
-    # - g++ --version
-    # - gcc --version
-    # - if [ "$CXX" == "clang++" ]; then 
-    #     sudo update-alternatives --auto clang++;
-    #     sudo update-alternatives --auto clang;
-    #   fi
 
 install:
-    - conda build conda/libclang -c statiskit
     - conda build conda/python-clanglite -c statiskit
 
 after_success:

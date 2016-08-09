@@ -16,13 +16,13 @@ requirements:
   build:
     - cmake
     - zlib
-    - system   [linux]
+    #- system   [linux]
     #- gcc    [linux]
     #- libgcc [linux]
 
   run:
     - zlib
-    - system   [linux]
+    #- system   [linux]
     #- gcc    [linux]
     #- libgcc [linux]
 
