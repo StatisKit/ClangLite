@@ -1,9 +1,8 @@
 sudo: required
 dist: trusty
-language: python
+language: cpp
 
-os:
-    - linux
+os: linux
 
 before_install:
     - if [[ "$TRAVIS_OS_NAME" = "linux" ]]; then
@@ -21,6 +20,5 @@ before_install:
 install:
     - conda build conda/python-clanglite -c statiskit
 
-after_success:
-    - coveralls
-
+#after_success:
+#    - coveralls
