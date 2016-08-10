@@ -17,6 +17,8 @@ before_install:
     - conda info -a
     - conda install conda-build
     - pip install python-coveralls
+    - conda install libclang -c statiskit
+    - clang++ -x c++ -v -E /dev/null
 
 before_script:
   - conda build conda/python-clanglite -c statiskit --no-test
