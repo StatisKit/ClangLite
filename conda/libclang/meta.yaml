@@ -30,3 +30,5 @@ test:
   commands:
   - llvm-config --libs   [not win]
   - llc -version         [not win]
+  - clang++ -x c++ -v -E /dev/null [not win]
+  - clang -x c -v -E /dev/null [not win]

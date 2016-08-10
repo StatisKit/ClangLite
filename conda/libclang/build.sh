@@ -16,8 +16,6 @@ cmake -G "Unix Makefiles" -DLLVM_INCLUDE_TESTS=OFF \
                           -DLLVM_ENABLE_RTTI=1 \
                           -DCMAKE_INSTALL_PREFIX=${PREFIX} \
                           -DCMAKE_BUILD_TYPE=Release \
-                          -DGCC_INSTALL_PREFIX=${PREFIX} \
-                          -DCMAKE_CXX_LINK_FLAGS="-L${PREFIX}/lib -Wl,-rpath,${PREFIX}/lib" \
                           $SRC_DIR;
 make -j$CPU_COUNT VERBOSE=1
 make install
