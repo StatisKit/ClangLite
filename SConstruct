@@ -134,6 +134,7 @@ out, err = process.communicate()
 env.AppendUnique(LIBS=[lib.strip() for lib in out.strip().split('-l') if lib])
 
 # Build stage
+SConscript(os.path.join('src', 'cpp', 'SConscript'), exports="env")
 SConscript(os.path.join('src', 'py', 'SConscript'), exports="env")
 
-Default("python")
+Default("build")
