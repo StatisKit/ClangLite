@@ -1,0 +1,23 @@
+package:
+  name: libclanglite
+  version: "3.8.0"
+
+source:
+  path: ../..
+
+build:
+  number: 0
+
+about:
+  home: pyclanglite.readthedocs.org
+  license: CeCILL-C
+
+requirements:
+  build:
+    - libclang
+    - libboost
+    - scons
+    - pyyaml
+  run:
+    - libclang
+    - libboost

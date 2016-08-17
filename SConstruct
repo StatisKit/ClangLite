@@ -1,12 +1,9 @@
 # -*-python-*-
 
 import os
-os.system('which gcc')
-os.system('which g++')
-os.system('which ld')
-os.system('ld --version')
 import sys
 import subprocess
+from distutils import sysconfig
 
 AddOption('--prefix',
   dest='prefix',
@@ -48,15 +45,8 @@ variables.Add(EnumVariable('compiler',
                           compilers))
 
 
-# Update
-
 env = Environment(PREFIX = GetOption('prefix'))
 variables.Update(env)
-
-#env['CC'] = env['PREFIX'] + os.sep + 'bin' + os.sep + 'gcc'
-#env['CXX'] = env['PREFIX'] + os.sep + 'bin' + os.sep + 'g++'
-#print env['CC']
-#print env['CXX']
 
 
 if platform == 'cygwin':
@@ -71,15 +61,10 @@ elif platform.startswith('win'):
         raise "Add library suffixes support for the " + env['compiler'] + " compiler"
 
 
-# env['build_prefix'] = os.path.abspath(env['build_prefix'])
-# env['build_dir'] = os.path.join(env['build_prefix'], 'src')
-# env['build_bindir'] = os.path.join(env['build_prefix'], 'bin')
-# env['build_libdir'] = os.path.join(env['build_prefix'], 'lib')
-# env['build_includedir'] = os.path.join(env['build_prefix'], 'include')
+env.AppendUnique(LIBS = ['boost_python', 'python' + sysconfig.get_python_version()])
+env.AppendUnique(CPPPATH = [sysconfig.get_python_inc()])
+env.AppendUnique(CPPDEFINES = ['BOOST_PYTHON_DYNAMIC_LIB'])
 
-# for suffix in ['prefix', 'dir', 'bindir', 'libdir', 'includedir']:
-#     if not os.path.exists(env['build_' + suffix]):
-#         os.makedirs(env['build_' + suffix])
 
 env.Prepend(CPPPATH='$PREFIX/include')
 env.Prepend(LIBPATH='$PREFIX/lib')
@@ -89,20 +74,6 @@ env.AppendUnique(CXXFLAGS=['-std=c++0x', '-fvisibility-inlines-hidden',
 env.Append(CPPDEFINES = ['_GNU_SOURCE', '__STDC_CONSTANT_MACROS',
                          '__STDC_FORMAT_MACROS', '__STDC_LIMIT_MACROS'])
 
-#process = subprocess.Popen(['llvm-config', '--includedir'], stdout=subprocess.PIPE)
-#out, err = process.communicate()
-#cpppath = out.strip()
-#if not isinstance(cpppath, list):
-#  cpppath = [cpppath]
-#env.AppendUnique(CPPPATH=cpppath,
-#                 CXXFLAGS='-std=c++0x')
-
-#process = subprocess.Popen(['llvm-config', '--libdir'], stdout=subprocess.PIPE)
-#out, err = process.communicate()
-#libpath = out.strip()
-#if not isinstance(libpath, list):
-# libpath = [libpath]
-#env.AppendUnique(LIBPATH=libpath)
 env.AppendUnique(LIBS=['boost_python',
                        'clangIndex',
                        'clangARCMigrate',
@@ -134,6 +105,7 @@ out, err = process.communicate()
 env.AppendUnique(LIBS=[lib.strip() for lib in out.strip().split('-l') if lib])
 
 # Build stage
+SConscript(os.path.join('src', 'cpp', 'SConscript'), exports="env")
 SConscript(os.path.join('src', 'py', 'SConscript'), exports="env")
 
-Default("python")
+Default("build")

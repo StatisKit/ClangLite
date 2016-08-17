@@ -1,2 +1,2 @@
-scons python --prefix=$PREFIX -j$CPU_COUNT
+scons py --prefix=$PREFIX -j6
 $PYTHON setup.py install
