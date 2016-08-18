@@ -33,7 +33,7 @@ kwargs['SHLIBPREFIX'] = ''
 
 screen = open('/dev/tty', 'w')
 count = 0
-def progress_function(node)
+def progress_function(node):
     count += 1
     screen.write('[' + str(int(count/float(len(targets) + 1) * 100)) + '\%] ')
 
