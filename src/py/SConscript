@@ -31,15 +31,6 @@ else:
 
 kwargs['SHLIBPREFIX'] = ''
 
-screen = open('/dev/tty', 'w')
-count = 0
-def progress_function(node):
-    global count
-    count += 1
-    screen.write('[' + str(int(count/float(len(targets) + 1) * 100)) + '\%] ')
-
-Progress(progress_function)
-
 if operating_system == "posix":
     pyenv.AppendUnique(CXXFLAGS = ['-ftemplate-depth-100'])
 
