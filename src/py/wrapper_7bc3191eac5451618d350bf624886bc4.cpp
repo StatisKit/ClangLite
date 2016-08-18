@@ -14,13 +14,13 @@ void wrapper_7bc3191eac5451618d350bf624886bc4()
     boost::python::scope().attr("_template_argument") = module_c135a712d4ea5ecca5fd38e224a91e4a;
     boost::python::scope scope_c135a712d4ea5ecca5fd38e224a91e4a = module_c135a712d4ea5ecca5fd38e224a91e4a;
     boost::python::enum_< enum ::clang::TemplateArgument::ArgKind >("arg_kind")
+        .value("DECLARATION", ::clang::TemplateArgument::Declaration)
+        .value("EXPRESSION", ::clang::TemplateArgument::Expression)
+        .value("INTEGRAL", ::clang::TemplateArgument::Integral)
+        .value("NULL", ::clang::TemplateArgument::Null)
         .value("NULL_PTR", ::clang::TemplateArgument::NullPtr)
         .value("PACK", ::clang::TemplateArgument::Pack)
         .value("TEMPLATE", ::clang::TemplateArgument::Template)
-        .value("TYPE", ::clang::TemplateArgument::Type)
-        .value("INTEGRAL", ::clang::TemplateArgument::Integral)
-        .value("NULL", ::clang::TemplateArgument::Null)
-        .value("DECLARATION", ::clang::TemplateArgument::Declaration)
         .value("TEMPLATE_EXPANSION", ::clang::TemplateArgument::TemplateExpansion)
-        .value("EXPRESSION", ::clang::TemplateArgument::Expression);
+        .value("TYPE", ::clang::TemplateArgument::Type);
 }

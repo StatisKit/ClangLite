@@ -16,13 +16,13 @@ void wrapper_c250e00bbfb75b9aacb637fd13b46571()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (::clang::ReferenceType::*method_pointer_e3099d7e221b50799bf4882925c961f0)() const = &::clang::ReferenceType::isSpelledAsLValue;
-    bool  (*method_pointer_5a448b00d52552d5a3513c39414e1139)(class ::clang::Type  const *) = ::clang::ReferenceType::classof;
-    bool  (::clang::ReferenceType::*method_pointer_a27792730cde5c998a429071ba417d48)() const = &::clang::ReferenceType::isInnerRef;
+    bool  (*method_pointer_d7f724d3bc7e5708b9a770a159cfce78)(class ::clang::Type  const *) = ::clang::ReferenceType::classof;
+    bool  (::clang::ReferenceType::*method_pointer_2978ee03be105979ba4fc86f6cfbe543)() const = &::clang::ReferenceType::isInnerRef;
+    bool  (::clang::ReferenceType::*method_pointer_9165807f46f95ae0b0a1945aa75b3792)() const = &::clang::ReferenceType::isSpelledAsLValue;
     boost::python::class_< class ::clang::ReferenceType, autowig::HeldType< class ::clang::ReferenceType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_c250e00bbfb75b9aacb637fd13b46571("ReferenceType", "", boost::python::no_init);
-    class_c250e00bbfb75b9aacb637fd13b46571.def("is_spelled_as_l_value", method_pointer_e3099d7e221b50799bf4882925c961f0, "");
-    class_c250e00bbfb75b9aacb637fd13b46571.def("classof", method_pointer_5a448b00d52552d5a3513c39414e1139, "");
-    class_c250e00bbfb75b9aacb637fd13b46571.def("is_inner_ref", method_pointer_a27792730cde5c998a429071ba417d48, "");
+    class_c250e00bbfb75b9aacb637fd13b46571.def("classof", method_pointer_d7f724d3bc7e5708b9a770a159cfce78, "");
+    class_c250e00bbfb75b9aacb637fd13b46571.def("is_inner_ref", method_pointer_2978ee03be105979ba4fc86f6cfbe543, "");
+    class_c250e00bbfb75b9aacb637fd13b46571.def("is_spelled_as_l_value", method_pointer_9165807f46f95ae0b0a1945aa75b3792, "");
     class_c250e00bbfb75b9aacb637fd13b46571.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::ReferenceType > >::value)

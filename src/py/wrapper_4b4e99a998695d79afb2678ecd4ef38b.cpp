@@ -11,7 +11,7 @@ void wrapper_4b4e99a998695d79afb2678ecd4ef38b()
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
     boost::python::enum_< enum ::clang::AccessSpecifier >("access_specifier")
         .value("AS__NONE", ::clang::AS_none)
-        .value("AS__PUBLIC", ::clang::AS_public)
+        .value("AS__PRIVATE", ::clang::AS_private)
         .value("AS__PROTECTED", ::clang::AS_protected)
-        .value("AS__PRIVATE", ::clang::AS_private);
+        .value("AS__PUBLIC", ::clang::AS_public);
 }
