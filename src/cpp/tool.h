@@ -534,7 +534,6 @@
 #include <clang/CodeGen/CodeGenAction.h>
 #include <clang/CodeGen/ModuleBuilder.h>
 #include <clang/CodeGen/ObjectFilePCHContainerOperations.h>
-#include <clang/Config/config.h>
 #include <clang/Driver/Action.h>
 #include <clang/Driver/Compilation.h>
 #include <clang/Driver/Driver.h>
