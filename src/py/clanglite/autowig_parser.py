@@ -10,96 +10,10 @@ from .ast import AbstractSyntaxTree
 def autowig_parser(asg, headers, flags, inline=True, permissive=True, **kwargs):
     header = pre_processing(asg, headers, flags, **kwargs)
     if header:
-        tu = clang.tooling.build_ast_from_code_with_args(header, flags)
+        tu = clanglite.build_ast_from_code_with_args(header, flags)
         read_translation_unit(asg, tu, inline, permissive)
     post_processing(asg, flags, **kwargs)
     return asg
-    #    if bootstrap:
-    #        flags += ['-Wno-unused-value', '-ferror-limit=0']#['-w']
-    #        index = 0
-    #        if isinstance(bootstrap, bool):
-    #            bootstrap = float("Inf")
-    #        nodes = 0
-    #        forbidden = set()
-    #        while not nodes == len(asg) and index < bootstrap:
-    #            nodes = len(asg)
-    #            white = []
-    #            black = set()
-    #            for node in asg.nodes():
-    #                if not node.clean:
-    #                    white.append(node)
-    #                    black.add(node._node)
-    #            gray = set()
-    #            while len(white) > 0:
-    #                node = white.pop()
-    #                if isinstance(node, (TypedefProxy, VariableProxy)):
-    #                    target = node.qualified_type.desugared_type.unqualified_type
-    #                    if not target._node in black:
-    #                        white.append(target)
-    #                        black.add(target._node)
-    #                elif isinstance(node, FunctionProxy):
-    #                    return_type = node.return_type.desugared_type.unqualified_type
-    #                    if not return_type._node in black:
-    #                        white.append(return_type)
-    #                        black.add(return_type._node)
-    #                    for parameter in node.parameters:
-    #                        target = parameter.qualified_type.desugared_type.unqualified_type
-    #                        if not target._node in black:
-    #                            white.append(target)
-    #                            black.add(target._node)
-    #                elif isinstance(node, ConstructorProxy):
-    #                    for parameter in node.parameters:
-    #                        target = parameter.qualified_type.desugared_type.unqualified_type
-    #                        if not target._node in black:
-    #                            white.append(target)
-    #                            black.add(target._node)
-    #                elif isinstance(node, ClassProxy):
-    #                    for base in node.bases():
-    #                        if base.access == 'public':
-    #                            if not base._node in black:
-    #                                white.append(base)
-    #                                black.add(base._node)
-    #                    for dcl in node.declarations():
-    #                        try:
-    #                            if dcl.access == 'public':
-    #                                if not dcl._node in black:
-    #                                    white.append(dcl)
-    #                                    black.add(dcl._node)
-    #                        except:
-    #                            pass
-    #                    if isinstance(node, ClassTemplateSpecializationProxy):
-    #                        if not node.is_complete:
-    #                            gray.add(node._node)
-    #                        specialize = node.specialize
-    #                        if not specialize._node in black:
-    #                            white.append(node.specialize)
-    #                            black.add(node.specialize._node)
-    #                    elif not node.is_complete:
-    #                        gray.add(node._node)
-    #                elif isinstance(node, ClassTemplateProxy):
-    #                    for specialization in node.specializations():
-    #                        if not specialization._node in black:
-    #                            white.append(specialization)
-    #                            black.add(specialization._node)
-    #            gray = list(gray)
-    #            for gray in [gray[index:index+maximum] for index in xrange(0, len(gray), maximum)]:
-    #                headers = []
-    #                for header in asg.headers(*[asg[node] for node in gray]):
-    #                    headers.append("#include \"" + header.globalname + "\"")
-    #                headers.append("")
-    #                headers.append("int main(void)")
-    #                headers.append("{")
-    #                for _index, spc in enumerate(gray):
-    #                    if not spc in forbidden:
-    #                        headers.append("\tsizeof(" + spc + ");")
-    #                headers.append("\treturn 0;")
-    #                headers.append("}")
-    #                header = '\n'.join(headers)
-    #                forbidden.update(set(gray))
-    #                tu = clang.tooling.build_ast_from_code_with_args(header, flags)
-    #                read_translation_unit(asg, tu, inline, permissive)
-    #                #del tu
-    #            index += 1
 
 def read_file(asg, spelling, decl):
     ast = decl.get_ast_context()
@@ -617,7 +531,7 @@ def read_tag(asg, decl, inline, permissive, out=True):
                         template_names.append(target.strip('::') + qualifiers)
                     elif template.get_kind() is clang.TemplateArgument.arg_kind.INTEGRAL:
                         target, qualifiers = read_qualified_type(asg, template.get_integral_type(), inline=inline)
-                        template_names.append(template.spelling())
+                        template_names.append(template.get_name())
                     else:
                         raise NotImplementedError(str(template.get_kind()))
                 spelling = _spelling + '< ' + ', '.join(template_names) + ' >'
@@ -779,9 +693,6 @@ def read_typedef(asg, decl, inline, permissive):
         return [spelling]
 
 def read_namespace(asg, decl, inline, permissive, out=True):
-    #if decl.spelling() == '::stat_tool' and out:
-    #    import pdb
-    #    pdb.set_trace()
     if decl.get_name() == '' or inline and decl.is_inline():
         children = []
         for child in decl.get_children():
@@ -889,24 +800,22 @@ def read_context_parent(asg, decl):
 def read_parent(asg, parent):
     kind = parent.get_decl_kind()
     if kind is clang.Decl.kind.NAMESPACE:
-        parent = clang.cast.cast_as_namespace_decl(parent)
+        parent = clang.cast.as_namespace(parent)
         if parent.get_name() == '':
             parent = read_parent(asg, parent.get_parent())
         return parent
     elif kind in [clang.Decl.kind.CXX_RECORD, clang.Decl.kind.RECORD, clang.Decl.kind.FIRST_CXX_RECORD, clang.Decl.kind.FIRST_CLASS_TEMPLATE_SPECIALIZATION, clang.Decl.kind.FIRST_RECORD]:
-        parent = clang.cast.cast_as_record_decl(parent)
-        #if parent.get_name() == '':
-        #    parent = read_parent(parent.get_parent())
+        parent = clang.cast.as_record(parent)
         return parent
     elif kind in [clang.Decl.kind.ENUM]:
-        parent = clang.cast.cast_as_enum_decl(parent)
+        parent = clang.cast.as_enum(parent)
         if parent.get_name() == '':
             parent = read_parent(asg, parent.get_parent())
         return parent
     elif kind is clang.Decl.kind.LINKAGE_SPEC:
         return read_parent(asg, read_parent(asg, parent.get_parent()))
     elif kind in [clang.Decl.kind.TRANSLATION_UNIT, clang.Decl.kind.LAST_DECL]:
-        return clang.cast.cast_as_translation_unit_decl(parent)
+        return clang.cast.as_translation_unit(parent)
     elif kind in [clang.Decl.kind.CLASS_TEMPLATE_PARTIAL_SPECIALIZATION, clang.Decl.kind.FIRST_TEMPLATE, clang.Decl.kind.FIRST_VAR_TEMPLATE_SPECIALIZATION, clang.Decl.kind.LAST_TAG, clang.Decl.kind.LAST_REDECLARABLE_TEMPLATE, clang.Decl.kind.LAST_TEMPLATE]:
         warnings.warn('', TemplateParentWarning)
     else:
