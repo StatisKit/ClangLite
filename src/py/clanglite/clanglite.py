@@ -1,10 +1,12 @@
+import re
+from functools import wraps
+
 import _clanglite
 from __clanglite import *
 
 clang.LinkageSpecDecl.language_ids = clang._linkage_spec_decl.language_i_ds
-
-import re
-from functools import wraps
+if hasattr(clang.LinkageSpecDecl, 'language_i_ds'):
+    del clang.LinkageSpecDecl.language_i_ds
 
 def tag_is_copyable(self):
     return True
