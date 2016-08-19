@@ -2,7 +2,7 @@ __all__ = []
 
 
 # Import Boost.Python module
-import .__clanglite
+import __clanglite
 
 # Resolve scopes
 __clanglite.clang.LinkageSpecDecl.language_i_ds = clanglite.__clanglite.clang._linkage_spec_decl.language_i_ds
