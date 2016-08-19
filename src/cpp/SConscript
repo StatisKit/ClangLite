@@ -1,0 +1,21 @@
+# -*-python-*-
+
+import os
+bn = os.path.basename
+
+Import("env")
+
+cppenv = env.Clone()
+
+headers = cppenv.Glob('*.h*')
+includes = cppenv.Install(os.path.join(cppenv['PREFIX'], "include", "clanglite"), headers)
+Alias("cpp", includes)
+Alias("build", includes)
+
+sources = cppenv.Glob('*.cpp')
+if cppenv.get("static"):
+    lib = env.StaticLibrary(os.path.join(cppenv['PREFIX'], "lib", "clanglite"), sources)
+else:
+    lib = env.SharedLibrary(os.path.join(cppenv['PREFIX'], "lib", "clanglite"), sources)
+Alias("cpp", lib)
+Alias("build", lib)

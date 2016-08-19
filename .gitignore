@@ -4,6 +4,8 @@ dist
 .ipynb_checkpoints
 *.egg-info
 *~
+*.os
+*.rsp
 *.so
 *.pyc
 *.dblite

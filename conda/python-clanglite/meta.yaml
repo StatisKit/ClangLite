@@ -15,10 +15,13 @@ about:
 requirements:
   build:
     - libclang
+    - libclanglite
     - libboost
     - scons
     - pyyaml
   run:
     - libclang
+    - libclanglite
     - libboost
     - python
+    - numpy
