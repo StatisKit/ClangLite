@@ -12,7 +12,7 @@ AddOption('--prefix',
   action='store',
   metavar='DIR',
   help='installation prefix',
-  default='build')
+  default=sys.prefix)
 
 SConsignFile()
 
@@ -43,7 +43,6 @@ variables.Add(EnumVariable('compiler',
                           'compiler tool used for the build',
                           compilers[0],
                           compilers))
-
 
 env = Environment(PREFIX = GetOption('prefix'))
 variables.Update(env)
@@ -104,8 +103,8 @@ process = subprocess.Popen(['llvm-config', '--system-libs'], stdout=subprocess.P
 out, err = process.communicate()
 env.AppendUnique(LIBS=[lib.strip() for lib in out.strip().split('-l') if lib])
 
-# Build stage
-SConscript(os.path.join('src', 'cpp', 'SConscript'), exports="env")
-SConscript(os.path.join('src', 'py', 'SConscript'), exports="env")
+VariantDir('build', 'src')
+SConscript(os.path.join('build', 'cpp', 'SConscript'), exports="env")
+SConscript(os.path.join('build', 'py', 'SConscript'), exports="env")
 
 Default("build")
