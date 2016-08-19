@@ -9,3 +9,31 @@ This *Python* Interface to **Clang** provides a relatively small API that expose
 * and other facilities that support **Clang**-based development tools.
 
 The intent is to propose an *Python* API highly similar to the *C++* API (contrarily to libclang) for each release of **Clang**, providing only the basic functionality needed to support development tools. 
+
+
+.. sidebar:: Summary
+
+    :Version: |VERSION|
+    :Status: |TRAVIS|
+    :License: |LICENSE|
+    :Authors: |AUTHORS|
+
+.. |LICENSE| replace:: see |LICENSELINK|_ file
+
+.. |AUTHORS| replace:: see |AUTHORSLINK|_ file
+
+.. |VERSION| replace:: 0.1.0
+
+.. |LICENSELINK| replace:: LICENSE.rst
+
+.. _LICENSELINK : LICENSE.rst
+
+.. |AUTHORSLINK| replace:: AUTHORS.rst
+
+.. _AUTHORSLINK : AUTHORS.rst
+
+.. |VERSION| replace:: 0.1.0
+
+.. |TRAVIS| image:: https://travis-ci.org/StatisKit/PyClangLite.svg?branch=master
+           :target: https://travis-ci.org/StatisKit/PyClangLite
+           :alt: Travis
