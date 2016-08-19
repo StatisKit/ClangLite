@@ -10,7 +10,7 @@ This *Python* Interface to **Clang** provides a relatively small API that expose
 
 The intent is to propose an *Python* API highly similar to the *C++* API (contrarily to libclang) for each release of **Clang**, providing only the basic functionality needed to support development tools. 
 
-For more information refers to the `AutoWIG <https://github.com/StatisKit/AutoWIG>`_.
+For more information refers to the `AutoWIG <https://github.com/StatisKit/AutoWIG>`_ repository.
 
 .. sidebar:: Summary
 
