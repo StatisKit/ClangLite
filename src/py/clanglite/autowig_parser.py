@@ -2,7 +2,7 @@ import warnings
 import uuid
 from path import path
 from autowig.asg import *
-from autowig.parser import pre_processing, post_processing
+from autowig._parser import pre_processing, post_processing
 
 from .clanglite import *
 from .ast import AbstractSyntaxTree
