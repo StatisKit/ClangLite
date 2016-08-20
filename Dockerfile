@@ -14,6 +14,9 @@ RUN touch $HOME/upload.sh
 RUN echo "$HOME/miniconda/bin/anaconda upload \`conda build $HOME/PyClangLite/conda/libclang --output\` --user statiskit --force" >> $HOME/upload.sh
 RUN echo "$HOME/miniconda/bin/anaconda upload \`conda build $HOME/PyClangLite/conda/libclanglite --output\` --user statiskit --force" >> $HOME/upload.sh
 RUN echo "$HOME/miniconda/bin/anaconda upload \`conda build $HOME/PyClangLite/conda/python-clanglite --output\` --user statiskit --force" >> $HOME/upload.sh
+RUN echo "rm -rf $HOME/PyClangLite" >> $HOME/upload.sh
+RUN echo "$HOME/miniconda/bin/conda clean --all" >> $HOME/upload.sh
+RUN echo "rm $HOME/upload.sh" >> $HOME/upload.sh
 
 # Install packages
 RUN $HOME/miniconda/bin/conda install libclang -c statiskit --use-local
