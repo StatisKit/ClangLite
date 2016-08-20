@@ -14,8 +14,8 @@ Alias("build", includes)
 
 sources = cppenv.Glob('*.cpp')
 if cppenv.get("static"):
-    lib = env.StaticLibrary(os.path.join(cppenv['PREFIX'], "lib", "clanglite"), sources)
+    lib = cppenv.StaticLibrary(os.path.join(cppenv['PREFIX'], "lib", "clanglite"), sources)
 else:
-    lib = env.SharedLibrary(os.path.join(cppenv['PREFIX'], "lib", "clanglite"), sources)
+    lib = cppenv.SharedLibrary(os.path.join(cppenv['PREFIX'], "lib", "clanglite"), sources)
 Alias("cpp", lib)
 Alias("build", lib)
