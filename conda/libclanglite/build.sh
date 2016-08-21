@@ -1,1 +1,1 @@
-scons cpp --prefix=$PREFIX -j$CPU_COUNT
+scons cpp --prefix=$PREFIX -j$CPU_COUNT debug=1
