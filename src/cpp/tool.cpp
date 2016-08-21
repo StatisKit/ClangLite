@@ -20,7 +20,7 @@ namespace clanglite
         return tu;
     }
 
-    boost::python::object get_comment(clang::Decl* decl)
+    boost::python::str get_comment(clang::Decl* decl)
     {
         clang::ASTContext & ast = decl->getASTContext();
         clang::SourceManager &  sm = ast.getSourceManager();
@@ -28,7 +28,7 @@ namespace clanglite
         clang::RawComment* rawcomment = ast.getRawCommentForDeclNoCache(decl);
         if(rawcomment)
         { comment = rawcomment->getRawText(sm).str(); }
-        return boost::python::object(comment);
+        return boost::python::str(comment);
     }
 
     boost::python::list get_children(clang::DeclContext& decl)

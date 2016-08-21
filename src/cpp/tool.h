@@ -369,7 +369,7 @@ namespace clanglite
 {
     clang::ASTUnit* build_ast_from_code_with_args(boost::python::object _code, boost::python::object _args);
 
-    boost::python::object get_comment(clang::Decl* decl);
+    boost::python::str get_comment(clang::Decl* decl);
 
     boost::python::list get_children(clang::ASTUnit& ast);
     boost::python::list get_children(clang::DeclContext& decl);
