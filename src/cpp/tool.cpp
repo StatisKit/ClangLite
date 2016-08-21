@@ -35,7 +35,7 @@ namespace clanglite
     { 
         boost::python::list children = boost::python::list();
         for(auto it = decl.decls_begin(), it_end = decl.decls_end(); it != it_end; ++it)
-        { children.append(boost::python::object(*it)); }
+        { children.append(boost::python::ptr(*it)); }
         return children; 
     }
 
@@ -43,7 +43,7 @@ namespace clanglite
     { 
         boost::python::list children = boost::python::list();
         for(auto it = cls.spec_begin(), it_end = cls.spec_end(); it != it_end; ++it)
-        { children.append(boost::python::object(*it)); }
+        { children.append(boost::python::ptr(*it)); }
         return children; 
     }
 
@@ -51,7 +51,7 @@ namespace clanglite
     { 
         boost::python::list children = boost::python::list();
         for(auto it = ast.top_level_begin(), it_end = ast.top_level_end(); it != it_end; ++it)
-        { children.append(boost::python::object(*it)); }
+        { children.append(boost::python::ptr(*it)); }
         return children; 
     }
 
@@ -59,7 +59,7 @@ namespace clanglite
     { 
         boost::python::list children = boost::python::list();
         for(auto it = decl.param_begin(), it_end = decl.param_end(); it != it_end; ++it)
-        { children.append(boost::python::object(*it)); }
+        { children.append(boost::python::ptr(*it)); }
         return children;
     }
 
@@ -67,7 +67,7 @@ namespace clanglite
     { 
         boost::python::list children = boost::python::list();
         for(auto it = decl.ctor_begin(), it_end = decl.ctor_end(); it != it_end; ++it)
-        { children.append(boost::python::object(*it)); }
+        { children.append(boost::python::ptr(*it)); }
         return children;
     }
 
@@ -75,7 +75,7 @@ namespace clanglite
     { 
         boost::python::list children = boost::python::list();
         for(auto it = decl.bases_begin(), it_end = decl.bases_end(); it != it_end; ++it)
-        { children.append(boost::python::object(*it)); }
+        { children.append(boost::python::ptr(it)); }
         return children;
     }
 
@@ -83,7 +83,7 @@ namespace clanglite
     { 
         boost::python::list children = boost::python::list();
         for(auto it = decl.vbases_begin(), it_end = decl.vbases_end(); it != it_end; ++it)
-        { children.append(boost::python::object(*it)); }
+        { children.append(boost::python::ptr(it)); }
         return children;
     }
 

@@ -20,7 +20,7 @@ if not hasattr(clang.TagDecl, 'is_copyable'):
     clang.TagDecl.is_copyable = tag_is_copyable
     del tag_is_copyable
 
-if not hasattr(clang.CxxRecordDecl, 'is_copyable'):
+if not hasattr(clang.CXXRecordDecl, 'is_copyable'):
     
     def record_is_copyable(self):
         res = True
