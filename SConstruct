@@ -19,9 +19,9 @@ SConsignFile()
 # Compiler
 variables = Variables()
 
-variables.Add(BoolVariable('debug', 
-                      'compilation in a debug mode',
-                       False))
+#variables.Add(BoolVariable('debug', 
+#                      'compilation in a debug mode',
+#                       False))
 variables.Add(BoolVariable('warnings',
                       'compilation with -Wall and similar',
                       False))
@@ -47,6 +47,8 @@ variables.Add(EnumVariable('compiler',
 env = Environment(PREFIX = GetOption('prefix'))
 variables.Update(env)
 
+if ARGUMENTS.get('debug', 0):
+  env.Append(CCFLAGS = '-g')
 
 if platform == 'cygwin':
     env.AppendUnique(CPPDEFINES = 'SYSTEM_IS__CYGWIN')
