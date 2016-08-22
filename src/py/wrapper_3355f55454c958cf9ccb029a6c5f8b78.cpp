@@ -6,7 +6,7 @@ namespace autowig { template<class T> using HeldType = T*; }
 
 namespace autowig
 {
-    void method_decorator_602c946ed9a95eed8146c64d7ca92737(class ::clang::ASTUnit & instance, unsigned int  & param_out)
+    void method_decorator_9fb8f226cf7f5313a2843dac8f442fa1(class ::clang::ASTUnit & instance, unsigned int  & param_out)
     { instance.getCurrentTopLevelHashValue() = param_out; }
 }
 
@@ -18,43 +18,43 @@ void wrapper_3355f55454c958cf9ccb029a6c5f8b78()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    void  (::clang::ASTUnit::*method_pointer_44f12a5136ed5b218ef00b2b8dfec308)(class ::clang::Decl  *) = &::clang::ASTUnit::addFileLevelDecl;
-    void  (::clang::ASTUnit::*method_pointer_a4cb7c891bd951b287d1c7dff50a1f5f)(class ::clang::Decl  *) = &::clang::ASTUnit::addTopLevelDecl;
-    void  (::clang::ASTUnit::*method_pointer_da9aaccc33d751f1909691102cc62fbf)(unsigned int ) = &::clang::ASTUnit::addTopLevelDeclFromPreamble;
-    unsigned int  (::clang::ASTUnit::*method_pointer_14bd8f90e89c5a44a42f0cc8720e45b5)() const = &::clang::ASTUnit::cached_completion_size;
-    class ::clang::ASTContext  & (::clang::ASTUnit::*method_pointer_09049c7bfeca5d8bac7f9d04f2b30902)() = &::clang::ASTUnit::getASTContext;
-    unsigned int  & (::clang::ASTUnit::*method_pointer_602c946ed9a95eed8146c64d7ca92737)() = &::clang::ASTUnit::getCurrentTopLevelHashValue;
-    bool  (::clang::ASTUnit::*method_pointer_ead103d76fcf5b12b7e03bc3e65cdb7a)() const = &::clang::ASTUnit::getOnlyLocalDecls;
-    bool  (::clang::ASTUnit::*method_pointer_13aee09af44c5d92843b15764d368e8b)() const = &::clang::ASTUnit::getOwnsRemappedFileBuffers;
-    bool  (::clang::ASTUnit::*method_pointer_2cf5e34bc26952778a0b12068ce33ce4)() const = &::clang::ASTUnit::hasSema;
-    bool  (::clang::ASTUnit::*method_pointer_2ac9cd75071e525bb2de25cab4663ce7)() const = &::clang::ASTUnit::isMainFileAST;
-    bool  (::clang::ASTUnit::*method_pointer_ed88e5b66b455294b4600c6bc8d622a4)() = &::clang::ASTUnit::isModuleFile;
-    bool  (::clang::ASTUnit::*method_pointer_50c959c47fb65f7bb3743c5a92016cea)() const = &::clang::ASTUnit::isUnsafeToFree;
-    void  (::clang::ASTUnit::*method_pointer_67811c6470b653069255a00777fef560)(class ::clang::ASTContext  *) = &::clang::ASTUnit::setASTContext;
-    void  (::clang::ASTUnit::*method_pointer_95740c468e265212aa1a65dc0a697411)(bool ) = &::clang::ASTUnit::setOwnsRemappedFileBuffers;
-    void  (::clang::ASTUnit::*method_pointer_87ba7c64c60453a5a186509bc5d97e1c)(bool ) = &::clang::ASTUnit::setUnsafeToFree;
-    unsigned int  (::clang::ASTUnit::*method_pointer_1d0a504997375011b606c9105dd3d81b)() const = &::clang::ASTUnit::stored_diag_size;
-    bool  (::clang::ASTUnit::*method_pointer_f97ab735cbd1520e8c851f6d5924b131)() const = &::clang::ASTUnit::top_level_empty;
-    unsigned long int  (::clang::ASTUnit::*method_pointer_65c83f9277295f518ecd537dbd5daa74)() const = &::clang::ASTUnit::top_level_size;
+    void  (::clang::ASTUnit::*method_pointer_fb387b07173e5ba0b8c272c8088653dd)(class ::clang::Decl  *) = &::clang::ASTUnit::addFileLevelDecl;
+    void  (::clang::ASTUnit::*method_pointer_9f8e0f76fc575e39b6b52c32f6cee66f)(class ::clang::Decl  *) = &::clang::ASTUnit::addTopLevelDecl;
+    void  (::clang::ASTUnit::*method_pointer_f936c448f9f65236b8942f332ea5bb3e)(unsigned int ) = &::clang::ASTUnit::addTopLevelDeclFromPreamble;
+    unsigned int  (::clang::ASTUnit::*method_pointer_de9cd0bbc95052a5b728b3d5cc888a8b)() const = &::clang::ASTUnit::cached_completion_size;
+    class ::clang::ASTContext  & (::clang::ASTUnit::*method_pointer_f34a37c48e10504a94e855a3a685434b)() = &::clang::ASTUnit::getASTContext;
+    unsigned int  & (::clang::ASTUnit::*method_pointer_9fb8f226cf7f5313a2843dac8f442fa1)() = &::clang::ASTUnit::getCurrentTopLevelHashValue;
+    bool  (::clang::ASTUnit::*method_pointer_153c700437715934a649d24ea867f5e4)() const = &::clang::ASTUnit::getOnlyLocalDecls;
+    bool  (::clang::ASTUnit::*method_pointer_f2b355a9eab55209a08fe9bfd8318b1e)() const = &::clang::ASTUnit::getOwnsRemappedFileBuffers;
+    bool  (::clang::ASTUnit::*method_pointer_ced3d7393f935aa0987e8479ca006c8f)() const = &::clang::ASTUnit::hasSema;
+    bool  (::clang::ASTUnit::*method_pointer_b659035de5a55099a7269d52fdc55a2a)() const = &::clang::ASTUnit::isMainFileAST;
+    bool  (::clang::ASTUnit::*method_pointer_7ce0138693e85311bac6c21f5b52402c)() = &::clang::ASTUnit::isModuleFile;
+    bool  (::clang::ASTUnit::*method_pointer_a9b7f1e8023c52cd8ba99eba5d116fe8)() const = &::clang::ASTUnit::isUnsafeToFree;
+    void  (::clang::ASTUnit::*method_pointer_81cc01f5c3d756e2bef612a174bd9b5e)(class ::clang::ASTContext  *) = &::clang::ASTUnit::setASTContext;
+    void  (::clang::ASTUnit::*method_pointer_cd9bf5c3a05a5c56bd5f20356d50cf58)(bool ) = &::clang::ASTUnit::setOwnsRemappedFileBuffers;
+    void  (::clang::ASTUnit::*method_pointer_15ee2cf2bbb45a609a5900c18888fc2d)(bool ) = &::clang::ASTUnit::setUnsafeToFree;
+    unsigned int  (::clang::ASTUnit::*method_pointer_a9e237b2d5b25749a24c5b1617c2486a)() const = &::clang::ASTUnit::stored_diag_size;
+    bool  (::clang::ASTUnit::*method_pointer_1cd4506b13145fda80ede63c26621cac)() const = &::clang::ASTUnit::top_level_empty;
+    unsigned long int  (::clang::ASTUnit::*method_pointer_ae708e4b544558f29ee4c5145da084aa)() const = &::clang::ASTUnit::top_level_size;
     boost::python::class_< class ::clang::ASTUnit, autowig::HeldType< class ::clang::ASTUnit >, boost::noncopyable > class_3355f55454c958cf9ccb029a6c5f8b78("ASTUnit", "", boost::python::no_init);
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("add_file_level_decl", method_pointer_44f12a5136ed5b218ef00b2b8dfec308, "");
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("add_top_level_decl", method_pointer_a4cb7c891bd951b287d1c7dff50a1f5f, "");
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("add_top_level_decl_from_preamble", method_pointer_da9aaccc33d751f1909691102cc62fbf, "");
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("cached_completion_size", method_pointer_14bd8f90e89c5a44a42f0cc8720e45b5, "");
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("get_ast_context", method_pointer_09049c7bfeca5d8bac7f9d04f2b30902, boost::python::return_internal_reference<>(), "");
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("get_current_top_level_hash_value", method_pointer_602c946ed9a95eed8146c64d7ca92737, boost::python::return_value_policy< boost::python::return_by_value >(), "");
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("get_current_top_level_hash_value", autowig::method_decorator_602c946ed9a95eed8146c64d7ca92737);
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("get_only_local_decls", method_pointer_ead103d76fcf5b12b7e03bc3e65cdb7a, "");
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("get_owns_remapped_file_buffers", method_pointer_13aee09af44c5d92843b15764d368e8b, "");
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("has_sema", method_pointer_2cf5e34bc26952778a0b12068ce33ce4, "");
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("is_main_file_ast", method_pointer_2ac9cd75071e525bb2de25cab4663ce7, "");
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("is_module_file", method_pointer_ed88e5b66b455294b4600c6bc8d622a4, "");
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("is_unsafe_to_free", method_pointer_50c959c47fb65f7bb3743c5a92016cea, "");
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("set_ast_context", method_pointer_67811c6470b653069255a00777fef560, "");
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("set_owns_remapped_file_buffers", method_pointer_95740c468e265212aa1a65dc0a697411, "");
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("set_unsafe_to_free", method_pointer_87ba7c64c60453a5a186509bc5d97e1c, "");
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("stored_diag_size", method_pointer_1d0a504997375011b606c9105dd3d81b, "");
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("top_level_empty", method_pointer_f97ab735cbd1520e8c851f6d5924b131, "");
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("top_level_size", method_pointer_65c83f9277295f518ecd537dbd5daa74, "");
+    class_3355f55454c958cf9ccb029a6c5f8b78.def("add_file_level_decl", method_pointer_fb387b07173e5ba0b8c272c8088653dd, "");
+    class_3355f55454c958cf9ccb029a6c5f8b78.def("add_top_level_decl", method_pointer_9f8e0f76fc575e39b6b52c32f6cee66f, "");
+    class_3355f55454c958cf9ccb029a6c5f8b78.def("add_top_level_decl_from_preamble", method_pointer_f936c448f9f65236b8942f332ea5bb3e, "");
+    class_3355f55454c958cf9ccb029a6c5f8b78.def("cached_completion_size", method_pointer_de9cd0bbc95052a5b728b3d5cc888a8b, "");
+    class_3355f55454c958cf9ccb029a6c5f8b78.def("get_ast_context", method_pointer_f34a37c48e10504a94e855a3a685434b, boost::python::return_internal_reference<>(), "");
+    class_3355f55454c958cf9ccb029a6c5f8b78.def("get_current_top_level_hash_value", method_pointer_9fb8f226cf7f5313a2843dac8f442fa1, boost::python::return_value_policy< boost::python::return_by_value >(), "");
+    class_3355f55454c958cf9ccb029a6c5f8b78.def("get_current_top_level_hash_value", autowig::method_decorator_9fb8f226cf7f5313a2843dac8f442fa1);
+    class_3355f55454c958cf9ccb029a6c5f8b78.def("get_only_local_decls", method_pointer_153c700437715934a649d24ea867f5e4, "");
+    class_3355f55454c958cf9ccb029a6c5f8b78.def("get_owns_remapped_file_buffers", method_pointer_f2b355a9eab55209a08fe9bfd8318b1e, "");
+    class_3355f55454c958cf9ccb029a6c5f8b78.def("has_sema", method_pointer_ced3d7393f935aa0987e8479ca006c8f, "");
+    class_3355f55454c958cf9ccb029a6c5f8b78.def("is_main_file_ast", method_pointer_b659035de5a55099a7269d52fdc55a2a, "");
+    class_3355f55454c958cf9ccb029a6c5f8b78.def("is_module_file", method_pointer_7ce0138693e85311bac6c21f5b52402c, "");
+    class_3355f55454c958cf9ccb029a6c5f8b78.def("is_unsafe_to_free", method_pointer_a9b7f1e8023c52cd8ba99eba5d116fe8, "");
+    class_3355f55454c958cf9ccb029a6c5f8b78.def("set_ast_context", method_pointer_81cc01f5c3d756e2bef612a174bd9b5e, "");
+    class_3355f55454c958cf9ccb029a6c5f8b78.def("set_owns_remapped_file_buffers", method_pointer_cd9bf5c3a05a5c56bd5f20356d50cf58, "");
+    class_3355f55454c958cf9ccb029a6c5f8b78.def("set_unsafe_to_free", method_pointer_15ee2cf2bbb45a609a5900c18888fc2d, "");
+    class_3355f55454c958cf9ccb029a6c5f8b78.def("stored_diag_size", method_pointer_a9e237b2d5b25749a24c5b1617c2486a, "");
+    class_3355f55454c958cf9ccb029a6c5f8b78.def("top_level_empty", method_pointer_1cd4506b13145fda80ede63c26621cac, "");
+    class_3355f55454c958cf9ccb029a6c5f8b78.def("top_level_size", method_pointer_ae708e4b544558f29ee4c5145da084aa, "");
 
 }

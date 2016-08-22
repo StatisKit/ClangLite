@@ -13,7 +13,7 @@ void wrapper_4bd154797c5c544abd201e6b7c018504()
     boost::python::object module_a6aedb4654a55a40aeecf4b1dc5fcc98(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_a6aedb4654a55a40aeecf4b1dc5fcc98.c_str()))));
     boost::python::scope().attr("_decl") = module_a6aedb4654a55a40aeecf4b1dc5fcc98;
     boost::python::scope scope_a6aedb4654a55a40aeecf4b1dc5fcc98 = module_a6aedb4654a55a40aeecf4b1dc5fcc98;
-    boost::python::enum_< enum ::clang::Decl::Kind >("<class 'autowig.asg.EnumerationProxy'>")
+    boost::python::enum_< enum ::clang::Decl::Kind >("kind")
         .value("ACCESS_SPEC", ::clang::Decl::AccessSpec)
         .value("BLOCK", ::clang::Decl::Block)
         .value("BUILTIN_TEMPLATE", ::clang::Decl::BuiltinTemplate)

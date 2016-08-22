@@ -13,7 +13,7 @@ void wrapper_f651c14028675908a3d30652316d9859()
     boost::python::object module_306b968f39b7549b8ac1af6424e98129(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_306b968f39b7549b8ac1af6424e98129.c_str()))));
     boost::python::scope().attr("_builtin_type") = module_306b968f39b7549b8ac1af6424e98129;
     boost::python::scope scope_306b968f39b7549b8ac1af6424e98129 = module_306b968f39b7549b8ac1af6424e98129;
-    boost::python::enum_< enum ::clang::BuiltinType::Kind >("<class 'autowig.asg.EnumerationProxy'>")
+    boost::python::enum_< enum ::clang::BuiltinType::Kind >("kind")
         .value("ARC_UNBRIDGED_CAST", ::clang::BuiltinType::ARCUnbridgedCast)
         .value("BOOL", ::clang::BuiltinType::Bool)
         .value("BOUND_MEMBER", ::clang::BuiltinType::BoundMember)

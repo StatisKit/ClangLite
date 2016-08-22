@@ -16,11 +16,11 @@ void wrapper_7981b6362f50522ab01234005fa1e76a()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_48e24d9fb44254c8aec780f7f10b7fd5)(class ::clang::Type  const *) = ::clang::ArrayType::classof;
-    unsigned int  (::clang::ArrayType::*method_pointer_eb820984016f5e4987cd7e56852a1bf8)() const = &::clang::ArrayType::getIndexTypeCVRQualifiers;
+    bool  (*method_pointer_3f47b051959e54debf77db5ea32ae731)(class ::clang::Type  const *) = ::clang::ArrayType::classof;
+    unsigned int  (::clang::ArrayType::*method_pointer_f84b4b201cf75d15ad55727d59f735cf)() const = &::clang::ArrayType::getIndexTypeCVRQualifiers;
     boost::python::class_< class ::clang::ArrayType, autowig::HeldType< class ::clang::ArrayType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_7981b6362f50522ab01234005fa1e76a("ArrayType", "", boost::python::no_init);
-    class_7981b6362f50522ab01234005fa1e76a.def("classof", method_pointer_48e24d9fb44254c8aec780f7f10b7fd5, "");
-    class_7981b6362f50522ab01234005fa1e76a.def("get_index_type_cvr_qualifiers", method_pointer_eb820984016f5e4987cd7e56852a1bf8, "");
+    class_7981b6362f50522ab01234005fa1e76a.def("classof", method_pointer_3f47b051959e54debf77db5ea32ae731, "");
+    class_7981b6362f50522ab01234005fa1e76a.def("get_index_type_cvr_qualifiers", method_pointer_f84b4b201cf75d15ad55727d59f735cf, "");
     class_7981b6362f50522ab01234005fa1e76a.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::ArrayType > >::value)
