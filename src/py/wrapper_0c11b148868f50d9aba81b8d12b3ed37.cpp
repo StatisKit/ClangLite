@@ -13,7 +13,7 @@ void wrapper_0c11b148868f50d9aba81b8d12b3ed37()
     boost::python::object module_693db0b37725552a85ff783087528c5b(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_693db0b37725552a85ff783087528c5b.c_str()))));
     boost::python::scope().attr("_linkage_spec_decl") = module_693db0b37725552a85ff783087528c5b;
     boost::python::scope scope_693db0b37725552a85ff783087528c5b = module_693db0b37725552a85ff783087528c5b;
-    boost::python::enum_< enum ::clang::LinkageSpecDecl::LanguageIDs >("<class 'autowig.asg.EnumerationProxy'>")
+    boost::python::enum_< enum ::clang::LinkageSpecDecl::LanguageIDs >("language_i_ds")
         .value("LANG_C", ::clang::LinkageSpecDecl::lang_c)
         .value("LANG_CXX", ::clang::LinkageSpecDecl::lang_cxx);
 }

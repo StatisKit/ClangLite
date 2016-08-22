@@ -13,7 +13,7 @@ void wrapper_7bc3191eac5451618d350bf624886bc4()
     boost::python::object module_c135a712d4ea5ecca5fd38e224a91e4a(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_c135a712d4ea5ecca5fd38e224a91e4a.c_str()))));
     boost::python::scope().attr("_template_argument") = module_c135a712d4ea5ecca5fd38e224a91e4a;
     boost::python::scope scope_c135a712d4ea5ecca5fd38e224a91e4a = module_c135a712d4ea5ecca5fd38e224a91e4a;
-    boost::python::enum_< enum ::clang::TemplateArgument::ArgKind >("<class 'autowig.asg.EnumerationProxy'>")
+    boost::python::enum_< enum ::clang::TemplateArgument::ArgKind >("arg_kind")
         .value("DECLARATION", ::clang::TemplateArgument::Declaration)
         .value("EXPRESSION", ::clang::TemplateArgument::Expression)
         .value("INTEGRAL", ::clang::TemplateArgument::Integral)
