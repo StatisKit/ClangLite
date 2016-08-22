@@ -16,21 +16,21 @@ void wrapper_808dfaeb3c825011b508a4347f0e64a5()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_bbb92e395b3e5f6aae5a7a94f5404812)(class ::clang::Type  const *) = ::clang::FunctionType::classof;
-    bool  (::clang::FunctionType::*method_pointer_94b69a97a8d65f169d40db175a92d011)() const = &::clang::FunctionType::getHasRegParm;
-    bool  (::clang::FunctionType::*method_pointer_453327908d6854088d71edfd7eb34936)() const = &::clang::FunctionType::getNoReturnAttr;
-    unsigned int  (::clang::FunctionType::*method_pointer_1251e8fd8029585fa31ab33416e18dc1)() const = &::clang::FunctionType::getRegParmType;
-    bool  (::clang::FunctionType::*method_pointer_4a060125a8335db19e3b991f538a9982)() const = &::clang::FunctionType::isConst;
-    bool  (::clang::FunctionType::*method_pointer_c8c1790c5a7d5779a42f616b2ec49294)() const = &::clang::FunctionType::isRestrict;
-    bool  (::clang::FunctionType::*method_pointer_66e75283f4015873b056b5561b52d176)() const = &::clang::FunctionType::isVolatile;
+    bool  (*method_pointer_64b8b9475b665b3f84489fb94b35b719)(class ::clang::Type  const *) = ::clang::FunctionType::classof;
+    bool  (::clang::FunctionType::*method_pointer_acb0f63eab395cb5839cd332b0315a57)() const = &::clang::FunctionType::getHasRegParm;
+    bool  (::clang::FunctionType::*method_pointer_fa40eb9629795903a3be60e41148be2e)() const = &::clang::FunctionType::getNoReturnAttr;
+    unsigned int  (::clang::FunctionType::*method_pointer_33f8a6d53ac85101b0864eebaee6d486)() const = &::clang::FunctionType::getRegParmType;
+    bool  (::clang::FunctionType::*method_pointer_4e662cd5e4b4570a9f55a162eae84c6f)() const = &::clang::FunctionType::isConst;
+    bool  (::clang::FunctionType::*method_pointer_b9576d9a77085ee3ae9d87ec8e071388)() const = &::clang::FunctionType::isRestrict;
+    bool  (::clang::FunctionType::*method_pointer_fe12a1bc3abc5e7ebfac9c08cc9c377b)() const = &::clang::FunctionType::isVolatile;
     boost::python::class_< class ::clang::FunctionType, autowig::HeldType< class ::clang::FunctionType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_808dfaeb3c825011b508a4347f0e64a5("FunctionType", "", boost::python::no_init);
-    class_808dfaeb3c825011b508a4347f0e64a5.def("classof", method_pointer_bbb92e395b3e5f6aae5a7a94f5404812, "");
-    class_808dfaeb3c825011b508a4347f0e64a5.def("get_has_reg_parm", method_pointer_94b69a97a8d65f169d40db175a92d011, "");
-    class_808dfaeb3c825011b508a4347f0e64a5.def("get_no_return_attr", method_pointer_453327908d6854088d71edfd7eb34936, "");
-    class_808dfaeb3c825011b508a4347f0e64a5.def("get_reg_parm_type", method_pointer_1251e8fd8029585fa31ab33416e18dc1, "");
-    class_808dfaeb3c825011b508a4347f0e64a5.def("is_const", method_pointer_4a060125a8335db19e3b991f538a9982, "");
-    class_808dfaeb3c825011b508a4347f0e64a5.def("is_restrict", method_pointer_c8c1790c5a7d5779a42f616b2ec49294, "");
-    class_808dfaeb3c825011b508a4347f0e64a5.def("is_volatile", method_pointer_66e75283f4015873b056b5561b52d176, "");
+    class_808dfaeb3c825011b508a4347f0e64a5.def("classof", method_pointer_64b8b9475b665b3f84489fb94b35b719, "");
+    class_808dfaeb3c825011b508a4347f0e64a5.def("get_has_reg_parm", method_pointer_acb0f63eab395cb5839cd332b0315a57, "");
+    class_808dfaeb3c825011b508a4347f0e64a5.def("get_no_return_attr", method_pointer_fa40eb9629795903a3be60e41148be2e, "");
+    class_808dfaeb3c825011b508a4347f0e64a5.def("get_reg_parm_type", method_pointer_33f8a6d53ac85101b0864eebaee6d486, "");
+    class_808dfaeb3c825011b508a4347f0e64a5.def("is_const", method_pointer_4e662cd5e4b4570a9f55a162eae84c6f, "");
+    class_808dfaeb3c825011b508a4347f0e64a5.def("is_restrict", method_pointer_b9576d9a77085ee3ae9d87ec8e071388, "");
+    class_808dfaeb3c825011b508a4347f0e64a5.def("is_volatile", method_pointer_fe12a1bc3abc5e7ebfac9c08cc9c377b, "");
     class_808dfaeb3c825011b508a4347f0e64a5.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::FunctionType > >::value)

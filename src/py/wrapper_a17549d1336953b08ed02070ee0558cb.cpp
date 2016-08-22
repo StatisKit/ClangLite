@@ -16,11 +16,11 @@ void wrapper_a17549d1336953b08ed02070ee0558cb()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_bd7a2fba569f56579daf704144378199)(class ::clang::Type  const *) = ::clang::RValueReferenceType::classof;
-    bool  (::clang::RValueReferenceType::*method_pointer_985ff3c7fd8153d4be3b2c598476d2d2)() const = &::clang::RValueReferenceType::isSugared;
+    bool  (*method_pointer_00e9de2a4c6850d1a0553fa403739956)(class ::clang::Type  const *) = ::clang::RValueReferenceType::classof;
+    bool  (::clang::RValueReferenceType::*method_pointer_21b8bebb372959b9987ff1fafd91b5a4)() const = &::clang::RValueReferenceType::isSugared;
     boost::python::class_< class ::clang::RValueReferenceType, autowig::HeldType< class ::clang::RValueReferenceType >, boost::python::bases< class ::clang::ReferenceType >, boost::noncopyable > class_a17549d1336953b08ed02070ee0558cb("RValueReferenceType", "", boost::python::no_init);
-    class_a17549d1336953b08ed02070ee0558cb.def("classof", method_pointer_bd7a2fba569f56579daf704144378199, "");
-    class_a17549d1336953b08ed02070ee0558cb.def("is_sugared", method_pointer_985ff3c7fd8153d4be3b2c598476d2d2, "");
+    class_a17549d1336953b08ed02070ee0558cb.def("classof", method_pointer_00e9de2a4c6850d1a0553fa403739956, "");
+    class_a17549d1336953b08ed02070ee0558cb.def("is_sugared", method_pointer_21b8bebb372959b9987ff1fafd91b5a4, "");
     class_a17549d1336953b08ed02070ee0558cb.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::RValueReferenceType > >::value)
