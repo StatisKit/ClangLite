@@ -2,7 +2,7 @@
 #include <boost/python.hpp>
 #include <clanglite/tool.h>
 
-namespace autowig { template<class T> using HeldType = std::shared_ptr< T >; }
+namespace autowig { template<class T> using HeldType = T*; }
 
 namespace autowig
 {
@@ -16,13 +16,13 @@ void wrapper_708015b5173c579ca15734236c01d5a8()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_26a4648e6e2f59369361ac84c6b4246e)(class ::clang::Type  const *) = ::clang::UnresolvedUsingType::classof;
-    class ::clang::UnresolvedUsingTypenameDecl  * (::clang::UnresolvedUsingType::*method_pointer_d72c4a461f2452899441334f575a060d)() const = &::clang::UnresolvedUsingType::getDecl;
-    bool  (::clang::UnresolvedUsingType::*method_pointer_e4da669a588e55b9b3aec92838e00d0c)() const = &::clang::UnresolvedUsingType::isSugared;
+    bool  (*method_pointer_342c2321bcb55ca29dd7b19f8e6fdc16)(class ::clang::Type  const *) = ::clang::UnresolvedUsingType::classof;
+    class ::clang::UnresolvedUsingTypenameDecl  * (::clang::UnresolvedUsingType::*method_pointer_07afb3c5388856648a77d43ebc9d6438)() const = &::clang::UnresolvedUsingType::getDecl;
+    bool  (::clang::UnresolvedUsingType::*method_pointer_dbd42a4dc4f15181af6bdcb9e7179f96)() const = &::clang::UnresolvedUsingType::isSugared;
     boost::python::class_< class ::clang::UnresolvedUsingType, autowig::HeldType< class ::clang::UnresolvedUsingType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_708015b5173c579ca15734236c01d5a8("UnresolvedUsingType", "", boost::python::no_init);
-    class_708015b5173c579ca15734236c01d5a8.def("classof", method_pointer_26a4648e6e2f59369361ac84c6b4246e, "");
-    class_708015b5173c579ca15734236c01d5a8.def("get_decl", method_pointer_d72c4a461f2452899441334f575a060d, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_708015b5173c579ca15734236c01d5a8.def("is_sugared", method_pointer_e4da669a588e55b9b3aec92838e00d0c, "");
+    class_708015b5173c579ca15734236c01d5a8.def("classof", method_pointer_342c2321bcb55ca29dd7b19f8e6fdc16, "");
+    class_708015b5173c579ca15734236c01d5a8.def("get_decl", method_pointer_07afb3c5388856648a77d43ebc9d6438, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_708015b5173c579ca15734236c01d5a8.def("is_sugared", method_pointer_dbd42a4dc4f15181af6bdcb9e7179f96, "");
     class_708015b5173c579ca15734236c01d5a8.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::UnresolvedUsingType > >::value)

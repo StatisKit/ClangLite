@@ -2,7 +2,7 @@
 #include <boost/python.hpp>
 #include <clanglite/tool.h>
 
-namespace autowig { template<class T> using HeldType = std::shared_ptr< T >; }
+namespace autowig { template<class T> using HeldType = T*; }
 
 namespace autowig
 {
@@ -16,35 +16,35 @@ void wrapper_40fbba8dfa075307bb51cf2b9b55fe29()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    class ::clang::CapturedDecl  * (*method_pointer_ab5b7cb2753a502c94752ccbcbcce1fb)(class ::clang::ASTContext  &, class ::clang::DeclContext  *, unsigned int ) = ::clang::CapturedDecl::Create;
-    class ::clang::CapturedDecl  * (*method_pointer_976a116ffa035802b9ff0d4d83d1dbcb)(class ::clang::ASTContext  &, unsigned int , unsigned int ) = ::clang::CapturedDecl::CreateDeserialized;
-    class ::clang::CapturedDecl  * (*method_pointer_c00b7665fc9959928d804a5a19bedfe8)(class ::clang::DeclContext  const *) = ::clang::CapturedDecl::castFromDeclContext;
-    class ::clang::DeclContext  * (*method_pointer_8c884a5a261059e483b47441e21f7fc5)(class ::clang::CapturedDecl  const *) = ::clang::CapturedDecl::castToDeclContext;
-    bool  (*method_pointer_9d16b939db5855f19925156f1898ac82)(class ::clang::Decl  const *) = ::clang::CapturedDecl::classof;
-    bool  (*method_pointer_5cff575c4ebe586196220c600aa20aa4)(enum ::clang::Decl::Kind ) = ::clang::CapturedDecl::classofKind;
-    class ::clang::ImplicitParamDecl  * (::clang::CapturedDecl::*method_pointer_f46010b8c16459e099f8ff0dc12834e5)() const = &::clang::CapturedDecl::getContextParam;
-    unsigned int  (::clang::CapturedDecl::*method_pointer_2cee4bdf7c6b5d0695371de95ebfb498)() const = &::clang::CapturedDecl::getContextParamPosition;
-    unsigned int  (::clang::CapturedDecl::*method_pointer_c27e91cfa45051fdb015b0a0bb0f6334)() const = &::clang::CapturedDecl::getNumParams;
-    class ::clang::ImplicitParamDecl  * (::clang::CapturedDecl::*method_pointer_050c3d65efac51bdba0ae964a3079efd)(unsigned int ) const = &::clang::CapturedDecl::getParam;
-    bool  (::clang::CapturedDecl::*method_pointer_0b79099f4c685a4e8260a83014e348b2)() const = &::clang::CapturedDecl::isNothrow;
-    void  (::clang::CapturedDecl::*method_pointer_7043c435ba6a5de4b0859d52402c49be)(unsigned int , class ::clang::ImplicitParamDecl  *) = &::clang::CapturedDecl::setContextParam;
-    void  (::clang::CapturedDecl::*method_pointer_524608e218db5892a0689eaba4fd94d5)(bool ) = &::clang::CapturedDecl::setNothrow;
-    void  (::clang::CapturedDecl::*method_pointer_53400f4517e0596fb9c0254136005b48)(unsigned int , class ::clang::ImplicitParamDecl  *) = &::clang::CapturedDecl::setParam;
+    class ::clang::CapturedDecl  * (*method_pointer_eee66248a4725bb5a04e2ce72161233e)(class ::clang::ASTContext  &, class ::clang::DeclContext  *, unsigned int ) = ::clang::CapturedDecl::Create;
+    class ::clang::CapturedDecl  * (*method_pointer_0e2091e30e86514d99207540b64a168b)(class ::clang::ASTContext  &, unsigned int , unsigned int ) = ::clang::CapturedDecl::CreateDeserialized;
+    class ::clang::CapturedDecl  * (*method_pointer_ba08a57736715d588a2e00a5c03c6f89)(class ::clang::DeclContext  const *) = ::clang::CapturedDecl::castFromDeclContext;
+    class ::clang::DeclContext  * (*method_pointer_ff599477585a5afc92f428f9a9d6fc09)(class ::clang::CapturedDecl  const *) = ::clang::CapturedDecl::castToDeclContext;
+    bool  (*method_pointer_223d18dfbef257feadfb81d02bdf6c56)(class ::clang::Decl  const *) = ::clang::CapturedDecl::classof;
+    bool  (*method_pointer_308f6cc533215e56be7ccdcefd9b7966)(enum ::clang::Decl::Kind ) = ::clang::CapturedDecl::classofKind;
+    class ::clang::ImplicitParamDecl  * (::clang::CapturedDecl::*method_pointer_b380b511933055659b9644abc6afcd96)() const = &::clang::CapturedDecl::getContextParam;
+    unsigned int  (::clang::CapturedDecl::*method_pointer_8bb7ede5db6a57d5afe3beff331008f7)() const = &::clang::CapturedDecl::getContextParamPosition;
+    unsigned int  (::clang::CapturedDecl::*method_pointer_3ddbd66a9e765f46ae3f85ce7e916a1d)() const = &::clang::CapturedDecl::getNumParams;
+    class ::clang::ImplicitParamDecl  * (::clang::CapturedDecl::*method_pointer_e6f205f746195e28bbce07d060a2189c)(unsigned int ) const = &::clang::CapturedDecl::getParam;
+    bool  (::clang::CapturedDecl::*method_pointer_4636ddc218665e54afb49137c7c852ee)() const = &::clang::CapturedDecl::isNothrow;
+    void  (::clang::CapturedDecl::*method_pointer_2ac071a6961e580aadf003102d8b38e8)(unsigned int , class ::clang::ImplicitParamDecl  *) = &::clang::CapturedDecl::setContextParam;
+    void  (::clang::CapturedDecl::*method_pointer_e170b459cff95f599e3f358154509583)(bool ) = &::clang::CapturedDecl::setNothrow;
+    void  (::clang::CapturedDecl::*method_pointer_e6b818f1c39b55dd80ccc20c537ce4a4)(unsigned int , class ::clang::ImplicitParamDecl  *) = &::clang::CapturedDecl::setParam;
     boost::python::class_< class ::clang::CapturedDecl, autowig::HeldType< class ::clang::CapturedDecl >, boost::python::bases< class ::clang::Decl, class ::clang::DeclContext >, boost::noncopyable > class_40fbba8dfa075307bb51cf2b9b55fe29("CapturedDecl", "", boost::python::no_init);
-    class_40fbba8dfa075307bb51cf2b9b55fe29.def("create", method_pointer_ab5b7cb2753a502c94752ccbcbcce1fb, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_40fbba8dfa075307bb51cf2b9b55fe29.def("create_deserialized", method_pointer_976a116ffa035802b9ff0d4d83d1dbcb, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_40fbba8dfa075307bb51cf2b9b55fe29.def("cast_from_decl_context", method_pointer_c00b7665fc9959928d804a5a19bedfe8, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_40fbba8dfa075307bb51cf2b9b55fe29.def("cast_to_decl_context", method_pointer_8c884a5a261059e483b47441e21f7fc5, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_40fbba8dfa075307bb51cf2b9b55fe29.def("classof", method_pointer_9d16b939db5855f19925156f1898ac82, "");
-    class_40fbba8dfa075307bb51cf2b9b55fe29.def("classof_kind", method_pointer_5cff575c4ebe586196220c600aa20aa4, "");
-    class_40fbba8dfa075307bb51cf2b9b55fe29.def("get_context_param", method_pointer_f46010b8c16459e099f8ff0dc12834e5, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_40fbba8dfa075307bb51cf2b9b55fe29.def("get_context_param_position", method_pointer_2cee4bdf7c6b5d0695371de95ebfb498, "");
-    class_40fbba8dfa075307bb51cf2b9b55fe29.def("get_num_params", method_pointer_c27e91cfa45051fdb015b0a0bb0f6334, "");
-    class_40fbba8dfa075307bb51cf2b9b55fe29.def("get_param", method_pointer_050c3d65efac51bdba0ae964a3079efd, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_40fbba8dfa075307bb51cf2b9b55fe29.def("is_nothrow", method_pointer_0b79099f4c685a4e8260a83014e348b2, "");
-    class_40fbba8dfa075307bb51cf2b9b55fe29.def("set_context_param", method_pointer_7043c435ba6a5de4b0859d52402c49be, "");
-    class_40fbba8dfa075307bb51cf2b9b55fe29.def("set_nothrow", method_pointer_524608e218db5892a0689eaba4fd94d5, "");
-    class_40fbba8dfa075307bb51cf2b9b55fe29.def("set_param", method_pointer_53400f4517e0596fb9c0254136005b48, "");
+    class_40fbba8dfa075307bb51cf2b9b55fe29.def("create", method_pointer_eee66248a4725bb5a04e2ce72161233e, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_40fbba8dfa075307bb51cf2b9b55fe29.def("create_deserialized", method_pointer_0e2091e30e86514d99207540b64a168b, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_40fbba8dfa075307bb51cf2b9b55fe29.def("cast_from_decl_context", method_pointer_ba08a57736715d588a2e00a5c03c6f89, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_40fbba8dfa075307bb51cf2b9b55fe29.def("cast_to_decl_context", method_pointer_ff599477585a5afc92f428f9a9d6fc09, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_40fbba8dfa075307bb51cf2b9b55fe29.def("classof", method_pointer_223d18dfbef257feadfb81d02bdf6c56, "");
+    class_40fbba8dfa075307bb51cf2b9b55fe29.def("classof_kind", method_pointer_308f6cc533215e56be7ccdcefd9b7966, "");
+    class_40fbba8dfa075307bb51cf2b9b55fe29.def("get_context_param", method_pointer_b380b511933055659b9644abc6afcd96, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_40fbba8dfa075307bb51cf2b9b55fe29.def("get_context_param_position", method_pointer_8bb7ede5db6a57d5afe3beff331008f7, "");
+    class_40fbba8dfa075307bb51cf2b9b55fe29.def("get_num_params", method_pointer_3ddbd66a9e765f46ae3f85ce7e916a1d, "");
+    class_40fbba8dfa075307bb51cf2b9b55fe29.def("get_param", method_pointer_e6f205f746195e28bbce07d060a2189c, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_40fbba8dfa075307bb51cf2b9b55fe29.def("is_nothrow", method_pointer_4636ddc218665e54afb49137c7c852ee, "");
+    class_40fbba8dfa075307bb51cf2b9b55fe29.def("set_context_param", method_pointer_2ac071a6961e580aadf003102d8b38e8, "");
+    class_40fbba8dfa075307bb51cf2b9b55fe29.def("set_nothrow", method_pointer_e170b459cff95f599e3f358154509583, "");
+    class_40fbba8dfa075307bb51cf2b9b55fe29.def("set_param", method_pointer_e6b818f1c39b55dd80ccc20c537ce4a4, "");
     class_40fbba8dfa075307bb51cf2b9b55fe29.staticmethod("cast_from_decl_context");
     class_40fbba8dfa075307bb51cf2b9b55fe29.staticmethod("cast_to_decl_context");
     class_40fbba8dfa075307bb51cf2b9b55fe29.staticmethod("create");

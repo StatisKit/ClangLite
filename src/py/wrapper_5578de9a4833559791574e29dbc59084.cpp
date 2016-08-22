@@ -2,7 +2,7 @@
 #include <boost/python.hpp>
 #include <clanglite/tool.h>
 
-namespace autowig { template<class T> using HeldType = std::shared_ptr< T >; }
+namespace autowig { template<class T> using HeldType = T*; }
 
 namespace autowig
 {
@@ -16,13 +16,13 @@ void wrapper_5578de9a4833559791574e29dbc59084()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    class ::clang::AccessSpecDecl  * (*method_pointer_1125a5b9fb53533da75dc00aef47a5ed)(class ::clang::ASTContext  &, unsigned int ) = ::clang::AccessSpecDecl::CreateDeserialized;
-    bool  (*method_pointer_bbcde1c9bd4e5b538e1569726f938627)(class ::clang::Decl  const *) = ::clang::AccessSpecDecl::classof;
-    bool  (*method_pointer_c7ccc0478c415c7bb407ef0d93ca7356)(enum ::clang::Decl::Kind ) = ::clang::AccessSpecDecl::classofKind;
+    class ::clang::AccessSpecDecl  * (*method_pointer_920e8dd2a3125f30a0928fb9ad35d976)(class ::clang::ASTContext  &, unsigned int ) = ::clang::AccessSpecDecl::CreateDeserialized;
+    bool  (*method_pointer_86be8a97a8945bfe9e1fb1a7cb138d4d)(class ::clang::Decl  const *) = ::clang::AccessSpecDecl::classof;
+    bool  (*method_pointer_2416840699b45b16997b46ba2eecd80c)(enum ::clang::Decl::Kind ) = ::clang::AccessSpecDecl::classofKind;
     boost::python::class_< class ::clang::AccessSpecDecl, autowig::HeldType< class ::clang::AccessSpecDecl >, boost::python::bases< class ::clang::Decl >, boost::noncopyable > class_5578de9a4833559791574e29dbc59084("AccessSpecDecl", "", boost::python::no_init);
-    class_5578de9a4833559791574e29dbc59084.def("create_deserialized", method_pointer_1125a5b9fb53533da75dc00aef47a5ed, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_5578de9a4833559791574e29dbc59084.def("classof", method_pointer_bbcde1c9bd4e5b538e1569726f938627, "");
-    class_5578de9a4833559791574e29dbc59084.def("classof_kind", method_pointer_c7ccc0478c415c7bb407ef0d93ca7356, "");
+    class_5578de9a4833559791574e29dbc59084.def("create_deserialized", method_pointer_920e8dd2a3125f30a0928fb9ad35d976, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_5578de9a4833559791574e29dbc59084.def("classof", method_pointer_86be8a97a8945bfe9e1fb1a7cb138d4d, "");
+    class_5578de9a4833559791574e29dbc59084.def("classof_kind", method_pointer_2416840699b45b16997b46ba2eecd80c, "");
     class_5578de9a4833559791574e29dbc59084.staticmethod("classof_kind");
     class_5578de9a4833559791574e29dbc59084.staticmethod("create_deserialized");
     class_5578de9a4833559791574e29dbc59084.staticmethod("classof");

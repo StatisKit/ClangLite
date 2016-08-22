@@ -2,7 +2,7 @@
 #include <boost/python.hpp>
 #include <clanglite/tool.h>
 
-namespace autowig { template<class T> using HeldType = std::shared_ptr< T >; }
+namespace autowig { template<class T> using HeldType = T*; }
 
 namespace autowig
 {
@@ -16,11 +16,11 @@ void wrapper_3bff763d917f5a62bc6b705f9eb6fdba()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_7fe98b457e1358838c7bcaace840f210)(class ::clang::Type  const *) = ::clang::TypeOfExprType::classof;
-    bool  (::clang::TypeOfExprType::*method_pointer_b24bcc37044855e0b484395d22bda4ee)() const = &::clang::TypeOfExprType::isSugared;
+    bool  (*method_pointer_c3fe52cf08275d428bb6696c27ca19e9)(class ::clang::Type  const *) = ::clang::TypeOfExprType::classof;
+    bool  (::clang::TypeOfExprType::*method_pointer_681ecdb8f4675947a1213d49477d805d)() const = &::clang::TypeOfExprType::isSugared;
     boost::python::class_< class ::clang::TypeOfExprType, autowig::HeldType< class ::clang::TypeOfExprType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_3bff763d917f5a62bc6b705f9eb6fdba("TypeOfExprType", "", boost::python::no_init);
-    class_3bff763d917f5a62bc6b705f9eb6fdba.def("classof", method_pointer_7fe98b457e1358838c7bcaace840f210, "");
-    class_3bff763d917f5a62bc6b705f9eb6fdba.def("is_sugared", method_pointer_b24bcc37044855e0b484395d22bda4ee, "");
+    class_3bff763d917f5a62bc6b705f9eb6fdba.def("classof", method_pointer_c3fe52cf08275d428bb6696c27ca19e9, "");
+    class_3bff763d917f5a62bc6b705f9eb6fdba.def("is_sugared", method_pointer_681ecdb8f4675947a1213d49477d805d, "");
     class_3bff763d917f5a62bc6b705f9eb6fdba.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::TypeOfExprType > >::value)
