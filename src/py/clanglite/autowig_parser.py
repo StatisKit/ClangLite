@@ -8,7 +8,7 @@ from clanglite import *
 def autowig_parser(asg, headers, flags, inline=True, permissive=True, **kwargs):
     header = pre_processing(asg, headers, flags, **kwargs)
     if header:
-        tu = clanglite.build_ast_from_code_with_args(header, flags)
+        tu = clang.tooling.build_ast_from_code_with_args(header, flags)
         read_translation_unit(asg, tu, inline, permissive)
     post_processing(asg, flags, **kwargs)
     return asg
