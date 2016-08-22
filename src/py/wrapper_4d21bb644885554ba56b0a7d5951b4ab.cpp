@@ -2,13 +2,13 @@
 #include <boost/python.hpp>
 #include <clanglite/tool.h>
 
-void wrapper_053f1346b15a5b4485b9c192c3063fdf()
+void wrapper_4d21bb644885554ba56b0a7d5951b4ab()
 {
 
     std::string name_455bdc46e2b35a918626aaf15ff5c590 = boost::python::extract< std::string >(boost::python::scope().attr("__name__") + ".clanglite");
     boost::python::object module_455bdc46e2b35a918626aaf15ff5c590(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_455bdc46e2b35a918626aaf15ff5c590.c_str()))));
     boost::python::scope().attr("clanglite") = module_455bdc46e2b35a918626aaf15ff5c590;
     boost::python::scope scope_455bdc46e2b35a918626aaf15ff5c590 = module_455bdc46e2b35a918626aaf15ff5c590;
-    class ::clang::ASTUnit  * (*function_pointer_053f1346b15a5b4485b9c192c3063fdf)(class ::boost::python::api::object , class ::boost::python::api::object ) = ::clanglite::build_ast_from_code_with_args;
-    boost::python::def("build_ast_from_code_with_args", function_pointer_053f1346b15a5b4485b9c192c3063fdf, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class ::clang::ASTUnit  * (*function_pointer_4d21bb644885554ba56b0a7d5951b4ab)(class ::boost::python::api::object , class ::boost::python::api::object ) = ::clanglite::build_ast_from_code_with_args;
+    boost::python::def("build_ast_from_code_with_args", function_pointer_4d21bb644885554ba56b0a7d5951b4ab, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
 }

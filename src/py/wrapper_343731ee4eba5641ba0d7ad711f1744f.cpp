@@ -2,7 +2,7 @@
 #include <boost/python.hpp>
 #include <clanglite/tool.h>
 
-namespace autowig { template<class T> using HeldType = std::shared_ptr< T >; }
+namespace autowig { template<class T> using HeldType = T*; }
 
 namespace autowig
 {
@@ -16,15 +16,15 @@ void wrapper_343731ee4eba5641ba0d7ad711f1744f()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_47e17818dcca525b9b4d6347255eb5a2)(class ::clang::Type  const *) = ::clang::AutoType::classof;
-    bool  (::clang::AutoType::*method_pointer_4322f4041bd9531e832359a643e3baee)() const = &::clang::AutoType::isDecltypeAuto;
-    bool  (::clang::AutoType::*method_pointer_cbe3c41cb4425f1388e309d0f558cfb7)() const = &::clang::AutoType::isDeduced;
-    bool  (::clang::AutoType::*method_pointer_4fdc2dbe6a515b30a616f0d59a9541cb)() const = &::clang::AutoType::isSugared;
+    bool  (*method_pointer_716e31f086375c2e8dc1f26bada9fffa)(class ::clang::Type  const *) = ::clang::AutoType::classof;
+    bool  (::clang::AutoType::*method_pointer_19f831b39e1d505a86f3532caa354e49)() const = &::clang::AutoType::isDecltypeAuto;
+    bool  (::clang::AutoType::*method_pointer_8deebb1145fa5022803e4e37102d9773)() const = &::clang::AutoType::isDeduced;
+    bool  (::clang::AutoType::*method_pointer_0ad27d1d2d0358fc9c911a7fc292bee0)() const = &::clang::AutoType::isSugared;
     boost::python::class_< class ::clang::AutoType, autowig::HeldType< class ::clang::AutoType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_343731ee4eba5641ba0d7ad711f1744f("AutoType", "", boost::python::no_init);
-    class_343731ee4eba5641ba0d7ad711f1744f.def("classof", method_pointer_47e17818dcca525b9b4d6347255eb5a2, "");
-    class_343731ee4eba5641ba0d7ad711f1744f.def("is_decltype_auto", method_pointer_4322f4041bd9531e832359a643e3baee, "");
-    class_343731ee4eba5641ba0d7ad711f1744f.def("is_deduced", method_pointer_cbe3c41cb4425f1388e309d0f558cfb7, "");
-    class_343731ee4eba5641ba0d7ad711f1744f.def("is_sugared", method_pointer_4fdc2dbe6a515b30a616f0d59a9541cb, "");
+    class_343731ee4eba5641ba0d7ad711f1744f.def("classof", method_pointer_716e31f086375c2e8dc1f26bada9fffa, "");
+    class_343731ee4eba5641ba0d7ad711f1744f.def("is_decltype_auto", method_pointer_19f831b39e1d505a86f3532caa354e49, "");
+    class_343731ee4eba5641ba0d7ad711f1744f.def("is_deduced", method_pointer_8deebb1145fa5022803e4e37102d9773, "");
+    class_343731ee4eba5641ba0d7ad711f1744f.def("is_sugared", method_pointer_0ad27d1d2d0358fc9c911a7fc292bee0, "");
     class_343731ee4eba5641ba0d7ad711f1744f.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::AutoType > >::value)

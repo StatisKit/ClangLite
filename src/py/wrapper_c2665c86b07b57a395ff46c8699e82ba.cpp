@@ -2,7 +2,7 @@
 #include <boost/python.hpp>
 #include <clanglite/tool.h>
 
-namespace autowig { template<class T> using HeldType = std::shared_ptr< T >; }
+namespace autowig { template<class T> using HeldType = T*; }
 
 namespace autowig
 {
