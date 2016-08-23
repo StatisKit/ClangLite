@@ -27,7 +27,7 @@ install:
   - clang -x c -v -E /dev/null
 
 before_script:
-  - conda build conda/libclanglite -c statiskit --no-test
+  - conda build conda/libclanglite -c statiskit
   - conda build conda/python-clanglite -c statiskit --no-test
 
 script:
