@@ -798,22 +798,22 @@ def read_context_parent(asg, decl):
 def read_parent(asg, parent):
     kind = parent.get_decl_kind()
     if kind is clang.Decl.kind.NAMESPACE:
-        parent = clang.cast.as_namespace(parent)
+        parent = parent.as_namespace()
         if parent.get_name() == '':
             parent = read_parent(asg, parent.get_parent())
         return parent
     elif kind in [clang.Decl.kind.CXX_RECORD, clang.Decl.kind.RECORD, clang.Decl.kind.FIRST_CXX_RECORD, clang.Decl.kind.FIRST_CLASS_TEMPLATE_SPECIALIZATION, clang.Decl.kind.FIRST_RECORD]:
-        parent = clang.cast.as_record(parent)
+        parent = parent.as_record()
         return parent
     elif kind in [clang.Decl.kind.ENUM]:
-        parent = clang.cast.as_enum(parent)
+        parent = parent.as_enum()
         if parent.get_name() == '':
             parent = read_parent(asg, parent.get_parent())
         return parent
     elif kind is clang.Decl.kind.LINKAGE_SPEC:
         return read_parent(asg, read_parent(asg, parent.get_parent()))
     elif kind in [clang.Decl.kind.TRANSLATION_UNIT, clang.Decl.kind.LAST_DECL]:
-        return clang.cast.as_translation_unit(parent)
+        return parent.as_translation_unit()
     elif kind in [clang.Decl.kind.CLASS_TEMPLATE_PARTIAL_SPECIALIZATION, clang.Decl.kind.FIRST_TEMPLATE, clang.Decl.kind.FIRST_VAR_TEMPLATE_SPECIALIZATION, clang.Decl.kind.LAST_TAG, clang.Decl.kind.LAST_REDECLARABLE_TEMPLATE, clang.Decl.kind.LAST_TEMPLATE]:
         warnings.warn('', TemplateParentWarning)
     else:
