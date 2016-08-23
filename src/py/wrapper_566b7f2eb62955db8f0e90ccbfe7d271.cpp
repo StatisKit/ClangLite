@@ -16,11 +16,11 @@ void wrapper_566b7f2eb62955db8f0e90ccbfe7d271()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_32521ad9b5975c98bd620d3dc363fe21)(class ::clang::Type  const *) = ::clang::LocInfoType::classof;
-    class ::clang::QualType  (::clang::LocInfoType::*method_pointer_bd23d5ebced75f22b364eb0f1df36c75)() const = &::clang::LocInfoType::getType;
+    bool  (*method_pointer_9f153219e4e95f24984ae6686346563f)(class ::clang::Type  const *) = ::clang::LocInfoType::classof;
+    class ::clang::QualType  (::clang::LocInfoType::*method_pointer_b756f01ea9d557ab9641f1dacb2bbd2c)() const = &::clang::LocInfoType::getType;
     boost::python::class_< class ::clang::LocInfoType, autowig::HeldType< class ::clang::LocInfoType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_566b7f2eb62955db8f0e90ccbfe7d271("LocInfoType", "", boost::python::no_init);
-    class_566b7f2eb62955db8f0e90ccbfe7d271.def("classof", method_pointer_32521ad9b5975c98bd620d3dc363fe21, "");
-    class_566b7f2eb62955db8f0e90ccbfe7d271.def("get_type", method_pointer_bd23d5ebced75f22b364eb0f1df36c75, "");
+    class_566b7f2eb62955db8f0e90ccbfe7d271.def("classof", method_pointer_9f153219e4e95f24984ae6686346563f, "");
+    class_566b7f2eb62955db8f0e90ccbfe7d271.def("get_type", method_pointer_b756f01ea9d557ab9641f1dacb2bbd2c, "");
     class_566b7f2eb62955db8f0e90ccbfe7d271.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::LocInfoType > >::value)
