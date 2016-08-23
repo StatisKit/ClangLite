@@ -17,10 +17,10 @@ before_install:
     - conda update -q conda
     - conda info -a
     - conda install conda-build
-    - pip install python-coveralls
-    - conda install libclang -c statiskit
 
 install:
+  - pip install python-coveralls
+  - conda install libclang -c statiskit
   - llvm-config --libs
   - llc -version
   - clang++ -x c++ -v -E /dev/null
