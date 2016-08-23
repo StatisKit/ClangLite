@@ -28,7 +28,7 @@ RUN [ $BUILD = "true" ] && $HOME/miniconda/bin/conda build $HOME/PyClangLite/con
 RUN [ $BUILD = "true" ] && echo "$HOME/miniconda/bin/anaconda upload \`$HOME/miniconda/bin/conda build $HOME/PyClangLite/conda/python-clanglite --output\` --user statiskit --force" >> $HOME/upload.sh || echo "pass"
 RUN $HOME/miniconda/bin/conda install python-clanglite -c statiskit --use-local
 RUN [ $BUILD = "true" ] && $HOME/miniconda/bin/conda remove python-clanglite || echo "pass"
-RUN [ $BUILD = "true" ] && $HOME/miniconda/bin/python $HOME/PyclangLite/setup.py develop --user  || echo "pass"
+RUN [ $BUILD = "true" ] && $HOME/miniconda/bin/pip install -e $HOME/PyclangLite  || echo "pass"
 
 ## Finalize file for anaconda upload
 RUN [ $BUILD = "false" ] && echo "rm -rf $HOME/PyClangLite" >> $HOME/upload.sh || echo "pass"
