@@ -1,5 +1,8 @@
 FROM statiskit/ubuntu:trusty
 
+# Test if build or not
+ARG BUILD="true"
+
 # Install libraries and packages from PyClangLite
 # Clone the repository
 RUN git clone https://github.com/StatisKit/PyClangLite.git $HOME/PyClangLite
