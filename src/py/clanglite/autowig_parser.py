@@ -76,11 +76,11 @@ def read_qualified_type(asg, qtype, inline):
             qtype = ttype.get_pointee_type()
             qualifiers = ' const' * qtype.is_local_const_qualified() + ' volatile' * qtype.is_local_volatile_qualified() + ' *' + qualifiers
             ttype = qtype.get_type_ptr_or_null()
-        elif ttype.is_rvalue_reference_type():
+        elif ttype.is_r_value_reference_type():
             qtype = ttype.get_pointee_type()
             qualifiers = ' const' * qtype.is_local_const_qualified() + ' volatile' * qtype.is_local_volatile_qualified() + ' &&' + qualifiers
             ttype = qtype.get_type_ptr_or_null()
-        elif ttype.is_lvalue_reference_type():
+        elif ttype.is_l_value_reference_type():
             qtype = ttype.get_pointee_type()
             qualifiers = ' const' * qtype.is_local_const_qualified() + ' volatile' * qtype.is_local_volatile_qualified() + ' &' + qualifiers
             ttype = qtype.get_type_ptr_or_null()
