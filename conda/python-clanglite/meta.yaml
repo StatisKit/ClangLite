@@ -28,6 +28,4 @@ requirements:
 
 test:
   commands:
-    - python -c "from clanglite import __clanglite"
-    - python -c "from clanglite import _clanglite"
     - python -c "from clanglite import *"
