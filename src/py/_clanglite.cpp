@@ -1,7 +1,7 @@
 #include <boost/python.hpp>
 
-void wrapper_094de6f12bfc5e779b34702451c6728c();
 void wrapper_0c11b148868f50d9aba81b8d12b3ed37();
+void wrapper_1e1da2ca87be595e957ac6ea6f0048ba();
 void wrapper_3bb72e110333506a85ff3706c82d0672();
 void wrapper_3bcdbbe507dd5ad29df9e33aca4e435f();
 void wrapper_4b4e99a998695d79afb2678ecd4ef38b();
@@ -74,8 +74,8 @@ boost::python::docstring_options docstring_options(1, 0, 0);
 
 BOOST_PYTHON_MODULE(__clanglite)
 {
-    wrapper_094de6f12bfc5e779b34702451c6728c();
     wrapper_0c11b148868f50d9aba81b8d12b3ed37();
+    wrapper_1e1da2ca87be595e957ac6ea6f0048ba();
     wrapper_3bb72e110333506a85ff3706c82d0672();
     wrapper_3bcdbbe507dd5ad29df9e33aca4e435f();
     wrapper_4b4e99a998695d79afb2678ecd4ef38b();
