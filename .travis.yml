@@ -2,7 +2,8 @@ sudo: required
 dist: trusty
 language: cpp
 
-os: linux
+services:
+  - docker
 
 before_install:
     - if [[ "$TRAVIS_OS_NAME" = "linux" ]]; then
@@ -31,17 +32,18 @@ before_script:
 
 script:
   - conda install python-clanglite -c statiskit --use-local
-  - python -c "from clanglite import __clanglite"
-  - python -c "from clanglite import _clanglite"
   - python -c "from clanglite import *"
   
 after_success:
   - coveralls
   - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]]; then
       conda install anaconda-client;
-      anaconda login --username ${ANACONDA_USERNAME%%} --password ${ANACONDA_PASSWORD%%};
+      anaconda login --username "$ANACONDA_USERNAME" --password "$ANACONDA_PASSWORD";
       CONDA_FILE=`conda build conda/libclanglite --output`; 
-      anaconda upload --user ${ANACONDA_CHANNEL%%} ${CONDA_FILE%%} --force;
+      anaconda upload --user statiskit ${CONDA_FILE%%} --force;
       CONDA_FILE=`conda build conda/python-clanglite --output`; 
-      anaconda upload --user ${ANACONDA_CHANNEL%%} ${CONDA_FILE%%} --force;
+      anaconda upload --user statiskit ${CONDA_FILE%%} --force;
+      docker build --build-arg BUILD="false" -t statiskit/pyclanglite:trusty .;
+      docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+      docker push statiskit/pyclanglite:trusty;
     fi
