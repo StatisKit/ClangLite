@@ -376,7 +376,7 @@ namespace clanglite
     boost::python::list get_children(clang::ClassTemplateDecl& cls);
     boost::python::list get_children(clang::FunctionDecl& cls);
 
-    boost::python::list get_constructors(const clang::CXXRecordDecl& decl);
+    boost::python::list get_constructors(clang::CXXRecordDecl& decl);
 
     boost::python::list get_bases(clang::CXXRecordDecl& decl);
     boost::python::list get_virtual_bases(clang::CXXRecordDecl& decl);
