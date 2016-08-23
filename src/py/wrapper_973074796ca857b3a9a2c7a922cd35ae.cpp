@@ -16,11 +16,11 @@ void wrapper_973074796ca857b3a9a2c7a922cd35ae()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_77d160ebd8b3524585ae9869472023f9)(class ::clang::Type  const *) = ::clang::DecltypeType::classof;
-    bool  (::clang::DecltypeType::*method_pointer_87bd0ee962485cf5a9aeeedaf688cd4d)() const = &::clang::DecltypeType::isSugared;
+    bool  (*method_pointer_814d2a8a33885e708ba2f72e883b04eb)(class ::clang::Type  const *) = ::clang::DecltypeType::classof;
+    bool  (::clang::DecltypeType::*method_pointer_61f7e83723e453879c015de2cf8699da)() const = &::clang::DecltypeType::isSugared;
     boost::python::class_< class ::clang::DecltypeType, autowig::HeldType< class ::clang::DecltypeType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_973074796ca857b3a9a2c7a922cd35ae("DecltypeType", "", boost::python::no_init);
-    class_973074796ca857b3a9a2c7a922cd35ae.def("classof", method_pointer_77d160ebd8b3524585ae9869472023f9, "");
-    class_973074796ca857b3a9a2c7a922cd35ae.def("is_sugared", method_pointer_87bd0ee962485cf5a9aeeedaf688cd4d, "");
+    class_973074796ca857b3a9a2c7a922cd35ae.def("classof", method_pointer_814d2a8a33885e708ba2f72e883b04eb, "");
+    class_973074796ca857b3a9a2c7a922cd35ae.def("is_sugared", method_pointer_61f7e83723e453879c015de2cf8699da, "");
     class_973074796ca857b3a9a2c7a922cd35ae.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::DecltypeType > >::value)
