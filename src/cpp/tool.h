@@ -378,8 +378,8 @@ namespace clanglite
 
     boost::python::list get_constructors(const clang::CXXRecordDecl& decl);
 
-    boost::python::list get_bases(const clang::CXXRecordDecl& decl, const unsigned int& base);
-    boost::python::list get_virtual_bases(const clang::CXXRecordDecl& decl, const unsigned int& base);
+    boost::python::list get_bases(clang::CXXRecordDecl& decl);
+    boost::python::list get_virtual_bases(clang::CXXRecordDecl& decl);
 
     clang::TranslationUnitDecl * as_translation_unit(clang::DeclContext * decl);
     clang::NamespaceDecl * as_namespace(clang::DeclContext * decl);
