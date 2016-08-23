@@ -16,12 +16,12 @@ void wrapper_b1580b6f5457571a867a2347d7b1f865()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    unsigned int  (::clang::FileID::*method_pointer_4e8645d9aa205c2abe049b991f2f1283)() const = &::clang::FileID::getHashValue;
-    bool  (::clang::FileID::*method_pointer_543dfa2b2e3e5281a0b9050123bad3cf)() const = &::clang::FileID::isInvalid;
-    bool  (::clang::FileID::*method_pointer_48adc4a2657751dbbfb5cf428b1abcbb)() const = &::clang::FileID::isValid;
+    unsigned int  (::clang::FileID::*method_pointer_040141a2f0185795a0e4955dc93c3463)() const = &::clang::FileID::getHashValue;
+    bool  (::clang::FileID::*method_pointer_9f760ab25fc45a30a3b57a1e5ed5d10b)() const = &::clang::FileID::isInvalid;
+    bool  (::clang::FileID::*method_pointer_f86d2252b7ef5c6e8f1ab5e969748e2d)() const = &::clang::FileID::isValid;
     boost::python::class_< class ::clang::FileID, autowig::HeldType< class ::clang::FileID >, boost::noncopyable > class_b1580b6f5457571a867a2347d7b1f865("FileID", "", boost::python::no_init);
-    class_b1580b6f5457571a867a2347d7b1f865.def("get_hash_value", method_pointer_4e8645d9aa205c2abe049b991f2f1283, "");
-    class_b1580b6f5457571a867a2347d7b1f865.def("is_invalid", method_pointer_543dfa2b2e3e5281a0b9050123bad3cf, "");
-    class_b1580b6f5457571a867a2347d7b1f865.def("is_valid", method_pointer_48adc4a2657751dbbfb5cf428b1abcbb, "");
+    class_b1580b6f5457571a867a2347d7b1f865.def("get_hash_value", method_pointer_040141a2f0185795a0e4955dc93c3463, "");
+    class_b1580b6f5457571a867a2347d7b1f865.def("is_invalid", method_pointer_9f760ab25fc45a30a3b57a1e5ed5d10b, "");
+    class_b1580b6f5457571a867a2347d7b1f865.def("is_valid", method_pointer_f86d2252b7ef5c6e8f1ab5e969748e2d, "");
 
 }
