@@ -16,11 +16,13 @@ void wrapper_d0a4d455ddf25a6eaff261924ecb6a85()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_a959cd0b4fd45adca3f054dafede0ce4)(class ::clang::Type  const *) = ::clang::FunctionNoProtoType::classof;
-    bool  (::clang::FunctionNoProtoType::*method_pointer_3eba28b6565051f3b45cd84664b8331e)() const = &::clang::FunctionNoProtoType::isSugared;
+    bool  (*method_pointer_a9af02c0263a5c07b4d482949dba33c4)(class ::clang::Type  const *) = ::clang::FunctionNoProtoType::classof;
+    class ::clang::QualType  (::clang::FunctionNoProtoType::*method_pointer_ec602f3cb5c65d48b950f0c8f71fde32)() const = &::clang::FunctionNoProtoType::desugar;
+    bool  (::clang::FunctionNoProtoType::*method_pointer_2f594f6b5ccc53878a0bdff8ebfd75ca)() const = &::clang::FunctionNoProtoType::isSugared;
     boost::python::class_< class ::clang::FunctionNoProtoType, autowig::HeldType< class ::clang::FunctionNoProtoType >, boost::python::bases< class ::clang::FunctionType >, boost::noncopyable > class_d0a4d455ddf25a6eaff261924ecb6a85("FunctionNoProtoType", "", boost::python::no_init);
-    class_d0a4d455ddf25a6eaff261924ecb6a85.def("classof", method_pointer_a959cd0b4fd45adca3f054dafede0ce4, "");
-    class_d0a4d455ddf25a6eaff261924ecb6a85.def("is_sugared", method_pointer_3eba28b6565051f3b45cd84664b8331e, "");
+    class_d0a4d455ddf25a6eaff261924ecb6a85.def("classof", method_pointer_a9af02c0263a5c07b4d482949dba33c4, "");
+    class_d0a4d455ddf25a6eaff261924ecb6a85.def("desugar", method_pointer_ec602f3cb5c65d48b950f0c8f71fde32, "");
+    class_d0a4d455ddf25a6eaff261924ecb6a85.def("is_sugared", method_pointer_2f594f6b5ccc53878a0bdff8ebfd75ca, "");
     class_d0a4d455ddf25a6eaff261924ecb6a85.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::FunctionNoProtoType > >::value)

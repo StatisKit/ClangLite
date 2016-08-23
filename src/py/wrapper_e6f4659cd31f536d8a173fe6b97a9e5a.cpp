@@ -16,11 +16,13 @@ void wrapper_e6f4659cd31f536d8a173fe6b97a9e5a()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_dad5029b9937545db1a196fbb127c5f5)(class ::clang::Type  const *) = ::clang::IncompleteArrayType::classof;
-    bool  (::clang::IncompleteArrayType::*method_pointer_bda717ca91065daf9e6410a3cd7a8f8f)() const = &::clang::IncompleteArrayType::isSugared;
+    bool  (*method_pointer_f9fcd73dc2e4571a9e4d05b743e4a40d)(class ::clang::Type  const *) = ::clang::IncompleteArrayType::classof;
+    class ::clang::QualType  (::clang::IncompleteArrayType::*method_pointer_a340aba0b8065eb2ad58726921a9e373)() const = &::clang::IncompleteArrayType::desugar;
+    bool  (::clang::IncompleteArrayType::*method_pointer_e897977ef7c45d238edc62eee0f7d4d7)() const = &::clang::IncompleteArrayType::isSugared;
     boost::python::class_< class ::clang::IncompleteArrayType, autowig::HeldType< class ::clang::IncompleteArrayType >, boost::python::bases< class ::clang::ArrayType >, boost::noncopyable > class_e6f4659cd31f536d8a173fe6b97a9e5a("IncompleteArrayType", "", boost::python::no_init);
-    class_e6f4659cd31f536d8a173fe6b97a9e5a.def("classof", method_pointer_dad5029b9937545db1a196fbb127c5f5, "");
-    class_e6f4659cd31f536d8a173fe6b97a9e5a.def("is_sugared", method_pointer_bda717ca91065daf9e6410a3cd7a8f8f, "");
+    class_e6f4659cd31f536d8a173fe6b97a9e5a.def("classof", method_pointer_f9fcd73dc2e4571a9e4d05b743e4a40d, "");
+    class_e6f4659cd31f536d8a173fe6b97a9e5a.def("desugar", method_pointer_a340aba0b8065eb2ad58726921a9e373, "");
+    class_e6f4659cd31f536d8a173fe6b97a9e5a.def("is_sugared", method_pointer_e897977ef7c45d238edc62eee0f7d4d7, "");
     class_e6f4659cd31f536d8a173fe6b97a9e5a.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::IncompleteArrayType > >::value)
