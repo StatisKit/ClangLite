@@ -63,7 +63,7 @@ namespace clanglite
         return children;
     }
 
-    boost::python::list get_constructors(const clang::CXXRecordDecl& decl)
+    boost::python::list get_constructors(clang::CXXRecordDecl& decl)
     { 
         boost::python::list children = boost::python::list();
         for(auto it = decl.ctor_begin(), it_end = decl.ctor_end(); it != it_end; ++it)
@@ -71,7 +71,7 @@ namespace clanglite
         return children;
     }
 
-    boost::python::list get_bases(const clang::CXXRecordDecl& decl)
+    boost::python::list get_bases(clang::CXXRecordDecl& decl)
     { 
         boost::python::list children = boost::python::list();
         for(auto it = decl.bases_begin(), it_end = decl.bases_end(); it != it_end; ++it)
@@ -79,7 +79,7 @@ namespace clanglite
         return children;
     }
 
-    boost::python::list get_virtual_bases(const clang::CXXRecordDecl& decl)
+    boost::python::list get_virtual_bases(clang::CXXRecordDecl& decl)
     { 
         boost::python::list children = boost::python::list();
         for(auto it = decl.vbases_begin(), it_end = decl.vbases_end(); it != it_end; ++it)
