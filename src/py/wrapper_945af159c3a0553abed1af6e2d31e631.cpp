@@ -16,15 +16,15 @@ void wrapper_945af159c3a0553abed1af6e2d31e631()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_d3d8138115a25caab1a453295ab7e376)(class ::clang::Decl  const *) = ::clang::TypeDecl::classof;
-    bool  (*method_pointer_802a725ec2a85bb9aed0152814105ca8)(enum ::clang::Decl::Kind ) = ::clang::TypeDecl::classofKind;
-    class ::clang::Type  const * (::clang::TypeDecl::*method_pointer_6af556318aff5dcd9f89f8c749db7ba4)() const = &::clang::TypeDecl::getTypeForDecl;
-    void  (::clang::TypeDecl::*method_pointer_32958b1da3b25b9cb42a27fa93ef776b)(class ::clang::Type  const *) = &::clang::TypeDecl::setTypeForDecl;
+    bool  (*method_pointer_0e4287a184685c6b870b7784f4e658bc)(class ::clang::Decl  const *) = ::clang::TypeDecl::classof;
+    bool  (*method_pointer_b7830aa3443b530296c085103ee38c96)(enum ::clang::Decl::Kind ) = ::clang::TypeDecl::classofKind;
+    class ::clang::Type  const * (::clang::TypeDecl::*method_pointer_7f9bc016382e5eb5b570d01ee044a0d6)() const = &::clang::TypeDecl::getTypeForDecl;
+    void  (::clang::TypeDecl::*method_pointer_911d2eddaf185b4f99bc9c9ed3c34c9a)(class ::clang::Type  const *) = &::clang::TypeDecl::setTypeForDecl;
     boost::python::class_< class ::clang::TypeDecl, autowig::HeldType< class ::clang::TypeDecl >, boost::python::bases< class ::clang::NamedDecl >, boost::noncopyable > class_945af159c3a0553abed1af6e2d31e631("TypeDecl", "", boost::python::no_init);
-    class_945af159c3a0553abed1af6e2d31e631.def("classof", method_pointer_d3d8138115a25caab1a453295ab7e376, "");
-    class_945af159c3a0553abed1af6e2d31e631.def("classof_kind", method_pointer_802a725ec2a85bb9aed0152814105ca8, "");
-    class_945af159c3a0553abed1af6e2d31e631.def("get_type_for_decl", method_pointer_6af556318aff5dcd9f89f8c749db7ba4, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_945af159c3a0553abed1af6e2d31e631.def("set_type_for_decl", method_pointer_32958b1da3b25b9cb42a27fa93ef776b, "");
+    class_945af159c3a0553abed1af6e2d31e631.def("classof", method_pointer_0e4287a184685c6b870b7784f4e658bc, "");
+    class_945af159c3a0553abed1af6e2d31e631.def("classof_kind", method_pointer_b7830aa3443b530296c085103ee38c96, "");
+    class_945af159c3a0553abed1af6e2d31e631.def("get_type_for_decl", method_pointer_7f9bc016382e5eb5b570d01ee044a0d6, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_945af159c3a0553abed1af6e2d31e631.def("set_type_for_decl", method_pointer_911d2eddaf185b4f99bc9c9ed3c34c9a, "");
     class_945af159c3a0553abed1af6e2d31e631.staticmethod("classof_kind");
     class_945af159c3a0553abed1af6e2d31e631.staticmethod("classof");
 

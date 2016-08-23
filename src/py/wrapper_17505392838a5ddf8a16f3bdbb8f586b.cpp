@@ -16,11 +16,11 @@ void wrapper_17505392838a5ddf8a16f3bdbb8f586b()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_316880d31089574b91f3e0132845c221)(class ::clang::Type  const *) = ::clang::AtomicType::classof;
-    bool  (::clang::AtomicType::*method_pointer_aab5115abffc55089aec9e306b58d84b)() const = &::clang::AtomicType::isSugared;
+    bool  (*method_pointer_2018c020518c53219cb92e497e50da06)(class ::clang::Type  const *) = ::clang::AtomicType::classof;
+    bool  (::clang::AtomicType::*method_pointer_8dea29d90fa65a07acb79b54b4b746b5)() const = &::clang::AtomicType::isSugared;
     boost::python::class_< class ::clang::AtomicType, autowig::HeldType< class ::clang::AtomicType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_17505392838a5ddf8a16f3bdbb8f586b("AtomicType", "", boost::python::no_init);
-    class_17505392838a5ddf8a16f3bdbb8f586b.def("classof", method_pointer_316880d31089574b91f3e0132845c221, "");
-    class_17505392838a5ddf8a16f3bdbb8f586b.def("is_sugared", method_pointer_aab5115abffc55089aec9e306b58d84b, "");
+    class_17505392838a5ddf8a16f3bdbb8f586b.def("classof", method_pointer_2018c020518c53219cb92e497e50da06, "");
+    class_17505392838a5ddf8a16f3bdbb8f586b.def("is_sugared", method_pointer_8dea29d90fa65a07acb79b54b4b746b5, "");
     class_17505392838a5ddf8a16f3bdbb8f586b.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::AtomicType > >::value)

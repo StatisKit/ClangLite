@@ -16,19 +16,19 @@ void wrapper_aa0102629ad95421ae8dc7b78f7a31e4()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_950c13bc4c0b5e66873c73c9a243d103)(class ::clang::Type  const *) = ::clang::TemplateTypeParmType::classof;
-    class ::clang::TemplateTypeParmDecl  * (::clang::TemplateTypeParmType::*method_pointer_3e05186b4ecc5b16968d274477368dbc)() const = &::clang::TemplateTypeParmType::getDecl;
-    unsigned int  (::clang::TemplateTypeParmType::*method_pointer_3418cb4fd1e0534e93d1cc0eb0462a44)() const = &::clang::TemplateTypeParmType::getDepth;
-    unsigned int  (::clang::TemplateTypeParmType::*method_pointer_ab7ce392c0495616b2c32a4a18624b06)() const = &::clang::TemplateTypeParmType::getIndex;
-    bool  (::clang::TemplateTypeParmType::*method_pointer_7b5ae1b8bdd3530dab31bca858ee9bc4)() const = &::clang::TemplateTypeParmType::isParameterPack;
-    bool  (::clang::TemplateTypeParmType::*method_pointer_d83f2b9e80d85c4aa6d7063a3e4ea346)() const = &::clang::TemplateTypeParmType::isSugared;
+    bool  (*method_pointer_220f9c938c0352f49b8f80f6a38675da)(class ::clang::Type  const *) = ::clang::TemplateTypeParmType::classof;
+    class ::clang::TemplateTypeParmDecl  * (::clang::TemplateTypeParmType::*method_pointer_4269f45f6a895cc594a60e00844774bf)() const = &::clang::TemplateTypeParmType::getDecl;
+    unsigned int  (::clang::TemplateTypeParmType::*method_pointer_46285e23868f52ec82dcd035cafa99ee)() const = &::clang::TemplateTypeParmType::getDepth;
+    unsigned int  (::clang::TemplateTypeParmType::*method_pointer_80385c5dc61f550cb2a64b18a68a6983)() const = &::clang::TemplateTypeParmType::getIndex;
+    bool  (::clang::TemplateTypeParmType::*method_pointer_0064e9b651985b6586ae057469df7590)() const = &::clang::TemplateTypeParmType::isParameterPack;
+    bool  (::clang::TemplateTypeParmType::*method_pointer_263736aa6a235a4c911da1c1a7766e85)() const = &::clang::TemplateTypeParmType::isSugared;
     boost::python::class_< class ::clang::TemplateTypeParmType, autowig::HeldType< class ::clang::TemplateTypeParmType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_aa0102629ad95421ae8dc7b78f7a31e4("TemplateTypeParmType", "", boost::python::no_init);
-    class_aa0102629ad95421ae8dc7b78f7a31e4.def("classof", method_pointer_950c13bc4c0b5e66873c73c9a243d103, "");
-    class_aa0102629ad95421ae8dc7b78f7a31e4.def("get_decl", method_pointer_3e05186b4ecc5b16968d274477368dbc, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_aa0102629ad95421ae8dc7b78f7a31e4.def("get_depth", method_pointer_3418cb4fd1e0534e93d1cc0eb0462a44, "");
-    class_aa0102629ad95421ae8dc7b78f7a31e4.def("get_index", method_pointer_ab7ce392c0495616b2c32a4a18624b06, "");
-    class_aa0102629ad95421ae8dc7b78f7a31e4.def("is_parameter_pack", method_pointer_7b5ae1b8bdd3530dab31bca858ee9bc4, "");
-    class_aa0102629ad95421ae8dc7b78f7a31e4.def("is_sugared", method_pointer_d83f2b9e80d85c4aa6d7063a3e4ea346, "");
+    class_aa0102629ad95421ae8dc7b78f7a31e4.def("classof", method_pointer_220f9c938c0352f49b8f80f6a38675da, "");
+    class_aa0102629ad95421ae8dc7b78f7a31e4.def("get_decl", method_pointer_4269f45f6a895cc594a60e00844774bf, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_aa0102629ad95421ae8dc7b78f7a31e4.def("get_depth", method_pointer_46285e23868f52ec82dcd035cafa99ee, "");
+    class_aa0102629ad95421ae8dc7b78f7a31e4.def("get_index", method_pointer_80385c5dc61f550cb2a64b18a68a6983, "");
+    class_aa0102629ad95421ae8dc7b78f7a31e4.def("is_parameter_pack", method_pointer_0064e9b651985b6586ae057469df7590, "");
+    class_aa0102629ad95421ae8dc7b78f7a31e4.def("is_sugared", method_pointer_263736aa6a235a4c911da1c1a7766e85, "");
     class_aa0102629ad95421ae8dc7b78f7a31e4.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::TemplateTypeParmType > >::value)
