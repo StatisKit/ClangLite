@@ -16,13 +16,13 @@ void wrapper_905349ffcd105c71941a2e3b1ec8ec3a()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_647fa13f7b51546e9dbf78645058b4bf)(class ::clang::Decl  const *) = ::clang::DeclaratorDecl::classof;
-    bool  (*method_pointer_b209516abf0b5261b435e82a585ca0ea)(enum ::clang::Decl::Kind ) = ::clang::DeclaratorDecl::classofKind;
-    unsigned int  (::clang::DeclaratorDecl::*method_pointer_9ec7947a4c8c556b8ae104c5a717841d)() const = &::clang::DeclaratorDecl::getNumTemplateParameterLists;
+    bool  (*method_pointer_b25fe73490215eccbce64a12cd04e7b1)(class ::clang::Decl  const *) = ::clang::DeclaratorDecl::classof;
+    bool  (*method_pointer_c3a30cec4744508a91995ce90cca21bc)(enum ::clang::Decl::Kind ) = ::clang::DeclaratorDecl::classofKind;
+    unsigned int  (::clang::DeclaratorDecl::*method_pointer_c77fe8b63f7d55c58015da44cbfb7fdd)() const = &::clang::DeclaratorDecl::getNumTemplateParameterLists;
     boost::python::class_< class ::clang::DeclaratorDecl, autowig::HeldType< class ::clang::DeclaratorDecl >, boost::python::bases< class ::clang::ValueDecl >, boost::noncopyable > class_905349ffcd105c71941a2e3b1ec8ec3a("DeclaratorDecl", "", boost::python::no_init);
-    class_905349ffcd105c71941a2e3b1ec8ec3a.def("classof", method_pointer_647fa13f7b51546e9dbf78645058b4bf, "");
-    class_905349ffcd105c71941a2e3b1ec8ec3a.def("classof_kind", method_pointer_b209516abf0b5261b435e82a585ca0ea, "");
-    class_905349ffcd105c71941a2e3b1ec8ec3a.def("get_num_template_parameter_lists", method_pointer_9ec7947a4c8c556b8ae104c5a717841d, "");
+    class_905349ffcd105c71941a2e3b1ec8ec3a.def("classof", method_pointer_b25fe73490215eccbce64a12cd04e7b1, "");
+    class_905349ffcd105c71941a2e3b1ec8ec3a.def("classof_kind", method_pointer_c3a30cec4744508a91995ce90cca21bc, "");
+    class_905349ffcd105c71941a2e3b1ec8ec3a.def("get_num_template_parameter_lists", method_pointer_c77fe8b63f7d55c58015da44cbfb7fdd, "");
     class_905349ffcd105c71941a2e3b1ec8ec3a.staticmethod("classof_kind");
     class_905349ffcd105c71941a2e3b1ec8ec3a.staticmethod("classof");
 

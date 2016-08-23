@@ -16,15 +16,15 @@ void wrapper_4fb4fd6ff1345ebb9986bbeba504830c()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    class ::clang::MSPropertyDecl  * (*method_pointer_4fcf56cac74e54c8a8c2fddca984fc84)(class ::clang::ASTContext  &, unsigned int ) = ::clang::MSPropertyDecl::CreateDeserialized;
-    bool  (*method_pointer_10b57c27ceef5741bea4919c71155a50)(class ::clang::Decl  const *) = ::clang::MSPropertyDecl::classof;
-    bool  (::clang::MSPropertyDecl::*method_pointer_58f73a28d6cc53f5a982b497e1a65dba)() const = &::clang::MSPropertyDecl::hasGetter;
-    bool  (::clang::MSPropertyDecl::*method_pointer_6d3ab02db9ac5ea597a645793c37013b)() const = &::clang::MSPropertyDecl::hasSetter;
+    class ::clang::MSPropertyDecl  * (*method_pointer_b80095fd91085775a76864a31ca376b1)(class ::clang::ASTContext  &, unsigned int ) = ::clang::MSPropertyDecl::CreateDeserialized;
+    bool  (*method_pointer_983175730683584e95fc2a9bd3b97077)(class ::clang::Decl  const *) = ::clang::MSPropertyDecl::classof;
+    bool  (::clang::MSPropertyDecl::*method_pointer_7034f64035d35baaaa3728fd1f4b2b18)() const = &::clang::MSPropertyDecl::hasGetter;
+    bool  (::clang::MSPropertyDecl::*method_pointer_af904ea4db705a2b821e94366cd15bc6)() const = &::clang::MSPropertyDecl::hasSetter;
     boost::python::class_< class ::clang::MSPropertyDecl, autowig::HeldType< class ::clang::MSPropertyDecl >, boost::python::bases< class ::clang::DeclaratorDecl >, boost::noncopyable > class_4fb4fd6ff1345ebb9986bbeba504830c("MSPropertyDecl", "", boost::python::no_init);
-    class_4fb4fd6ff1345ebb9986bbeba504830c.def("create_deserialized", method_pointer_4fcf56cac74e54c8a8c2fddca984fc84, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_4fb4fd6ff1345ebb9986bbeba504830c.def("classof", method_pointer_10b57c27ceef5741bea4919c71155a50, "");
-    class_4fb4fd6ff1345ebb9986bbeba504830c.def("has_getter", method_pointer_58f73a28d6cc53f5a982b497e1a65dba, "");
-    class_4fb4fd6ff1345ebb9986bbeba504830c.def("has_setter", method_pointer_6d3ab02db9ac5ea597a645793c37013b, "");
+    class_4fb4fd6ff1345ebb9986bbeba504830c.def("create_deserialized", method_pointer_b80095fd91085775a76864a31ca376b1, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_4fb4fd6ff1345ebb9986bbeba504830c.def("classof", method_pointer_983175730683584e95fc2a9bd3b97077, "");
+    class_4fb4fd6ff1345ebb9986bbeba504830c.def("has_getter", method_pointer_7034f64035d35baaaa3728fd1f4b2b18, "");
+    class_4fb4fd6ff1345ebb9986bbeba504830c.def("has_setter", method_pointer_af904ea4db705a2b821e94366cd15bc6, "");
     class_4fb4fd6ff1345ebb9986bbeba504830c.staticmethod("create_deserialized");
     class_4fb4fd6ff1345ebb9986bbeba504830c.staticmethod("classof");
 

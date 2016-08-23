@@ -16,15 +16,15 @@ void wrapper_17505392838a5ddf8a16f3bdbb8f586b()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_cced0e43caf052368492fc2fbed37cfe)(class ::clang::Type  const *) = ::clang::AtomicType::classof;
-    class ::clang::QualType  (::clang::AtomicType::*method_pointer_b298ef87fe2c5f0b8fb3ffa599725532)() const = &::clang::AtomicType::desugar;
-    class ::clang::QualType  (::clang::AtomicType::*method_pointer_b8c9799de6a255699d6a9eca3c9679ba)() const = &::clang::AtomicType::getValueType;
-    bool  (::clang::AtomicType::*method_pointer_27fffec086185eb69096e07ba9be6a20)() const = &::clang::AtomicType::isSugared;
+    bool  (*method_pointer_41fed9c0111d5c22aee3a95233d312a0)(class ::clang::Type  const *) = ::clang::AtomicType::classof;
+    class ::clang::QualType  (::clang::AtomicType::*method_pointer_c3e35974c5965f049f9001e2ec7cdd3b)() const = &::clang::AtomicType::desugar;
+    class ::clang::QualType  (::clang::AtomicType::*method_pointer_0de5cb907d49544f9f678b8be7cc497c)() const = &::clang::AtomicType::getValueType;
+    bool  (::clang::AtomicType::*method_pointer_c968c5474616530d9b2b3b1458ba91b8)() const = &::clang::AtomicType::isSugared;
     boost::python::class_< class ::clang::AtomicType, autowig::HeldType< class ::clang::AtomicType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_17505392838a5ddf8a16f3bdbb8f586b("AtomicType", "", boost::python::no_init);
-    class_17505392838a5ddf8a16f3bdbb8f586b.def("classof", method_pointer_cced0e43caf052368492fc2fbed37cfe, "");
-    class_17505392838a5ddf8a16f3bdbb8f586b.def("desugar", method_pointer_b298ef87fe2c5f0b8fb3ffa599725532, "");
-    class_17505392838a5ddf8a16f3bdbb8f586b.def("get_value_type", method_pointer_b8c9799de6a255699d6a9eca3c9679ba, "");
-    class_17505392838a5ddf8a16f3bdbb8f586b.def("is_sugared", method_pointer_27fffec086185eb69096e07ba9be6a20, "");
+    class_17505392838a5ddf8a16f3bdbb8f586b.def("classof", method_pointer_41fed9c0111d5c22aee3a95233d312a0, "");
+    class_17505392838a5ddf8a16f3bdbb8f586b.def("desugar", method_pointer_c3e35974c5965f049f9001e2ec7cdd3b, "");
+    class_17505392838a5ddf8a16f3bdbb8f586b.def("get_value_type", method_pointer_0de5cb907d49544f9f678b8be7cc497c, "");
+    class_17505392838a5ddf8a16f3bdbb8f586b.def("is_sugared", method_pointer_c968c5474616530d9b2b3b1458ba91b8, "");
     class_17505392838a5ddf8a16f3bdbb8f586b.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::AtomicType > >::value)
