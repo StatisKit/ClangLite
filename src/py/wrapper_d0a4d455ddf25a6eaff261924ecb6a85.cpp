@@ -16,11 +16,11 @@ void wrapper_d0a4d455ddf25a6eaff261924ecb6a85()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_033128009590582c81c5e67a192f5409)(class ::clang::Type  const *) = ::clang::FunctionNoProtoType::classof;
-    bool  (::clang::FunctionNoProtoType::*method_pointer_b3ba2adc43225c9a8c28365443a160ee)() const = &::clang::FunctionNoProtoType::isSugared;
+    bool  (*method_pointer_a959cd0b4fd45adca3f054dafede0ce4)(class ::clang::Type  const *) = ::clang::FunctionNoProtoType::classof;
+    bool  (::clang::FunctionNoProtoType::*method_pointer_3eba28b6565051f3b45cd84664b8331e)() const = &::clang::FunctionNoProtoType::isSugared;
     boost::python::class_< class ::clang::FunctionNoProtoType, autowig::HeldType< class ::clang::FunctionNoProtoType >, boost::python::bases< class ::clang::FunctionType >, boost::noncopyable > class_d0a4d455ddf25a6eaff261924ecb6a85("FunctionNoProtoType", "", boost::python::no_init);
-    class_d0a4d455ddf25a6eaff261924ecb6a85.def("classof", method_pointer_033128009590582c81c5e67a192f5409, "");
-    class_d0a4d455ddf25a6eaff261924ecb6a85.def("is_sugared", method_pointer_b3ba2adc43225c9a8c28365443a160ee, "");
+    class_d0a4d455ddf25a6eaff261924ecb6a85.def("classof", method_pointer_a959cd0b4fd45adca3f054dafede0ce4, "");
+    class_d0a4d455ddf25a6eaff261924ecb6a85.def("is_sugared", method_pointer_3eba28b6565051f3b45cd84664b8331e, "");
     class_d0a4d455ddf25a6eaff261924ecb6a85.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::FunctionNoProtoType > >::value)
