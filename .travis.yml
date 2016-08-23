@@ -40,7 +40,7 @@ after_success:
       conda install anaconda-client;
       anaconda login --username "$ANACONDA_USERNAME" --password "$ANACONDA_PASSWORD";
       for CONDA_RECIPE in libclanglite python-clanglite; do
-          CONDA_FILE=`conda build $CONDA_RECIPE --output`; 
+          CONDA_FILE=`conda build conda/$CONDA_RECIPE --output`; 
           anaconda upload --user statiskit ${CONDA_FILE%%} --force;
       done;
       docker build --build-arg BUILD="false" -t statiskit/pyclanglite:trusty .;
