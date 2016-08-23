@@ -31,7 +31,7 @@ RUN $HOME/miniconda/bin/conda install python-clanglite -c statiskit --use-local
 # RUN [ $BUILD = "true" ] && $HOME/miniconda/bin/pip install -e $HOME/PyClangLite  || [ $BUILD = "false" ]
 
 ## Finalize file for anaconda upload
-RUN [ $BUILD = "false" ] && echo "rm -rf $HOME/PyClangLite" >> $HOME/upload.sh || [ $BUILD = "false" ]
+RUN [ $BUILD = "false" ] && echo "rm -rf $HOME/PyClangLite" >> $HOME/upload.sh || [ $BUILD = "true" ]
 RUN [ $BUILD = "true" ] && echo "$HOME/miniconda/bin/conda remove anaconda-client" >> $HOME/upload.sh || [ $BUILD = "false" ]
 RUN echo "$HOME/miniconda/bin/conda env remove -n _build" >> $HOME/upload.sh
 RUN [ $BUILD = "true" ] && echo "conda env remove -n _test" >> $HOME/upload.sh || [ $BUILD = "true" ]
