@@ -16,17 +16,17 @@ void wrapper_63dc6750407a5028aa2e82229f8ea352()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_75875bfc55b25312a0694c52528a810e)(class ::clang::Type  const *) = ::clang::UnaryTransformType::classof;
-    class ::clang::QualType  (::clang::UnaryTransformType::*method_pointer_2407f1ec17b95d7db2023e1369a5f92d)() const = &::clang::UnaryTransformType::desugar;
-    class ::clang::QualType  (::clang::UnaryTransformType::*method_pointer_29d3cd67b2855842a72fbf3369c04ea2)() const = &::clang::UnaryTransformType::getBaseType;
-    class ::clang::QualType  (::clang::UnaryTransformType::*method_pointer_85caf2fe15a95086923b826693c43b03)() const = &::clang::UnaryTransformType::getUnderlyingType;
-    bool  (::clang::UnaryTransformType::*method_pointer_2e9bdeef34265054a71dfb4284f74366)() const = &::clang::UnaryTransformType::isSugared;
+    bool  (*method_pointer_7f91dc72c0f7556796f8d077616d343b)(class ::clang::Type  const *) = ::clang::UnaryTransformType::classof;
+    class ::clang::QualType  (::clang::UnaryTransformType::*method_pointer_a8aa69ad4285576ab95337e2b80213e0)() const = &::clang::UnaryTransformType::desugar;
+    class ::clang::QualType  (::clang::UnaryTransformType::*method_pointer_aad07f151e425e25a3954f752d348490)() const = &::clang::UnaryTransformType::getBaseType;
+    class ::clang::QualType  (::clang::UnaryTransformType::*method_pointer_6a205b6695f75668b9fd6d2ab21da32d)() const = &::clang::UnaryTransformType::getUnderlyingType;
+    bool  (::clang::UnaryTransformType::*method_pointer_d8764be6cd415c96957a2546341fb280)() const = &::clang::UnaryTransformType::isSugared;
     boost::python::class_< class ::clang::UnaryTransformType, autowig::HeldType< class ::clang::UnaryTransformType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_63dc6750407a5028aa2e82229f8ea352("UnaryTransformType", "", boost::python::no_init);
-    class_63dc6750407a5028aa2e82229f8ea352.def("classof", method_pointer_75875bfc55b25312a0694c52528a810e, "");
-    class_63dc6750407a5028aa2e82229f8ea352.def("desugar", method_pointer_2407f1ec17b95d7db2023e1369a5f92d, "");
-    class_63dc6750407a5028aa2e82229f8ea352.def("get_base_type", method_pointer_29d3cd67b2855842a72fbf3369c04ea2, "");
-    class_63dc6750407a5028aa2e82229f8ea352.def("get_underlying_type", method_pointer_85caf2fe15a95086923b826693c43b03, "");
-    class_63dc6750407a5028aa2e82229f8ea352.def("is_sugared", method_pointer_2e9bdeef34265054a71dfb4284f74366, "");
+    class_63dc6750407a5028aa2e82229f8ea352.def("classof", method_pointer_7f91dc72c0f7556796f8d077616d343b, "");
+    class_63dc6750407a5028aa2e82229f8ea352.def("desugar", method_pointer_a8aa69ad4285576ab95337e2b80213e0, "");
+    class_63dc6750407a5028aa2e82229f8ea352.def("get_base_type", method_pointer_aad07f151e425e25a3954f752d348490, "");
+    class_63dc6750407a5028aa2e82229f8ea352.def("get_underlying_type", method_pointer_6a205b6695f75668b9fd6d2ab21da32d, "");
+    class_63dc6750407a5028aa2e82229f8ea352.def("is_sugared", method_pointer_d8764be6cd415c96957a2546341fb280, "");
     class_63dc6750407a5028aa2e82229f8ea352.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::UnaryTransformType > >::value)
