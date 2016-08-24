@@ -16,13 +16,13 @@ void wrapper_7981b6362f50522ab01234005fa1e76a()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_8bfa0e03fed4520bb230ce369fabe261)(class ::clang::Type  const *) = ::clang::ArrayType::classof;
-    class ::clang::QualType  (::clang::ArrayType::*method_pointer_f6ab439a2196550b8254f09b21c6cee6)() const = &::clang::ArrayType::getElementType;
-    unsigned int  (::clang::ArrayType::*method_pointer_e212054115bd55c48ee07434f1d41241)() const = &::clang::ArrayType::getIndexTypeCVRQualifiers;
+    bool  (*method_pointer_e194efd85f2950688e71d554b1710ef7)(class ::clang::Type  const *) = ::clang::ArrayType::classof;
+    class ::clang::QualType  (::clang::ArrayType::*method_pointer_772dd5196e3d5dd2a6ef7b6baa85602f)() const = &::clang::ArrayType::getElementType;
+    unsigned int  (::clang::ArrayType::*method_pointer_0290946cec6d533d80e57c59861dc181)() const = &::clang::ArrayType::getIndexTypeCVRQualifiers;
     boost::python::class_< class ::clang::ArrayType, autowig::HeldType< class ::clang::ArrayType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_7981b6362f50522ab01234005fa1e76a("ArrayType", "", boost::python::no_init);
-    class_7981b6362f50522ab01234005fa1e76a.def("classof", method_pointer_8bfa0e03fed4520bb230ce369fabe261, "");
-    class_7981b6362f50522ab01234005fa1e76a.def("get_element_type", method_pointer_f6ab439a2196550b8254f09b21c6cee6, "");
-    class_7981b6362f50522ab01234005fa1e76a.def("get_index_type_cvr_qualifiers", method_pointer_e212054115bd55c48ee07434f1d41241, "");
+    class_7981b6362f50522ab01234005fa1e76a.def("classof", method_pointer_e194efd85f2950688e71d554b1710ef7, "");
+    class_7981b6362f50522ab01234005fa1e76a.def("get_element_type", method_pointer_772dd5196e3d5dd2a6ef7b6baa85602f, "");
+    class_7981b6362f50522ab01234005fa1e76a.def("get_index_type_cvr_qualifiers", method_pointer_0290946cec6d533d80e57c59861dc181, "");
     class_7981b6362f50522ab01234005fa1e76a.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::ArrayType > >::value)

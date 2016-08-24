@@ -16,13 +16,13 @@ void wrapper_d0a4d455ddf25a6eaff261924ecb6a85()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_ca0a7a467d2154e68a2b66a813438414)(class ::clang::Type  const *) = ::clang::FunctionNoProtoType::classof;
-    class ::clang::QualType  (::clang::FunctionNoProtoType::*method_pointer_28e722992f4858bcb7e4218afaaefc03)() const = &::clang::FunctionNoProtoType::desugar;
-    bool  (::clang::FunctionNoProtoType::*method_pointer_462a706f44655da19de2113542aa4e5a)() const = &::clang::FunctionNoProtoType::isSugared;
+    bool  (*method_pointer_eac7bd67463f568a964a04d12f9e300b)(class ::clang::Type  const *) = ::clang::FunctionNoProtoType::classof;
+    class ::clang::QualType  (::clang::FunctionNoProtoType::*method_pointer_f2d4f36f454650359e7b1ca9304c621a)() const = &::clang::FunctionNoProtoType::desugar;
+    bool  (::clang::FunctionNoProtoType::*method_pointer_c2e38f3be05f5a76a2d5fc4cca319ac1)() const = &::clang::FunctionNoProtoType::isSugared;
     boost::python::class_< class ::clang::FunctionNoProtoType, autowig::HeldType< class ::clang::FunctionNoProtoType >, boost::python::bases< class ::clang::FunctionType >, boost::noncopyable > class_d0a4d455ddf25a6eaff261924ecb6a85("FunctionNoProtoType", "", boost::python::no_init);
-    class_d0a4d455ddf25a6eaff261924ecb6a85.def("classof", method_pointer_ca0a7a467d2154e68a2b66a813438414, "");
-    class_d0a4d455ddf25a6eaff261924ecb6a85.def("desugar", method_pointer_28e722992f4858bcb7e4218afaaefc03, "");
-    class_d0a4d455ddf25a6eaff261924ecb6a85.def("is_sugared", method_pointer_462a706f44655da19de2113542aa4e5a, "");
+    class_d0a4d455ddf25a6eaff261924ecb6a85.def("classof", method_pointer_eac7bd67463f568a964a04d12f9e300b, "");
+    class_d0a4d455ddf25a6eaff261924ecb6a85.def("desugar", method_pointer_f2d4f36f454650359e7b1ca9304c621a, "");
+    class_d0a4d455ddf25a6eaff261924ecb6a85.def("is_sugared", method_pointer_c2e38f3be05f5a76a2d5fc4cca319ac1, "");
     class_d0a4d455ddf25a6eaff261924ecb6a85.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::FunctionNoProtoType > >::value)

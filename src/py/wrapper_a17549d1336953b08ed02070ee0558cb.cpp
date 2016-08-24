@@ -16,13 +16,13 @@ void wrapper_a17549d1336953b08ed02070ee0558cb()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_62bd661f085554c4871d76378047b859)(class ::clang::Type  const *) = ::clang::RValueReferenceType::classof;
-    class ::clang::QualType  (::clang::RValueReferenceType::*method_pointer_6996648162925a8da48324aafd42219a)() const = &::clang::RValueReferenceType::desugar;
-    bool  (::clang::RValueReferenceType::*method_pointer_72f41668fcab592c9e71fd9160090937)() const = &::clang::RValueReferenceType::isSugared;
+    bool  (*method_pointer_ef2bc9bc289e55938ec0e1120d898d80)(class ::clang::Type  const *) = ::clang::RValueReferenceType::classof;
+    class ::clang::QualType  (::clang::RValueReferenceType::*method_pointer_7cc45fd9967b5d8b95961df392c336fc)() const = &::clang::RValueReferenceType::desugar;
+    bool  (::clang::RValueReferenceType::*method_pointer_0c9734b047375e88b1693fd5ca8c8342)() const = &::clang::RValueReferenceType::isSugared;
     boost::python::class_< class ::clang::RValueReferenceType, autowig::HeldType< class ::clang::RValueReferenceType >, boost::python::bases< class ::clang::ReferenceType >, boost::noncopyable > class_a17549d1336953b08ed02070ee0558cb("RValueReferenceType", "", boost::python::no_init);
-    class_a17549d1336953b08ed02070ee0558cb.def("classof", method_pointer_62bd661f085554c4871d76378047b859, "");
-    class_a17549d1336953b08ed02070ee0558cb.def("desugar", method_pointer_6996648162925a8da48324aafd42219a, "");
-    class_a17549d1336953b08ed02070ee0558cb.def("is_sugared", method_pointer_72f41668fcab592c9e71fd9160090937, "");
+    class_a17549d1336953b08ed02070ee0558cb.def("classof", method_pointer_ef2bc9bc289e55938ec0e1120d898d80, "");
+    class_a17549d1336953b08ed02070ee0558cb.def("desugar", method_pointer_7cc45fd9967b5d8b95961df392c336fc, "");
+    class_a17549d1336953b08ed02070ee0558cb.def("is_sugared", method_pointer_0c9734b047375e88b1693fd5ca8c8342, "");
     class_a17549d1336953b08ed02070ee0558cb.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::RValueReferenceType > >::value)
