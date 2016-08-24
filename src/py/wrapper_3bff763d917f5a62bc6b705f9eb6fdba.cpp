@@ -16,13 +16,13 @@ void wrapper_3bff763d917f5a62bc6b705f9eb6fdba()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_46c12991d01a5f46a9d478d2f218d5ad)(class ::clang::Type  const *) = ::clang::TypeOfExprType::classof;
-    class ::clang::QualType  (::clang::TypeOfExprType::*method_pointer_4fdba70c839e5515bbfb203b6310e9da)() const = &::clang::TypeOfExprType::desugar;
-    bool  (::clang::TypeOfExprType::*method_pointer_b081a8e83a58592696dee89319067661)() const = &::clang::TypeOfExprType::isSugared;
+    bool  (*method_pointer_f5a1281f68f15b558ba8473af73d47f6)(class ::clang::Type  const *) = ::clang::TypeOfExprType::classof;
+    class ::clang::QualType  (::clang::TypeOfExprType::*method_pointer_8c87b8e2b4b65379beb071337f99d9df)() const = &::clang::TypeOfExprType::desugar;
+    bool  (::clang::TypeOfExprType::*method_pointer_4079a58912735dc8becbe764d462e00e)() const = &::clang::TypeOfExprType::isSugared;
     boost::python::class_< class ::clang::TypeOfExprType, autowig::HeldType< class ::clang::TypeOfExprType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_3bff763d917f5a62bc6b705f9eb6fdba("TypeOfExprType", "", boost::python::no_init);
-    class_3bff763d917f5a62bc6b705f9eb6fdba.def("classof", method_pointer_46c12991d01a5f46a9d478d2f218d5ad, "");
-    class_3bff763d917f5a62bc6b705f9eb6fdba.def("desugar", method_pointer_4fdba70c839e5515bbfb203b6310e9da, "");
-    class_3bff763d917f5a62bc6b705f9eb6fdba.def("is_sugared", method_pointer_b081a8e83a58592696dee89319067661, "");
+    class_3bff763d917f5a62bc6b705f9eb6fdba.def("classof", method_pointer_f5a1281f68f15b558ba8473af73d47f6, "");
+    class_3bff763d917f5a62bc6b705f9eb6fdba.def("desugar", method_pointer_8c87b8e2b4b65379beb071337f99d9df, "");
+    class_3bff763d917f5a62bc6b705f9eb6fdba.def("is_sugared", method_pointer_4079a58912735dc8becbe764d462e00e, "");
     class_3bff763d917f5a62bc6b705f9eb6fdba.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::TypeOfExprType > >::value)

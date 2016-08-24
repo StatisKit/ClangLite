@@ -16,15 +16,15 @@ void wrapper_f851c7810ad1557e8a7e1af726d40e21()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_04c21007e1c2523bb27ed134de0136d1)(class ::clang::Type  const *) = ::clang::ConstantArrayType::classof;
-    class ::clang::QualType  (::clang::ConstantArrayType::*method_pointer_e1db53bb352251be9104efeba4195537)() const = &::clang::ConstantArrayType::desugar;
-    unsigned int  (*method_pointer_765562e2f140596c8ef73cf0f0ee5274)(class ::clang::ASTContext  &) = ::clang::ConstantArrayType::getMaxSizeBits;
-    bool  (::clang::ConstantArrayType::*method_pointer_701f658d66b55f109a61352345459c20)() const = &::clang::ConstantArrayType::isSugared;
+    bool  (*method_pointer_8355d34e38ab5788926d06301322a2ba)(class ::clang::Type  const *) = ::clang::ConstantArrayType::classof;
+    class ::clang::QualType  (::clang::ConstantArrayType::*method_pointer_afc0d8fd1b90558fb6c4fa4ed3d0673b)() const = &::clang::ConstantArrayType::desugar;
+    unsigned int  (*method_pointer_c16ff34a56cf5e52a992d8890bbb586c)(class ::clang::ASTContext  &) = ::clang::ConstantArrayType::getMaxSizeBits;
+    bool  (::clang::ConstantArrayType::*method_pointer_d930314786f2591683c7b068af827492)() const = &::clang::ConstantArrayType::isSugared;
     boost::python::class_< class ::clang::ConstantArrayType, autowig::HeldType< class ::clang::ConstantArrayType >, boost::python::bases< class ::clang::ArrayType >, boost::noncopyable > class_f851c7810ad1557e8a7e1af726d40e21("ConstantArrayType", "", boost::python::no_init);
-    class_f851c7810ad1557e8a7e1af726d40e21.def("classof", method_pointer_04c21007e1c2523bb27ed134de0136d1, "");
-    class_f851c7810ad1557e8a7e1af726d40e21.def("desugar", method_pointer_e1db53bb352251be9104efeba4195537, "");
-    class_f851c7810ad1557e8a7e1af726d40e21.def("get_max_size_bits", method_pointer_765562e2f140596c8ef73cf0f0ee5274, "");
-    class_f851c7810ad1557e8a7e1af726d40e21.def("is_sugared", method_pointer_701f658d66b55f109a61352345459c20, "");
+    class_f851c7810ad1557e8a7e1af726d40e21.def("classof", method_pointer_8355d34e38ab5788926d06301322a2ba, "");
+    class_f851c7810ad1557e8a7e1af726d40e21.def("desugar", method_pointer_afc0d8fd1b90558fb6c4fa4ed3d0673b, "");
+    class_f851c7810ad1557e8a7e1af726d40e21.def("get_max_size_bits", method_pointer_c16ff34a56cf5e52a992d8890bbb586c, "");
+    class_f851c7810ad1557e8a7e1af726d40e21.def("is_sugared", method_pointer_d930314786f2591683c7b068af827492, "");
     class_f851c7810ad1557e8a7e1af726d40e21.staticmethod("get_max_size_bits");
     class_f851c7810ad1557e8a7e1af726d40e21.staticmethod("classof");
 
