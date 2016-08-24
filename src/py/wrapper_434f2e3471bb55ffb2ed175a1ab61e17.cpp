@@ -16,15 +16,15 @@ void wrapper_434f2e3471bb55ffb2ed175a1ab61e17()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_1609171093385a578f6ae5200de971c0)(class ::clang::Type  const *) = ::clang::EnumType::classof;
-    class ::clang::QualType  (::clang::EnumType::*method_pointer_a39d21da9fc15944ac8a25a07ceea40c)() const = &::clang::EnumType::desugar;
-    class ::clang::EnumDecl  * (::clang::EnumType::*method_pointer_35dfd08e7b7c59e4a9eb7d29b42bcf20)() const = &::clang::EnumType::getDecl;
-    bool  (::clang::EnumType::*method_pointer_43424400ad6e58629ab201234459cff6)() const = &::clang::EnumType::isSugared;
+    bool  (*method_pointer_4b6cc02d71aa58efa5749e6624d92d05)(class ::clang::Type  const *) = ::clang::EnumType::classof;
+    class ::clang::QualType  (::clang::EnumType::*method_pointer_0cc7baee89925faa9f34b93834b3b1b2)() const = &::clang::EnumType::desugar;
+    class ::clang::EnumDecl  * (::clang::EnumType::*method_pointer_6b4ad802760b5cfa9647ec69d2ad9937)() const = &::clang::EnumType::getDecl;
+    bool  (::clang::EnumType::*method_pointer_1cce01384cb559d6af69787758d8a9d4)() const = &::clang::EnumType::isSugared;
     boost::python::class_< class ::clang::EnumType, autowig::HeldType< class ::clang::EnumType >, boost::python::bases< class ::clang::TagType >, boost::noncopyable > class_434f2e3471bb55ffb2ed175a1ab61e17("EnumType", "", boost::python::no_init);
-    class_434f2e3471bb55ffb2ed175a1ab61e17.def("classof", method_pointer_1609171093385a578f6ae5200de971c0, "");
-    class_434f2e3471bb55ffb2ed175a1ab61e17.def("desugar", method_pointer_a39d21da9fc15944ac8a25a07ceea40c, "");
-    class_434f2e3471bb55ffb2ed175a1ab61e17.def("get_decl", method_pointer_35dfd08e7b7c59e4a9eb7d29b42bcf20, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_434f2e3471bb55ffb2ed175a1ab61e17.def("is_sugared", method_pointer_43424400ad6e58629ab201234459cff6, "");
+    class_434f2e3471bb55ffb2ed175a1ab61e17.def("classof", method_pointer_4b6cc02d71aa58efa5749e6624d92d05, "");
+    class_434f2e3471bb55ffb2ed175a1ab61e17.def("desugar", method_pointer_0cc7baee89925faa9f34b93834b3b1b2, "");
+    class_434f2e3471bb55ffb2ed175a1ab61e17.def("get_decl", method_pointer_6b4ad802760b5cfa9647ec69d2ad9937, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_434f2e3471bb55ffb2ed175a1ab61e17.def("is_sugared", method_pointer_1cce01384cb559d6af69787758d8a9d4, "");
     class_434f2e3471bb55ffb2ed175a1ab61e17.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::EnumType > >::value)
