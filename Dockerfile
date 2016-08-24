@@ -19,14 +19,14 @@ RUN [ $BUILD = "true" ] && echo "$HOME/miniconda/bin/conda install anaconda-clie
 # RUN $HOME/miniconda/bin/conda install libclang -c statiskit --use-local
 
 ## Build libclanglite recipe
-RUN [ $BUILD = "true" ] && $HOME/miniconda/bin/conda build $HOME/PyClangLite/conda/libclanglite -c statiskit || [ $BUILD = "false" ]
-RUN [ $BUILD = "true" ] && echo "$HOME/miniconda/bin/anaconda upload \`$HOME/miniconda/bin/conda build $HOME/PyClangLite/conda/libclanglite --output\` --user statiskit --force" >> $HOME/upload.sh || [ $BUILD = "false" ]
-RUN $HOME/miniconda/bin/conda install libclanglite -c statiskit --use-local
+# RUN [ $BUILD = "true" ] && $HOME/miniconda/bin/conda build $HOME/PyClangLite/conda/libclanglite -c statiskit || [ $BUILD = "false" ]
+# RUN [ $BUILD = "true" ] && echo "$HOME/miniconda/bin/anaconda upload \`$HOME/miniconda/bin/conda build $HOME/PyClangLite/conda/libclanglite --output\` --user statiskit --force" >> $HOME/upload.sh || [ $BUILD = "false" ]
+# RUN $HOME/miniconda/bin/conda install libclanglite -c statiskit --use-local
 
 ## Build python-clanglite recipe
-# RUN [ $BUILD = "true" ] && $HOME/miniconda/bin/conda build $HOME/PyClangLite/conda/python-clanglite -c statiskit -c conda-forge || [ $BUILD = "false" ]
-# RUN [ $BUILD = "true" ] && echo "$HOME/miniconda/bin/anaconda upload \`$HOME/miniconda/bin/conda build $HOME/PyClangLite/conda/python-clanglite --output\` --user statiskit --force" >> $HOME/upload.sh || [ $BUILD = "false" ]
-# RUN $HOME/miniconda/bin/conda install python-clanglite -c statiskit --use-local
+RUN [ $BUILD = "true" ] && $HOME/miniconda/bin/conda build $HOME/PyClangLite/conda/python-clanglite -c statiskit -c conda-forge || [ $BUILD = "false" ]
+RUN [ $BUILD = "true" ] && echo "$HOME/miniconda/bin/anaconda upload \`$HOME/miniconda/bin/conda build $HOME/PyClangLite/conda/python-clanglite --output\` --user statiskit --force" >> $HOME/upload.sh || [ $BUILD = "false" ]
+RUN $HOME/miniconda/bin/conda install python-clanglite -c statiskit --use-local
 # RUN [ $BUILD = "true" ] && $HOME/miniconda/bin/conda remove python-clanglite || [ $BUILD = "false" ]
 # RUN [ $BUILD = "true" ] && $HOME/miniconda/bin/pip install -e $HOME/PyClangLite  || [ $BUILD = "false" ]
 
