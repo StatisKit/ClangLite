@@ -18,29 +18,29 @@ void wrapper_349b01a7525f5245a8ca7e0497dd56cd()
     boost::python::scope scope_d1608489da065e6eadeb67121a123bdd = module_d1608489da065e6eadeb67121a123bdd;
     struct function_group
     {
-        static bool  function_b8a582cd265156fcbdc3e5a289a06cfd(class ::llvm::StringRef  parameter_0, class ::llvm::StringRef  parameter_1)
+        static bool  function_5d292cd940fa562d9c45d5b09cf5c65b(class ::llvm::StringRef  parameter_0, class ::llvm::StringRef  parameter_1)
         { return operator<=(parameter_0, parameter_1); }
-        static bool  function_c5ef1d76a6ad5e26917eaa0000ebddcc(class ::llvm::StringRef  parameter_0, class ::llvm::StringRef  parameter_1)
+        static bool  function_810a894b1e0f529f8dc130af3379adc0(class ::llvm::StringRef  parameter_0, class ::llvm::StringRef  parameter_1)
         { return operator==(parameter_0, parameter_1); }
-        static bool  function_bf1ea5d3b6db5895955928bb449f01d0(class ::llvm::StringRef  parameter_0, class ::llvm::StringRef  parameter_1)
-        { return operator>(parameter_0, parameter_1); }
-        static bool  function_22bedc4fe8025b198cfad057292d83ea(class ::llvm::StringRef  parameter_0, class ::llvm::StringRef  parameter_1)
-        { return operator!=(parameter_0, parameter_1); }
-        static bool  function_c01a5fb08d9f515788b31d666dd1d002(class ::llvm::StringRef  parameter_0, class ::llvm::StringRef  parameter_1)
+        static bool  function_68a8ede1f9a0562f9b4013cf9a51e5e2(class ::llvm::StringRef  parameter_0, class ::llvm::StringRef  parameter_1)
         { return operator>=(parameter_0, parameter_1); }
-        static bool  function_f59e3eb88fb55aae84b36c0db4c26ab4(class ::llvm::StringRef  parameter_0, class ::llvm::StringRef  parameter_1)
+        static bool  function_467666f8049c5b3a819bfa23791ac92d(class ::llvm::StringRef  parameter_0, class ::llvm::StringRef  parameter_1)
         { return operator<(parameter_0, parameter_1); }
-        static class ::boost::python::str  function_fa95f5c73aba574d8f5587a7a525019e(class ::llvm::StringRef  * parameter_0)
+        static bool  function_248b9926a40a5351847dab3bfe5bc6a9(class ::llvm::StringRef  parameter_0, class ::llvm::StringRef  parameter_1)
+        { return operator>(parameter_0, parameter_1); }
+        static bool  function_78e6e51808c65f25aeaf13b32650c4eb(class ::llvm::StringRef  parameter_0, class ::llvm::StringRef  parameter_1)
+        { return operator!=(parameter_0, parameter_1); }
+        static class ::boost::python::str  function_eaeffb135120539c853b94080c504c62(class ::llvm::StringRef  * parameter_0)
         { return ::clanglite::str(parameter_0); }
     };
     boost::python::class_< class ::llvm::StringRef, autowig::HeldType< class ::llvm::StringRef > > class_349b01a7525f5245a8ca7e0497dd56cd("StringRef", "", boost::python::no_init);
-    class_349b01a7525f5245a8ca7e0497dd56cd.def("__le__", function_group::function_b8a582cd265156fcbdc3e5a289a06cfd, "");
-    class_349b01a7525f5245a8ca7e0497dd56cd.def("__eq__", function_group::function_c5ef1d76a6ad5e26917eaa0000ebddcc, "");
-    class_349b01a7525f5245a8ca7e0497dd56cd.def("__gt__", function_group::function_bf1ea5d3b6db5895955928bb449f01d0, "");
-    class_349b01a7525f5245a8ca7e0497dd56cd.def("__neq__", function_group::function_22bedc4fe8025b198cfad057292d83ea, "");
-    class_349b01a7525f5245a8ca7e0497dd56cd.def("__ge__", function_group::function_c01a5fb08d9f515788b31d666dd1d002, "");
-    class_349b01a7525f5245a8ca7e0497dd56cd.def("__lt__", function_group::function_f59e3eb88fb55aae84b36c0db4c26ab4, "");
-    class_349b01a7525f5245a8ca7e0497dd56cd.def("str", function_group::function_fa95f5c73aba574d8f5587a7a525019e, "");
+    class_349b01a7525f5245a8ca7e0497dd56cd.def("__le__", function_group::function_5d292cd940fa562d9c45d5b09cf5c65b, "");
+    class_349b01a7525f5245a8ca7e0497dd56cd.def("__eq__", function_group::function_810a894b1e0f529f8dc130af3379adc0, "");
+    class_349b01a7525f5245a8ca7e0497dd56cd.def("__ge__", function_group::function_68a8ede1f9a0562f9b4013cf9a51e5e2, "");
+    class_349b01a7525f5245a8ca7e0497dd56cd.def("__lt__", function_group::function_467666f8049c5b3a819bfa23791ac92d, "");
+    class_349b01a7525f5245a8ca7e0497dd56cd.def("__gt__", function_group::function_248b9926a40a5351847dab3bfe5bc6a9, "");
+    class_349b01a7525f5245a8ca7e0497dd56cd.def("__neq__", function_group::function_78e6e51808c65f25aeaf13b32650c4eb, "");
+    class_349b01a7525f5245a8ca7e0497dd56cd.def("str", function_group::function_eaeffb135120539c853b94080c504c62, "");
     class_349b01a7525f5245a8ca7e0497dd56cd.def_readonly("npos", ::llvm::StringRef::npos, "");
 
 }
