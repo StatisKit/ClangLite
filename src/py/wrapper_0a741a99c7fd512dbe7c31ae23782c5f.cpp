@@ -16,17 +16,17 @@ void wrapper_0a741a99c7fd512dbe7c31ae23782c5f()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_e00f57ac82db557a96a58a994364a652)(class ::clang::Decl  const *) = ::clang::ValueDecl::classof;
-    bool  (*method_pointer_4682c68da9be5f03a8c89fcc555c015a)(enum ::clang::Decl::Kind ) = ::clang::ValueDecl::classofKind;
-    class ::clang::QualType  (::clang::ValueDecl::*method_pointer_d28fbd002c835eb0b6e7e3e1b599be93)() const = &::clang::ValueDecl::getType;
-    bool  (::clang::ValueDecl::*method_pointer_e6457cc4c72c5dcfb84a66899a9dc4dd)() const = &::clang::ValueDecl::isWeak;
-    void  (::clang::ValueDecl::*method_pointer_ba78db0aeeb253f4a7ac9bedfbc93136)(class ::clang::QualType ) = &::clang::ValueDecl::setType;
+    bool  (*method_pointer_55f9973c37025d25bcb89b68336ac7f5)(class ::clang::Decl  const *) = ::clang::ValueDecl::classof;
+    bool  (*method_pointer_cae345c5616a58eebe40eba661a32213)(enum ::clang::Decl::Kind ) = ::clang::ValueDecl::classofKind;
+    class ::clang::QualType  (::clang::ValueDecl::*method_pointer_c47c8b35d7515b3c9670cec3bb55db21)() const = &::clang::ValueDecl::getType;
+    bool  (::clang::ValueDecl::*method_pointer_c7a61e126d125c31bcb00152cd762778)() const = &::clang::ValueDecl::isWeak;
+    void  (::clang::ValueDecl::*method_pointer_7b5776fa666c5776949e0e50678d6154)(class ::clang::QualType ) = &::clang::ValueDecl::setType;
     boost::python::class_< class ::clang::ValueDecl, autowig::HeldType< class ::clang::ValueDecl >, boost::python::bases< class ::clang::NamedDecl >, boost::noncopyable > class_0a741a99c7fd512dbe7c31ae23782c5f("ValueDecl", "", boost::python::no_init);
-    class_0a741a99c7fd512dbe7c31ae23782c5f.def("classof", method_pointer_e00f57ac82db557a96a58a994364a652, "");
-    class_0a741a99c7fd512dbe7c31ae23782c5f.def("classof_kind", method_pointer_4682c68da9be5f03a8c89fcc555c015a, "");
-    class_0a741a99c7fd512dbe7c31ae23782c5f.def("get_type", method_pointer_d28fbd002c835eb0b6e7e3e1b599be93, "");
-    class_0a741a99c7fd512dbe7c31ae23782c5f.def("is_weak", method_pointer_e6457cc4c72c5dcfb84a66899a9dc4dd, "");
-    class_0a741a99c7fd512dbe7c31ae23782c5f.def("set_type", method_pointer_ba78db0aeeb253f4a7ac9bedfbc93136, "");
+    class_0a741a99c7fd512dbe7c31ae23782c5f.def("classof", method_pointer_55f9973c37025d25bcb89b68336ac7f5, "");
+    class_0a741a99c7fd512dbe7c31ae23782c5f.def("classof_kind", method_pointer_cae345c5616a58eebe40eba661a32213, "");
+    class_0a741a99c7fd512dbe7c31ae23782c5f.def("get_type", method_pointer_c47c8b35d7515b3c9670cec3bb55db21, "");
+    class_0a741a99c7fd512dbe7c31ae23782c5f.def("is_weak", method_pointer_c7a61e126d125c31bcb00152cd762778, "");
+    class_0a741a99c7fd512dbe7c31ae23782c5f.def("set_type", method_pointer_7b5776fa666c5776949e0e50678d6154, "");
     class_0a741a99c7fd512dbe7c31ae23782c5f.staticmethod("classof_kind");
     class_0a741a99c7fd512dbe7c31ae23782c5f.staticmethod("classof");
 
