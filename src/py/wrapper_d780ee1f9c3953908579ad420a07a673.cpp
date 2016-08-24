@@ -16,11 +16,11 @@ void wrapper_d780ee1f9c3953908579ad420a07a673()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_bd4cb2e01fb85cfea422b842f3a82f70)(class ::clang::Decl  const *) = ::clang::BuiltinTemplateDecl::classof;
-    bool  (*method_pointer_6f4beaf64e7e5236ac8423ac02a34520)(enum ::clang::Decl::Kind ) = ::clang::BuiltinTemplateDecl::classofKind;
+    bool  (*method_pointer_e7cf4ab469b75fe087a91d5179aebcd8)(class ::clang::Decl  const *) = ::clang::BuiltinTemplateDecl::classof;
+    bool  (*method_pointer_2e294b2c6d745b60906dd64c131070ad)(enum ::clang::Decl::Kind ) = ::clang::BuiltinTemplateDecl::classofKind;
     boost::python::class_< class ::clang::BuiltinTemplateDecl, autowig::HeldType< class ::clang::BuiltinTemplateDecl >, boost::python::bases< class ::clang::TemplateDecl >, boost::noncopyable > class_d780ee1f9c3953908579ad420a07a673("BuiltinTemplateDecl", "", boost::python::no_init);
-    class_d780ee1f9c3953908579ad420a07a673.def("classof", method_pointer_bd4cb2e01fb85cfea422b842f3a82f70, "");
-    class_d780ee1f9c3953908579ad420a07a673.def("classof_kind", method_pointer_6f4beaf64e7e5236ac8423ac02a34520, "");
+    class_d780ee1f9c3953908579ad420a07a673.def("classof", method_pointer_e7cf4ab469b75fe087a91d5179aebcd8, "");
+    class_d780ee1f9c3953908579ad420a07a673.def("classof_kind", method_pointer_2e294b2c6d745b60906dd64c131070ad, "");
     class_d780ee1f9c3953908579ad420a07a673.staticmethod("classof_kind");
     class_d780ee1f9c3953908579ad420a07a673.staticmethod("classof");
 
