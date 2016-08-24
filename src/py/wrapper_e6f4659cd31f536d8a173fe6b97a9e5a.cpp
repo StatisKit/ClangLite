@@ -16,13 +16,13 @@ void wrapper_e6f4659cd31f536d8a173fe6b97a9e5a()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_345cdf290679519782e965e6e4464b8d)(class ::clang::Type  const *) = ::clang::IncompleteArrayType::classof;
-    class ::clang::QualType  (::clang::IncompleteArrayType::*method_pointer_b991242041c65eeca6593dff0509e42b)() const = &::clang::IncompleteArrayType::desugar;
-    bool  (::clang::IncompleteArrayType::*method_pointer_b98f271ce83a53e4a1034f9c86eef2ad)() const = &::clang::IncompleteArrayType::isSugared;
+    bool  (*method_pointer_fed23fdf57a55d31b2f8df6a0cf88ac3)(class ::clang::Type  const *) = ::clang::IncompleteArrayType::classof;
+    class ::clang::QualType  (::clang::IncompleteArrayType::*method_pointer_656e9a90f9045eb794a7ef76ee3e1bab)() const = &::clang::IncompleteArrayType::desugar;
+    bool  (::clang::IncompleteArrayType::*method_pointer_addf67a7b9b55cb7918ae9e88ab3e689)() const = &::clang::IncompleteArrayType::isSugared;
     boost::python::class_< class ::clang::IncompleteArrayType, autowig::HeldType< class ::clang::IncompleteArrayType >, boost::python::bases< class ::clang::ArrayType >, boost::noncopyable > class_e6f4659cd31f536d8a173fe6b97a9e5a("IncompleteArrayType", "", boost::python::no_init);
-    class_e6f4659cd31f536d8a173fe6b97a9e5a.def("classof", method_pointer_345cdf290679519782e965e6e4464b8d, "");
-    class_e6f4659cd31f536d8a173fe6b97a9e5a.def("desugar", method_pointer_b991242041c65eeca6593dff0509e42b, "");
-    class_e6f4659cd31f536d8a173fe6b97a9e5a.def("is_sugared", method_pointer_b98f271ce83a53e4a1034f9c86eef2ad, "");
+    class_e6f4659cd31f536d8a173fe6b97a9e5a.def("classof", method_pointer_fed23fdf57a55d31b2f8df6a0cf88ac3, "");
+    class_e6f4659cd31f536d8a173fe6b97a9e5a.def("desugar", method_pointer_656e9a90f9045eb794a7ef76ee3e1bab, "");
+    class_e6f4659cd31f536d8a173fe6b97a9e5a.def("is_sugared", method_pointer_addf67a7b9b55cb7918ae9e88ab3e689, "");
     class_e6f4659cd31f536d8a173fe6b97a9e5a.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::IncompleteArrayType > >::value)
