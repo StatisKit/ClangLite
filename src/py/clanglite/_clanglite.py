@@ -12,15 +12,3 @@ clanglite.__clanglite.clang.BuiltinType.kind = clanglite.__clanglite.clang._buil
 clanglite.__clanglite.clang.Type.type_class = clanglite.__clanglite.clang._type.type_class
 
 
-# Define aliases
-clanglite.__clanglite.boost.python.Long.Base = clanglite.__clanglite.boost.python.detail.LongBase
-clanglite.__clanglite.boost.python.Dict.Base = clanglite.__clanglite.boost.python.detail.DictBase
-clanglite.__clanglite.boost.python.api.ConstObjattributePolicies.KeyType = clanglite.__clanglite.boost.python.api.Object
-clanglite.__clanglite.boost.python.Str.Base = clanglite.__clanglite.boost.python.detail.StrBase
-clanglite.__clanglite.boost.python.Tuple.Base = clanglite.__clanglite.boost.python.detail.TupleBase
-clanglite.__clanglite.boost.python.objects.ClassId = clanglite.__clanglite.boost.python.TypeInfo
-clanglite.__clanglite.boost.python.numeric.Array.Base = clanglite.__clanglite.boost.python.numeric.aux.ArrayBase
-clanglite.__clanglite.boost.python.Slice.Base = clanglite.__clanglite.boost.python.detail.SliceBase
-clanglite.__clanglite.boost.python.converter.detail.UnwindTypeIdHelper.ResultType = clanglite.__clanglite.boost.python.TypeInfo
-clanglite.__clanglite.boost.python.api.ConstItemPolicies.KeyType = clanglite.__clanglite.boost.python.api.Object
-clanglite.__clanglite.boost.python.List.Base = clanglite.__clanglite.boost.python.detail.ListBase
