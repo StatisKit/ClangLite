@@ -16,15 +16,15 @@ void wrapper_4b0c303b863250cda7e3852025001de0()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_b64dce8f492e587f870fdb6a7ae0dbe8)(class ::clang::Type  const *) = ::clang::PipeType::classof;
-    class ::clang::QualType  (::clang::PipeType::*method_pointer_4856476ee9695dd6b2eeff984cb2d422)() const = &::clang::PipeType::desugar;
-    class ::clang::QualType  (::clang::PipeType::*method_pointer_41b3639710cd597b884acb1619315a0f)() const = &::clang::PipeType::getElementType;
-    bool  (::clang::PipeType::*method_pointer_495f8b3a1f7e5c538b8b4d13f75252d1)() const = &::clang::PipeType::isSugared;
+    bool  (*method_pointer_89227ce4d2dc571caa5ab915223f3c9a)(class ::clang::Type  const *) = ::clang::PipeType::classof;
+    class ::clang::QualType  (::clang::PipeType::*method_pointer_6376ef1a687054f783ca5b2f00e66cc1)() const = &::clang::PipeType::desugar;
+    class ::clang::QualType  (::clang::PipeType::*method_pointer_d57ed16e3af951199da7405e0995889a)() const = &::clang::PipeType::getElementType;
+    bool  (::clang::PipeType::*method_pointer_31781f344ca25c7386ddbe924df1202e)() const = &::clang::PipeType::isSugared;
     boost::python::class_< class ::clang::PipeType, autowig::HeldType< class ::clang::PipeType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_4b0c303b863250cda7e3852025001de0("PipeType", "", boost::python::no_init);
-    class_4b0c303b863250cda7e3852025001de0.def("classof", method_pointer_b64dce8f492e587f870fdb6a7ae0dbe8, "");
-    class_4b0c303b863250cda7e3852025001de0.def("desugar", method_pointer_4856476ee9695dd6b2eeff984cb2d422, "");
-    class_4b0c303b863250cda7e3852025001de0.def("get_element_type", method_pointer_41b3639710cd597b884acb1619315a0f, "");
-    class_4b0c303b863250cda7e3852025001de0.def("is_sugared", method_pointer_495f8b3a1f7e5c538b8b4d13f75252d1, "");
+    class_4b0c303b863250cda7e3852025001de0.def("classof", method_pointer_89227ce4d2dc571caa5ab915223f3c9a, "");
+    class_4b0c303b863250cda7e3852025001de0.def("desugar", method_pointer_6376ef1a687054f783ca5b2f00e66cc1, "");
+    class_4b0c303b863250cda7e3852025001de0.def("get_element_type", method_pointer_d57ed16e3af951199da7405e0995889a, "");
+    class_4b0c303b863250cda7e3852025001de0.def("is_sugared", method_pointer_31781f344ca25c7386ddbe924df1202e, "");
     class_4b0c303b863250cda7e3852025001de0.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::PipeType > >::value)
