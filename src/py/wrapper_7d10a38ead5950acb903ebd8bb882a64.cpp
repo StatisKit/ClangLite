@@ -16,17 +16,17 @@ void wrapper_7d10a38ead5950acb903ebd8bb882a64()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_db2a9e10b620584db850cf84d80dc0c3)(class ::clang::Type  const *) = ::clang::DependentSizedExtVectorType::classof;
-    class ::clang::QualType  (::clang::DependentSizedExtVectorType::*method_pointer_a0ff530b9fa35978bd962053859d4045)() const = &::clang::DependentSizedExtVectorType::desugar;
-    class ::clang::SourceLocation  (::clang::DependentSizedExtVectorType::*method_pointer_19adebee7af757e490ac8f42a4653bb2)() const = &::clang::DependentSizedExtVectorType::getAttributeLoc;
-    class ::clang::QualType  (::clang::DependentSizedExtVectorType::*method_pointer_8a67552cd1615d3a879f665d2603c38f)() const = &::clang::DependentSizedExtVectorType::getElementType;
-    bool  (::clang::DependentSizedExtVectorType::*method_pointer_1da9e4b2e92855c8a8103358d124ce6b)() const = &::clang::DependentSizedExtVectorType::isSugared;
+    bool  (*method_pointer_66b796f799d45bfba43b240805518a4b)(class ::clang::Type  const *) = ::clang::DependentSizedExtVectorType::classof;
+    class ::clang::QualType  (::clang::DependentSizedExtVectorType::*method_pointer_f06c6d0c0957558e820ad460c9b053e5)() const = &::clang::DependentSizedExtVectorType::desugar;
+    class ::clang::SourceLocation  (::clang::DependentSizedExtVectorType::*method_pointer_ebf75b1b545158b3abac54d7c87bb69b)() const = &::clang::DependentSizedExtVectorType::getAttributeLoc;
+    class ::clang::QualType  (::clang::DependentSizedExtVectorType::*method_pointer_3783206ce5a3512988e1097904ce0391)() const = &::clang::DependentSizedExtVectorType::getElementType;
+    bool  (::clang::DependentSizedExtVectorType::*method_pointer_6a4aa329fbc15795b15ed85d9e441e12)() const = &::clang::DependentSizedExtVectorType::isSugared;
     boost::python::class_< class ::clang::DependentSizedExtVectorType, autowig::HeldType< class ::clang::DependentSizedExtVectorType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_7d10a38ead5950acb903ebd8bb882a64("DependentSizedExtVectorType", "", boost::python::no_init);
-    class_7d10a38ead5950acb903ebd8bb882a64.def("classof", method_pointer_db2a9e10b620584db850cf84d80dc0c3, "");
-    class_7d10a38ead5950acb903ebd8bb882a64.def("desugar", method_pointer_a0ff530b9fa35978bd962053859d4045, "");
-    class_7d10a38ead5950acb903ebd8bb882a64.def("get_attribute_loc", method_pointer_19adebee7af757e490ac8f42a4653bb2, "");
-    class_7d10a38ead5950acb903ebd8bb882a64.def("get_element_type", method_pointer_8a67552cd1615d3a879f665d2603c38f, "");
-    class_7d10a38ead5950acb903ebd8bb882a64.def("is_sugared", method_pointer_1da9e4b2e92855c8a8103358d124ce6b, "");
+    class_7d10a38ead5950acb903ebd8bb882a64.def("classof", method_pointer_66b796f799d45bfba43b240805518a4b, "");
+    class_7d10a38ead5950acb903ebd8bb882a64.def("desugar", method_pointer_f06c6d0c0957558e820ad460c9b053e5, "");
+    class_7d10a38ead5950acb903ebd8bb882a64.def("get_attribute_loc", method_pointer_ebf75b1b545158b3abac54d7c87bb69b, "");
+    class_7d10a38ead5950acb903ebd8bb882a64.def("get_element_type", method_pointer_3783206ce5a3512988e1097904ce0391, "");
+    class_7d10a38ead5950acb903ebd8bb882a64.def("is_sugared", method_pointer_6a4aa329fbc15795b15ed85d9e441e12, "");
     class_7d10a38ead5950acb903ebd8bb882a64.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::DependentSizedExtVectorType > >::value)
