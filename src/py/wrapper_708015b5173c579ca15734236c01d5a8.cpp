@@ -16,15 +16,15 @@ void wrapper_708015b5173c579ca15734236c01d5a8()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_41c28bc9bfaa5aa59734d677de31a636)(class ::clang::Type  const *) = ::clang::UnresolvedUsingType::classof;
-    class ::clang::QualType  (::clang::UnresolvedUsingType::*method_pointer_67c341d1934354939870340862a0d172)() const = &::clang::UnresolvedUsingType::desugar;
-    class ::clang::UnresolvedUsingTypenameDecl  * (::clang::UnresolvedUsingType::*method_pointer_61609145ea1d5c0faa180541496eebdb)() const = &::clang::UnresolvedUsingType::getDecl;
-    bool  (::clang::UnresolvedUsingType::*method_pointer_3e19e41b75f05269b3f959c891ba56b2)() const = &::clang::UnresolvedUsingType::isSugared;
+    bool  (*method_pointer_a5cc387e0d78516caf590ebbebfc0cc7)(class ::clang::Type  const *) = ::clang::UnresolvedUsingType::classof;
+    class ::clang::QualType  (::clang::UnresolvedUsingType::*method_pointer_324f8389989659e2b2f40ee7de5b7aa0)() const = &::clang::UnresolvedUsingType::desugar;
+    class ::clang::UnresolvedUsingTypenameDecl  * (::clang::UnresolvedUsingType::*method_pointer_ee797ac04ebd5daca7fee15e2db606e1)() const = &::clang::UnresolvedUsingType::getDecl;
+    bool  (::clang::UnresolvedUsingType::*method_pointer_9ddde4be5e1050e2a47ba6a91310fdb6)() const = &::clang::UnresolvedUsingType::isSugared;
     boost::python::class_< class ::clang::UnresolvedUsingType, autowig::HeldType< class ::clang::UnresolvedUsingType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_708015b5173c579ca15734236c01d5a8("UnresolvedUsingType", "", boost::python::no_init);
-    class_708015b5173c579ca15734236c01d5a8.def("classof", method_pointer_41c28bc9bfaa5aa59734d677de31a636, "");
-    class_708015b5173c579ca15734236c01d5a8.def("desugar", method_pointer_67c341d1934354939870340862a0d172, "");
-    class_708015b5173c579ca15734236c01d5a8.def("get_decl", method_pointer_61609145ea1d5c0faa180541496eebdb, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_708015b5173c579ca15734236c01d5a8.def("is_sugared", method_pointer_3e19e41b75f05269b3f959c891ba56b2, "");
+    class_708015b5173c579ca15734236c01d5a8.def("classof", method_pointer_a5cc387e0d78516caf590ebbebfc0cc7, "");
+    class_708015b5173c579ca15734236c01d5a8.def("desugar", method_pointer_324f8389989659e2b2f40ee7de5b7aa0, "");
+    class_708015b5173c579ca15734236c01d5a8.def("get_decl", method_pointer_ee797ac04ebd5daca7fee15e2db606e1, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_708015b5173c579ca15734236c01d5a8.def("is_sugared", method_pointer_9ddde4be5e1050e2a47ba6a91310fdb6, "");
     class_708015b5173c579ca15734236c01d5a8.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::UnresolvedUsingType > >::value)

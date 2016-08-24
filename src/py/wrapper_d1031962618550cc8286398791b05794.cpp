@@ -16,13 +16,13 @@ void wrapper_d1031962618550cc8286398791b05794()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_4d14a1c5fddd55b3abd02f5e091a77eb)(class ::clang::Type  const *) = ::clang::DecayedType::classof;
-    class ::clang::QualType  (::clang::DecayedType::*method_pointer_f247aff453705e9a84a3c93f458b4a53)() const = &::clang::DecayedType::getDecayedType;
-    class ::clang::QualType  (::clang::DecayedType::*method_pointer_378a78f896d45d0bafdd0e39369b64c0)() const = &::clang::DecayedType::getPointeeType;
+    bool  (*method_pointer_0518b47ea1fc5477a7cd7f3bb159502c)(class ::clang::Type  const *) = ::clang::DecayedType::classof;
+    class ::clang::QualType  (::clang::DecayedType::*method_pointer_16f6978cf32a502693338ceff70fabd6)() const = &::clang::DecayedType::getDecayedType;
+    class ::clang::QualType  (::clang::DecayedType::*method_pointer_39c025ecc3185da49e2dd99f8a72c4bf)() const = &::clang::DecayedType::getPointeeType;
     boost::python::class_< class ::clang::DecayedType, autowig::HeldType< class ::clang::DecayedType >, boost::python::bases< class ::clang::AdjustedType >, boost::noncopyable > class_d1031962618550cc8286398791b05794("DecayedType", "", boost::python::no_init);
-    class_d1031962618550cc8286398791b05794.def("classof", method_pointer_4d14a1c5fddd55b3abd02f5e091a77eb, "");
-    class_d1031962618550cc8286398791b05794.def("get_decayed_type", method_pointer_f247aff453705e9a84a3c93f458b4a53, "");
-    class_d1031962618550cc8286398791b05794.def("get_pointee_type", method_pointer_378a78f896d45d0bafdd0e39369b64c0, "");
+    class_d1031962618550cc8286398791b05794.def("classof", method_pointer_0518b47ea1fc5477a7cd7f3bb159502c, "");
+    class_d1031962618550cc8286398791b05794.def("get_decayed_type", method_pointer_16f6978cf32a502693338ceff70fabd6, "");
+    class_d1031962618550cc8286398791b05794.def("get_pointee_type", method_pointer_39c025ecc3185da49e2dd99f8a72c4bf, "");
     class_d1031962618550cc8286398791b05794.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::DecayedType > >::value)
