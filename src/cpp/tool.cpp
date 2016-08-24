@@ -62,7 +62,13 @@ namespace clanglite
         { children.append(boost::python::ptr(*it)); }
         return children;
     }
-
+    
+    clang::TemplateArgumentList* get_template_args(clang::ClassTemplateSpecializationDecl& cls)
+    { 
+        const clang::TemplateArgumentList&  template_args = cls.getTemplateArgs();
+        return const_cast< clang::TemplateArgumentList* >(&template_args);
+    }
+    
     boost::python::list get_constructors(clang::CXXRecordDecl& decl)
     { 
         boost::python::list children = boost::python::list();
