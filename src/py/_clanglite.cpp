@@ -6,7 +6,7 @@ void wrapper_3bcdbbe507dd5ad29df9e33aca4e435f();
 void wrapper_4b4e99a998695d79afb2678ecd4ef38b();
 void wrapper_4bd154797c5c544abd201e6b7c018504();
 void wrapper_7bc3191eac5451618d350bf624886bc4();
-void wrapper_883a450b66415aa8be7e0a52fb87a0b2();
+void wrapper_81ea76abcf9e51d6887e3febbb863881();
 void wrapper_9e52028d1c305f31bd87257e6d3ccc53();
 void wrapper_a6aedb4654a55a40aeecf4b1dc5fcc98();
 void wrapper_b1580b6f5457571a867a2347d7b1f865();
@@ -155,7 +155,7 @@ BOOST_PYTHON_MODULE(__clanglite)
     wrapper_4b4e99a998695d79afb2678ecd4ef38b();
     wrapper_4bd154797c5c544abd201e6b7c018504();
     wrapper_7bc3191eac5451618d350bf624886bc4();
-    wrapper_883a450b66415aa8be7e0a52fb87a0b2();
+    wrapper_81ea76abcf9e51d6887e3febbb863881();
     wrapper_9e52028d1c305f31bd87257e6d3ccc53();
     wrapper_a6aedb4654a55a40aeecf4b1dc5fcc98();
     wrapper_b1580b6f5457571a867a2347d7b1f865();
