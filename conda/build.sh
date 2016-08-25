@@ -10,4 +10,5 @@ conda install libclanglite --use-local -c statiskit
 conda build conda/python-clanglite -c statiskit
 conda install python-clanglite --use-local -c statiskit
 conda remove python-clanglite
+scons py
 pip install -e .
