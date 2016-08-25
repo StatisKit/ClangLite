@@ -54,7 +54,7 @@ cppenv['GCHSUFFIX']  = '.gch'
 for suffix in SCons.Util.Split('.c .C .cc .cxx .cpp .c++'):
     cppenv['BUILDERS']['SharedObject'].add_emitter(suffix, shared_pch_emitter)
 
-cppenv['GchSh'] = cppenv.Gch(includes)[0]
+cppenv['GchSh'] = cppenv.GchSh(includes)[0]
 
 Alias("cpp", includes)
 Alias("build", includes)
