@@ -778,7 +778,7 @@ def read_decl(asg, decl, **kwargs):
         clang.IndirectFieldDecl, clang.UnresolvedUsingValueDecl, clang.TypedefNameDecl)):
         return []
     else:
-        #warnings.warn(decl.__class__.__name__, NotImplementedDeclWarning) #.split('.')[-1]
+        #warnings.warn(decl.__class__.__name__, Warning) #.split('.')[-1]
         return []
 
 def read_lexical_parent(asg, decl):
@@ -815,6 +815,6 @@ def read_parent(asg, parent):
     elif kind in [clang.Decl.kind.TRANSLATION_UNIT, clang.Decl.kind.LAST_DECL]:
         return parent.as_translation_unit()
     elif kind in [clang.Decl.kind.CLASS_TEMPLATE_PARTIAL_SPECIALIZATION, clang.Decl.kind.FIRST_TEMPLATE, clang.Decl.kind.FIRST_VAR_TEMPLATE_SPECIALIZATION, clang.Decl.kind.LAST_TAG, clang.Decl.kind.LAST_REDECLARABLE_TEMPLATE, clang.Decl.kind.LAST_TEMPLATE]:
-        warnings.warn('', TemplateParentWarning)
+        warnings.warn('', Warning)
     else:
-        warnings.warn(kind, NotImplementedParentWarning)
+        warnings.warn(kind, Warning)
