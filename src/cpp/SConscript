@@ -36,7 +36,7 @@ def shared_pch_emitter(target,source,env):
      if env.get('GchSh'):
          if env['GchSh'].path.strip('.gch') in [x.path for x in deps]:
              env.Depends(target, env['GchSh'])
-    return (target, source)
+     return (target, source)
  
 cppenv.Append(BUILDERS = {
          'gchsh': cppenv.Builder(
