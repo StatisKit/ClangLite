@@ -1,5 +1,12 @@
 # -*-python-*-
 
+
+ import SCons.Action
+ import SCons.Builder
+ import SCons.Scanner.C
+ import SCons.Util
+ import SCons.Script
+ 
 import os
 bn = os.path.basename
 
@@ -9,6 +16,46 @@ cppenv = env.Clone()
 
 headers = cppenv.Glob('*.h*')
 includes = cppenv.Install(os.path.join(cppenv['PREFIX'], "include", "clanglite"), headers)
+
+GchShAction = SCons.Action.Action('$GCHSHCOM', '$GCHSHCOMSTR')
+
+def gen_suffix(env, sources):
+     return sources[0].get_suffix() + env['GCHSUFFIX']
+ 
+GchShBuilder = SCons.Builder.Builder(action = GchShAction,
+                                     source_scanner = SCons.Scanner.C.CScanner(),
+                                     suffix = gen_suffix)
+
+def shared_pch_emitter(target,source,env):
+     SCons.Defaults.SharedObjectEmitter( target, source, env )
+ 
+     scanner = SCons.Scanner.C.CScanner()
+     path = scanner.path(env)
+     deps = scanner(source[0], env, path)
+ 
+     if env.get('GchSh'):
+         if env['GchSh'].path.strip('.gch') in [x.path for x in deps]:
+             env.Depends(target, env['GchSh'])
+    return (target, source)
+ 
+cppenv.Append(BUILDERS = {
+         'gchsh': cppenv.Builder(
+         action = GchShAction,
+         target_factory = cppenv.fs.File,
+         ),
+         })
+
+bldsh = GchShBuilder
+cppenv['BUILDERS']['GchSh'] = bldsh
+
+cppenv['GCHSHCOM']   = '$CXX -o $TARGET -x c++-header -c $SHCXXFLAGS $_CCCOMCOM $SOURCE'
+cppenv['GCHSUFFIX']  = '.gch'
+
+for suffix in SCons.Util.Split('.c .C .cc .cxx .cpp .c++'):
+    cppenv['BUILDERS']['SharedObject'].add_emitter(suffix, shared_pch_emitter)
+
+cppenv['GchSh'] = cppenv.Gch(includes)[0]
+
 Alias("cpp", includes)
 Alias("build", includes)
 
