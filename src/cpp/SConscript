@@ -46,7 +46,7 @@ cppenv.Append(BUILDERS = {
          })
 
 bldsh = GchShBuilder
-cenv['BUILDERS']['GchSh'] = bldsh
+env['BUILDERS']['GchSh'] = bldsh
 
 env['GCHSHCOM']   = '$CXX -o $TARGET -x c++-header -c $SHCXXFLAGS $_CCCOMCOM $SOURCE'
 env['GCHSUFFIX']  = '.gch'
