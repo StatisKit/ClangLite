@@ -39,22 +39,22 @@ def shared_pch_emitter(target,source,env):
      return (target, source)
  
 cppenv.Append(BUILDERS = {
-         'gchsh': cppenv.Builder(
+         'gchsh': env.Builder(
          action = GchShAction,
-         target_factory = cppenv.fs.File,
+         target_factory = env.fs.File,
          ),
          })
 
 bldsh = GchShBuilder
-cppenv['BUILDERS']['GchSh'] = bldsh
+cenv['BUILDERS']['GchSh'] = bldsh
 
-cppenv['GCHSHCOM']   = '$CXX -o $TARGET -x c++-header -c $SHCXXFLAGS $_CCCOMCOM $SOURCE'
-cppenv['GCHSUFFIX']  = '.gch'
+env['GCHSHCOM']   = '$CXX -o $TARGET -x c++-header -c $SHCXXFLAGS $_CCCOMCOM $SOURCE'
+env['GCHSUFFIX']  = '.gch'
 
 for suffix in SCons.Util.Split('.c .C .cc .cxx .cpp .c++'):
-    cppenv['BUILDERS']['SharedObject'].add_emitter(suffix, shared_pch_emitter)
+    env['BUILDERS']['SharedObject'].add_emitter(suffix, shared_pch_emitter)
 
-cppenv['GchSh'] = cppenv.GchSh(includes)[0]
+env['GchSh'] = cppenv.GchSh(includes)[0]
 
 Alias("cpp", includes)
 Alias("build", includes)
