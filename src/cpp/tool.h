@@ -1,3 +1,6 @@
+#ifndef CLANGLITE_TOOL_H
+#define CLANGLITE_TOOL_H
+
 #include <boost/python.hpp>
 #include <iostream>
 #include <clang/ARCMigrate/ARCMT.h>
@@ -396,3 +399,5 @@ namespace clanglite
 
     boost::python::str get_mangling(clang::FunctionDecl * decl);
 }
+
+#endif
