@@ -4,10 +4,10 @@
 
 # Build libclanglite recipe
 conda build conda/libclanglite -c statiskit
-conda install libclanglite -c statiskit --use-local
+conda install libclanglite --use-local -c statiskit
 
 # Build python-clanglite recipe
-conda build conda/python-clanglite -c statiskit -c conda-forge
-conda install python-clanglite -c statiskit --use-local
+conda build conda/python-clanglite -c statiskit
+conda install python-clanglite --use-local -c statiskit
 conda remove python-clanglite
 pip install -e .
