@@ -16,13 +16,13 @@ void wrapper_35e4ead7d84e5119abf635b652b833ad()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_f24963bcb2db53d0930e019ab5c0f2a2)(class ::clang::Type  const *) = ::clang::TagType::classof;
-    class ::clang::TagDecl  * (::clang::TagType::*method_pointer_eee870b48d9953c6a50aa30b534ab78a)() const = &::clang::TagType::getDecl;
-    bool  (::clang::TagType::*method_pointer_8a950d5726c7592c974cec5edb678ad3)() const = &::clang::TagType::isBeingDefined;
+    bool  (*method_pointer_3099369bad345b328346e5666dca7a26)(class ::clang::Type  const *) = ::clang::TagType::classof;
+    class ::clang::TagDecl  * (::clang::TagType::*method_pointer_21d685874f56580e811f131bc1cc5b46)() const = &::clang::TagType::getDecl;
+    bool  (::clang::TagType::*method_pointer_954ca60679c75d4c8b527f301e540598)() const = &::clang::TagType::isBeingDefined;
     boost::python::class_< class ::clang::TagType, autowig::HeldType< class ::clang::TagType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_35e4ead7d84e5119abf635b652b833ad("TagType", "", boost::python::no_init);
-    class_35e4ead7d84e5119abf635b652b833ad.def("classof", method_pointer_f24963bcb2db53d0930e019ab5c0f2a2, "");
-    class_35e4ead7d84e5119abf635b652b833ad.def("get_decl", method_pointer_eee870b48d9953c6a50aa30b534ab78a, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_35e4ead7d84e5119abf635b652b833ad.def("is_being_defined", method_pointer_8a950d5726c7592c974cec5edb678ad3, "");
+    class_35e4ead7d84e5119abf635b652b833ad.def("classof", method_pointer_3099369bad345b328346e5666dca7a26, "");
+    class_35e4ead7d84e5119abf635b652b833ad.def("get_decl", method_pointer_21d685874f56580e811f131bc1cc5b46, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_35e4ead7d84e5119abf635b652b833ad.def("is_being_defined", method_pointer_954ca60679c75d4c8b527f301e540598, "");
     class_35e4ead7d84e5119abf635b652b833ad.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::TagType > >::value)
