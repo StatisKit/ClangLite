@@ -16,48 +16,48 @@ void wrapper_4b8444f6e9695ad99a1ccdbf56dc74ac()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    class ::clang::ClassTemplateDecl  * (*method_pointer_9e1ef451bc1958dbb16388ad237e58e8)(class ::clang::ASTContext  &, unsigned int ) = ::clang::ClassTemplateDecl::CreateDeserialized;
-    void  (::clang::ClassTemplateDecl::*method_pointer_e3f39de3de925cf6b5f68acea5b075cc)() const = &::clang::ClassTemplateDecl::LoadLazySpecializations;
-    bool  (*method_pointer_3e3906d621f55d8fa695e6a1e482e9be)(class ::clang::Decl  const *) = ::clang::ClassTemplateDecl::classof;
-    bool  (*method_pointer_f535c6f762115a9684aab7d9847eab8b)(enum ::clang::Decl::Kind ) = ::clang::ClassTemplateDecl::classofKind;
-    class ::clang::ClassTemplatePartialSpecializationDecl  * (::clang::ClassTemplateDecl::*method_pointer_91911a4943f55f2aa65e995c07c31cfb)(class ::clang::ClassTemplatePartialSpecializationDecl  *) = &::clang::ClassTemplateDecl::findPartialSpecInstantiatedFromMember;
-    class ::clang::ClassTemplatePartialSpecializationDecl  * (::clang::ClassTemplateDecl::*method_pointer_d78125ba7e4a53299430e88760cdfec6)(class ::clang::QualType ) = &::clang::ClassTemplateDecl::findPartialSpecialization;
-    class ::clang::ClassTemplateDecl  * (::clang::ClassTemplateDecl::*method_pointer_3fd6c91505675138a9102038e69ee4df)() = &::clang::ClassTemplateDecl::getCanonicalDecl;
-    class ::clang::ClassTemplateDecl  const * (::clang::ClassTemplateDecl::*method_pointer_805f5be592cf5538913f3688a59f20da)() const = &::clang::ClassTemplateDecl::getCanonicalDecl;
-    class ::clang::QualType  (::clang::ClassTemplateDecl::*method_pointer_9cd850f8a61858dd8bd882c08884e50f)() = &::clang::ClassTemplateDecl::getInjectedClassNameSpecialization;
-    class ::clang::ClassTemplateDecl  * (::clang::ClassTemplateDecl::*method_pointer_bbf249b8d8c5509ca66fb4c95a556719)() const = &::clang::ClassTemplateDecl::getInstantiatedFromMemberTemplate;
-    class ::clang::ClassTemplateDecl  const * (::clang::ClassTemplateDecl::*method_pointer_7551972b63855992ba916991adf291c0)() const = &::clang::ClassTemplateDecl::getMostRecentDecl;
-    class ::clang::ClassTemplateDecl  * (::clang::ClassTemplateDecl::*method_pointer_3899500b3e7c5e8db6c45f3d8930bd32)() = &::clang::ClassTemplateDecl::getMostRecentDecl;
-    class ::clang::ClassTemplateDecl  const * (::clang::ClassTemplateDecl::*method_pointer_649811b79ee451788cb1d3ab5c9263e5)() const = &::clang::ClassTemplateDecl::getPreviousDecl;
-    class ::clang::ClassTemplateDecl  * (::clang::ClassTemplateDecl::*method_pointer_cec0671e981b5940a7a430f8a1a0257f)() = &::clang::ClassTemplateDecl::getPreviousDecl;
-    class ::clang::CXXRecordDecl  * (::clang::ClassTemplateDecl::*method_pointer_46c903bd90ca5100a67b9638649cefae)() const = &::clang::ClassTemplateDecl::getTemplatedDecl;
-    bool  (::clang::ClassTemplateDecl::*method_pointer_637e74743be75f9797988e231f54fe0a)() const = &::clang::ClassTemplateDecl::isThisDeclarationADefinition;
+    class ::clang::ClassTemplateDecl  * (*method_pointer_c166d0538c3c5f298b2e23178474cffc)(class ::clang::ASTContext  &, unsigned int ) = ::clang::ClassTemplateDecl::CreateDeserialized;
+    void  (::clang::ClassTemplateDecl::*method_pointer_a69c41252b7f53409e5cfe2659317262)() const = &::clang::ClassTemplateDecl::LoadLazySpecializations;
+    bool  (*method_pointer_b36a9ed00b6b5c3c9b8a94e15cb9181d)(class ::clang::Decl  const *) = ::clang::ClassTemplateDecl::classof;
+    bool  (*method_pointer_7b1ecbe6a90c592e990883a22c1d4330)(enum ::clang::Decl::Kind ) = ::clang::ClassTemplateDecl::classofKind;
+    class ::clang::ClassTemplatePartialSpecializationDecl  * (::clang::ClassTemplateDecl::*method_pointer_efd6e8430b5d55de919d01a5130e3d45)(class ::clang::ClassTemplatePartialSpecializationDecl  *) = &::clang::ClassTemplateDecl::findPartialSpecInstantiatedFromMember;
+    class ::clang::ClassTemplatePartialSpecializationDecl  * (::clang::ClassTemplateDecl::*method_pointer_51ba8e15f3d95c2fabb24704b7433e90)(class ::clang::QualType ) = &::clang::ClassTemplateDecl::findPartialSpecialization;
+    class ::clang::ClassTemplateDecl  const * (::clang::ClassTemplateDecl::*method_pointer_2eb03fc0d2705ba1b96f6bc35712a737)() const = &::clang::ClassTemplateDecl::getCanonicalDecl;
+    class ::clang::ClassTemplateDecl  * (::clang::ClassTemplateDecl::*method_pointer_1cbc72db2e9a5f20b439651ac47a4961)() = &::clang::ClassTemplateDecl::getCanonicalDecl;
+    class ::clang::QualType  (::clang::ClassTemplateDecl::*method_pointer_a3a40e1536bb5fe28e08d99860c98994)() = &::clang::ClassTemplateDecl::getInjectedClassNameSpecialization;
+    class ::clang::ClassTemplateDecl  * (::clang::ClassTemplateDecl::*method_pointer_489ff68952bb58e595a40fadb9c7667f)() const = &::clang::ClassTemplateDecl::getInstantiatedFromMemberTemplate;
+    class ::clang::ClassTemplateDecl  const * (::clang::ClassTemplateDecl::*method_pointer_f5d4bd66d45553c9ba2d978ad191bc50)() const = &::clang::ClassTemplateDecl::getMostRecentDecl;
+    class ::clang::ClassTemplateDecl  * (::clang::ClassTemplateDecl::*method_pointer_fcf2233e7a8d5cbe97651a8f9436f024)() = &::clang::ClassTemplateDecl::getMostRecentDecl;
+    class ::clang::ClassTemplateDecl  * (::clang::ClassTemplateDecl::*method_pointer_0b0ea180cabc5f849f48023b20e13151)() = &::clang::ClassTemplateDecl::getPreviousDecl;
+    class ::clang::ClassTemplateDecl  const * (::clang::ClassTemplateDecl::*method_pointer_012d2eaede16503fb83f5c79da5159c9)() const = &::clang::ClassTemplateDecl::getPreviousDecl;
+    class ::clang::CXXRecordDecl  * (::clang::ClassTemplateDecl::*method_pointer_70902c0c1b37557bb4f8d51c4bcd94c4)() const = &::clang::ClassTemplateDecl::getTemplatedDecl;
+    bool  (::clang::ClassTemplateDecl::*method_pointer_dcb536829db453ca96b344553a48b407)() const = &::clang::ClassTemplateDecl::isThisDeclarationADefinition;
     struct function_group
     {
-        static class ::boost::python::list  function_e12f3a663936501892b3862b5d8de4cf(class ::clang::ClassTemplateDecl  & parameter_0)
+        static class ::boost::python::list  function_866c7796d2615b6fa59142e145683195(class ::clang::ClassTemplateDecl  & parameter_0)
         { return ::clanglite::get_children(parameter_0); }
     };
     boost::python::class_< class ::clang::ClassTemplateDecl, autowig::HeldType< class ::clang::ClassTemplateDecl >, boost::python::bases< class ::clang::RedeclarableTemplateDecl >, boost::noncopyable > class_4b8444f6e9695ad99a1ccdbf56dc74ac("ClassTemplateDecl", "", boost::python::no_init);
-    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("create_deserialized", method_pointer_9e1ef451bc1958dbb16388ad237e58e8, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("load_lazy_specializations", method_pointer_e3f39de3de925cf6b5f68acea5b075cc, "");
-    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("classof", method_pointer_3e3906d621f55d8fa695e6a1e482e9be, "");
-    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("classof_kind", method_pointer_f535c6f762115a9684aab7d9847eab8b, "");
-    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("find_partial_spec_instantiated_from_member", method_pointer_91911a4943f55f2aa65e995c07c31cfb, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("find_partial_specialization", method_pointer_d78125ba7e4a53299430e88760cdfec6, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_canonical_decl", method_pointer_3fd6c91505675138a9102038e69ee4df, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_canonical_decl", method_pointer_805f5be592cf5538913f3688a59f20da, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_injected_class_name_specialization", method_pointer_9cd850f8a61858dd8bd882c08884e50f, "");
-    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_instantiated_from_member_template", method_pointer_bbf249b8d8c5509ca66fb4c95a556719, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_most_recent_decl", method_pointer_7551972b63855992ba916991adf291c0, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_most_recent_decl", method_pointer_3899500b3e7c5e8db6c45f3d8930bd32, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_previous_decl", method_pointer_649811b79ee451788cb1d3ab5c9263e5, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_previous_decl", method_pointer_cec0671e981b5940a7a430f8a1a0257f, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_templated_decl", method_pointer_46c903bd90ca5100a67b9638649cefae, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("is_this_declaration_a_definition", method_pointer_637e74743be75f9797988e231f54fe0a, "");
+    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("create_deserialized", method_pointer_c166d0538c3c5f298b2e23178474cffc, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("load_lazy_specializations", method_pointer_a69c41252b7f53409e5cfe2659317262, "");
+    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("classof", method_pointer_b36a9ed00b6b5c3c9b8a94e15cb9181d, "");
+    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("classof_kind", method_pointer_7b1ecbe6a90c592e990883a22c1d4330, "");
+    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("find_partial_spec_instantiated_from_member", method_pointer_efd6e8430b5d55de919d01a5130e3d45, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("find_partial_specialization", method_pointer_51ba8e15f3d95c2fabb24704b7433e90, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_canonical_decl", method_pointer_2eb03fc0d2705ba1b96f6bc35712a737, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_canonical_decl", method_pointer_1cbc72db2e9a5f20b439651ac47a4961, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_injected_class_name_specialization", method_pointer_a3a40e1536bb5fe28e08d99860c98994, "");
+    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_instantiated_from_member_template", method_pointer_489ff68952bb58e595a40fadb9c7667f, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_most_recent_decl", method_pointer_f5d4bd66d45553c9ba2d978ad191bc50, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_most_recent_decl", method_pointer_fcf2233e7a8d5cbe97651a8f9436f024, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_previous_decl", method_pointer_0b0ea180cabc5f849f48023b20e13151, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_previous_decl", method_pointer_012d2eaede16503fb83f5c79da5159c9, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_templated_decl", method_pointer_70902c0c1b37557bb4f8d51c4bcd94c4, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("is_this_declaration_a_definition", method_pointer_dcb536829db453ca96b344553a48b407, "");
     class_4b8444f6e9695ad99a1ccdbf56dc74ac.staticmethod("classof_kind");
     class_4b8444f6e9695ad99a1ccdbf56dc74ac.staticmethod("create_deserialized");
     class_4b8444f6e9695ad99a1ccdbf56dc74ac.staticmethod("classof");
-    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_children", function_group::function_e12f3a663936501892b3862b5d8de4cf, "");
+    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_children", function_group::function_866c7796d2615b6fa59142e145683195, "");
 
     if(std::is_class< autowig::HeldType< class ::clang::ClassTemplateDecl > >::value)
     {
