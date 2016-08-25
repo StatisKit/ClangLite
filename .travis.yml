@@ -20,11 +20,6 @@ before_install:
 
 install:
   - pip install python-coveralls
-  - conda install libclang -c statiskit
-  - llvm-config --libs
-  - llc -version
-  - clang++ -x c++ -v -E /dev/null
-  - clang -x c -v -E /dev/null
 
 before_script:
   - conda build conda/python-clanglite -c statiskit --no-test
