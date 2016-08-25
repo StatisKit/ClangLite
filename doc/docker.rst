@@ -10,7 +10,7 @@ Then, you can use the :code:`statiskit/pyclanglite:trusty` **Docker** image to r
 
 .. code-block:: console
 
-  $ docker run -it statiskit/ubuntu:PyClangLite
+  $ docker run -it statiskit/pyclanglite:trusty
   
 Note that, for convenience **IPython** and **Jupyter** packages are installed.
 You can therefore use:
