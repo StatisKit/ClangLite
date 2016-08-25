@@ -6,8 +6,6 @@ ARG BUILD="false"
 # Clone the repository
 RUN git clone https://github.com/StatisKit/PyClangLite.git $HOME/PyClangLite
 
-RUN for recipe in $HOME/PyClangLite/conda/*/; do echo "anaconda upload \`conda build" $recipe "--output\` --user statiskit --force"; done
-
 # Build libraries and packages from PyClangLite
 RUN [ $BUILD = "true" ] && cd $HOME/PyClangLite && /bin/bash conda/build.sh || [ $BUILD = "false" ] 
 
