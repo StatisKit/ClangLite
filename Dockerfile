@@ -7,10 +7,10 @@ ARG BUILD="false"
 RUN git clone https://github.com/StatisKit/PyClangLite.git $HOME/PyClangLite
 
 # Build libraries and packages from PyClangLite
-RUN [ $BUILD = "true" ] && cd $HOME/PyClangLite/conda && /bin/bash build.sh || [ $BUILD = "false" ] 
+RUN [ $BUILD = "true" ] && cd $HOME/PyClangLite && /bin/bash conda/build.sh || [ $BUILD = "false" ] 
 
 # Install libraries and packages from PyClangLite
-RUN [ $BUILD = "false" ] && cd $HOME/PyClangLite/conda && /bin/bash install.sh || [ $BUILD = "true" ]
+RUN [ $BUILD = "false" ] && cd $HOME/PyClangLite && /bin/bash conda/install.sh || [ $BUILD = "true" ]
 
 # Create a file for anaconda post-link
 RUN [ -f $HOME/post-link.sh ] && head -n -1 post-link.sh || touch $HOME/post-link.sh && echo "set -e" >> $HOME/post-link.sh
