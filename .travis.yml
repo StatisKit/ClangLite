@@ -27,7 +27,6 @@ install:
   - clang -x c -v -E /dev/null
 
 before_script:
-  #- conda build conda/libclanglite -c statiskit
   - conda build conda/python-clanglite -c statiskit --no-test
 
 script:
@@ -39,12 +38,6 @@ after_success:
   - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]]; then
       conda install anaconda-client;
       anaconda login --username "$ANACONDA_USERNAME" --password "$ANACONDA_PASSWORD";
-      #for CONDA_RECIPE in libclanglite python-clanglite; do
-      #CONDA_FILE=`conda build conda/$CONDA_RECIPE --output`; 
       CONDA_FILE=`conda build conda/python-clanglite --output`; 
       anaconda upload --user statiskit ${CONDA_FILE%%} --force;
-      #done;
-      #docker build --build-arg BUILD="false" -t statiskit/pyclanglite:trusty .;
-      #docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-      #docker push statiskit/pyclanglite:trusty;
     fi
