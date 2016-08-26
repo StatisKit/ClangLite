@@ -1,8 +1,5 @@
-#include <type_traits>
-#include <boost/python.hpp>
-#include <clanglite/tool.h>
+#include "_clanglite.h"
 
-namespace autowig { template<class T> using HeldType = T*; }
 
 namespace autowig
 {
@@ -16,15 +13,15 @@ void wrapper_2c0e35bd45075f9c8d8dfc0dec5fe74e()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    class ::clang::ExternCContextDecl  * (*method_pointer_b58f33eeea725c46a84ddd84da7ff7ee)(class ::clang::DeclContext  const *) = ::clang::ExternCContextDecl::castFromDeclContext;
-    class ::clang::DeclContext  * (*method_pointer_b411c318b8665fc288a5e58136347647)(class ::clang::ExternCContextDecl  const *) = ::clang::ExternCContextDecl::castToDeclContext;
-    bool  (*method_pointer_5a1eb8fd3ad25ce7bbb2e00ac6bafc31)(class ::clang::Decl  const *) = ::clang::ExternCContextDecl::classof;
-    bool  (*method_pointer_baed28adf3c4542cafe8fa23ea84b174)(enum ::clang::Decl::Kind ) = ::clang::ExternCContextDecl::classofKind;
+    class ::clang::ExternCContextDecl  * (*method_pointer_b4eb620f31eb5f51b2e1e7d1b5bca150)(class ::clang::DeclContext  const *) = ::clang::ExternCContextDecl::castFromDeclContext;
+    class ::clang::DeclContext  * (*method_pointer_85f32550d91e50aab2aaed6c3002cbd5)(class ::clang::ExternCContextDecl  const *) = ::clang::ExternCContextDecl::castToDeclContext;
+    bool  (*method_pointer_5280076c38115bc5907c886b6990918f)(class ::clang::Decl  const *) = ::clang::ExternCContextDecl::classof;
+    bool  (*method_pointer_c7b184d354b356d39ead41b0a7df305a)(enum ::clang::Decl::Kind ) = ::clang::ExternCContextDecl::classofKind;
     boost::python::class_< class ::clang::ExternCContextDecl, autowig::HeldType< class ::clang::ExternCContextDecl >, boost::python::bases< class ::clang::Decl, class ::clang::DeclContext >, boost::noncopyable > class_2c0e35bd45075f9c8d8dfc0dec5fe74e("ExternCContextDecl", "", boost::python::no_init);
-    class_2c0e35bd45075f9c8d8dfc0dec5fe74e.def("cast_from_decl_context", method_pointer_b58f33eeea725c46a84ddd84da7ff7ee, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_2c0e35bd45075f9c8d8dfc0dec5fe74e.def("cast_to_decl_context", method_pointer_b411c318b8665fc288a5e58136347647, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_2c0e35bd45075f9c8d8dfc0dec5fe74e.def("classof", method_pointer_5a1eb8fd3ad25ce7bbb2e00ac6bafc31, "");
-    class_2c0e35bd45075f9c8d8dfc0dec5fe74e.def("classof_kind", method_pointer_baed28adf3c4542cafe8fa23ea84b174, "");
+    class_2c0e35bd45075f9c8d8dfc0dec5fe74e.def("cast_from_decl_context", method_pointer_b4eb620f31eb5f51b2e1e7d1b5bca150, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_2c0e35bd45075f9c8d8dfc0dec5fe74e.def("cast_to_decl_context", method_pointer_85f32550d91e50aab2aaed6c3002cbd5, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_2c0e35bd45075f9c8d8dfc0dec5fe74e.def("classof", method_pointer_5280076c38115bc5907c886b6990918f, "");
+    class_2c0e35bd45075f9c8d8dfc0dec5fe74e.def("classof_kind", method_pointer_c7b184d354b356d39ead41b0a7df305a, "");
     class_2c0e35bd45075f9c8d8dfc0dec5fe74e.staticmethod("classof_kind");
     class_2c0e35bd45075f9c8d8dfc0dec5fe74e.staticmethod("classof");
     class_2c0e35bd45075f9c8d8dfc0dec5fe74e.staticmethod("cast_from_decl_context");

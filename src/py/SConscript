@@ -12,8 +12,8 @@ Import("env")
 
 pyenv = env.Clone()
 
-#header = pyenv.Glob('*.h')[0]
-#pyenv.Command(header.target_from_source('', '.pch'), header, '$CXX -o $TARGET -x c++-header -c $SHCXXFLAGS $_CCCOMCOM $SOURCE')
+header = pyenv.Glob('*.h')[0]
+pyenv.Command(header.target_from_source('', '.pch'), header, '$CXX -o $TARGET -x c++-header -c $SHCXXFLAGS $_CCCOMCOM $SOURCE')
 
 targets = list(itertools.chain(*[pyenv.SharedObject(None, source) for source in pyenv.Glob('*.cpp')]))
 source = pyenv.File('response_file.rsp')

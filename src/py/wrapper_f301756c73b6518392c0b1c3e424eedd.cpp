@@ -1,8 +1,5 @@
-#include <type_traits>
-#include <boost/python.hpp>
-#include <clanglite/tool.h>
+#include "_clanglite.h"
 
-namespace autowig { template<class T> using HeldType = T*; }
 
 namespace autowig
 {
@@ -16,21 +13,17 @@ void wrapper_f301756c73b6518392c0b1c3e424eedd()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    class ::clang::ObjCTypeParamDecl  * (*method_pointer_c03b4b4e01ec51c3bb4597d62b880340)(class ::clang::ASTContext  &, unsigned int ) = ::clang::ObjCTypeParamDecl::CreateDeserialized;
-    bool  (*method_pointer_affe7080ec7d5f609e0e0982dc49c008)(class ::clang::Decl  const *) = ::clang::ObjCTypeParamDecl::classof;
-    bool  (*method_pointer_4ed7213e851554e0858830e7ccc9661e)(enum ::clang::Decl::Kind ) = ::clang::ObjCTypeParamDecl::classofKind;
-    class ::clang::SourceLocation  (::clang::ObjCTypeParamDecl::*method_pointer_b08ada42df34595aac30a7572bd9737a)() const = &::clang::ObjCTypeParamDecl::getColonLoc;
-    unsigned int  (::clang::ObjCTypeParamDecl::*method_pointer_24f7b09face757498b1159d115b7f5d8)() const = &::clang::ObjCTypeParamDecl::getIndex;
-    class ::clang::SourceLocation  (::clang::ObjCTypeParamDecl::*method_pointer_4e9eb080adeb55c9be00eb5d5ca4e881)() const = &::clang::ObjCTypeParamDecl::getVarianceLoc;
-    bool  (::clang::ObjCTypeParamDecl::*method_pointer_141b6ac7fc1f5d5483a0a9b24378bba2)() const = &::clang::ObjCTypeParamDecl::hasExplicitBound;
+    class ::clang::ObjCTypeParamDecl  * (*method_pointer_6cb7b428a26f51b5b2b1e6927d6941e2)(class ::clang::ASTContext  &, unsigned int ) = ::clang::ObjCTypeParamDecl::CreateDeserialized;
+    bool  (*method_pointer_f4a96b44f35957aa9d16b778d07a1e8a)(class ::clang::Decl  const *) = ::clang::ObjCTypeParamDecl::classof;
+    bool  (*method_pointer_0109bd3a506d5dfcb085fdf5634b2f81)(enum ::clang::Decl::Kind ) = ::clang::ObjCTypeParamDecl::classofKind;
+    unsigned int  (::clang::ObjCTypeParamDecl::*method_pointer_d50ea60b4bdd56118800deb73ebce07a)() const = &::clang::ObjCTypeParamDecl::getIndex;
+    bool  (::clang::ObjCTypeParamDecl::*method_pointer_20ff1b23571052d5823f23ba3249d422)() const = &::clang::ObjCTypeParamDecl::hasExplicitBound;
     boost::python::class_< class ::clang::ObjCTypeParamDecl, autowig::HeldType< class ::clang::ObjCTypeParamDecl >, boost::python::bases< class ::clang::TypedefNameDecl >, boost::noncopyable > class_f301756c73b6518392c0b1c3e424eedd("ObjCTypeParamDecl", "", boost::python::no_init);
-    class_f301756c73b6518392c0b1c3e424eedd.def("create_deserialized", method_pointer_c03b4b4e01ec51c3bb4597d62b880340, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_f301756c73b6518392c0b1c3e424eedd.def("classof", method_pointer_affe7080ec7d5f609e0e0982dc49c008, "");
-    class_f301756c73b6518392c0b1c3e424eedd.def("classof_kind", method_pointer_4ed7213e851554e0858830e7ccc9661e, "");
-    class_f301756c73b6518392c0b1c3e424eedd.def("get_colon_loc", method_pointer_b08ada42df34595aac30a7572bd9737a, "");
-    class_f301756c73b6518392c0b1c3e424eedd.def("get_index", method_pointer_24f7b09face757498b1159d115b7f5d8, "");
-    class_f301756c73b6518392c0b1c3e424eedd.def("get_variance_loc", method_pointer_4e9eb080adeb55c9be00eb5d5ca4e881, "");
-    class_f301756c73b6518392c0b1c3e424eedd.def("has_explicit_bound", method_pointer_141b6ac7fc1f5d5483a0a9b24378bba2, "");
+    class_f301756c73b6518392c0b1c3e424eedd.def("create_deserialized", method_pointer_6cb7b428a26f51b5b2b1e6927d6941e2, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_f301756c73b6518392c0b1c3e424eedd.def("classof", method_pointer_f4a96b44f35957aa9d16b778d07a1e8a, "");
+    class_f301756c73b6518392c0b1c3e424eedd.def("classof_kind", method_pointer_0109bd3a506d5dfcb085fdf5634b2f81, "");
+    class_f301756c73b6518392c0b1c3e424eedd.def("get_index", method_pointer_d50ea60b4bdd56118800deb73ebce07a, "");
+    class_f301756c73b6518392c0b1c3e424eedd.def("has_explicit_bound", method_pointer_20ff1b23571052d5823f23ba3249d422, "");
     class_f301756c73b6518392c0b1c3e424eedd.staticmethod("classof_kind");
     class_f301756c73b6518392c0b1c3e424eedd.staticmethod("create_deserialized");
     class_f301756c73b6518392c0b1c3e424eedd.staticmethod("classof");

@@ -1,8 +1,5 @@
-#include <type_traits>
-#include <boost/python.hpp>
-#include <clanglite/tool.h>
+#include "_clanglite.h"
 
-namespace autowig { template<class T> using HeldType = T*; }
 
 namespace autowig
 {
@@ -16,33 +13,33 @@ void wrapper_170cacd8da615406967b5b7d712829ee()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    class ::clang::FunctionTemplateDecl  * (*method_pointer_9ac1887df4255eec993407bbfcd2b3dc)(class ::clang::ASTContext  &, unsigned int ) = ::clang::FunctionTemplateDecl::CreateDeserialized;
-    void  (::clang::FunctionTemplateDecl::*method_pointer_0c55be6605295fbf95d88fcb7f362e27)() const = &::clang::FunctionTemplateDecl::LoadLazySpecializations;
-    bool  (*method_pointer_6d2ee7acf69d54ed9061e8cdcb7cb89d)(class ::clang::Decl  const *) = ::clang::FunctionTemplateDecl::classof;
-    bool  (*method_pointer_77f2afac12245b6180d5fd2d4d183499)(enum ::clang::Decl::Kind ) = ::clang::FunctionTemplateDecl::classofKind;
-    class ::clang::FunctionTemplateDecl  const * (::clang::FunctionTemplateDecl::*method_pointer_34a081f8b6dc508fa85ae69326d6c645)() const = &::clang::FunctionTemplateDecl::getCanonicalDecl;
-    class ::clang::FunctionTemplateDecl  * (::clang::FunctionTemplateDecl::*method_pointer_948ff1049cfb5ddeb59d0bfc2d2d9029)() = &::clang::FunctionTemplateDecl::getCanonicalDecl;
-    class ::clang::FunctionTemplateDecl  * (::clang::FunctionTemplateDecl::*method_pointer_a519ea38df635b9e835e7184c20238b5)() const = &::clang::FunctionTemplateDecl::getInstantiatedFromMemberTemplate;
-    class ::clang::FunctionTemplateDecl  const * (::clang::FunctionTemplateDecl::*method_pointer_66ed4bb5c4565f4a93ac436e725533da)() const = &::clang::FunctionTemplateDecl::getMostRecentDecl;
-    class ::clang::FunctionTemplateDecl  * (::clang::FunctionTemplateDecl::*method_pointer_aba6ba482cff563fbaaee020fd3f60b1)() = &::clang::FunctionTemplateDecl::getMostRecentDecl;
-    class ::clang::FunctionTemplateDecl  const * (::clang::FunctionTemplateDecl::*method_pointer_7e52140dd6a4575db4f15cb9b80a911b)() const = &::clang::FunctionTemplateDecl::getPreviousDecl;
-    class ::clang::FunctionTemplateDecl  * (::clang::FunctionTemplateDecl::*method_pointer_398b78824d3254b78f8d7d646cf3cf87)() = &::clang::FunctionTemplateDecl::getPreviousDecl;
-    class ::clang::FunctionDecl  * (::clang::FunctionTemplateDecl::*method_pointer_8f96eb4736e15a4090fe3f794e928e6f)() const = &::clang::FunctionTemplateDecl::getTemplatedDecl;
-    bool  (::clang::FunctionTemplateDecl::*method_pointer_919911c375e65d168b43e77decb05881)() const = &::clang::FunctionTemplateDecl::isThisDeclarationADefinition;
+    class ::clang::FunctionTemplateDecl  * (*method_pointer_9229b3f3fbf25ea68cd867c20c525ac4)(class ::clang::ASTContext  &, unsigned int ) = ::clang::FunctionTemplateDecl::CreateDeserialized;
+    void  (::clang::FunctionTemplateDecl::*method_pointer_616c19c8200e5cfc9cf8312b067e400c)() const = &::clang::FunctionTemplateDecl::LoadLazySpecializations;
+    bool  (*method_pointer_04801ff28917546e998b6801b0a4dd47)(class ::clang::Decl  const *) = ::clang::FunctionTemplateDecl::classof;
+    bool  (*method_pointer_a3c1cbcf018b5c238df5d38e5d154e9d)(enum ::clang::Decl::Kind ) = ::clang::FunctionTemplateDecl::classofKind;
+    class ::clang::FunctionTemplateDecl  const * (::clang::FunctionTemplateDecl::*method_pointer_ee2a0a4f9f4858edaaae05aad54e697a)() const = &::clang::FunctionTemplateDecl::getCanonicalDecl;
+    class ::clang::FunctionTemplateDecl  * (::clang::FunctionTemplateDecl::*method_pointer_9e35e7f559e55443bc551de3fe5db342)() = &::clang::FunctionTemplateDecl::getCanonicalDecl;
+    class ::clang::FunctionTemplateDecl  * (::clang::FunctionTemplateDecl::*method_pointer_c2018cfc231a5dfb990fb3e7fd802982)() const = &::clang::FunctionTemplateDecl::getInstantiatedFromMemberTemplate;
+    class ::clang::FunctionTemplateDecl  * (::clang::FunctionTemplateDecl::*method_pointer_9702fec171855c2c89b8e886df346196)() = &::clang::FunctionTemplateDecl::getMostRecentDecl;
+    class ::clang::FunctionTemplateDecl  const * (::clang::FunctionTemplateDecl::*method_pointer_357d1c67129f5dcc9ce706a980571311)() const = &::clang::FunctionTemplateDecl::getMostRecentDecl;
+    class ::clang::FunctionTemplateDecl  * (::clang::FunctionTemplateDecl::*method_pointer_8d724310fb995d2399fc5b8d5c52436e)() = &::clang::FunctionTemplateDecl::getPreviousDecl;
+    class ::clang::FunctionTemplateDecl  const * (::clang::FunctionTemplateDecl::*method_pointer_9091cbbf74df5b869994921c18a7df38)() const = &::clang::FunctionTemplateDecl::getPreviousDecl;
+    class ::clang::FunctionDecl  * (::clang::FunctionTemplateDecl::*method_pointer_45f8b4d9b53452ea8f879166e4a93a36)() const = &::clang::FunctionTemplateDecl::getTemplatedDecl;
+    bool  (::clang::FunctionTemplateDecl::*method_pointer_27b4ef69afd55c2a98196e7366ba419f)() const = &::clang::FunctionTemplateDecl::isThisDeclarationADefinition;
     boost::python::class_< class ::clang::FunctionTemplateDecl, autowig::HeldType< class ::clang::FunctionTemplateDecl >, boost::python::bases< class ::clang::RedeclarableTemplateDecl >, boost::noncopyable > class_170cacd8da615406967b5b7d712829ee("FunctionTemplateDecl", "", boost::python::no_init);
-    class_170cacd8da615406967b5b7d712829ee.def("create_deserialized", method_pointer_9ac1887df4255eec993407bbfcd2b3dc, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_170cacd8da615406967b5b7d712829ee.def("load_lazy_specializations", method_pointer_0c55be6605295fbf95d88fcb7f362e27, "");
-    class_170cacd8da615406967b5b7d712829ee.def("classof", method_pointer_6d2ee7acf69d54ed9061e8cdcb7cb89d, "");
-    class_170cacd8da615406967b5b7d712829ee.def("classof_kind", method_pointer_77f2afac12245b6180d5fd2d4d183499, "");
-    class_170cacd8da615406967b5b7d712829ee.def("get_canonical_decl", method_pointer_34a081f8b6dc508fa85ae69326d6c645, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_170cacd8da615406967b5b7d712829ee.def("get_canonical_decl", method_pointer_948ff1049cfb5ddeb59d0bfc2d2d9029, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_170cacd8da615406967b5b7d712829ee.def("get_instantiated_from_member_template", method_pointer_a519ea38df635b9e835e7184c20238b5, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_170cacd8da615406967b5b7d712829ee.def("get_most_recent_decl", method_pointer_66ed4bb5c4565f4a93ac436e725533da, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_170cacd8da615406967b5b7d712829ee.def("get_most_recent_decl", method_pointer_aba6ba482cff563fbaaee020fd3f60b1, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_170cacd8da615406967b5b7d712829ee.def("get_previous_decl", method_pointer_7e52140dd6a4575db4f15cb9b80a911b, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_170cacd8da615406967b5b7d712829ee.def("get_previous_decl", method_pointer_398b78824d3254b78f8d7d646cf3cf87, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_170cacd8da615406967b5b7d712829ee.def("get_templated_decl", method_pointer_8f96eb4736e15a4090fe3f794e928e6f, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_170cacd8da615406967b5b7d712829ee.def("is_this_declaration_a_definition", method_pointer_919911c375e65d168b43e77decb05881, "");
+    class_170cacd8da615406967b5b7d712829ee.def("create_deserialized", method_pointer_9229b3f3fbf25ea68cd867c20c525ac4, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_170cacd8da615406967b5b7d712829ee.def("load_lazy_specializations", method_pointer_616c19c8200e5cfc9cf8312b067e400c, "");
+    class_170cacd8da615406967b5b7d712829ee.def("classof", method_pointer_04801ff28917546e998b6801b0a4dd47, "");
+    class_170cacd8da615406967b5b7d712829ee.def("classof_kind", method_pointer_a3c1cbcf018b5c238df5d38e5d154e9d, "");
+    class_170cacd8da615406967b5b7d712829ee.def("get_canonical_decl", method_pointer_ee2a0a4f9f4858edaaae05aad54e697a, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_170cacd8da615406967b5b7d712829ee.def("get_canonical_decl", method_pointer_9e35e7f559e55443bc551de3fe5db342, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_170cacd8da615406967b5b7d712829ee.def("get_instantiated_from_member_template", method_pointer_c2018cfc231a5dfb990fb3e7fd802982, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_170cacd8da615406967b5b7d712829ee.def("get_most_recent_decl", method_pointer_9702fec171855c2c89b8e886df346196, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_170cacd8da615406967b5b7d712829ee.def("get_most_recent_decl", method_pointer_357d1c67129f5dcc9ce706a980571311, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_170cacd8da615406967b5b7d712829ee.def("get_previous_decl", method_pointer_8d724310fb995d2399fc5b8d5c52436e, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_170cacd8da615406967b5b7d712829ee.def("get_previous_decl", method_pointer_9091cbbf74df5b869994921c18a7df38, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_170cacd8da615406967b5b7d712829ee.def("get_templated_decl", method_pointer_45f8b4d9b53452ea8f879166e4a93a36, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_170cacd8da615406967b5b7d712829ee.def("is_this_declaration_a_definition", method_pointer_27b4ef69afd55c2a98196e7366ba419f, "");
     class_170cacd8da615406967b5b7d712829ee.staticmethod("classof_kind");
     class_170cacd8da615406967b5b7d712829ee.staticmethod("create_deserialized");
     class_170cacd8da615406967b5b7d712829ee.staticmethod("classof");
