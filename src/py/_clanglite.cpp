@@ -1,11 +1,13 @@
 #include "_clanglite.h"
 
 void wrapper_0c11b148868f50d9aba81b8d12b3ed37();
-void wrapper_1aa972d4f6ee5d0daaa8e66160a9980c();
 void wrapper_3bb72e110333506a85ff3706c82d0672();
+void wrapper_3bcdbbe507dd5ad29df9e33aca4e435f();
 void wrapper_4b4e99a998695d79afb2678ecd4ef38b();
 void wrapper_4bd154797c5c544abd201e6b7c018504();
+void wrapper_4f1f38b1029b58daac57c2eb7ae3a10d();
 void wrapper_7bc3191eac5451618d350bf624886bc4();
+void wrapper_9e52028d1c305f31bd87257e6d3ccc53();
 void wrapper_a6aedb4654a55a40aeecf4b1dc5fcc98();
 void wrapper_b1580b6f5457571a867a2347d7b1f865();
 void wrapper_b97237ef74ad5566bc5ae85fdde5a9b6();
@@ -14,6 +16,7 @@ void wrapper_c847c69cad125c81a14648604da481c4();
 void wrapper_d838cd6dfd2c51dfaa64ce4e68e945ec();
 void wrapper_e536a5cae34e54058d1fe69715937f7a();
 void wrapper_f651c14028675908a3d30652316d9859();
+void wrapper_fee0b351ba125e67a931f272642991b9();
 void wrapper_0dd00d729e905a24a952147ef6cb1f26();
 void wrapper_19b8049789335462bac78de513b121a7();
 void wrapper_2c0e35bd45075f9c8d8dfc0dec5fe74e();
@@ -147,11 +150,13 @@ boost::python::docstring_options docstring_options(1, 0, 0);
 BOOST_PYTHON_MODULE(__clanglite)
 {
     wrapper_0c11b148868f50d9aba81b8d12b3ed37();
-    wrapper_1aa972d4f6ee5d0daaa8e66160a9980c();
     wrapper_3bb72e110333506a85ff3706c82d0672();
+    wrapper_3bcdbbe507dd5ad29df9e33aca4e435f();
     wrapper_4b4e99a998695d79afb2678ecd4ef38b();
     wrapper_4bd154797c5c544abd201e6b7c018504();
+    wrapper_4f1f38b1029b58daac57c2eb7ae3a10d();
     wrapper_7bc3191eac5451618d350bf624886bc4();
+    wrapper_9e52028d1c305f31bd87257e6d3ccc53();
     wrapper_a6aedb4654a55a40aeecf4b1dc5fcc98();
     wrapper_b1580b6f5457571a867a2347d7b1f865();
     wrapper_b97237ef74ad5566bc5ae85fdde5a9b6();
@@ -160,6 +165,7 @@ BOOST_PYTHON_MODULE(__clanglite)
     wrapper_d838cd6dfd2c51dfaa64ce4e68e945ec();
     wrapper_e536a5cae34e54058d1fe69715937f7a();
     wrapper_f651c14028675908a3d30652316d9859();
+    wrapper_fee0b351ba125e67a931f272642991b9();
     wrapper_0dd00d729e905a24a952147ef6cb1f26();
     wrapper_19b8049789335462bac78de513b121a7();
     wrapper_2c0e35bd45075f9c8d8dfc0dec5fe74e();
