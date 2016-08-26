@@ -37,7 +37,7 @@ else:
 kwargs['SHLIBPREFIX'] = ''
 
 if operating_system == "posix":
-    pyenv.AppendUnique(CXXFLAGS = ['-ftemplate-depth-100'])
+    pyenv.AppendUnique(CXXFLAGS = ['-ftemplate-depth-100', '-H'])
 
 
 if pyenv['compiler'] == 'msvc' and '8.0' in pyenv['MSVS_VERSION']:
