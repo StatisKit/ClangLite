@@ -1,8 +1,5 @@
-#include <type_traits>
-#include <boost/python.hpp>
-#include <clanglite/tool.h>
+#include "_clanglite.h"
 
-namespace autowig { template<class T> using HeldType = T*; }
 
 namespace autowig
 {
@@ -16,19 +13,15 @@ void wrapper_7289d815af725e0c81cacbe193055c17()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    class ::clang::ObjCCategoryImplDecl  * (*method_pointer_b9ce2a042f02566e8bc96d40139a3120)(class ::clang::ASTContext  &, unsigned int ) = ::clang::ObjCCategoryImplDecl::CreateDeserialized;
-    bool  (*method_pointer_d46e8658a04d505ea76bc8c552d690a7)(class ::clang::Decl  const *) = ::clang::ObjCCategoryImplDecl::classof;
-    bool  (*method_pointer_6f54f5edc5e15d5b90ca17882b0c459c)(enum ::clang::Decl::Kind ) = ::clang::ObjCCategoryImplDecl::classofKind;
-    class ::clang::ObjCCategoryDecl  * (::clang::ObjCCategoryImplDecl::*method_pointer_aec2a37efe385d0cb1dbbd74e5c60f55)() const = &::clang::ObjCCategoryImplDecl::getCategoryDecl;
-    class ::clang::SourceLocation  (::clang::ObjCCategoryImplDecl::*method_pointer_c11d12b1fd755d21bda738b687b8296b)() const = &::clang::ObjCCategoryImplDecl::getCategoryNameLoc;
-    class ::llvm::StringRef  (::clang::ObjCCategoryImplDecl::*method_pointer_b49f1a51f1ff58c4b49b90ce9bef8898)() const = &::clang::ObjCCategoryImplDecl::getName;
+    class ::clang::ObjCCategoryImplDecl  * (*method_pointer_eef040eae5db555d8c76fac7b27c414a)(class ::clang::ASTContext  &, unsigned int ) = ::clang::ObjCCategoryImplDecl::CreateDeserialized;
+    bool  (*method_pointer_ecf91ca98de755659801c9a759ed6bd8)(class ::clang::Decl  const *) = ::clang::ObjCCategoryImplDecl::classof;
+    bool  (*method_pointer_4e799f220f845ff98d358f05639ea1d5)(enum ::clang::Decl::Kind ) = ::clang::ObjCCategoryImplDecl::classofKind;
+    class ::clang::ObjCCategoryDecl  * (::clang::ObjCCategoryImplDecl::*method_pointer_a1324cbc11c25c22ac58e50f44aa1c8a)() const = &::clang::ObjCCategoryImplDecl::getCategoryDecl;
     boost::python::class_< class ::clang::ObjCCategoryImplDecl, autowig::HeldType< class ::clang::ObjCCategoryImplDecl >, boost::python::bases< class ::clang::ObjCImplDecl >, boost::noncopyable > class_7289d815af725e0c81cacbe193055c17("ObjCCategoryImplDecl", "", boost::python::no_init);
-    class_7289d815af725e0c81cacbe193055c17.def("create_deserialized", method_pointer_b9ce2a042f02566e8bc96d40139a3120, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_7289d815af725e0c81cacbe193055c17.def("classof", method_pointer_d46e8658a04d505ea76bc8c552d690a7, "");
-    class_7289d815af725e0c81cacbe193055c17.def("classof_kind", method_pointer_6f54f5edc5e15d5b90ca17882b0c459c, "");
-    class_7289d815af725e0c81cacbe193055c17.def("get_category_decl", method_pointer_aec2a37efe385d0cb1dbbd74e5c60f55, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_7289d815af725e0c81cacbe193055c17.def("get_category_name_loc", method_pointer_c11d12b1fd755d21bda738b687b8296b, "");
-    class_7289d815af725e0c81cacbe193055c17.def("get_name", method_pointer_b49f1a51f1ff58c4b49b90ce9bef8898, "");
+    class_7289d815af725e0c81cacbe193055c17.def("create_deserialized", method_pointer_eef040eae5db555d8c76fac7b27c414a, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_7289d815af725e0c81cacbe193055c17.def("classof", method_pointer_ecf91ca98de755659801c9a759ed6bd8, "");
+    class_7289d815af725e0c81cacbe193055c17.def("classof_kind", method_pointer_4e799f220f845ff98d358f05639ea1d5, "");
+    class_7289d815af725e0c81cacbe193055c17.def("get_category_decl", method_pointer_a1324cbc11c25c22ac58e50f44aa1c8a, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
     class_7289d815af725e0c81cacbe193055c17.staticmethod("classof_kind");
     class_7289d815af725e0c81cacbe193055c17.staticmethod("create_deserialized");
     class_7289d815af725e0c81cacbe193055c17.staticmethod("classof");

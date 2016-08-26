@@ -1,6 +1,5 @@
-#include <type_traits>
-#include <boost/python.hpp>
-#include <clanglite/tool.h>
+#include "_clanglite.h"
+
 
 void wrapper_7bc3191eac5451618d350bf624886bc4()
 {

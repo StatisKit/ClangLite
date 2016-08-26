@@ -1,8 +1,5 @@
-#include <type_traits>
-#include <boost/python.hpp>
-#include <clanglite/tool.h>
+#include "_clanglite.h"
 
-namespace autowig { template<class T> using HeldType = T*; }
 
 namespace autowig
 {
@@ -16,45 +13,37 @@ void wrapper_9a20f9773af45c788737982cd20471fd()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    class ::clang::NamespaceDecl  * (*method_pointer_aa3b31d4b2245f739ebed7228d5e9369)(class ::clang::ASTContext  &, unsigned int ) = ::clang::NamespaceDecl::CreateDeserialized;
-    class ::clang::NamespaceDecl  * (*method_pointer_f060af30de935e2fab4a1f6fad4ec463)(class ::clang::DeclContext  const *) = ::clang::NamespaceDecl::castFromDeclContext;
-    class ::clang::DeclContext  * (*method_pointer_3ba1deb8fef1501dafa34e1aef2ab901)(class ::clang::NamespaceDecl  const *) = ::clang::NamespaceDecl::castToDeclContext;
-    bool  (*method_pointer_1b020eb698295487b8fbd10395edba81)(class ::clang::Decl  const *) = ::clang::NamespaceDecl::classof;
-    bool  (*method_pointer_6c155d3f3e2f5971bfb974a6443b2616)(enum ::clang::Decl::Kind ) = ::clang::NamespaceDecl::classofKind;
-    class ::clang::NamespaceDecl  * (::clang::NamespaceDecl::*method_pointer_72beccdb8611589b803e67faa8286188)() const = &::clang::NamespaceDecl::getAnonymousNamespace;
-    class ::clang::NamespaceDecl  const * (::clang::NamespaceDecl::*method_pointer_85d3778c03955f53bf50120dbddaf538)() const = &::clang::NamespaceDecl::getCanonicalDecl;
-    class ::clang::NamespaceDecl  * (::clang::NamespaceDecl::*method_pointer_6f95547eb406598a84a8a5bc4297243c)() = &::clang::NamespaceDecl::getCanonicalDecl;
-    class ::clang::SourceLocation  (::clang::NamespaceDecl::*method_pointer_fdd80bc10a945387b08a805883ad5671)() const = &::clang::NamespaceDecl::getLocStart;
-    class ::clang::NamespaceDecl  * (::clang::NamespaceDecl::*method_pointer_f4ce8b1d126659ab89e0f3bd197a8ac2)() = &::clang::NamespaceDecl::getOriginalNamespace;
-    class ::clang::NamespaceDecl  const * (::clang::NamespaceDecl::*method_pointer_23625b2e551e526c8fbb2789fb2d1234)() const = &::clang::NamespaceDecl::getOriginalNamespace;
-    class ::clang::SourceLocation  (::clang::NamespaceDecl::*method_pointer_74a477ba2b6e58f0bc4f111ab626ed6e)() const = &::clang::NamespaceDecl::getRBraceLoc;
-    bool  (::clang::NamespaceDecl::*method_pointer_8d44c722b08a5deeb9fe89c08675d672)() const = &::clang::NamespaceDecl::isAnonymousNamespace;
-    bool  (::clang::NamespaceDecl::*method_pointer_7b64971f1f935169b700f765028b4d08)() const = &::clang::NamespaceDecl::isInline;
-    bool  (::clang::NamespaceDecl::*method_pointer_66dca318412853969664e752d7756ef4)() const = &::clang::NamespaceDecl::isOriginalNamespace;
-    void  (::clang::NamespaceDecl::*method_pointer_21ebce2b9af55c2d8993d14a81aa2a70)(class ::clang::NamespaceDecl  *) = &::clang::NamespaceDecl::setAnonymousNamespace;
-    void  (::clang::NamespaceDecl::*method_pointer_9c2de4349c625ceb8a6a7f175caa31dc)(bool ) = &::clang::NamespaceDecl::setInline;
-    void  (::clang::NamespaceDecl::*method_pointer_68bf5af869be5dce9e582a2122347368)(class ::clang::SourceLocation ) = &::clang::NamespaceDecl::setLocStart;
-    void  (::clang::NamespaceDecl::*method_pointer_52e18bd0ac355eae8dbe6d3b55df113c)(class ::clang::SourceLocation ) = &::clang::NamespaceDecl::setRBraceLoc;
+    class ::clang::NamespaceDecl  * (*method_pointer_58fde79159a65c988c6b5b17770a91f2)(class ::clang::ASTContext  &, unsigned int ) = ::clang::NamespaceDecl::CreateDeserialized;
+    class ::clang::NamespaceDecl  * (*method_pointer_088c588401c15d47948315151934d620)(class ::clang::DeclContext  const *) = ::clang::NamespaceDecl::castFromDeclContext;
+    class ::clang::DeclContext  * (*method_pointer_5ffbeb4e9e9d583fba77125138c43a32)(class ::clang::NamespaceDecl  const *) = ::clang::NamespaceDecl::castToDeclContext;
+    bool  (*method_pointer_ff9deab4cf4d58a791eb5d5a136b02bf)(class ::clang::Decl  const *) = ::clang::NamespaceDecl::classof;
+    bool  (*method_pointer_0e8f911891045c0fb3ff5287f2469491)(enum ::clang::Decl::Kind ) = ::clang::NamespaceDecl::classofKind;
+    class ::clang::NamespaceDecl  * (::clang::NamespaceDecl::*method_pointer_dcfae3b7e8205df38d71f86d8d29c904)() const = &::clang::NamespaceDecl::getAnonymousNamespace;
+    class ::clang::NamespaceDecl  * (::clang::NamespaceDecl::*method_pointer_e03b1aaea89155f2948c7c9b4dd95889)() = &::clang::NamespaceDecl::getCanonicalDecl;
+    class ::clang::NamespaceDecl  const * (::clang::NamespaceDecl::*method_pointer_05339e98bdee58b4ba317ca45241ed92)() const = &::clang::NamespaceDecl::getCanonicalDecl;
+    class ::clang::NamespaceDecl  * (::clang::NamespaceDecl::*method_pointer_4c78d2b13a175ee1828edf19bf886034)() = &::clang::NamespaceDecl::getOriginalNamespace;
+    class ::clang::NamespaceDecl  const * (::clang::NamespaceDecl::*method_pointer_f7b143e4cef95547b254f0068c5fb027)() const = &::clang::NamespaceDecl::getOriginalNamespace;
+    bool  (::clang::NamespaceDecl::*method_pointer_6fb2b909443958cbbd004969dd389dbd)() const = &::clang::NamespaceDecl::isAnonymousNamespace;
+    bool  (::clang::NamespaceDecl::*method_pointer_9efe8f09b19759f9b71ffee7dad37e42)() const = &::clang::NamespaceDecl::isInline;
+    bool  (::clang::NamespaceDecl::*method_pointer_f9423f7146575d55abe18eb5be9d3aa8)() const = &::clang::NamespaceDecl::isOriginalNamespace;
+    void  (::clang::NamespaceDecl::*method_pointer_55f569ffdedd5f47912cb6333c741eb3)(class ::clang::NamespaceDecl  *) = &::clang::NamespaceDecl::setAnonymousNamespace;
+    void  (::clang::NamespaceDecl::*method_pointer_b485d1c0c71e5af496c5de0e8f5a4e0e)(bool ) = &::clang::NamespaceDecl::setInline;
     boost::python::class_< class ::clang::NamespaceDecl, autowig::HeldType< class ::clang::NamespaceDecl >, boost::python::bases< class ::clang::NamedDecl, class ::clang::DeclContext >, boost::noncopyable > class_9a20f9773af45c788737982cd20471fd("NamespaceDecl", "", boost::python::no_init);
-    class_9a20f9773af45c788737982cd20471fd.def("create_deserialized", method_pointer_aa3b31d4b2245f739ebed7228d5e9369, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_9a20f9773af45c788737982cd20471fd.def("cast_from_decl_context", method_pointer_f060af30de935e2fab4a1f6fad4ec463, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_9a20f9773af45c788737982cd20471fd.def("cast_to_decl_context", method_pointer_3ba1deb8fef1501dafa34e1aef2ab901, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_9a20f9773af45c788737982cd20471fd.def("classof", method_pointer_1b020eb698295487b8fbd10395edba81, "");
-    class_9a20f9773af45c788737982cd20471fd.def("classof_kind", method_pointer_6c155d3f3e2f5971bfb974a6443b2616, "");
-    class_9a20f9773af45c788737982cd20471fd.def("get_anonymous_namespace", method_pointer_72beccdb8611589b803e67faa8286188, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_9a20f9773af45c788737982cd20471fd.def("get_canonical_decl", method_pointer_85d3778c03955f53bf50120dbddaf538, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_9a20f9773af45c788737982cd20471fd.def("get_canonical_decl", method_pointer_6f95547eb406598a84a8a5bc4297243c, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_9a20f9773af45c788737982cd20471fd.def("get_loc_start", method_pointer_fdd80bc10a945387b08a805883ad5671, "");
-    class_9a20f9773af45c788737982cd20471fd.def("get_original_namespace", method_pointer_f4ce8b1d126659ab89e0f3bd197a8ac2, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_9a20f9773af45c788737982cd20471fd.def("get_original_namespace", method_pointer_23625b2e551e526c8fbb2789fb2d1234, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_9a20f9773af45c788737982cd20471fd.def("get_r_brace_loc", method_pointer_74a477ba2b6e58f0bc4f111ab626ed6e, "");
-    class_9a20f9773af45c788737982cd20471fd.def("is_anonymous_namespace", method_pointer_8d44c722b08a5deeb9fe89c08675d672, "");
-    class_9a20f9773af45c788737982cd20471fd.def("is_inline", method_pointer_7b64971f1f935169b700f765028b4d08, "");
-    class_9a20f9773af45c788737982cd20471fd.def("is_original_namespace", method_pointer_66dca318412853969664e752d7756ef4, "");
-    class_9a20f9773af45c788737982cd20471fd.def("set_anonymous_namespace", method_pointer_21ebce2b9af55c2d8993d14a81aa2a70, "");
-    class_9a20f9773af45c788737982cd20471fd.def("set_inline", method_pointer_9c2de4349c625ceb8a6a7f175caa31dc, "");
-    class_9a20f9773af45c788737982cd20471fd.def("set_loc_start", method_pointer_68bf5af869be5dce9e582a2122347368, "");
-    class_9a20f9773af45c788737982cd20471fd.def("set_r_brace_loc", method_pointer_52e18bd0ac355eae8dbe6d3b55df113c, "");
+    class_9a20f9773af45c788737982cd20471fd.def("create_deserialized", method_pointer_58fde79159a65c988c6b5b17770a91f2, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_9a20f9773af45c788737982cd20471fd.def("cast_from_decl_context", method_pointer_088c588401c15d47948315151934d620, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_9a20f9773af45c788737982cd20471fd.def("cast_to_decl_context", method_pointer_5ffbeb4e9e9d583fba77125138c43a32, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_9a20f9773af45c788737982cd20471fd.def("classof", method_pointer_ff9deab4cf4d58a791eb5d5a136b02bf, "");
+    class_9a20f9773af45c788737982cd20471fd.def("classof_kind", method_pointer_0e8f911891045c0fb3ff5287f2469491, "");
+    class_9a20f9773af45c788737982cd20471fd.def("get_anonymous_namespace", method_pointer_dcfae3b7e8205df38d71f86d8d29c904, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_9a20f9773af45c788737982cd20471fd.def("get_canonical_decl", method_pointer_e03b1aaea89155f2948c7c9b4dd95889, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_9a20f9773af45c788737982cd20471fd.def("get_canonical_decl", method_pointer_05339e98bdee58b4ba317ca45241ed92, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_9a20f9773af45c788737982cd20471fd.def("get_original_namespace", method_pointer_4c78d2b13a175ee1828edf19bf886034, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_9a20f9773af45c788737982cd20471fd.def("get_original_namespace", method_pointer_f7b143e4cef95547b254f0068c5fb027, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_9a20f9773af45c788737982cd20471fd.def("is_anonymous_namespace", method_pointer_6fb2b909443958cbbd004969dd389dbd, "");
+    class_9a20f9773af45c788737982cd20471fd.def("is_inline", method_pointer_9efe8f09b19759f9b71ffee7dad37e42, "");
+    class_9a20f9773af45c788737982cd20471fd.def("is_original_namespace", method_pointer_f9423f7146575d55abe18eb5be9d3aa8, "");
+    class_9a20f9773af45c788737982cd20471fd.def("set_anonymous_namespace", method_pointer_55f569ffdedd5f47912cb6333c741eb3, "");
+    class_9a20f9773af45c788737982cd20471fd.def("set_inline", method_pointer_b485d1c0c71e5af496c5de0e8f5a4e0e, "");
     class_9a20f9773af45c788737982cd20471fd.staticmethod("classof_kind");
     class_9a20f9773af45c788737982cd20471fd.staticmethod("create_deserialized");
     class_9a20f9773af45c788737982cd20471fd.staticmethod("classof");

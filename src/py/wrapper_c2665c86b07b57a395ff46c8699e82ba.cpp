@@ -1,8 +1,5 @@
-#include <type_traits>
-#include <boost/python.hpp>
-#include <clanglite/tool.h>
+#include "_clanglite.h"
 
-namespace autowig { template<class T> using HeldType = T*; }
 
 namespace autowig
 {
