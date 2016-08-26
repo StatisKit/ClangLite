@@ -13,7 +13,7 @@ Import("env")
 pyenv = env.Clone()
 
 header = pyenv.Glob('*.h')[0]
-cmd = pyenv.Command(header.target_from_source('', '.pch'), header, '$CXX -o $TARGET -x c++-header -c $SHCXXFLAGS $_CCCOMCOM $SOURCE')
+cmd = pyenv.Command(header.target_from_source('', '.h.pch'), header, '$CXX -o $TARGET -x c++-header -c $SHCXXFLAGS $_CCCOMCOM $SOURCE')
 
 targets = list(itertools.chain(*[pyenv.SharedObject(None, source) for source in pyenv.Glob('*.cpp')]))
 pyenv.Depends(targets, cmd)
