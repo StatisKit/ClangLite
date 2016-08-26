@@ -15,7 +15,7 @@ For more information refers to the `AutoWIG <https://github.com/StatisKit/AutoWI
 .. sidebar:: Summary
 
     :Version: |VERSION|
-    :Status: |TRAVIS|
+    :Status: |TRAVIS| |READTHEDOCS|
     :License: |LICENSE|
     :Authors: |AUTHORS|
 
@@ -38,3 +38,7 @@ For more information refers to the `AutoWIG <https://github.com/StatisKit/AutoWI
 .. |TRAVIS| image:: https://travis-ci.org/StatisKit/PyClangLite.svg?branch=master
            :target: https://travis-ci.org/StatisKit/PyClangLite
            :alt: Travis
+
+.. |READTHEDOCS| image:: https://readthedocs.org/projects/PyClangLite/badge/?version=latest
+                :target: http://pyclanglite.readthedocs.io/en/latest
+                :alt: Read the Docs
