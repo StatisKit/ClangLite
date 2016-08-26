@@ -1,11 +1,11 @@
 #include "_clanglite.h"
 
 void wrapper_0c11b148868f50d9aba81b8d12b3ed37();
+void wrapper_1aa972d4f6ee5d0daaa8e66160a9980c();
 void wrapper_3bb72e110333506a85ff3706c82d0672();
 void wrapper_4b4e99a998695d79afb2678ecd4ef38b();
 void wrapper_4bd154797c5c544abd201e6b7c018504();
 void wrapper_7bc3191eac5451618d350bf624886bc4();
-void wrapper_a2e60c39d06351ecbdf5166d4ca550bd();
 void wrapper_a6aedb4654a55a40aeecf4b1dc5fcc98();
 void wrapper_b1580b6f5457571a867a2347d7b1f865();
 void wrapper_b97237ef74ad5566bc5ae85fdde5a9b6();
@@ -147,11 +147,11 @@ boost::python::docstring_options docstring_options(1, 0, 0);
 BOOST_PYTHON_MODULE(__clanglite)
 {
     wrapper_0c11b148868f50d9aba81b8d12b3ed37();
+    wrapper_1aa972d4f6ee5d0daaa8e66160a9980c();
     wrapper_3bb72e110333506a85ff3706c82d0672();
     wrapper_4b4e99a998695d79afb2678ecd4ef38b();
     wrapper_4bd154797c5c544abd201e6b7c018504();
     wrapper_7bc3191eac5451618d350bf624886bc4();
-    wrapper_a2e60c39d06351ecbdf5166d4ca550bd();
     wrapper_a6aedb4654a55a40aeecf4b1dc5fcc98();
     wrapper_b1580b6f5457571a867a2347d7b1f865();
     wrapper_b97237ef74ad5566bc5ae85fdde5a9b6();

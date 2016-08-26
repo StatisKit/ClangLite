@@ -13,11 +13,11 @@ void wrapper_4b0c303b863250cda7e3852025001de0()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_60971787716f530aa28a0d32d3619e84)(class ::clang::Type  const *) = ::clang::PipeType::classof;
-    bool  (::clang::PipeType::*method_pointer_cecd2a7deeab51ec86ca6b44d17b15b5)() const = &::clang::PipeType::isSugared;
+    bool  (*method_pointer_c7de1437e125565b9ad0fc6bb400dcfc)(class ::clang::Type  const *) = ::clang::PipeType::classof;
+    bool  (::clang::PipeType::*method_pointer_7a4c90699b365451962467731e58b623)() const = &::clang::PipeType::isSugared;
     boost::python::class_< class ::clang::PipeType, autowig::HeldType< class ::clang::PipeType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_4b0c303b863250cda7e3852025001de0("PipeType", "", boost::python::no_init);
-    class_4b0c303b863250cda7e3852025001de0.def("classof", method_pointer_60971787716f530aa28a0d32d3619e84, "");
-    class_4b0c303b863250cda7e3852025001de0.def("is_sugared", method_pointer_cecd2a7deeab51ec86ca6b44d17b15b5, "");
+    class_4b0c303b863250cda7e3852025001de0.def("classof", method_pointer_c7de1437e125565b9ad0fc6bb400dcfc, "");
+    class_4b0c303b863250cda7e3852025001de0.def("is_sugared", method_pointer_7a4c90699b365451962467731e58b623, "");
     class_4b0c303b863250cda7e3852025001de0.staticmethod("classof");
 
     if(std::is_class< autowig::HeldType< class ::clang::PipeType > >::value)
