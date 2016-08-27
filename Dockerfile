@@ -1,4 +1,4 @@
-FROM statiskit/ubuntu:trusty
+FROM statiskit/ubuntu
 
 # Build or install
 ARG BUILD="false"
