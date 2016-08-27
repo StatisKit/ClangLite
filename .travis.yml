@@ -35,4 +35,7 @@ after_success:
       anaconda login --username "$ANACONDA_USERNAME" --password "$ANACONDA_PASSWORD";
       CONDA_FILE=`conda build conda/python-clanglite --output`; 
       anaconda upload --user statiskit ${CONDA_FILE%%} --force;
+      docker build --build-arg BUILD="false" -t statiskit/pyclanglite . ;
+      docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+      docker push statiskit/pyclanglite;
     fi
