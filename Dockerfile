@@ -13,8 +13,7 @@ RUN [ $BUILD = "true" ] && cd $HOME/PyClangLite && /bin/bash conda/build.sh || [
 RUN [ $BUILD = "false" ] && cd $HOME/PyClangLite && /bin/bash conda/install.sh || [ $BUILD = "true" ]
 
 # Create a file for anaconda post-link
-#RUN [ -f $HOME/post-link.sh ] && head -n -5 post-link.sh || touch $HOME/post-link.sh && echo "set -e" >> $HOME/post-link.sh && echo "conda install anaconda-client" >> $HOME/post-link.sh || [ $BUILD = "false" ]
-RUN [ -f $HOME/post-link.sh ] || touch $HOME/post-link.sh && echo "set -e" >> $HOME/post-link.sh && echo "conda install anaconda-client" >> $HOME/post-link.sh || [ $BUILD = "false" ]
+RUN ( [ -f $HOME/post-link.sh ] && head -n -5 $HOME/post-link.sh > $HOME/post-link.tmp && mv $HOME/post-link.tmp $HOME/post-link.sh ) || ( touch $HOME/post-link.sh && echo "set -e" >> $HOME/post-link.sh && echo "conda install anaconda-client" >> $HOME/post-link.sh )
 RUN ([ $BUILD = "true" ] && for recipe in $HOME/PyClangLite/conda/*/; do echo "anaconda upload \`conda build" $recipe "--output\` --user statiskit --force" >> $HOME/post-link.sh; done;) || [ $BUILD = "false" ]
 RUN [ $BUILD = "false" ] && echo "rm -rf PyClangLite" >> $HOME/post-link.sh || [ $BUILD = "true" ]
 RUN [ $BUILD = "true" ] && echo "conda remove anaconda-client" >> $HOME/post-link.sh || [ $BUILD = "false" ]
