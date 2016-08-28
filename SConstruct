@@ -14,6 +14,15 @@ AddOption('--prefix',
   help='installation prefix',
   default=sys.prefix)
 
+AddOption('--repo-dir',
+  dest='repo-dir',
+  type='string',
+  nargs=1,
+  action='store',
+  metavar='DIR',
+  help='repository directory',
+  default='./')
+
 SConsignFile()
 
 # Compiler
@@ -44,7 +53,9 @@ variables.Add(EnumVariable('compiler',
                           compilers[0],
                           compilers))
 
-env = Environment(PREFIX = GetOption('prefix'))
+env = Environment(PREFIX = GetOption('prefix'),
+                  REPO_DIR = GetOption('repo-dir'))
+
 variables.Update(env)
 
 if ARGUMENTS.get('debug', 0):
@@ -105,8 +116,8 @@ process = subprocess.Popen(['llvm-config', '--system-libs'], stdout=subprocess.P
 out, err = process.communicate()
 env.AppendUnique(LIBS=[lib.strip() for lib in out.strip().split('-l') if lib])
 
-VariantDir('build', 'src')
-SConscript(os.path.join('build', 'cpp', 'SConscript'), exports="env")
-SConscript(os.path.join('build', 'py', 'SConscript'), exports="env")
+VariantDir(env['REPO_DIR'] + 'build', env['REPO_DIR'] + 'src')
+SConscript(os.path.join(env['REPO_DIR'] + 'build', 'cpp', 'SConscript'), exports="env")
+SConscript(os.path.join(env['REPO_DIR'] + 'build', 'py', 'SConscript'), exports="env")
 
 Default("build")

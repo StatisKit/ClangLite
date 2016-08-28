@@ -23,6 +23,7 @@ install:
 
 before_script:
   - bash conda/build.sh
+  - conda build conda/python-clanglite -c statiskit
 
 script:
   - python -c "from clanglite import *"
