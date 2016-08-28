@@ -15,7 +15,7 @@ For more information refers to the `AutoWIG <https://github.com/StatisKit/AutoWI
 .. sidebar:: Summary
 
     :Version: |VERSION|
-    :Status: |TRAVIS| |READTHEDOCS|
+    :Status: |TRAVIS| |COVERALLS| |LANDSCAPE| |READTHEDOCS|
     :License: |LICENSE|
     :Authors: |AUTHORS|
 
@@ -39,6 +39,14 @@ For more information refers to the `AutoWIG <https://github.com/StatisKit/AutoWI
            :target: https://travis-ci.org/StatisKit/PyClangLite
            :alt: Travis
 
+.. |COVERALLS| image:: https://coveralls.io/repos/github/StatisKit/PyClangLite/badge.svg?branch=master
+               :target: https://coveralls.io/github/StatisKit/PyClangLite?branch=master
+               :alt: Coveralls
+
+.. |LANDSCAPE| image:: https://landscape.io/github/StatisKit/PyClangLite/master/landscape.svg?style=flat
+                :target: https://landscape.io/github/StatisKit/PyClangLite/master
+                :alt: Landscape
+                
 .. |READTHEDOCS| image:: https://readthedocs.org/projects/PyClangLite/badge/?version=latest
                 :target: http://pyclanglite.readthedocs.io/en/latest
                 :alt: Read the Docs
