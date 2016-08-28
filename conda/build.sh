@@ -1,15 +1,9 @@
-# Build libclang recipe
-# conda build conda/libclang -c statiskit
-# conda install libclang -c statiskit --use-local
+# Install dependencies (build, run & tests)
+conda install libclang libboost python-scons pyyaml python numpy -c statiskit
 
 # Build libclanglite recipe
-conda build conda/libclanglite -c statiskit
-conda install libclanglite --use-local -c statiskit
+scons cpp
 
 # Build python-clanglite recipe
-conda build conda/python-clanglite -c statiskit
-conda install python-clanglite --use-local -c statiskit
-conda remove python-clanglite
-conda install python-scons -c statiskit
 scons py
 pip install -e .
