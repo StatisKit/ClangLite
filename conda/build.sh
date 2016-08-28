@@ -1,7 +1,11 @@
-# Install dependencies (build, run & tests)
-conda install libclang libboost python-scons pyyaml python numpy -c statiskit
+# Build libclang recipe
+conda build conda/libclang -c statiskit
+conda install libclang -c statiskit --use-local
 
-# Build PyClangLite recipe
-CPU_COUNT=`python -c "import multiprocessing; print(multiprocessing.cpu_count())"`
-scons -j$(( $CPU_COUNT > 2 ? $CPU_COUNT - 1 : $CPU_COUNT ))
-pip install -e .
+# Build libclanglite recipe
+conda build conda/libclanglite -c statiskit
+conda install libclanglite --use-local -c statiskit
+
+# Build python-clanglite recipe
+conda build conda/python-clanglite -c statiskit
+conda install python-clanglite --use-local -c statiskit
