@@ -14,7 +14,6 @@ For more information refers to **AutoWIG** `documentation <http://autowig.readth
 
 .. sidebar:: Summary
 
-    :Version: |VERSION|
     :Status: |TRAVIS| |COVERALLS| |LANDSCAPE| |READTHEDOCS|
     :License: |LICENSE|
     :Authors: |AUTHORS|
