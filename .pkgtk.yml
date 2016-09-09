@@ -1,0 +1,23 @@
+about:
+  authors:
+  - !!python/unicode 'Pierre Fernique'
+  brief: !!python/unicode 'Python bindings for Clang'
+  email: !!python/unicode 'statiskit@googlegroups.com'
+  homepage: !!python/unicode 'http://pyclanglite.readthedocs.io/'
+  name: !!python/unicode 'PyClangLite'
+  plugin: github
+  version: v1.0
+authors:
+  basename: CONTRIBUTORS.rst
+  format: '* `{name} <{email}>`_ ({score})'
+  plugin: commit
+license:
+  basename: LICENSE.rst
+  exclude:
+  - ./.git/*
+  - ./build/*
+  - ./.pkgtk.yml
+  - ./CONTRIBUTORS.rst
+  - ./LICENSE.rst
+  plugin: CeCILL-C
+  width: 78
