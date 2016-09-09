@@ -30,11 +30,15 @@ script:
 after_success:
   - coveralls
   - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]]; then
-      conda install anaconda-client;
-      anaconda login --username "$ANACONDA_USERNAME" --password "$ANACONDA_PASSWORD";
-      CONDA_FILE=`conda build conda/python-clanglite --output`; 
-      anaconda upload --user statiskit ${CONDA_FILE%%} --force;
-      docker build --build-arg BUILD="false" -t statiskit/pyclanglite . ;
-      docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-      docker push statiskit/pyclanglite;
+      if [[ ! -z $ANACONDA_USERNAME ]] && [[ ! -z $ANACONDA_PASSWORD ]]; then
+        conda install anaconda-client;
+        anaconda login --username "$ANACONDA_USERNAME" --password "$ANACONDA_PASSWORD";
+        CONDA_FILE=`conda build conda/python-clanglite --output`; 
+        anaconda upload --user statiskit ${CONDA_FILE%%} --force;
+      fi
+      if [[ ! -z $DOCKER_USERNAME ]] && [[ ! -z $DOCKER_PASSWORD ]]; then
+        docker build --build-arg BUILD="false" -t statiskit/pyclanglite . ;
+        docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+        docker push statiskit/pyclanglite;
+      fi
     fi
