@@ -23,6 +23,12 @@ source:
 
 build:
   number: 0
+  script_env:
+    - TOOLCHAIN # [not win]
+  features:
+    - {{ TOOLCHAIN }} # [not win]
+  track_features:
+    - {{ TOOLCHAIN }} # [not win]
 
 about:
   home: http://www.llwm.org/
@@ -32,15 +38,7 @@ requirements:
   build:
     - cmake
     - zlib
-    #- system   [linux]
-    #- gcc    [linux]
-    #- libgcc [linux]
-
-  run:
-    - zlib
-    #- system   [linux]
-    #- gcc    [linux]
-    #- libgcc [linux]
+    - toolchain
 
 test:
   commands:
