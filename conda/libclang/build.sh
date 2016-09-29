@@ -1,8 +1,10 @@
-git checkout release_38
+git fetch origin
+git checkout -b release_38 origin/release_38
 cd tools
 git clone https://github.com/llvm-mirror/clang.git
 cd clang
-git checkout release_38
+git fetch origin
+git checkout -b release_38 origin/release_38
 cd ../..
 SRC_DIR=`pwd`
 cd ..
