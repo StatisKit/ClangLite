@@ -41,6 +41,7 @@ before_install:
 install:
   - conda install conda-build
   - conda install toolchain -c statiskit
+  - source activate -n root
   - pip install python-coveralls
 
 before_script:
