@@ -37,10 +37,10 @@ about:
 requirements:
   build:
     - libclang
-    - libboost
+    - libboost_python
     - python-scons
     - pyyaml
     - toolchain
   run:
     - libclang
-    - libboost
+    - libboost_python
