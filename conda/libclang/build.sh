@@ -6,7 +6,7 @@ git checkout release_38
 cd ../..
 SRC_DIR=`pwd`
 cd ..
-BLD_DIR=`mktemp -d -p . -t temp.XXXXXXXX`
+BLD_DIR=`mkdir "build_llvmclang"`
 cd $BLD_DIR
 cmake -G "Unix Makefiles" -DBUILD_SHARED_LIBS=ON \
                           -DLLVM_INCLUDE_TESTS=OFF \
