@@ -40,6 +40,7 @@ before_install:
 
 install:
   - conda install conda-build
+  - conda install toolchain -c statiskit
   - pip install python-coveralls
 
 before_script:
