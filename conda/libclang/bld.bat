@@ -1,12 +1,12 @@
-git fetch origin
-git checkout -b release_38 origin/release_38
-cd tools
-git clone https://github.com/llvm-mirror/clang.git
-if errorlevel 1 exit 1
-cd clang
-git fetch origin
-git checkout -b release_38 origin/release_38
-cd ../..
+:: git fetch origin
+:: git checkout -b release_38 origin/release_38
+:: cd tools
+:: git clone https://github.com/llvm-mirror/clang.git
+:: if errorlevel 1 exit 1
+:: cd clang
+:: git fetch origin
+:: git checkout -b release_38 origin/release_38
+:: cd ../..
 set "srcdir=%cd%"
 cd ..
 mkdir temp
