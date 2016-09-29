@@ -16,11 +16,23 @@
 
 package:
   name: libclang
-  version: "3.8.0"
+  #version: "3.8.0"
+  version: "3.8.1"
 
 source:
-  git_url: https://github.com/llvm-mirror/llvm.git
-
+  #git_url: https://github.com/llvm-mirror/llvm.git
+  fn: llvm-3.8.1.src.tar.xz
+  url: http://llvm.org/releases/3.8.1/llvm-3.8.1.src.tar.xz
+  patches:
+    # https://llvm.org/bugs/show_bug.cgi?id=15356
+    - ../llvm-elf-relocation.patch
+    # https://llvm.org/bugs/show_bug.cgi?id=25788
+    - ../llvm-parse-fp-constants.patch
+    # https://llvm.org/bugs/show_bug.cgi?id=25565
+    - ../llvm-build-race-condition.patch
+    # http://lists.llvm.org/pipermail/llvm-dev/2016-January/094520.html
+    - ../llvm-lto-static.patch   # [win]
+    
 build:
   number: 0
   script_env:
