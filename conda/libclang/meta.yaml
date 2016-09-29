@@ -51,7 +51,9 @@ requirements:
     - cmake
     - zlib
     - toolchain
-
+    # Needed to unpack the source tarball
+    - m2w64-xz         # [py27 and win]
+    
 test:
   commands:
   - llvm-config --libs   [not win]
