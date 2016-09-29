@@ -2,6 +2,10 @@ PWD_DIR=`pwd`
 cd ..
 BLD_DIR=`mkdir "build_llvmclang"`
 cd $BLD_DIR
+if [ -n "$MACOSX_DEPLOYMENT_TARGET" ]; then
+    # OSX needs 10.7 or above with libc++ enabled
+    export MACOSX_DEPLOYMENT_TARGET=10.9
+fi
 cmake -G "Unix Makefiles" -DBUILD_SHARED_LIBS=ON \
                           -DLLVM_INCLUDE_TESTS=OFF \
                           -DLLVM_INCLUDE_UTILS=OFF \
