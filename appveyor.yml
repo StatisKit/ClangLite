@@ -6,15 +6,15 @@ install:
   - "conda install conda-build=1.21"
   
 build_script:
-  - "CALL conda build conda/libclang -c statiskit"
+  - "CALL conda build conda/libclang -c statiskit -c conda-forge"
   - "IF %errorlevel% neq 0 exit /b %errorlevel%"
-  - "CALL conda install libclang -c statiskit --use-local"
+  - "CALL conda install libclang --use-local -c statiskit -c conda-forge"
   - "IF %errorlevel% neq 0 exit /b %errorlevel%"
-  - "CALL conda build conda/libclanglite -c statiskit"
+  - "CALL conda build conda/libclanglite -c statiskit -c conda-forge"
   - "IF %errorlevel% neq 0 exit /b %errorlevel%"
-  - "CALL conda install libclanglite --use-local -c statiskit"
+  - "CALL conda install libclanglite --use-local -c statiskit -c conda-forge"
   - "IF %errorlevel% neq 0 exit /b %errorlevel%"
-  - "CALL conda build conda/python-clanglite -c statiskit"
+  - "CALL conda build conda/python-clanglite -c statiskit -c conda-forge"
   - "IF %errorlevel% neq 0 exit /b %errorlevel%"
 
 on_success:
