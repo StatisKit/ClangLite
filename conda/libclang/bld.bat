@@ -19,6 +19,7 @@ cmake -G "MinGW Makefiles" -DBUILD_SHARED_LIBS=ON ^
                            -DLLVM_ENABLE_RTTI=ON ^
                            -DCMAKE_INSTALL_PREFIX:PATH=%LIBRARY_PREFIX% ^
                            -DCMAKE_BUILD_TYPE=Release ^
+                           -DLLVM_TARGETS_TO_BUILD=X86 ^
                            %srcdir%
 cmake -G "MinGW Makefiles" -DBUILD_SHARED_LIBS=ON ^
                            -DLLVM_INCLUDE_TESTS=OFF ^
@@ -28,6 +29,7 @@ cmake -G "MinGW Makefiles" -DBUILD_SHARED_LIBS=ON ^
                            -DLLVM_ENABLE_RTTI=ON ^
                            -DCMAKE_INSTALL_PREFIX:PATH=%LIBRARY_PREFIX% ^
                            -DCMAKE_BUILD_TYPE=Release ^
+                           -DLLVM_TARGETS_TO_BUILD=X86 ^
                            %srcdir%
 if errorlevel 1 exit 1
 mingw32-make -j%CPU_COUNT%
