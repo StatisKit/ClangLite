@@ -25,13 +25,13 @@ source:
   url: http://llvm.org/releases/3.8.1/llvm-3.8.1.src.tar.xz
   patches:
     # https://llvm.org/bugs/show_bug.cgi?id=15356
-    - ../llvm-elf-relocation.patch
+    - {{ RECIPE_DIR }}/llvm-elf-relocation.patch
     # https://llvm.org/bugs/show_bug.cgi?id=25788
-    - ../llvm-parse-fp-constants.patch
+    - {{ RECIPE_DIR }}/llvm-parse-fp-constants.patch
     # https://llvm.org/bugs/show_bug.cgi?id=25565
-    - ../llvm-build-race-condition.patch
+    - {{ RECIPE_DIR }}/llvm-build-race-condition.patch
     # http://lists.llvm.org/pipermail/llvm-dev/2016-January/094520.html
-    - ../llvm-lto-static.patch   # [win]
+    - {{ RECIPE_DIR }}/llvm-lto-static.patch   # [win]
     
 build:
   number: 0
