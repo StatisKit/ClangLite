@@ -1,3 +1,5 @@
+set -xe
+
 # Build libclang recipe
 conda build conda/libclang -c statiskit -c conda-forge
 conda install libclang  --use-local -c statiskit -c conda-forge
