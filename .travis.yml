@@ -24,7 +24,6 @@ matrix:
       services:
         - docker
     - os: osx
-      osx_image: xcode8
 
 before_install:
     - if [[ "$TRAVIS_OS_NAME" = "linux" ]]; then
