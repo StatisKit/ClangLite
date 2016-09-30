@@ -1,3 +1,10 @@
+cd tools
+curl http://llvm.org/releases/3.8.0/cfe-3.8.1.src.tar.xz
+tar xpvf cfe-3.8.1.src.tar.xz -C cfe-3.8.1
+mv cfe-3.8.1/cfe-3.8.1.src clang
+rm cfe-3.8.1.src.tar.xz
+rm -rf cfe-3.8.1
+cd ..
 PWD_DIR=`pwd`
 cd ..
 BLD_DIR=`mkdir "build_llvmclang"`
