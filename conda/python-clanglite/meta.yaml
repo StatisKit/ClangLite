@@ -39,14 +39,14 @@ requirements:
   build:
     - libclang
     - libclanglite
-    - libboost
+    - libboost_python
     - python-scons
     - pyyaml
     - toolchain
   run:
     - libclang
     - libclanglite
-    - libboost
+    - libboost_python
     - python
     - numpy
 
