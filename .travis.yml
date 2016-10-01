@@ -49,7 +49,7 @@ before_script:
       sed -i'' -e '3,6d' build.sh;
     fi
   - if [[ "$TRAVIS_OS_NAME" = "osx" ]]; then
-      sed -i'' -e '3,10d' build.sh
+      sed -i'' -e '3,10d' build.sh;
     fi
   - more build.sh
   - bash build.sh
