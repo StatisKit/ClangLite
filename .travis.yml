@@ -45,7 +45,9 @@ install:
   - pip install python-coveralls
 
 before_script:
-  - bash conda/build.sh
+  - sed -i'' -e '3,5d' build.sh
+  - more build.sh
+  - bash build.sh
   #- tail -n +5 conda/build.sh | bash
 
 script:
