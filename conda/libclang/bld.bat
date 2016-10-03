@@ -9,7 +9,7 @@ set "srcdir=%cd%"
 cd ..
 mkdir temp
 cd temp
-cmake -G "MinGW Makefiles" -DBUILD_SHARED_LIBS=ON ^
+cmake -G "Visual Studio 12" -DBUILD_SHARED_LIBS=ON ^
                            -DLLVM_INCLUDE_TESTS=OFF ^
                            -DLLVM_INCLUDE_UTILS=OFF ^
                            -DLLVM_INCLUDE_DOCS=OFF ^
