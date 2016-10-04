@@ -105,7 +105,7 @@ void wrapper_e90b60b39fbc5f209cecad897014de3b()
     void  (::clang::FunctionDecl::*method_pointer_9b588889abcd5db1bc8f3450fe7da41e)() = &::clang::FunctionDecl::setImplicitlyInline;
     void  (::clang::FunctionDecl::*method_pointer_02e48372127e5df6bdc5c3737a41de31)(bool ) = &::clang::FunctionDecl::setInlineSpecified;
     void  (::clang::FunctionDecl::*method_pointer_e3f7bfab830c5c089e9c064f0e48d01f)(bool ) = &::clang::FunctionDecl::setLateTemplateParsed;
-    void  (::clang::FunctionDecl::*method_pointer_574ac94eb2335fe194e643ab65dd92d5)(uint64_t int ) = &::clang::FunctionDecl::setLazyBody;
+    void  (::clang::FunctionDecl::*method_pointer_574ac94eb2335fe194e643ab65dd92d5)(uint64_t ) = &::clang::FunctionDecl::setLazyBody;
     void  (::clang::FunctionDecl::*method_pointer_bae961153ebc502daa020713d00b4d81)(class ::clang::FunctionDecl  *) = &::clang::FunctionDecl::setPreviousDeclaration;
     void  (::clang::FunctionDecl::*method_pointer_ed9cff60a6695444bcbf091a8fafa515)(bool ) = &::clang::FunctionDecl::setPure;
     void  (::clang::FunctionDecl::*method_pointer_f74231489bdd541a80557672d65e3b21)(class ::clang::SourceLocation ) = &::clang::FunctionDecl::setRangeEnd;
