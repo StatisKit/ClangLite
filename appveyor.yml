@@ -1,23 +1,21 @@
+environment:
+  matrix:
+    - BLD: x86 
+    - BLD: x86_64
+    
 install:
-  - 'set PATH=C:\Miniconda;C:\Miniconda\Scripts;%PATH%'
+  - 'IF "%BLD%" == "x86" set PATH=C:\Miniconda;C:\Miniconda\Scripts;%PATH%'
+  - 'IF "%BLD%" == "x86_64" set PATH=C:\Miniconda-x64;C:\Miniconda-x64\Scripts;%PATH%'
   - "conda config --set always_yes yes --set changeps1 no"
   - "conda update -q conda"
   - "conda info -a"
   - "conda install conda-build=1.21"
   
 build_script:
-  - "CALL conda build conda/libclang -c statiskit -c conda-forge"
-  - "IF %errorlevel% neq 0 exit /b %errorlevel%"
-  - "CALL conda install libclang --use-local -c statiskit -c conda-forge"
-  - "IF %errorlevel% neq 0 exit /b %errorlevel%"
-  - "CALL conda build conda/libclanglite -c statiskit -c conda-forge"
-  - "IF %errorlevel% neq 0 exit /b %errorlevel%"
-  - "CALL conda install libclanglite --use-local -c statiskit -c conda-forge"
-  - "IF %errorlevel% neq 0 exit /b %errorlevel%"
-  - "CALL conda build conda/python-clanglite -c statiskit -c conda-forge"
-  - "IF %errorlevel% neq 0 exit /b %errorlevel%"
+  - call bld.bat
 
 on_success:
+  - call upload.bat
   - 'IF NOT "%APPVEYOR_REPO_BRANCH%"=="master" exit /b 0'
   - 'IF "%ANACONDA_USERNAME%"=="" exit /b 0'
   - 'IF "%ANACONDA_PASSWORD%"=="" exit /b 0'
