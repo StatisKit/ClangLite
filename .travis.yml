@@ -34,7 +34,7 @@ before_install:
     - conda info -a
 
 install:
-  - conda install conda-build
+  - conda install conda-build=2.0.2
   - pip install python-coveralls
 
 before_script:
