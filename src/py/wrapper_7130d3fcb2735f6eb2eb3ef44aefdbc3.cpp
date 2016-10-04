@@ -71,7 +71,7 @@ void wrapper_7130d3fcb2735f6eb2eb3ef44aefdbc3()
     void  (::clang::ObjCMethodDecl::*method_pointer_42bc7fd445ba5c32af371d67313483b5)(bool ) = &::clang::ObjCMethodDecl::setDefined;
     void  (::clang::ObjCMethodDecl::*method_pointer_5b496664cfd05634b2cf4643c726dea2)(bool ) = &::clang::ObjCMethodDecl::setHasSkippedBody;
     void  (::clang::ObjCMethodDecl::*method_pointer_92f8129fd0785a0ca00c98e1a681c8ab)(bool ) = &::clang::ObjCMethodDecl::setInstanceMethod;
-    void  (::clang::ObjCMethodDecl::*method_pointer_89542598a299543890e11544fe5b2860)(unsigned long long int ) = &::clang::ObjCMethodDecl::setLazyBody;
+    void  (::clang::ObjCMethodDecl::*method_pointer_89542598a299543890e11544fe5b2860)(uint64_t ) = &::clang::ObjCMethodDecl::setLazyBody;
     void  (::clang::ObjCMethodDecl::*method_pointer_7b4b904b62a851fabf1a4e80e9ae2b7d)(bool ) = &::clang::ObjCMethodDecl::setOverriding;
     void  (::clang::ObjCMethodDecl::*method_pointer_bc16580c87b1572e9daa5b9e100d655f)(bool ) = &::clang::ObjCMethodDecl::setPropertyAccessor;
     void  (::clang::ObjCMethodDecl::*method_pointer_c8b807e5430e5bff8f62a7958c34ff13)(class ::clang::QualType ) = &::clang::ObjCMethodDecl::setReturnType;
