@@ -89,11 +89,11 @@ void wrapper_e536a5cae34e54058d1fe69715937f7a()
     class ::clang::QualType  (::clang::ASTContext::*method_pointer_793fbd2d90a15cc4a7c4c88e95873462)(class ::clang::QualType , unsigned int ) const = &::clang::ASTContext::getCVRQualifiedType;
     class ::clang::TemplateArgument  (::clang::ASTContext::*method_pointer_6e4c8de4518456f18c4754f40b814986)(class ::clang::TemplateArgument  const &) const = &::clang::ASTContext::getCanonicalTemplateArgument;
     class ::clang::Type  const * (::clang::ASTContext::*method_pointer_7e57835075ea5e67ab5693ea9f768c53)(class ::clang::Type  const *) const = &::clang::ASTContext::getCanonicalType;
-    unsigned long long int  (::clang::ASTContext::*method_pointer_f354962963045abbbc03fcaa3d67049c)() const = &::clang::ASTContext::getCharWidth;
+    uint64_t  (::clang::ASTContext::*method_pointer_f354962963045abbbc03fcaa3d67049c)() const = &::clang::ASTContext::getCharWidth;
     class ::clang::FunctionDecl  * (::clang::ASTContext::*method_pointer_09d79de733435cc1b48d8dff38774cb5)(class ::clang::FunctionDecl  const *) = &::clang::ASTContext::getClassScopeSpecializationPattern;
     class ::clang::QualType  (::clang::ASTContext::*method_pointer_ea9b766f084e52f0b6802e78f90b1766)(class ::clang::QualType ) const = &::clang::ASTContext::getComplexType;
     class ::clang::QualType  (::clang::ASTContext::*method_pointer_2c78ab3b2eed5dfb92ec45d80248652b)(class ::clang::QualType ) const = &::clang::ASTContext::getConstType;
-    unsigned long long int  (::clang::ASTContext::*method_pointer_286b5a6f5c4d535ab994d62605578b5a)(class ::clang::ConstantArrayType  const *) const = &::clang::ASTContext::getConstantArrayElementCount;
+    uint64_t  (::clang::ASTContext::*method_pointer_286b5a6f5c4d535ab994d62605578b5a)(class ::clang::ConstantArrayType  const *) const = &::clang::ASTContext::getConstantArrayElementCount;
     class ::clang::CXXConstructorDecl  const * (::clang::ASTContext::*method_pointer_86ffcc860d4c5049a0c1f1940afacec4)(class ::clang::CXXRecordDecl  *) = &::clang::ASTContext::getCopyConstructorForExceptionObject;
     class ::clang::QualType  (::clang::ASTContext::*method_pointer_9476bd5ce8d65c84aa5f267b126c9ec9)(class ::clang::QualType ) const = &::clang::ASTContext::getCorrespondingUnsignedType;
     class ::clang::CXXMethodDecl  const * (::clang::ASTContext::*method_pointer_53cd3ad8d1c851c4992314e19f792eb7)(class ::clang::CXXRecordDecl  const *) = &::clang::ASTContext::getCurrentKeyFunction;
@@ -104,7 +104,7 @@ void wrapper_e536a5cae34e54058d1fe69715937f7a()
     class ::clang::QualType  (::clang::ASTContext::*method_pointer_a8c4868235be5e1c82d094d1bb7583cb)(class ::clang::QualType , unsigned int ) const = &::clang::ASTContext::getExtVectorType;
     class ::clang::ExternCContextDecl  * (::clang::ASTContext::*method_pointer_69f006dee6e650e59fa5409930058788)() const = &::clang::ASTContext::getExternCContextDecl;
     class ::clang::QualType  (::clang::ASTContext::*method_pointer_38c50ec6a71b583bac89fcbee292fa2f)() const = &::clang::ASTContext::getFILEType;
-    unsigned long long int  (::clang::ASTContext::*method_pointer_8b73c19fa39f5c6ebfebb5b7b646e978)(class ::clang::ValueDecl  const *) const = &::clang::ASTContext::getFieldOffset;
+    uint64_t  (::clang::ASTContext::*method_pointer_8b73c19fa39f5c6ebfebb5b7b646e978)(class ::clang::ValueDecl  const *) const = &::clang::ASTContext::getFieldOffset;
     class ::clang::TypeDecl  * (::clang::ASTContext::*method_pointer_e243da77181d5aa38790fce3ae0375fd)() const = &::clang::ASTContext::getFloat128StubType;
     class ::clang::QualType  (::clang::ASTContext::*method_pointer_410b84d046175a3f84341227917a98eb)(class ::clang::QualType , class ::clang::QualType ) const = &::clang::ASTContext::getFloatingTypeOfSizeWithinDomain;
     int  (::clang::ASTContext::*method_pointer_2583f933dd7a521c9bf55e6fe3e1dfaf)(class ::clang::QualType , class ::clang::QualType ) const = &::clang::ASTContext::getFloatingTypeOrder;
@@ -180,8 +180,8 @@ void wrapper_e536a5cae34e54058d1fe69715937f7a()
     unsigned int  (::clang::ASTContext::*method_pointer_56e7b02b105d5746b927d21f7f21960e)(class ::clang::Type  const *) const = &::clang::ASTContext::getTypeAlign;
     class ::clang::QualType  (::clang::ASTContext::*method_pointer_c3a180ca8ebe57b6aff0c8cb2b329c22)(class ::clang::TypeDecl  const *, class ::clang::TypeDecl  const *) const = &::clang::ASTContext::getTypeDeclType;
     class ::clang::QualType  (::clang::ASTContext::*method_pointer_6a77d5a9a49b5d0da46899d48f64c185)(class ::clang::QualType ) const = &::clang::ASTContext::getTypeOfType;
-    unsigned long long int  (::clang::ASTContext::*method_pointer_e4dcd213be01595d9c5b18026f1800ad)(class ::clang::QualType ) const = &::clang::ASTContext::getTypeSize;
-    unsigned long long int  (::clang::ASTContext::*method_pointer_7d338644d8df525c9a993cc7819e5630)(class ::clang::Type  const *) const = &::clang::ASTContext::getTypeSize;
+    uint64_t  (::clang::ASTContext::*method_pointer_e4dcd213be01595d9c5b18026f1800ad)(class ::clang::QualType ) const = &::clang::ASTContext::getTypeSize;
+    uint64_t  (::clang::ASTContext::*method_pointer_7d338644d8df525c9a993cc7819e5630)(class ::clang::Type  const *) const = &::clang::ASTContext::getTypeSize;
     class ::clang::TypedefNameDecl  * (::clang::ASTContext::*method_pointer_9803de963ca45339a113af4f13f689c7)(class ::clang::TagDecl  const *) = &::clang::ASTContext::getTypedefNameForUnnamedTagDecl;
     class ::clang::QualType  (::clang::ASTContext::*method_pointer_e6472faba67f591d89cffec9d995cd6e)(class ::clang::TypedefNameDecl  const *, class ::clang::QualType ) const = &::clang::ASTContext::getTypedefType;
     class ::clang::TypedefDecl  * (::clang::ASTContext::*method_pointer_ed51fde0263b5059a2e7aa85c1df11fd)() const = &::clang::ASTContext::getUInt128Decl;
