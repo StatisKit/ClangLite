@@ -15,7 +15,7 @@ pyenv = env.Clone()
 header = pyenv.Glob('*.h')
 if len(header) == 1:
     cmd = pyenv.Command(header[0].target_from_source('', '.h.gch'), header, '$CXX -o $TARGET -x c++-header -c -fPIC $SHCXXFLAGS $_CCCOMCOM $SOURCE')
-    pyenv.AppendUnique(CXXFLAGS = ['-include' + header[0].target_from_source('', '.h').abspath ])
+    #pyenv.AppendUnique(CXXFLAGS = ['-include' + header[0].target_from_source('', '.h').abspath ])
 
 targets = list(itertools.chain(*[pyenv.SharedObject(None, source) for source in pyenv.Glob('*.cpp')]))
 if len(header) == 1:
