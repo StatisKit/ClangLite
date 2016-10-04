@@ -39,7 +39,7 @@ before_install:
     - conda info -a
 
 install:
-  - conda install conda-build
+  - conda install conda-build=2.0.2
   - conda install toolchain -c statiskit
   - source activate root
   - pip install python-coveralls
