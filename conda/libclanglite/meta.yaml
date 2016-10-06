@@ -24,11 +24,11 @@ source:
 build:
   number: 0
   script_env:
-    - TOOLCHAIN # [not win]
+    - TOOLCHAIN
   features:
-    - {{ TOOLCHAIN }} # [not win]
+    - {{ TOOLCHAIN }}
   track_features:
-    - {{ TOOLCHAIN }} # [not win]
+    - {{ TOOLCHAIN }}
 
 about:
   home: pyclanglite.readthedocs.org
@@ -37,10 +37,10 @@ about:
 requirements:
   build:
     - libclang
-    - libboost_python
+    - libboost
     - python-scons
     - pyyaml
-    - toolchain
+    - python-pkgtk
   run:
     - libclang
-    - libboost_python
+    - libboost

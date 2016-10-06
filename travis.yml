@@ -1,0 +1,57 @@
+##################################################################################
+#                                                                                #
+# PyClangLite: Python bindings for Clang                                         #
+#                                                                                #
+# Homepage: http://pyclanglite.readthedocs.io/                                   #
+#                                                                                #
+# Copyright (c) 2016 Pierre Fernique                                             #
+#                                                                                #
+# This software is distributed under the CeCILL-C license. You should have       #
+# received a copy of the legalcode along with this work. If not, see             #
+# <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 #
+#                                                                                #
+# File authors: Pierre Fernique <pfernique@gmail.com> (70)                       #
+#                                                                                #
+##################################################################################
+
+language: cpp
+
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+      sudo: required
+      services:
+        - docker
+    - os: osx
+      osx_image: xcode7.2
+      
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" = "linux" ]]; then
+      wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh;
+    elif [[ "$TRAVIS_OS_NAME" = "osx" ]]; then
+      curl https://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh -o miniconda.sh;
+    fi
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - export PATH=$HOME/miniconda/bin:$PATH
+  - conda config --set always_yes yes --set changeps1 no
+  - conda update -q conda
+  - conda info -a
+  - conda install conda-build=2.0.2
+
+install:
+  - pip install python-coveralls
+
+before_script:
+  - cd conda
+  - sed -i'' -e '3,5d' build.sh;
+  - sed -i'' -e 's/ in libclang / in /g' build.sh;
+  - bash build.sh
+  - cd ..
+  
+after_success:
+  - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]] && [[ ! -z $ANACONDA_USERNAME ]] && [[ ! -z $ANACONDA_PASSWORD ]]; then
+      cd conda;
+      bash upload.sh;
+      cd ..;
+    fi
