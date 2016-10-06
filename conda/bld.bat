@@ -12,6 +12,9 @@ if %errorlevel% neq 0 exit /b %errorlevel%
 for /f %%i in ('pkgtk toolchain') DO (set TOOLCHAIN=%%i)
 if %errorlevel% neq 0 exit /b %errorlevel%
 
+conda build libllvm -c statiskit -c conda-forge
+if %errorlevel% neq 0 exit /b %errorlevel%
+
 conda build libclang -c statiskit -c conda-forge
 if %errorlevel% neq 0 exit /b %errorlevel%
 
