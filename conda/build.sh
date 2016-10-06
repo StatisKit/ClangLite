@@ -1,11 +1,11 @@
-# Build libclang recipe
-conda build conda/libclang -c statiskit
-conda install libclang -c statiskit --use-local
+set -xe
 
-# Build libclanglite recipe
-conda build conda/libclanglite -c statiskit
-conda install libclanglite --use-local -c statiskit
+git clone https://github.com/StatisKit/PyClangLite.git
+cd PyClangLite/conda
 
-# Build python-clanglite recipe
-conda build conda/python-clanglite -c statiskit
-conda install python-clanglite --use-local -c statiskit
+conda install python-pkgtk -c statiskit -c conda-forge
+export TOOLCHAIN=`pkgtk toolchain`
+
+for CONDA_RECIPE in libclang libclanglite python-clanglite; do
+  conda build $CONDA_RECIPE -c statiskit -c conda-forge
+done
