@@ -34,11 +34,11 @@ source:
 build:
   number: 0
   script_env:
-    - TOOLCHAIN # [not win]
+    - TOOLCHAIN
   features:
-    - {{ TOOLCHAIN }} # [not win]
+    - {{ TOOLCHAIN }}
   track_features:
-    - {{ TOOLCHAIN }} # [not win]
+    - {{ TOOLCHAIN }}
 
 about:
   home: http://www.llwm.org/
@@ -48,7 +48,7 @@ requirements:
   build:
     - cmake
     - zlib
-    - pkgtk
+    - python-pkgtk
     # Needed to unpack the source tarball
     - m2w64-xz         # [py27 and win]
     
