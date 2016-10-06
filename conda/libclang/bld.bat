@@ -1,14 +1,24 @@
 cd tools
+if errorlevel 1 exit 1
 curl -O http://llvm.org/releases/3.8.1/cfe-3.8.1.src.tar.xz
+if errorlevel 1 exit 1
 :: tar -xJf cfe-3.8.1.src.tar.xz
 7za x cfe-3.8.1.src.tar.xz
+if errorlevel 1 exit 1
 7za x cfe-3.8.1.src.tar
+if errorlevel 1 exit 1
 move /y cfe-3.8.1.src clang
+if errorlevel 1 exit 1
 del cfe-3.8.1.src.tar
+if errorlevel 1 exit 1
 del cfe-3.8.1.src.tar.xz
+if errorlevel 1 exit 1
 cd ..
+if errorlevel 1 exit 1
 mkdir build_llvmclang
+if errorlevel 1 exit 1
 cd build_llvmclang
+if errorlevel 1 exit 1
 
 set BUILD_CONFIG=Release
 
