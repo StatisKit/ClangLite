@@ -15,8 +15,8 @@ if %errorlevel% neq 0 exit /b %errorlevel%
 conda build libclang -c statiskit -c conda-forge
 if %errorlevel% neq 0 exit /b %errorlevel%
 
-conda build libclanglite -c statiskit -c conda-forge
-if %errorlevel% neq 0 exit /b %errorlevel%
+:: conda build libclanglite -c statiskit -c conda-forge
+:: if %errorlevel% neq 0 exit /b %errorlevel%
 
-conda build python-clanglite -c statiskit -c conda-forge
-if %errorlevel% neq 0 exit /b %errorlevel%
+:: conda build python-clanglite -c statiskit -c conda-forge
+:: if %errorlevel% neq 0 exit /b %errorlevel%
