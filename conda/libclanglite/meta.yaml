@@ -16,13 +16,19 @@
 
 package:
   name: libclanglite
-  version: "3.8.0"
+  version: "3.8.1"
 
 source:
   path: ../..
 
 build:
   number: 0
+  script_env:
+    - TOOLCHAIN
+  features:
+    - {{ TOOLCHAIN }}
+  track_features:
+    - {{ TOOLCHAIN }}
 
 about:
   home: pyclanglite.readthedocs.org
@@ -34,6 +40,7 @@ requirements:
     - libboost
     - python-scons
     - pyyaml
+    - python-pkgtk
   run:
     - libclang
     - libboost

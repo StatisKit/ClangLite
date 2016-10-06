@@ -1,13 +1,16 @@
-git checkout release_38
 cd tools
-git clone https://github.com/llvm-mirror/clang.git
-cd clang
-git checkout release_38
-cd ../..
-SRC_DIR=`pwd`
+curl -O http://llvm.org/releases/3.8.1/cfe-3.8.1.src.tar.xz
+tar -xJf cfe-3.8.1.src.tar.xz
+mv cfe-3.8.1.src clang
+rm cfe-3.8.1.src.tar.xz
 cd ..
-BLD_DIR=`mktemp -d -p . -t temp.XXXXXXXX`
+cd ..
+mkdir build_llvmclang
 cd $BLD_DIR
+if [ -n "$MACOSX_DEPLOYMENT_TARGET" ]; then
+    # OSX needs 10.7 or above with libc++ enabled
+    export MACOSX_DEPLOYMENT_TARGET=10.9
+fi
 cmake -G "Unix Makefiles" -DBUILD_SHARED_LIBS=ON \
                           -DLLVM_INCLUDE_TESTS=OFF \
                           -DLLVM_INCLUDE_UTILS=OFF \
@@ -17,8 +20,9 @@ cmake -G "Unix Makefiles" -DBUILD_SHARED_LIBS=ON \
                           -DLLVM_ENABLE_RTTI=ON \
                           -DCMAKE_INSTALL_PREFIX=${PREFIX} \
                           -DCMAKE_BUILD_TYPE=Release \
+                          -DLLVM_TARGETS_TO_BUILD=host \
                           $SRC_DIR;
 make -j$CPU_COUNT VERBOSE=1
 make install
 cd ..
-rm -fr $BLD_DIR
+rm -fr build_llvmclang

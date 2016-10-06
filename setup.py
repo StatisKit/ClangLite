@@ -27,7 +27,7 @@ try:
 except:
     import os
     import yaml
-    with open('.' + os.sep + '.mngit.yml', 'r') as filehandler:
+    with open('.' + os.sep + '.pkgtk.yml', 'r') as filehandler:
         config = yaml.load(filehandler.read())
 
 with open('README.rst', 'r') as filehandler:

@@ -23,6 +23,13 @@ source:
 
 build:
   number: 0
+  script_env:
+    - TOOLCHAIN
+  features:
+    - {{ TOOLCHAIN }}
+  track_features:
+    - {{ TOOLCHAIN }}
+
 
 about:
   home: autowig.readthedocs.org
@@ -35,6 +42,7 @@ requirements:
     - libboost
     - python-scons
     - pyyaml
+    - python-pkgtk
   run:
     - libclang
     - libclanglite
