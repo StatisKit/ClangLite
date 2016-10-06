@@ -3,7 +3,7 @@ curl -O http://llvm.org/releases/3.8.1/cfe-3.8.1.src.tar.xz
 :: tar -xJf cfe-3.8.1.src.tar.xz
 7z x cfe-3.8.1.src.tar.xz
 7z x cfe-3.8.1.src.tar
-move cfe-3.8.1.src clang
+move /y cfe-3.8.1.src clang
 del cfe-3.8.1.src.tar
 del cfe-3.8.1.src.tar.xz
 cd ..
