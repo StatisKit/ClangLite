@@ -48,9 +48,6 @@ before_script:
   - sed -i'' -e 's/ in libclang / in /g' build.sh;
   - bash build.sh
   - cd ..
-
-script:
-  - python -c "from clanglite import *"
   
 after_success:
   - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]] && [[ ! -z $ANACONDA_USERNAME ]] && [[ ! -z $ANACONDA_PASSWORD ]]; then
