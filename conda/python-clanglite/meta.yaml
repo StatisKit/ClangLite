@@ -24,11 +24,11 @@ source:
 build:
   number: 0
   script_env:
-    - TOOLCHAIN # [not win]
+    - TOOLCHAIN
   features:
-    - {{ TOOLCHAIN }} # [not win]
+    - {{ TOOLCHAIN }}
   track_features:
-    - {{ TOOLCHAIN }} # [not win]
+    - {{ TOOLCHAIN }}
 
 
 about:
@@ -39,14 +39,14 @@ requirements:
   build:
     - libclang
     - libclanglite
-    - libboost_python
+    - libboost
     - python-scons
     - pyyaml
-    - toolchain
+    - python-pkgtk
   run:
     - libclang
     - libclanglite
-    - libboost_python
+    - libboost
     - python
     - numpy
 
