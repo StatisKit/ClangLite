@@ -21,10 +21,24 @@ matrix:
     - os: linux
       dist: trusty
       sudo: required
-      services:
-        - docker
+      env: TARGET="libllvm"
+    - os: linux
+      dist: trusty
+      sudo: required
+      env: TARGET="libclang"
+    - os: linux
+      dist: trusty
+      sudo: required
+      env: TARGET="libclanglite python-clanglite"
     - os: osx
       osx_image: xcode7.2
+      env: TARGET="libllvm"
+    - os: osx
+      osx_image: xcode7.2
+      env: TARGET="libclang"
+    - os: osx
+      osx_image: xcode7.2
+      env: TARGET="libclanglite python-clanglite"
       
 before_install:
   - if [[ "$TRAVIS_OS_NAME" = "linux" ]]; then
@@ -44,8 +58,8 @@ install:
 
 before_script:
   - cd conda
-  - sed -i'' -e '3,5d' build.sh;
-  - sed -i'' -e 's/ in libclang / in /g' build.sh;
+  - sed -i'' -e '3,5d' build.sh
+  - sed -i'' -e 's/ in libllvm libclang libclanglite python-clanglite/ in $TARGET/g' build.sh
   - bash build.sh
   - cd ..
   
