@@ -1,38 +1,28 @@
+environment:
+  CMD_IN_ENV: cmd /E:ON /V:ON /C obvci_appveyor_python_build_env.cmd
+  TARGET_ARCH: x64
+  CONDA_PY: 27
+
 install:
-  - 'set PATH=C:\Miniconda;C:\Miniconda\Scripts;%PATH%'
-  - "conda config --set always_yes yes --set changeps1 no"
-  - "conda update -q conda"
-  - "conda info -a"
-  - "conda install conda-build=1.21"
+  - set PATH=C:\Miniconda-x64;C:\Miniconda-x64\Scripts;%PATH%
+  - git clone https://github.com/pelson/Obvious-CI.git
+  - move /y ".\Obvious-CI\scripts\obvci_appveyor_python_build_env.cmd" ".\conda\obvci_appveyor_python_build_env.cmd"
+  - conda config --set always_yes yes --set changeps1 no
+  - conda update -q conda
+  - conda info -a
+  - conda install conda-build=1.21
   
 build_script:
-  - "CALL conda build conda/libclang -c statiskit -c conda-forge"
-  - "IF %errorlevel% neq 0 exit /b %errorlevel%"
-  - "CALL conda install libclang --use-local -c statiskit -c conda-forge"
-  - "IF %errorlevel% neq 0 exit /b %errorlevel%"
-  - "CALL conda build conda/libclanglite -c statiskit -c conda-forge"
-  - "IF %errorlevel% neq 0 exit /b %errorlevel%"
-  - "CALL conda install libclanglite --use-local -c statiskit -c conda-forge"
-  - "IF %errorlevel% neq 0 exit /b %errorlevel%"
-  - "CALL conda build conda/python-clanglite -c statiskit -c conda-forge"
-  - "IF %errorlevel% neq 0 exit /b %errorlevel%"
-
+  - cd conda
+  - echo echo ON >> tmp.bat
+  - more +7 "bld.bat" >> tmp.bat
+  #- powershell -Command "(gc tmp.bat) -replace 'conda build', '%CMD_IN_ENV% conda build' | Out-File tmp.bat"
+  - del bld.bat
+  - more tmp.bat >> bld.bat
+  - '%CMD_IN_ENV% call bld.bat'
+  - cd ..
+  
 on_success:
-  - 'IF NOT "%APPVEYOR_REPO_BRANCH%"=="master" exit /b 0'
-  - 'IF "%ANACONDA_USERNAME%"=="" exit /b 0'
-  - 'IF "%ANACONDA_PASSWORD%"=="" exit /b 0'
-  - "CALL conda install -n root anaconda-client"
-  - "IF %errorlevel% neq 0 exit /b %errorlevel%"
-  - 'CALL anaconda login --username "%ANACONDA_USERNAME%" --password "%ANACONDA_PASSWORD%" --hostname "AppVeyor%APPVEYOR_BUILD_NUMBER%"'
-  - "IF %errorlevel% neq 0 exit /b %errorlevel%"
-  - "FOR /f %%i in ('conda build conda/libclang --output') DO (set CONDA_FILE=%%i)"
-  - 'set errorlevel_backup=%errorlevel%'
-  - 'set errorlevel=0'
-  - 'CALL anaconda upload --user conda/libclanglite %CONDA_FILE% || echo "upload failed"'
-  - 'set errorlevel=%errorlevel_backup%'
-  - "FOR /f %%i in ('conda build python-clanglite --output') DO (set CONDA_FILE=%%i)"
-  - 'set errorlevel=0'
-  - 'CALL anaconda upload --user statiskit %CONDA_FILE% || echo "upload failed"'
-  - 'set errorlevel=%errorlevel_backup%'
-  - "CALL anaconda logout"
-  - "IF %errorlevel% neq 0 exit /b %errorlevel%"
+  - cd conda
+  - if "%APPVEYOR_REPO_BRANCH%"=="master" if not "%ANACONDA_USERNAME%"=="" if not "%ANACONDA_PASSWORD%"=="" call upload.bat
+  - cd ..

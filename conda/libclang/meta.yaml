@@ -16,11 +16,9 @@
 
 package:
   name: libclang
-  #version: "3.8.0"
   version: "3.8.1"
 
 source:
-  #git_url: https://github.com/llvm-mirror/llvm.git
   fn: llvm-3.8.1.src.tar.xz
   url: http://llvm.org/releases/3.8.1/llvm-3.8.1.src.tar.xz
   patches:
@@ -36,11 +34,11 @@ source:
 build:
   number: 0
   script_env:
-    - TOOLCHAIN # [not win]
+    - TOOLCHAIN
   features:
-    - {{ TOOLCHAIN }} # [not win]
+    - {{ TOOLCHAIN }}
   track_features:
-    - {{ TOOLCHAIN }} # [not win]
+    - {{ TOOLCHAIN }}
 
 about:
   home: http://www.llwm.org/
@@ -50,9 +48,9 @@ requirements:
   build:
     - cmake
     - zlib
-    - toolchain
-    # Needed to unpack the source tarball
+    - python-pkgtk
     - m2w64-xz         # [py27 and win]
+    - 7za # [win]
     
 test:
   commands:
