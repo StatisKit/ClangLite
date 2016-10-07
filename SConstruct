@@ -87,8 +87,8 @@ if not env['TOOLCHAIN'].startswith('vc'):
                                '-fdata-sections',
                                '-Wno-deprecated-declarations'])
 
-env.Append(CPPDEFINES = ['_GNU_SOURCE', '__STDC_CONSTANT_MACROS',
-                         '__STDC_FORMAT_MACROS', '__STDC_LIMIT_MACROS'])
+env.Append(CPPDEFINES = [' _GNU_SOURCE', ' __STDC_CONSTANT_MACROS',
+                         ' __STDC_FORMAT_MACROS', ' __STDC_LIMIT_MACROS'])
 
 env.AppendUnique(LIBS=['boost_python',
                        'clangIndex',
