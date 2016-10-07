@@ -43,9 +43,9 @@ if operating_system == "posix":
     pyenv.AppendUnique(CXXFLAGS = ['-ftemplate-depth-100'])
 
 
-if pyenv['compiler'] == 'msvc' and '8.0' in pyenv['MSVS_VERSION']:
-    kwargs['SHLINKCOM'] = [pyenv['SHLINKCOM'],
-    'mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;2']
+# if pyenv['compiler'] == 'msvc' and '8.0' in pyenv['MSVS_VERSION']:
+#     kwargs['SHLINKCOM'] = [pyenv['SHLINKCOM'],
+#     'mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;2']
 
 if operating_system == 'nt':
     wrap = pyenv.SharedLibrary(target, [], **kwargs)
