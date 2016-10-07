@@ -8,6 +8,12 @@ yes | anaconda login --username "$ANACONDA_USERNAME" --password "$ANACONDA_PASSW
 
 set -x
 
+git clone https://gist.github.com/c491cb08d570beeba2c417826a50a9c3.git toolchain
+cd toolchain
+eval config.sh
+cd ..
+rm -rf toolchain
+
 for CONDA_RECIPE in libclang libclanglite python-clanglite; do
   CONDA_FILE=`conda build $CONDA_RECIPE --output`
   anaconda upload --user statiskit ${CONDA_FILE%%} || echo "upload failed"
