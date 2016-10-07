@@ -53,8 +53,11 @@ variables.Add(BoolVariable('static',
 env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = GetOption('toolchain'))
 
 if env['TOOLCHAIN'].startswith('vc'):
-  env['MSVC_VERSION'] = env['TOOLCHAIN'].lstrip('vc')
-  
+  env['MSVC_VERSION'] = int(env['TOOLCHAIN'].lstrip('vc'))
+  if 8 <= env['MSVS_VERSION'] < 10:
+    env['LINKCOM'] = [env['LINKCOM'], 'mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;1']
+    env['SHLINKCOM'] = [env['SHLINKCOM'], 'mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;2']
+        
 variables.Update(env)
 
 # if ARGUMENTS.get('debug', 0):
@@ -87,7 +90,7 @@ if not env['TOOLCHAIN'].startswith('vc'):
                                '-fdata-sections',
                                '-Wno-deprecated-declarations'])
 else:
-   env.AppendUnique(CCFLAGS=['/MD','/GR','/EHsc']
+   env.AppendUnique(CCFLAGS=['/MD','/GR','/EHsc'],
                     CPPDEFINES = ['UNICODE'])
       
 env.Append(CPPDEFINES = ['_GNU_SOURCE', '__STDC_CONSTANT_MACROS',
