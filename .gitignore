@@ -9,3 +9,5 @@ dist
 *.so
 *.pyc
 *.dblite
+.toolchain.pkl
+.prefix.pkl

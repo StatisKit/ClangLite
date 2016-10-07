@@ -6,7 +6,7 @@ if "%ANACONDA_PASSWORD%" == "" set /p ANACONDA_USERNAME=%ANACONDA_USERNAME%%"'s 
 call conda install -n root anaconda-client
 if %errorlevel% neq 0 exit /b %errorlevel%
 
-call anaconda login --username "%ANACONDA_USERNAME%" --password "%ANACONDA_PASSWORD%" --hostname "AppVeyor%APPVEYOR_BUILD_NUMBER%"
+call anaconda login --username "%ANACONDA_USERNAME%" --password "%ANACONDA_PASSWORD%" --hostname "AppVeyor%APPVEYOR_PROJECT_ID%%APPVEYOR_BUILD_NUMBER%"
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 
