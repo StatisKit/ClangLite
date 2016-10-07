@@ -8,7 +8,7 @@ yes | anaconda login --username "$ANACONDA_USERNAME" --password "$ANACONDA_PASSW
 
 set -x
 
-for CONDA_RECIPE in libclang libclanglite python-clanglite; do
+for CONDA_RECIPE in libllvm libclang libclanglite python-clanglite; do
   CONDA_FILE=`conda build $CONDA_RECIPE --output`
   anaconda upload --user statiskit ${CONDA_FILE%%} || echo "upload failed"
 done
