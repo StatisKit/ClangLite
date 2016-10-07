@@ -54,5 +54,5 @@ requirements:
     
 test:
   commands:
-  - llvm-config --libs   [not win]
-  - llc -version         [not win]
+  - llvm-config --libs
+  - llc -version

@@ -3,8 +3,8 @@ platform:
 
 environment:
   matrix:
-    - BUILD_TARGETS: libllvm
-    - BUILD_TARGETS: libclang
+    # - BUILD_TARGETS: libllvm
+    # - BUILD_TARGETS: libclang
     - BUILD_TARGETS: libclanglite
     - BUILD_TARGETS: python-clanglite
 
