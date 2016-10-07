@@ -1,6 +1,6 @@
-mkdir build_clang
+mkdir build_llvm
 if errorlevel 1 exit 1
-cd build_clang
+cd build_llvm
 if errorlevel 1 exit 1
 
 set BUILD_CONFIG=Release

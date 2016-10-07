@@ -14,7 +14,7 @@ eval config.sh
 cd ..
 rm -rf toolchain
 
-for CONDA_RECIPE in libclang libclanglite python-clanglite; do
+for CONDA_RECIPE in libllvm libclang libclanglite python-clanglite; do
   CONDA_FILE=`conda build $CONDA_RECIPE --output`
   anaconda upload --user statiskit ${CONDA_FILE%%} || echo "upload failed"
 done

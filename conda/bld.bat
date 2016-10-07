@@ -1,3 +1,7 @@
+echo OFF
+
+if "%BUILD_TARGETS%" == "" set BUILD_TARGETS="libllvm libclang libclanglite python-clanglite"
+
 echo ON
 
 git clone https://github.com/StatisKit/PyClangLite.git
@@ -12,11 +16,7 @@ call config.bat
 cd ..
 rmdir toolchain /s /q
 
-conda build libclang -c statiskit
-if %errorlevel% neq 0 exit /b %errorlevel%
-
-:: conda build libclanglite -c statiskit
-:: if %errorlevel% neq 0 exit /b %errorlevel%
-
-:: conda build python-clanglite -c statiskit
-:: if %errorlevel% neq 0 exit /b %errorlevel%
+for %%BUILD_TARGET in (%BUILD_TARGETS%) do (
+    conda build %%BUILD_TARGET -c statiskit
+    if %errorlevel% neq 0 exit /b %errorlevel%
+)

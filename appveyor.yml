@@ -1,22 +1,16 @@
-environment:
-  CMD_IN_ENV: cmd /E:ON /V:ON /C obvci_appveyor_python_build_env.cmd
-  TARGET_ARCH: x64
-  CONDA_PY: 27
+platform:
+  - x64
 
 install:
-  - set PATH=C:\Miniconda-x64;C:\Miniconda-x64\Scripts;%PATH%
-  - git clone https://github.com/pelson/Obvious-CI.git
-  - move /y ".\Obvious-CI\scripts\obvci_appveyor_python_build_env.cmd" ".\conda\obvci_appveyor_python_build_env.cmd"
-  - conda config --set always_yes yes --set changeps1 no
-  - conda update -q conda
-  - conda info -a
-  - conda install conda-build=1.21
+  - git clone https://gist.github.com/a08b6eb1c97fad864de50601d70008c8.git config-appveyor
+  - cd config-appveyor
+  - call config.bat
+  - cd ..
   
 build_script:
   - cd conda
   - echo echo ON >> tmp.bat
   - more +7 "bld.bat" >> tmp.bat
-  #- powershell -Command "(gc tmp.bat) -replace 'conda build', '%CMD_IN_ENV% conda build' | Out-File tmp.bat"
   - del bld.bat
   - more tmp.bat >> bld.bat
   - '%CMD_IN_ENV% call bld.bat'
