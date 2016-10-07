@@ -83,10 +83,10 @@ if env['TOOLCHAIN'].startswith('vc'):
      # /GA: enable for Windows Application
      # /GR: enable C++ RTTI
      CCFLAGS.extend(['/Gy','/GF','/GA'])
-   CCFLAGS.extend(['/MD','/GR','/EHsc'])
-   CPPDEFINES.append('UNICODE'
-   env.AppendUnique(CCFLAGS=CCFLAGS,
-                    CPPDEFINES=CPPDEFINES)
+  CCFLAGS.extend(['/MD','/GR','/EHsc'])
+  CPPDEFINES.append('UNICODE'
+  env.AppendUnique(CCFLAGS=CCFLAGS,
+                   CPPDEFINES=CPPDEFINES)
 else:
   if env["debug"]:
     env.Append(CCFLAGS = '-g')
