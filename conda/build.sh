@@ -3,9 +3,11 @@ set -xe
 git clone https://github.com/StatisKit/PyClangLite.git
 cd PyClangLite/conda
 
-conda install python-pkgtk -c statiskit -c conda-forge
-export TOOLCHAIN=`pkgtk toolchain`
+git clone https://gist.github.com/c491cb08d570beeba2c417826a50a9c3.git toolchain
+cd toolchain
+eval config.sh
+cd ..
 
 for CONDA_RECIPE in libclang libclanglite python-clanglite; do
-  conda build $CONDA_RECIPE -c statiskit -c conda-forge
+  conda build $CONDA_RECIPE -c statiskit
 done
