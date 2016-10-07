@@ -31,9 +31,9 @@ variables = Variables()
 # variables.Add(BoolVariable('warnings',
 #                       'compilation with -Wall and similar',
 #                       False))
-# variables.Add(BoolVariable('static',
-#                       '',
-#                       False))
+variables.Add(BoolVariable('static',
+                      '',
+                      False))
 
 # operating_system = os.name.lower()
 # platform = sys.platform.lower()
