@@ -1,1 +1,1 @@
-scons cpp --prefix=%PREFIX% -j%CPU_COUNT% --toolchain=%TOOLCHAIN%
+scons cpp --prefix=%LIBRARY_PREFIX% -j%CPU_COUNT% --toolchain=%TOOLCHAIN%
