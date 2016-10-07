@@ -84,7 +84,7 @@ if env['TOOLCHAIN'].startswith('vc'):
      # /GR: enable C++ RTTI
      CCFLAGS.extend(['/Gy','/GF','/GA'])
   CCFLAGS.extend(['/MD','/GR','/EHsc'])
-  CPPDEFINES.append('UNICODE'
+  CPPDEFINES.append('UNICODE')
   env.AppendUnique(CCFLAGS=CCFLAGS,
                    CPPDEFINES=CPPDEFINES)
 else:
