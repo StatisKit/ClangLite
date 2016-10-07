@@ -56,7 +56,7 @@ before_install:
 install:
   - pip install python-coveralls
 
-before_script:
+script:
   - cd conda
   - sed -i'' -e '3,5d' build.sh
   - sed -i'' -e 's/ in libllvm libclang libclanglite python-clanglite/ in $TARGET/g' build.sh
