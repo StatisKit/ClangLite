@@ -30,14 +30,14 @@ set errorlevel=0
 call anaconda upload --user statiskit %CONDA_FILE% || echo "upload failed"
 set errorlevel=%errorlevel_backup%
 
-:: for /f %%i in ('conda build libclanglite --output') DO (set CONDA_FILE=%%i)
-:: set errorlevel=0
-:: call anaconda upload --user statiskit %CONDA_FILE% || echo "upload failed"
-:: set errorlevel=%errorlevel_backup%
+for /f %%i in ('conda build libclanglite --output') DO (set CONDA_FILE=%%i)
+set errorlevel=0
+call anaconda upload --user statiskit %CONDA_FILE% || echo "upload failed"
+set errorlevel=%errorlevel_backup%
 
-:: for /f %%i in ('conda build python-clanglite --output') DO (set CONDA_FILE=%%i)
-:: set errorlevel=0
-:: call anaconda upload --user statiskit %CONDA_FILE% || echo "upload failed"
-:: set errorlevel=%errorlevel_backup%
+for /f %%i in ('conda build python-clanglite --output') DO (set CONDA_FILE=%%i)
+set errorlevel=0
+call anaconda upload --user statiskit %CONDA_FILE% || echo "upload failed"
+set errorlevel=%errorlevel_backup%
 
 call anaconda logout

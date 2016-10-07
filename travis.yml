@@ -43,12 +43,12 @@ matrix:
 install:
   - git clone https://gist.github.com/319558c83d145620a6d4decdcadfbfb0.git config-travis
   - cd config-travis
-  - eval config.sh
+  - source config.sh
   - cd ..
 
 script:
   - cd conda
-  - sed -i'' -e '3,5d' build.sh
+  - sed -i'' -e '8,10d' build.sh
   - bash build.sh
   - cd ..
   

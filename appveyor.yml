@@ -1,6 +1,13 @@
 platform:
   - x64
 
+environment:
+  matrix:
+    - BUILD_TARGETS: libllvm
+    - BUILD_TARGETS: libclang
+    - BUILD_TARGETS: libclanglite
+    - BUILD_TARGETS: python-clanglite
+
 install:
   - git clone https://gist.github.com/a08b6eb1c97fad864de50601d70008c8.git config-appveyor
   - cd config-appveyor
@@ -9,8 +16,7 @@ install:
   
 build_script:
   - cd conda
-  - echo echo ON >> tmp.bat
-  - more +7 "bld.bat" >> tmp.bat
+  - more +8 "bld.bat" >> tmp.bat
   - del bld.bat
   - more tmp.bat >> bld.bat
   - '%CMD_IN_ENV% call bld.bat'
