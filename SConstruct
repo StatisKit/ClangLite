@@ -2,40 +2,14 @@
 
 import os
 import subprocess
-
-import pickle
-import shutil
-
-if not os.path.exists('.toolchain.pkl'):
-    from git import Repo
-    toolchain = Repo.clone_from('https://gist.github.com/c491cb08d570beeba2c417826a50a9c3.git', 'toolchain')
-    process = subprocess.Popen(['python toolchain' + os.sep + 'toolchain.py'], stdout=subprocess.PIPE)
-    out, err = process.communicate()
-    toolchain = out.strip()
-    with open('.toolchain.pkl', 'w') as filehandler:
-        pickle.dump(toolchain, filehandler)
-    shutil.rmtree('toolchain')
-else:
-    with open('.toolchain.pkl', 'r') as filehandler:
-        toolchain = pickle.load(filehandler)
+import sys
 
 AddOption('--toolchain',
   dest='toolchain',
   type='string',
   nargs=1,
   action='store',
-  help='toolchain to use',
-  default=toolchain)
-
-
-if not os.path.exists('.prefix.pkl'):
-    import sys
-    prefix = sys.prefix
-    with open('.prefix.pkl', 'w') as filehandler:
-        pickle.dump(prefix, filehandler)
-else:
-    with open('.prefix.pkl', 'r') as filehandler:
-        prefix = pickle.load(filehandler)
+  help='toolchain to use')
 
 AddOption('--prefix',
   dest='prefix',
@@ -44,7 +18,7 @@ AddOption('--prefix',
   action='store',
   metavar='DIR',
   help='installation prefix',
-  default=prefix)
+  default=sys.prefix)
 
 SConsignFile()
 
