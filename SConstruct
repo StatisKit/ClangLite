@@ -6,7 +6,7 @@ import subprocess
 import pickle
 import shutil
 
-if not exists('.toolchain.pkl'):
+if not os.path.exists('.toolchain.pkl'):
     from git import Repo
     toolchain = Repo.clone_from('https://gist.github.com/c491cb08d570beeba2c417826a50a9c3.git', 'toolchain')
     process = subprocess.Popen(['python toolchain' + os.sep + 'toolchain.py'], stdout=subprocess.PIPE)
@@ -28,7 +28,7 @@ AddOption('--toolchain',
   default=toolchain)
 
 
-if not exists('.prefix.pkl'):
+if not os.path.exists('.prefix.pkl'):
     import sys
     prefix = sys.prefix
     with open('.prefix.pkl', 'w') as filehandler:
