@@ -19,6 +19,6 @@ cd ..
 rmdir toolchain /s /q
 
 for %%x in (%BUILD_TARGETS%) do (
-    conda build %%x -c statiskit
+    conda build %%x -c statiskit -c conda-forge
     if %errorlevel% neq 0 exit /b %errorlevel%
 )
