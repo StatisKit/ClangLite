@@ -9,8 +9,10 @@ if %errorlevel% neq 0 exit /b %errorlevel%
 conda install python-pkgtk -c statiskit -c conda-forge
 if %errorlevel% neq 0 exit /b %errorlevel%
 
-for /f %%i in ('pkgtk toolchain') DO (set TOOLCHAIN=%%i)
-if %errorlevel% neq 0 exit /b %errorlevel%
+git clone https://gist.github.com/c491cb08d570beeba2c417826a50a9c3.git config-toolchain
+cd config-toolchain
+call config.bat
+cd ..
 
 conda build libclang -c statiskit -c conda-forge
 if %errorlevel% neq 0 exit /b %errorlevel%
