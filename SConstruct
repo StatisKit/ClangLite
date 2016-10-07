@@ -74,7 +74,7 @@ variables.Update(env)
 from distutils import sysconfig
 env.AppendUnique(LIBS = ['boost_python', 'python' + sysconfig.get_python_version()])
 env.AppendUnique(CPPPATH = [sysconfig.get_python_inc()])
-env.AppendUnique(CPPDEFINES = [' BOOST_PYTHON_DYNAMIC_LIB'])
+env.AppendUnique(CPPDEFINES = ['BOOST_PYTHON_DYNAMIC_LIB'])
 
 
 env.Prepend(CPPPATH='$PREFIX/include')
@@ -87,8 +87,8 @@ if not env['TOOLCHAIN'].startswith('vc'):
                                '-fdata-sections',
                                '-Wno-deprecated-declarations'])
 
-env.Append(CPPDEFINES = [' _GNU_SOURCE', ' __STDC_CONSTANT_MACROS',
-                         ' __STDC_FORMAT_MACROS', ' __STDC_LIMIT_MACROS'])
+env.Append(CPPDEFINES = ['_GNU_SOURCE', '__STDC_CONSTANT_MACROS',
+                         '__STDC_FORMAT_MACROS', '__STDC_LIMIT_MACROS'])
 
 env.AppendUnique(LIBS=['boost_python',
                        'clangIndex',
