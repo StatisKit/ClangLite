@@ -14,11 +14,11 @@ cd config-toolchain
 call config.bat
 cd ..
 
-conda build libclang -c statiskit -c conda-forge
+conda build libclang -c statiskit
 if %errorlevel% neq 0 exit /b %errorlevel%
 
-:: conda build libclanglite -c statiskit -c conda-forge
+:: conda build libclanglite -c statiskit
 :: if %errorlevel% neq 0 exit /b %errorlevel%
 
-:: conda build python-clanglite -c statiskit -c conda-forge
+:: conda build python-clanglite -c statiskit
 :: if %errorlevel% neq 0 exit /b %errorlevel%
