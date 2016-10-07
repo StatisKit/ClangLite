@@ -41,7 +41,7 @@ build:
     - {{ TOOLCHAIN }}
 
 about:
-  home: http://www.llwm.org/
+  home: http://www.llvm.org/
   license: The University of Illinois/NCSA Open Source License
 
 requirements:
