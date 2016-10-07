@@ -18,6 +18,12 @@ rmdir toolchain /s /q
 
 echo ON
 
+for /f %%i in ('conda build libllvm --output') DO (set CONDA_FILE=%%i)
+set errorlevel_backup=%errorlevel%
+set errorlevel=0
+call anaconda upload --user statiskit %CONDA_FILE% || echo "upload failed"
+set errorlevel=%errorlevel_backup%
+
 for /f %%i in ('conda build libclang --output') DO (set CONDA_FILE=%%i)
 set errorlevel_backup=%errorlevel%
 set errorlevel=0

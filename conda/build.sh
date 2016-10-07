@@ -1,4 +1,10 @@
-set -xe
+set -e
+set +x
+
+[[ -z $BUILD_TARGETS ]] && BUILD_TARGETS="libllvm libclang libclanglite python-clanglite" || echo "Targets to build: "$BUILD_TARGETS
+
+set -x
+
 
 git clone https://github.com/StatisKit/PyClangLite.git
 cd PyClangLite/conda
@@ -9,6 +15,6 @@ eval config.sh
 cd ..
 rm -rf toolchain
 
-for CONDA_RECIPE in libclang libclanglite python-clanglite; do
-  conda build $CONDA_RECIPE -c statiskit
+for BUILD_TARGET in $BUILD_TARGETS; do
+  conda build $BUILD_TARGET -c statiskit -c conda-forge
 done
