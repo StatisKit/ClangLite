@@ -42,6 +42,7 @@ requirements:
     - libboost
     - python-scons
     - pyyaml
+    - python-pkgtk
   run:
     - libclang
     - libclanglite
