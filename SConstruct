@@ -86,7 +86,10 @@ if not env['TOOLCHAIN'].startswith('vc'):
                                '-ffunction-sections',
                                '-fdata-sections',
                                '-Wno-deprecated-declarations'])
-
+else:
+   env.AppendUnique(CCFLAGS=['/MD','/GR','/EHsc']
+                    CPPDEFINES = ['UNICODE'])
+      
 env.Append(CPPDEFINES = ['_GNU_SOURCE', '__STDC_CONSTANT_MACROS',
                          '__STDC_FORMAT_MACROS', '__STDC_LIMIT_MACROS'])
 
