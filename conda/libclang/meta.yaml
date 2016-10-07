@@ -46,5 +46,7 @@ requirements:
     
 test:
   commands:
-  - clang++ -x c++ -v -E /dev/null
-  - clang -x c -v -E /dev/null
+  - clang++ -x c++ -v -E /dev/null # [not win]
+  - clang -x c -v -E /dev/null # [not win]
+  - clang++ -x c++ -v -E nul # [win]
+  - clang -x c -v -E nul # [win]
