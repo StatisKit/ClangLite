@@ -18,24 +18,21 @@ language: cpp
 
 matrix:
   include:
-    - os: linux
-      dist: trusty
-      sudo: required
-      env: BUILD_TARGETS="libllvm"
-    - os: linux
-      dist: trusty
-      sudo: required
-      env: BUILD_TARGETS="libclang"
+    # - os: linux
+    #   dist: trusty
+    #   sudo: required
+    #   env: BUILD_TARGETS="libllvm"
+    # - os: linux
+    #   dist: trusty
+    #   sudo: required
+    #   env: BUILD_TARGETS="libclang"
     - os: linux
       dist: trusty
       sudo: required
       env: BUILD_TARGETS="libclanglite python-clanglite"
-    - os: osx
-      osx_image: xcode7.2
-      env: BUILD_TARGETS="libllvm"
-    - os: osx
-      osx_image: xcode7.2
-      env: BUILD_TARGETS="libclang"
+    # - os: osx
+    #   osx_image: xcode7.2
+    #   env: BUILD_TARGETS="libclang"
     - os: osx
       osx_image: xcode7.2
       env: BUILD_TARGETS="libclanglite python-clanglite"
