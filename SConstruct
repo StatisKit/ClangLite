@@ -52,6 +52,9 @@ variables = Variables()
 
 env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = GetOption('toolchain'))
 
+if env['TOOLCHAIN'].startswith('vc'):
+  env['MSVC_VERSION'] = env['TOOLCHAIN'].lstrip('vc')
+  
 variables.Update(env)
 
 # if ARGUMENTS.get('debug', 0):
@@ -111,18 +114,12 @@ env.AppendUnique(LIBS=['boost_python',
 
 process = subprocess.Popen(['llvm-config', '--libs'], stdout=subprocess.PIPE)
 out, err = process.communicate()
-if env['TOOLCHAIN'].startswith('vc'):
-    print out
-else:
-    env.AppendUnique(LIBS=[lib.strip() for lib in out.strip().split('-l') if lib])
+env.AppendUnique(LIBS=[lib.strip() for lib in out.strip().split('-l') if lib])
 
 
 process = subprocess.Popen(['llvm-config', '--system-libs'], stdout=subprocess.PIPE)
 out, err = process.communicate()
-if env['TOOLCHAIN'].startswith('vc'):
-    print out
-else:
-    env.AppendUnique(LIBS=[lib.strip() for lib in out.strip().split('-l') if lib])
+env.AppendUnique(LIBS=[lib.strip() for lib in out.strip().split('-l') if lib])
 
 VariantDir('build', 'src')
 SConscript(os.path.join('build', 'cpp', 'SConscript'), exports="env")
