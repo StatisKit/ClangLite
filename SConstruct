@@ -93,7 +93,11 @@ else:
 
 subprocess.call([env.subst('$CC')])
 subprocess.call([env.subst('$CXX')])
-subprocess.call(['more', env.subst('$PREFIX') + '\include\clang\Driver\Options.inc'])
+try:
+  filename = env.subst('$PREFIX') + '\include\clang\Driver\Options.inc'
+  subprocess.call(['more', filename])
+except:
+  pass
 # if platform == 'cygwin':
 #     env.AppendUnique(CPPDEFINES = 'SYSTEM_IS__CYGWIN')
 # elif platform.startswith('win'):
