@@ -91,6 +91,8 @@ else:
   if env["debug"]:
     env.Append(CCFLAGS = '-g')
 
+subprocess.call([env.subst('$CC')])
+
 # if platform == 'cygwin':
 #     env.AppendUnique(CPPDEFINES = 'SYSTEM_IS__CYGWIN')
 # elif platform.startswith('win'):
