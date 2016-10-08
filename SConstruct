@@ -118,7 +118,18 @@ if not env['TOOLCHAIN'].startswith('vc'):
                                '-fdata-sections',
                                '-Wno-deprecated-declarations'])
 else:
-   env.AppendUnique(CPPDEFINES = ['_WINDOWS'])
+   env.AppendUnique(CPPDEFINES = ['_WINDOWS', 'NDEBUG',
+                                  '_HAS_EXCEPTIONS=0',
+                                  '_DEBUG_POINTER_IMPL=',
+                                  '_CRT_SECURE_NO_DEPRECATE',
+                                  '_CRT_SECURE_NO_WARNINGS',
+                                  '_CRT_NONSTDC_NO_DEPRECATE',
+                                  '_CRT_NONSTDC_NO_WARNINGS',
+                                  '_SCL_SECURE_NO_DEPRECATE',
+                                  '_SCL_SECURE_NO_WARNINGS',
+                                  'CLANG_ENABLE_ARCMT',
+                                  'CLANG_ENABLE_OBJC_REWRITER',
+                                  'CLANG_ENABLE_STATIC_ANALYZER'])
     
 env.Append(CPPDEFINES = ['_GNU_SOURCE', '__STDC_CONSTANT_MACROS',
                          '__STDC_FORMAT_MACROS', '__STDC_LIMIT_MACROS'])
