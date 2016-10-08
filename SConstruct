@@ -93,7 +93,7 @@ else:
 
 subprocess.call([env.subst('$CC')])
 subprocess.call([env.subst('$CXX')])
-subprocess.call(['more', env.subst('$PREFIX') + 'include\clang\Driver\Options.inc'])
+subprocess.call(['more', env.subst('$PREFIX') + '\include\clang\Driver\Options.inc'])
 # if platform == 'cygwin':
 #     env.AppendUnique(CPPDEFINES = 'SYSTEM_IS__CYGWIN')
 # elif platform.startswith('win'):
@@ -110,9 +110,12 @@ env.AppendUnique(LIBS = ['boost_python', 'python' + sysconfig.get_python_version
 env.AppendUnique(CPPPATH = [sysconfig.get_python_inc()])
 env.AppendUnique(CPPDEFINES = ['BOOST_PYTHON_DYNAMIC_LIB'])
 
-
-env.Prepend(CPPPATH='$PREFIX/include')
-env.Prepend(LIBPATH='$PREFIX/lib')
+if env['TOOLCHAIN'].startswith('vc'):
+  env.Prepend(CPPPATH='$PREFIX\include')
+  env.Prepend(LIBPATH='$PREFIX\lib')
+else:
+  env.Prepend(CPPPATH='$PREFIX/include')
+  env.Prepend(LIBPATH='$PREFIX/lib')
 
 if not env['TOOLCHAIN'].startswith('vc'):
     env.AppendUnique(CXXFLAGS=['-std=c++0x',
