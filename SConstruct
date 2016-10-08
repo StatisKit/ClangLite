@@ -50,7 +50,7 @@ variables.Add(BoolVariable('static',
 #                            compilers[0],
 #                            compilers))
 
-env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = GetOption('toolchain'), MSVC_VERSION='10.0')
+env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = GetOption('toolchain'), MSVC_VERSION='12.0')
 variables.Update(env)
 
 if env['TOOLCHAIN'].startswith('vc'):
