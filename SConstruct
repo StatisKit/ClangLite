@@ -50,7 +50,7 @@ variables.Add(BoolVariable('static',
 #                            compilers[0],
 #                            compilers))
 
-env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = GetOption('toolchain'), MSVC_VERSION='9.0')
+env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = GetOption('toolchain'), MSVC_VERSION='10.0')
 variables.Update(env)
 
 if env['TOOLCHAIN'].startswith('vc'):
@@ -92,6 +92,7 @@ else:
     env.Append(CCFLAGS = '-g')
 
 subprocess.call([env.subst('$CC')])
+subprocess.call([env.subst('$CXX')])
 
 # if platform == 'cygwin':
 #     env.AppendUnique(CPPDEFINES = 'SYSTEM_IS__CYGWIN')
