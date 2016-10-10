@@ -76,27 +76,17 @@ else:
   if env["debug"]:
     env.Append(CCFLAGS = '-g')
 
-
 from distutils import sysconfig
-print('LIBDIR: ')
-print(sysconfig.get_config_vars())
-
+if sysconfig.get_python_inc():
+  env.AppendUnique(CPPPATH=[sysconfig.get_python_inc()])
 if env['TOOLCHAIN'].startswith('vc'):
   env.AppendUnique(LIBS = ['boost_python',
-                           'python' + sysconfig.get_python_version().replace('.', '') + '.dll'])
+                           '$PREFIX/../' + 'python' + sysconfig.get_python_version().replace('.', '') + '.dll'])
 else:
   env.AppendUnique(LIBS = ['boost_python',
                            'python' + sysconfig.get_python_version()])
+  env.AppendUnique(LIBPATH=[sysconfig.get_config_var('LIBDIR')])
 env.AppendUnique(CPPDEFINES = ['BOOST_PYTHON_DYNAMIC_LIB'])
-
-from distutils import sysconfig
-env.AppendUnique(LIBS = ['python' + sysconfig.get_python_version().replace('.', '')])
-if sysconfig.get_python_inc():
-  env.AppendUnique(CPPPATH=[sysconfig.get_python_inc()])
-if sysconfig.get_config_var('LIBDIR'):
-  env.Prepend(LIBPATH=sysconfig.get_config_var('LIBDIR'))
-else:
-  env.PrependUnique(LIBPATH=['$PREFIX/../'])
   
 if env['TOOLCHAIN'].startswith('vc'):
   env.PrependUnique(CPPPATH=['$PREFIX\include'])
