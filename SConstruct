@@ -96,7 +96,7 @@ if sysconfig.get_python_inc():
 if sysconfig.get_config_var('LIBDIR'):
   env.Prepend(LIBPATH=sysconfig.get_config_var('LIBDIR'))
 else:
-  env.Prepend(LIBPATH='$PREFIX\..\')
+  env.Prepend(LIBPATH='$PREFIX/../')
   
 if env['TOOLCHAIN'].startswith('vc'):
   env.Prepend(CPPPATH='$PREFIX\include')
