@@ -83,7 +83,7 @@ print(sysconfig.get_config_vars())
 
 if env['TOOLCHAIN'].startswith('vc'):
   env.AppendUnique(LIBS = ['boost_python',
-                           'python' + sysconfig.get_python_version().replace('.', '')])
+                           'python' + sysconfig.get_python_version().replace('.', '') + '.dll'])
 else:
   env.AppendUnique(LIBS = ['boost_python',
                            'python' + sysconfig.get_python_version()])
