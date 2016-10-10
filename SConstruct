@@ -76,20 +76,22 @@ else:
   if env["debug"]:
     env.Append(CCFLAGS = '-g')
 
-
 from distutils import sysconfig
+if sysconfig.get_python_inc():
+  env.AppendUnique(CPPPATH=[sysconfig.get_python_inc()])
 if env['TOOLCHAIN'].startswith('vc'):
   env.AppendUnique(LIBS = ['boost_python',
                            'python' + sysconfig.get_python_version().replace('.', '')])
 else:
   env.AppendUnique(LIBS = ['boost_python',
                            'python' + sysconfig.get_python_version()])
-env.AppendUnique(CPPPATH = [sysconfig.get_python_inc()])
-env.AppendUnique(CPPDEFINES = ['BOOST_PYTHON_DYNAMIC_LIB'])
-
+  env.AppendUnique(LIBPATH=[sysconfig.get_config_var('LIBDIR')])
+env.AppendUnique(CPPDEFINES = ['BOOST_PYTHON_DYNAMIC_LIB', 'BOOST_ALL_NO_LIB'])
+  
 if env['TOOLCHAIN'].startswith('vc'):
-  env.Prepend(CPPPATH='$PREFIX\include')
-  env.Prepend(LIBPATH='$PREFIX\lib')
+  env.PrependUnique(CPPPATH=['$PREFIX\include'])
+  env.PrependUnique(LIBPATH=['$PREFIX\lib'])
+  env.PrependUnique(LIBPATH=['$PREFIX\..\libs'])
 else:
   env.Prepend(CPPPATH='$PREFIX/include')
   env.Prepend(LIBPATH='$PREFIX/lib')
