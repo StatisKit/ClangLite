@@ -14,7 +14,7 @@ Import("env")
 
 cppenv = env.Clone()
 
-cpp_env.AppendUnique(CPPDEFINES = ['BUILD_LIBCLANGLITE'])
+cppenv.AppendUnique(CPPDEFINES = ['BUILD_LIBCLANGLITE'])
 
 headers = cppenv.Glob('*.h*')
 includes = cppenv.Install(os.path.join(cppenv['PREFIX'], "include", "clanglite"), headers)
