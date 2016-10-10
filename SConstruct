@@ -84,15 +84,16 @@ if env['TOOLCHAIN'].startswith('vc'):
 else:
   env.AppendUnique(LIBS = ['boost_python',
                            'python' + sysconfig.get_python_version()])
+from distutils import sysconfig
 env.AppendUnique(CPPPATH = [sysconfig.get_python_inc()])
 env.AppendUnique(CPPDEFINES = ['BOOST_PYTHON_DYNAMIC_LIB'])
 
 if env['TOOLCHAIN'].startswith('vc'):
   env.Prepend(CPPPATH='$PREFIX\include')
-  env.Prepend(LIBPATH='$PREFIX\lib')
+  env.PrependUnique(LIBPATH=['$PREFIX\lib', sysconfig.get_config_var('LIBDIR')])
 else:
   env.Prepend(CPPPATH='$PREFIX/include')
-  env.Prepend(LIBPATH='$PREFIX/lib')
+  env.PrependUnique(LIBPATH=['$PREFIX/lib', sysconfig.get_config_var('LIBDIR')])
 
 if not env['TOOLCHAIN'].startswith('vc'):
     env.AppendUnique(CXXFLAGS=['-std=c++0x',
