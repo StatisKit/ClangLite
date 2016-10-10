@@ -78,6 +78,7 @@ else:
 
 
 from distutils import sysconfig
+print sysconfig.get_config_var('LIBDIR')
 if env['TOOLCHAIN'].startswith('vc'):
   env.AppendUnique(LIBS = ['boost_python',
                            'python' + sysconfig.get_python_version().replace('.', '')])
