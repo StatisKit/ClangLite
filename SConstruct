@@ -110,7 +110,11 @@ except:
 #         raise "Add library suffixes support for the " + env['compiler'] + " compiler"
 
 from distutils import sysconfig
-env.AppendUnique(LIBS = ['boost_python', 'python' + sysconfig.get_python_version()])
+if env['TOOLCHAIN'].startswith('vc'):
+  env.AppendUnique(LIBS = ['boost_python-'+ env['TOOLCHAIN'] + '-mt-1_61'])
+else:
+  env.AppendUnique(LIBS = ['boost_python'])
+env.AppendUnique(LIBS = ['python' + sysconfig.get_python_version()])
 env.AppendUnique(CPPPATH = [sysconfig.get_python_inc()])
 env.AppendUnique(CPPDEFINES = ['BOOST_PYTHON_DYNAMIC_LIB'])
 
@@ -158,8 +162,7 @@ else:
 env.Append(CPPDEFINES = ['_GNU_SOURCE', '__STDC_CONSTANT_MACROS',
                          '__STDC_FORMAT_MACROS', '__STDC_LIMIT_MACROS'])
 
-env.AppendUnique(LIBS=['boost_python',
-                       'clangIndex',
+env.AppendUnique(LIBS=['clangIndex',
                        'clangARCMigrate',
                        'clangRewriteFrontend',
                        'clangFormat',
