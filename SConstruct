@@ -81,7 +81,7 @@ if sysconfig.get_python_inc():
   env.AppendUnique(CPPPATH=[sysconfig.get_python_inc()])
 if env['TOOLCHAIN'].startswith('vc'):
   env.AppendUnique(LIBS = ['boost_python',
-                           '$PREFIX/../' + 'python' + sysconfig.get_python_version().replace('.', '') + '.dll'])
+                           'python' + sysconfig.get_python_version()])
 else:
   env.AppendUnique(LIBS = ['boost_python',
                            'python' + sysconfig.get_python_version()])
@@ -91,6 +91,7 @@ env.AppendUnique(CPPDEFINES = ['BOOST_PYTHON_DYNAMIC_LIB'])
 if env['TOOLCHAIN'].startswith('vc'):
   env.PrependUnique(CPPPATH=['$PREFIX\include'])
   env.PrependUnique(LIBPATH=['$PREFIX\lib'])
+  env.PrependUnique(LIBPATH=['$PREFIX\..\libs'])
 else:
   env.Prepend(CPPPATH='$PREFIX/include')
   env.Prepend(LIBPATH='$PREFIX/lib')
