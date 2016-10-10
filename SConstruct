@@ -111,10 +111,11 @@ except:
 
 from distutils import sysconfig
 if env['TOOLCHAIN'].startswith('vc'):
-  env.AppendUnique(LIBS = ['boost_python-'+ env['TOOLCHAIN'] + '0-mt-1_61'])
+  env.AppendUnique(LIBS = ['boost_python-'+ env['TOOLCHAIN'] + '0-mt-1_61',
+                           'python' + sysconfig.get_python_version().replace('.'. '')])
 else:
-  env.AppendUnique(LIBS = ['boost_python'])
-env.AppendUnique(LIBS = ['python' + sysconfig.get_python_version()])
+  env.AppendUnique(LIBS = ['boost_python',
+                           'python' + sysconfig.get_python_version()])
 env.AppendUnique(CPPPATH = [sysconfig.get_python_inc()])
 env.AppendUnique(CPPDEFINES = ['BOOST_PYTHON_DYNAMIC_LIB'])
 
