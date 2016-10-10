@@ -396,6 +396,7 @@
       #define CLANGLITE_API __attribute__ ((dllimport))
     #else
       #define CLANGLITE_API __declspec(dllimport)
+    #endif
   #endif
   #define DLL_LOCAL
 #else
