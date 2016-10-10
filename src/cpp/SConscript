@@ -1,5 +1,7 @@
 # -*-python-*-
 
+import os
+
 Import("env")
 
 cppenv = env.Clone()
