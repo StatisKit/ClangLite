@@ -90,17 +90,17 @@ else:
 env.AppendUnique(CPPDEFINES = ['BOOST_PYTHON_DYNAMIC_LIB'])
 
 from distutils import sysconfig
-env.Append(LIBS = 'python' + sysconfig.get_python_version().replace('.', ''))
+env.AppendUnique(LIBS = ['python' + sysconfig.get_python_version().replace('.', '')])
 if sysconfig.get_python_inc():
-  env.Append(CPPPATH=sysconfig.get_python_inc())
+  env.AppendUnique(CPPPATH=[sysconfig.get_python_inc()])
 if sysconfig.get_config_var('LIBDIR'):
   env.Prepend(LIBPATH=sysconfig.get_config_var('LIBDIR'))
 else:
-  env.Prepend(LIBPATH='$PREFIX/../')
+  env.PrependUnique(LIBPATH=['$PREFIX/../'])
   
 if env['TOOLCHAIN'].startswith('vc'):
-  env.Prepend(CPPPATH='$PREFIX\include')
-  env.Prepend(LIBPATH='$PREFIX\lib')
+  env.PrependUnique(CPPPATH=['$PREFIX\include'])
+  env.PrependUnique(LIBPATH=['$PREFIX\lib'])
 else:
   env.Prepend(CPPPATH='$PREFIX/include')
   env.Prepend(LIBPATH='$PREFIX/lib')
