@@ -99,6 +99,8 @@ if sysconfig.get_config_var('LIBDIR'):
 if env['TOOLCHAIN'].startswith('vc'):
   env.Prepend(CPPPATH='$PREFIX\include')
   env.Prepend(LIBPATH='$PREFIX\lib')
+  env.Prepend(CPPPATH='$PREFIX\Library\include')
+  env.Prepend(LIBPATH='$PREFIX\Library\lib')
 else:
   env.Prepend(CPPPATH='$PREFIX/include')
   env.Prepend(LIBPATH='$PREFIX/lib')
