@@ -40,6 +40,8 @@ requirements:
     - libboost
     - python-scons
     - pyyaml
+    - python
   run:
     - libclang
     - libboost
+    - python
