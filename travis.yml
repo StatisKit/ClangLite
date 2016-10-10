@@ -18,14 +18,14 @@ language: cpp
 
 matrix:
   include:
-     - os: linux
-       dist: trusty
-       sudo: required
-       env: BUILD_TARGETS="libllvm"
-     - os: linux
-       dist: trusty
-       sudo: required
-       env: BUILD_TARGETS="libclang"
+    - os: linux
+      dist: trusty
+      sudo: required
+      env: BUILD_TARGETS="libllvm"
+    - os: linux
+      dist: trusty
+      sudo: required
+      env: BUILD_TARGETS="libclang"
     - os: linux
       dist: trusty
       sudo: required
