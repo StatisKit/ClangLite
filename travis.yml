@@ -31,16 +31,16 @@ matrix:
       sudo: required
       env: BUILD_TARGETS="libclanglite python-clanglite"
     - os: osx
-       osx_image: xcode7.2
-       env: BUILD_TARGETS="libllvm"
+      osx_image: xcode7.2
+      env: BUILD_TARGETS="libllvm"
     - os: osx
-       osx_image: xcode7.2
-       env: BUILD_TARGETS="libclang"
+      osx_image: xcode7.2
+      env: BUILD_TARGETS="libclang"
     - os: osx
       osx_image: xcode7.2
       env: BUILD_TARGETS="libclanglite python-clanglite"
   allow_failures:
-    - os: osx:    
+    - os: osx  
     
 install:
   - git clone https://gist.github.com/319558c83d145620a6d4decdcadfbfb0.git config-travis
