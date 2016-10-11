@@ -40,7 +40,7 @@ requirements:
     - libclang
     - libclanglite
     - libboost
-    - python-scons
+    - python-scons # [not win]
     - pyyaml
     - python-pkgtk
   run:

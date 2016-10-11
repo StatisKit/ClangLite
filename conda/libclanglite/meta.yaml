@@ -38,7 +38,7 @@ requirements:
   build:
     - libclang
     - libboost
-    - python-scons
+    - python-scons # [not win]
     - pyyaml
     - python
   run:
