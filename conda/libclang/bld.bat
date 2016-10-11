@@ -7,9 +7,9 @@ set BUILD_CONFIG=Release
 
 :: Configure step
 if "%ARCH%"=="32" (
-     set CMAKE_GENERATOR=Visual Studio 12 2015
+     set CMAKE_GENERATOR=Visual Studio 14 2015
 ) else (
-     set CMAKE_GENERATOR=Visual Studio 12 2015 Win64
+     set CMAKE_GENERATOR=Visual Studio 14 2015 Win64
 )
 set CMAKE_GENERATOR_TOOLSET=v140_xp
 :: set CMAKE_GENERATOR=MinGW Makefiles
