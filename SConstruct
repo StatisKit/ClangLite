@@ -35,7 +35,14 @@ variables.Add(BoolVariable('static',
                       '',
                       False))
 
-env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = GetOption('toolchain'), MSVC_VERSION='14.0')
+TOOLCHAIN = GetOption('toolchain')
+if TOOLCHAIN.startswith('vc'):
+  MSVC_VERSION = TOOLCHAIN.lstrip('vc')
+  if '.' not in MSVC_VERSION:
+    MSVC_VERSION += '.0'
+  env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = TOOLCHAIN, MSVC_VERSION=MSVC_VERSION)
+else:
+  env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = TOOLCHAIN)  
 variables.Update(env)
 
 if env['TOOLCHAIN'].startswith('vc'):
