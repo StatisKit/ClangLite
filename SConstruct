@@ -35,22 +35,14 @@ variables.Add(BoolVariable('static',
                       '',
                       False))
 
-# operating_system = os.name.lower()
-# platform = sys.platform.lower()
-
-# if operating_system == 'posix':
-#     compilers = ['gcc', 'clang']
-# elif operating_system == 'nt' and platform.startswith('win'):
-#     compilers = ['mingw', 'msvc']
-# else:
-#     raise "Add compiler support for the " + operating_system + " operating system"
-
-# variables.Add(EnumVariable('compiler',
-#                            'compiler tool used for the build',
-#                            compilers[0],
-#                            compilers))
-
-env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = GetOption('toolchain'), MSVC_VERSION='12.0')
+TOOLCHAIN = GetOption('toolchain')
+if TOOLCHAIN.startswith('vc'):
+  MSVC_VERSION = TOOLCHAIN.lstrip('vc')
+  if '.' not in MSVC_VERSION:
+    MSVC_VERSION += '.0'
+  env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = TOOLCHAIN, MSVC_VERSION = MSVC_VERSION)
+else:
+  env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = TOOLCHAIN)  
 variables.Update(env)
 
 if env['TOOLCHAIN'].startswith('vc'):
@@ -91,37 +83,22 @@ else:
   if env["debug"]:
     env.Append(CCFLAGS = '-g')
 
-subprocess.call([env.subst('$CC')])
-subprocess.call([env.subst('$CXX')])
-try:
-  filename = env.subst('$PREFIX') + '\include\clang\Driver\Options.inc'
-  subprocess.call(['more', filename])
-except:
-  pass
-# if platform == 'cygwin':
-#     env.AppendUnique(CPPDEFINES = 'SYSTEM_IS__CYGWIN')
-# elif platform.startswith('win'):
-#     env.AppendUnique(CPPDEFINES = 'WIN32')
-#     if env['compiler'] == 'mingw':
-#         env['compiler_libs_suffix'] = '-mgw'
-#     elif env['compiler'] == 'msvc':
-#         env['compiler_libs_suffix'] = '-vc80'
-#     else:
-#         raise "Add library suffixes support for the " + env['compiler'] + " compiler"
-
 from distutils import sysconfig
+if sysconfig.get_python_inc():
+  env.AppendUnique(CPPPATH=[sysconfig.get_python_inc()])
 if env['TOOLCHAIN'].startswith('vc'):
-  env.AppendUnique(LIBS = ['boost_python-'+ env['TOOLCHAIN'] + '0-mt-1_61',
+  env.AppendUnique(LIBS = ['boost_python',
                            'python' + sysconfig.get_python_version().replace('.', '')])
 else:
   env.AppendUnique(LIBS = ['boost_python',
                            'python' + sysconfig.get_python_version()])
-env.AppendUnique(CPPPATH = [sysconfig.get_python_inc()])
+  env.AppendUnique(LIBPATH=[sysconfig.get_config_var('LIBDIR')])
 env.AppendUnique(CPPDEFINES = ['BOOST_PYTHON_DYNAMIC_LIB', 'BOOST_ALL_NO_LIB'])
-
+  
 if env['TOOLCHAIN'].startswith('vc'):
-  env.Prepend(CPPPATH='$PREFIX\include')
-  env.Prepend(LIBPATH='$PREFIX\lib')
+  env.PrependUnique(CPPPATH=['$PREFIX\include'])
+  env.PrependUnique(LIBPATH=['$PREFIX\lib'])
+  env.PrependUnique(LIBPATH=['$PREFIX\..\libs'])
 else:
   env.Prepend(CPPPATH='$PREFIX/include')
   env.Prepend(LIBPATH='$PREFIX/lib')

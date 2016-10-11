@@ -384,36 +384,61 @@
 #include <clang/Tooling/ReplacementsYaml.h>
 #include <clang/Tooling/Tooling.h>
 
+#if defined WIN32 || defined _WIN32 || defined __CYGWIN__
+  #ifdef BUILD_LIBCLANGLITE
+    #ifdef __GNUC__
+      #define CLANGLITE_API __attribute__ ((dllexport))
+    #else
+      #define CLANGLITE_API __declspec(dllexport)
+    #endif
+  #else
+    #ifdef __GNUC__
+      #define CLANGLITE_API __attribute__ ((dllimport))
+    #else
+      #define CLANGLITE_API __declspec(dllimport)
+    #endif
+  #endif
+  #define DLL_LOCAL
+#else
+  #if __GNUC__ >= 4
+    #define CLANGLITE_API __attribute__ ((visibility ("default")))
+    #define CLANGLITE_API  __attribute__ ((visibility ("hidden")))
+  #else
+    #define CLANGLITE_API
+    #define CLANGLITE_API
+  #endif
+#endif
+
 namespace clanglite
 {
-    clang::ASTUnit* build_ast_from_code_with_args(boost::python::object _code, boost::python::object _args);
+    CLANGLITE_API clang::ASTUnit* build_ast_from_code_with_args(boost::python::object _code, boost::python::object _args);
 
-    boost::python::str get_comment(clang::Decl* decl);
+    CLANGLITE_API boost::python::str get_comment(clang::Decl* decl);
 
-    boost::python::list get_children(clang::ASTUnit& ast);
-    boost::python::list get_children(clang::DeclContext& decl);
-    boost::python::list get_children(clang::ClassTemplateDecl& cls);
-    boost::python::list get_children(clang::FunctionDecl& cls);
+    CLANGLITE_API boost::python::list get_children(clang::ASTUnit& ast);
+    CLANGLITE_API boost::python::list get_children(clang::DeclContext& decl);
+    CLANGLITE_API boost::python::list get_children(clang::ClassTemplateDecl& cls);
+    CLANGLITE_API boost::python::list get_children(clang::FunctionDecl& cls);
 
-    clang::TemplateArgumentList* get_template_args(clang::ClassTemplateSpecializationDecl& cls);
+    CLANGLITE_API clang::TemplateArgumentList* get_template_args(clang::ClassTemplateSpecializationDecl& cls);
     
-    boost::python::list get_constructors(clang::CXXRecordDecl& decl);
+    CLANGLITE_API boost::python::list get_constructors(clang::CXXRecordDecl& decl);
 
-    boost::python::list get_bases(clang::CXXRecordDecl& decl);
-    boost::python::list get_virtual_bases(clang::CXXRecordDecl& decl);
+    CLANGLITE_API boost::python::list get_bases(clang::CXXRecordDecl& decl);
+    CLANGLITE_API boost::python::list get_virtual_bases(clang::CXXRecordDecl& decl);
 
-    clang::TranslationUnitDecl * as_translation_unit(clang::DeclContext * decl);
-    clang::NamespaceDecl * as_namespace(clang::DeclContext * decl);
-    clang::RecordDecl * as_record(clang::DeclContext * decl);
-    clang::EnumDecl * as_enum(clang::DeclContext * decl);
+    CLANGLITE_API clang::TranslationUnitDecl * as_translation_unit(clang::DeclContext * decl);
+    CLANGLITE_API clang::NamespaceDecl * as_namespace(clang::DeclContext * decl);
+    CLANGLITE_API clang::RecordDecl * as_record(clang::DeclContext * decl);
+    CLANGLITE_API clang::EnumDecl * as_enum(clang::DeclContext * decl);
 
-    boost::python::str get_name(clang::NamedDecl * decl);
-    boost::python::str get_name(clang::ClassTemplateSpecializationDecl * decl);
-    boost::python::str get_name(clang::TemplateArgument* ta);
+    CLANGLITE_API boost::python::str get_name(clang::NamedDecl * decl);
+    CLANGLITE_API boost::python::str get_name(clang::ClassTemplateSpecializationDecl * decl);
+    CLANGLITE_API boost::python::str get_name(clang::TemplateArgument* ta);
 
-    boost::python::str str(clang::StringRef* sref);
+    CLANGLITE_API boost::python::str str(clang::StringRef* sref);
 
-    boost::python::str get_mangling(clang::FunctionDecl * decl);
+    CLANGLITE_API boost::python::str get_mangling(clang::FunctionDecl * decl);
 }
 
 #endif
