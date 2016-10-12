@@ -40,9 +40,9 @@ requirements:
     - cmake
     - zlib
     - m2w64-xz         # [py27 and win]
-    - libllvm
+    - libllvm *{{TOOLCHAIN}}
   run:
-    - libllvm
+    - libllvm *{{TOOLCHAIN}}
     
 test:
   commands:
