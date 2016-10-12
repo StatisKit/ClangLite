@@ -17,3 +17,5 @@ rm -rf toolchain
 for BUILD_TARGET in $BUILD_TARGETS; do
   conda build $BUILD_TARGET -c statiskit -c conda-forge
 done
+
+rm -rf PyClangLite
