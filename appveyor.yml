@@ -3,10 +3,10 @@ platform:
 
 environment:
   matrix:
-   # - BUILD_TARGETS: libllvm
-   #   MINICONDA: "2"
-   # - BUILD_TARGETS: libclang
-   #   MINICONDA: "2"
+    - BUILD_TARGETS: libllvm
+      MINICONDA: "3"
+    - BUILD_TARGETS: libclang
+      MINICONDA: "3"
     - BUILD_TARGETS: libclanglite
       MINICONDA: "3"
     - BUILD_TARGETS: python-clanglite
