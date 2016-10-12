@@ -36,7 +36,7 @@ about:
 
 requirements:
   build:
-    - libclang
+    #- libclang
     - libboost
     - python-scons # [not win]
     - pyyaml
