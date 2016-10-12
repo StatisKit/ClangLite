@@ -7,11 +7,11 @@ set BUILD_CONFIG=Release
 
 :: Configure step
 if "%ARCH%"=="32" (
-     set CMAKE_GENERATOR=Visual Studio 14 2015
+     set CMAKE_GENERATOR=Visual Studio 12 2013
 ) else (
-     set CMAKE_GENERATOR=Visual Studio 14 2015 Win64
+     set CMAKE_GENERATORVisual Studio 12 2013 Win64
 )
-set CMAKE_GENERATOR_TOOLSET=v140_xp
+set CMAKE_GENERATOR_TOOLSET=v120_xp
 :: set CMAKE_GENERATOR=MinGW Makefiles
 
 :: Reduce build times and package size by removing unused stuff
