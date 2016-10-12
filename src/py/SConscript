@@ -19,7 +19,7 @@ if pyenv['TOOLCHAIN'].startswith('gnu'):
         #pyenv.AppendUnique(CXXFLAGS = ['-include' + header[0].target_from_source('', '.h').abspath ])
 
 targets = list(itertools.chain(*[pyenv.SharedObject(None, source) for source in pyenv.Glob('*.cpp')]))
-if len(header) == 1:
+if pyenv['TOOLCHAIN'].startswith('gnu') and len(header) == 1:
     pyenv.Depends(targets, cmd)
 
 source = pyenv.File('response_file.rsp')
