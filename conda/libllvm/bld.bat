@@ -9,7 +9,7 @@ set BUILD_CONFIG=Release
 if "%ARCH%"=="32" (
      set CMAKE_GENERATOR=Visual Studio 12 2013
 ) else (
-     set CMAKE_GENERATORVisual Studio 12 2013 Win64
+     set CMAKE_GENERATOR=Visual Studio 12 2013 Win64
 )
 set CMAKE_GENERATOR_TOOLSET=v120_xp
 :: set CMAKE_GENERATOR=MinGW Makefiles
