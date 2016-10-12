@@ -33,8 +33,10 @@ pyenv.AppendUnique(LIBS = ['clanglite'])
 
 kwargs = dict()
 
-print 'OS:', operating_system
-print 'platform:', platform
+print('OS:')
+print(operating_system)
+print('platform:')
+print(platform)
 
 if operating_system == 'nt':
     kwargs['SHLIBSUFFIX'] = '.pyd'
