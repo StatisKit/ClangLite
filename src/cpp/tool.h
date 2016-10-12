@@ -402,9 +402,7 @@
 #else
   #if __GNUC__ >= 4
     #define CLANGLITE_API __attribute__ ((visibility ("default")))
-    #define CLANGLITE_API  __attribute__ ((visibility ("hidden")))
   #else
-    #define CLANGLITE_API
     #define CLANGLITE_API
   #endif
 #endif
