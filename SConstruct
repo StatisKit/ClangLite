@@ -47,7 +47,6 @@ else:
 variables.Update(env)
 
 if env['TOOLCHAIN'].startswith('vc'):
-  env['MSVC_VERSION'] = int(env['TOOLCHAIN'].lstrip('vc'))
   if 8 <= env['MSVS_VERSION'] < 10:
     env['LINKCOM'] = [env['LINKCOM'], 'mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;1']
     env['SHLINKCOM'] = [env['SHLINKCOM'], 'mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;2']
