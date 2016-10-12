@@ -46,7 +46,7 @@ else:
 variables.Update(env)
 
 if env['TOOLCHAIN'].startswith('vc'):
-  if 8 <= int(env['MSVS_VERSION']) < 10:
+  if 8 <= int(float(env['MSVS_VERSION'])) < 10:
     env['LINKCOM'] = [env['LINKCOM'], 'mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;1']
     env['SHLINKCOM'] = [env['SHLINKCOM'], 'mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;2']
   CCFLAGS = []
