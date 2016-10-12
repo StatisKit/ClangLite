@@ -162,12 +162,12 @@ env.AppendUnique(LIBS=['clangIndex',
 
 process = subprocess.Popen(['llvm-config', '--libs'], stdout=subprocess.PIPE)
 out, err = process.communicate()
-env.AppendUnique(LIBS=[lib.strip() for lib in out.strip().split('-l') if lib])
+env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split('-l') if lib])
 
 
 process = subprocess.Popen(['llvm-config', '--system-libs'], stdout=subprocess.PIPE)
 out, err = process.communicate()
-env.AppendUnique(LIBS=[lib.strip() for lib in out.strip().split('-l') if lib])
+env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split('-l') if lib])
 
 VariantDir('build', 'src')
 SConscript(os.path.join('build', 'cpp', 'SConscript'), exports="env")
