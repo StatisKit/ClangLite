@@ -7,8 +7,8 @@ environment:
     #   MINICONDA: "3"
     # - BUILD_TARGETS: libclang
     #   MINICONDA: "3"
-    # - BUILD_TARGETS: libclanglite
-    #   MINICONDA: "3"
+    - BUILD_TARGETS: libclanglite
+      MINICONDA: "3"
     - BUILD_TARGETS: python-clanglite
       MINICONDA: "3"
 
