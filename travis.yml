@@ -51,6 +51,8 @@ install:
 script:
   - cd conda
   - sed -i'' -e '8,10d' build.sh
+  - sed -i'' -e '$ d' build.sh
+  - more build.sh
   - bash build.sh
   - cd ..
   
