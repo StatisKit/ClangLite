@@ -4,26 +4,42 @@ import os
 import subprocess
 import sys
 
-AddOption('--toolchain',
-  dest='toolchain',
-  type='string',
-  nargs=1,
-  action='store',
-  help='toolchain to use')
-
+# Options
+if os.path.exists('.options.pkl'):
+  with open('.options.pkl', 'r') as filehandler:
+    defaults = pickle.load(filehandler)
+  AddOption('--toolchain',
+            dest    = 'toolchain',
+            type    = 'string',
+            nargs   = 1,
+            action  = 'store',
+            help    = 'toolchain to use',
+            default = defaults['toolchain'])
+else:
+  AddOption('--toolchain',
+            dest   = 'toolchain',
+            type   = 'string',
+            nargs  = 1,
+            action = 'store',
+            help   = 'toolchain to use')
+  defaults = dict(prefix = sys.prefix)
+  
 AddOption('--prefix',
-  dest='prefix',
-  type='string',
-  nargs=1,
-  action='store',
-  metavar='DIR',
-  help='installation prefix',
-  default=sys.prefix)
+          dest    = 'prefix',
+          type    = 'string',
+          nargs   = 1,
+          action  = 'store',
+          metavar = 'DIR',
+          help    = 'installation prefix',
+          default = defaults['prefix']) 
 
-SConsignFile()
+defaults['toolchain'] = GetOption('toolchain')
+defaults['prefix'] = GetOption('prefix')
+with open('.options.pkl', 'w') as filehandler:
+  pickle.dump(defaults, filehandler)
 
-# Compiler
-variables = Variables()
+# Variables
+variables = Variables(".variables.py", ARGUMENTS)
 
 variables.Add(BoolVariable('debug', 
                      'compilation in a debug mode',
@@ -35,6 +51,10 @@ variables.Add(BoolVariable('static',
                       '',
                       False))
 
+# SConsign
+SConsignFile()
+
+# Environement
 TOOLCHAIN = GetOption('toolchain')
 if TOOLCHAIN.startswith('vc'):
   MSVC_VERSION = TOOLCHAIN.lstrip('vc')
@@ -44,6 +64,7 @@ if TOOLCHAIN.startswith('vc'):
 else:
   env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = TOOLCHAIN)  
 variables.Update(env)
+variables.Save('.variables.py', env)
 
 if env['TOOLCHAIN'].startswith('vc'):
   if 8 <= int(float(env['MSVS_VERSION'])) < 10:
@@ -102,6 +123,7 @@ else:
   env.Prepend(CPPPATH='$PREFIX/include')
   env.Prepend(LIBPATH='$PREFIX/lib')
 
+# Custom
 if not env['TOOLCHAIN'].startswith('vc'):
     env.AppendUnique(CXXFLAGS=['-std=c++0x',
                                '-fvisibility-inlines-hidden',
