@@ -106,13 +106,14 @@ else:
 
 from distutils import sysconfig
 if sysconfig.get_python_inc():
-  env.AppendUnique(CPPPATH=[sysconfig.get_python_inc()])
+  pyinc = sysconfig.get_python_inc()
+  env.AppendUnique(CPPPATH=[pyinc])
 if env['TOOLCHAIN'].startswith('vc'):
   env.AppendUnique(LIBS = ['boost_python',
-                           'python' + sysconfig.get_python_version().replace('.', '')])
+                           'python' + sysconfig.get_python_version()])
 else:
   env.AppendUnique(LIBS = ['boost_python',
-                           'python' + sysconfig.get_python_version()])
+                           pyinc.split(os.sep)[-1]])
   env.AppendUnique(LIBPATH=[sysconfig.get_config_var('LIBDIR')])
 env.AppendUnique(CPPDEFINES = ['BOOST_PYTHON_DYNAMIC_LIB', 'BOOST_ALL_NO_LIB'])
   
