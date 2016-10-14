@@ -3,6 +3,7 @@
 import os
 import subprocess
 import sys
+import pickle
 
 # Options
 if os.path.exists('.options.pkl'):
