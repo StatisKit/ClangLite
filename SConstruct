@@ -7,7 +7,7 @@ import pickle
 
 # Options
 if os.path.exists('.options.pkl'):
-  with open('.options.pkl', 'r') as filehandler:
+  with open('.options.pkl', 'rb') as filehandler:
     defaults = pickle.load(filehandler)
   AddOption('--toolchain',
             dest    = 'toolchain',
