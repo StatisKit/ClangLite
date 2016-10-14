@@ -36,7 +36,7 @@ AddOption('--prefix',
 
 defaults['toolchain'] = GetOption('toolchain')
 defaults['prefix'] = GetOption('prefix')
-with open('.options.pkl', 'w') as filehandler:
+with open('.options.pkl', 'wb') as filehandler:
   pickle.dump(defaults, filehandler)
 
 # Variables
