@@ -3,7 +3,6 @@ platform:
 
 environment:
   matrix:
-<<<<<<< HEAD
     - BUILD_TARGETS: libllvm
       MINICONDA: "3"
     - BUILD_TARGETS: libclang
