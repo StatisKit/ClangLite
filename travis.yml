@@ -50,12 +50,11 @@ install:
 
 script:
   - cd conda
-  - sed -i'' -e '8,10d' build.sh
   - bash build.sh
   - cd ..
   
 after_success:
-  - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]] && [[ ! -z $ANACONDA_USERNAME ]] && [[ ! -z $ANACONDA_PASSWORD ]]; then
+  - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]] && [[ ! -z $ANACONDA_USERNAME ]]; then
       cd conda;
       bash upload.sh;
       cd ..;

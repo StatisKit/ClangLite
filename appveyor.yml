@@ -3,8 +3,8 @@ platform:
 
 environment:
   matrix:
-    # - BUILD_TARGETS: libllvm
-    #   MINICONDA: "3"
+    - BUILD_TARGETS: libllvm
+      MINICONDA: "3"
     - BUILD_TARGETS: libclang
       MINICONDA: "3"
     - BUILD_TARGETS: libclanglite
@@ -20,13 +20,10 @@ install:
   
 build_script:
   - cd conda
-  - more +8 "bld.bat" >> tmp.bat
-  - del bld.bat
-  - more tmp.bat >> bld.bat
   - '%CMD_IN_ENV% call bld.bat'
   - cd ..
   
 on_success:
   - cd conda
-  - if "%APPVEYOR_REPO_BRANCH%"=="master" if not "%ANACONDA_USERNAME%"=="" if not "%ANACONDA_PASSWORD%"=="" call upload.bat
+  - if "%APPVEYOR_REPO_BRANCH%"=="master" if "%APPVEYOR_PULL_REQUEST_NUMBER"="" if not "%ANACONDA_USERNAME%"=="" call upload.bat
   - cd ..
