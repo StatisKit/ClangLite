@@ -50,6 +50,7 @@ matrix:
     - os: osx  
     
 install:
+  - ls -R $CONDA_CACHE_DIR
   - git clone https://gist.github.com/319558c83d145620a6d4decdcadfbfb0.git config-travis
   - cd config-travis
   - source config.sh
@@ -62,7 +63,7 @@ script:
   - cd conda
   - bash build.sh
   - cd ..
-  
+
 after_success:
   - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]] && [[ ! -z $ANACONDA_USERNAME ]]; then
       cd conda;
