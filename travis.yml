@@ -57,7 +57,7 @@ install:
 
 script:
   - if [[ ! "$TRAVIS_PULL_REQUEST" = "false" ]]; then
-      ANACONDA_CHANNEL = file://$CONDA_CACHE_DIR;
+      export ANACONDA_CHANNEL=file://$CONDA_CACHE_DIR;
     fi
   - cd conda
   - bash build.sh
