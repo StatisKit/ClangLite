@@ -56,17 +56,16 @@ install:
   - cd ..
 
 script:
+  - if [[ ! "$TRAVIS_PULL_REQUEST" = "false" ]]; then
+      ANACONDA_CHANNEL = file://$CONDA_CACHE_DIR;
+    fi
   - cd conda
   - bash build.sh
   - cd ..
   
 after_success:
-  - ls $HOME/.cache
-  - touch $HOME/.cache/$TRAVIS_JOB_NUMBER.txt
   - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]] && [[ ! -z $ANACONDA_USERNAME ]]; then
       cd conda;
       bash upload.sh;
       cd ..;
     fi
-  - ls $HOME/.cache
-
