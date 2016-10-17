@@ -2,7 +2,7 @@ platform:
   - x64
 
 environment:
-  CONDA_CACHE_DIR: %SystemDrive%\cache
+  CONDA_CACHE_DIR: '%SystemDrive%\cache'
   matrix:
     - BUILD_TARGETS: libllvm
       MINICONDA: "3"
@@ -14,7 +14,7 @@ environment:
       MINICONDA: "3"
 
 cache:
-  - %CONDA_CACHE_DIR%
+  - '%CONDA_CACHE_DIR%'
 
 install:
   - git clone https://gist.github.com/a08b6eb1c97fad864de50601d70008c8.git config-appveyor
