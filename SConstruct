@@ -3,27 +3,44 @@
 import os
 import subprocess
 import sys
+import pickle
 
-AddOption('--toolchain',
-  dest='toolchain',
-  type='string',
-  nargs=1,
-  action='store',
-  help='toolchain to use')
-
+# Options
+if os.path.exists('.options.pkl'):
+  with open('.options.pkl', 'rb') as filehandler:
+    defaults = pickle.load(filehandler)
+  AddOption('--toolchain',
+            dest    = 'toolchain',
+            type    = 'string',
+            nargs   = 1,
+            action  = 'store',
+            help    = 'toolchain to use',
+            default = defaults['toolchain'])
+else:
+  AddOption('--toolchain',
+            dest   = 'toolchain',
+            type   = 'string',
+            nargs  = 1,
+            action = 'store',
+            help   = 'toolchain to use')
+  defaults = dict(prefix = sys.prefix)
+  
 AddOption('--prefix',
-  dest='prefix',
-  type='string',
-  nargs=1,
-  action='store',
-  metavar='DIR',
-  help='installation prefix',
-  default=sys.prefix)
+          dest    = 'prefix',
+          type    = 'string',
+          nargs   = 1,
+          action  = 'store',
+          metavar = 'DIR',
+          help    = 'installation prefix',
+          default = defaults['prefix']) 
 
-SConsignFile()
+defaults['toolchain'] = GetOption('toolchain')
+defaults['prefix'] = GetOption('prefix')
+with open('.options.pkl', 'wb') as filehandler:
+  pickle.dump(defaults, filehandler)
 
-# Compiler
-variables = Variables()
+# Variables
+variables = Variables(".variables.py", ARGUMENTS)
 
 variables.Add(BoolVariable('debug', 
                      'compilation in a debug mode',
@@ -35,6 +52,10 @@ variables.Add(BoolVariable('static',
                       '',
                       False))
 
+# SConsign
+SConsignFile()
+
+# Environement
 TOOLCHAIN = GetOption('toolchain')
 if TOOLCHAIN.startswith('vc'):
   MSVC_VERSION = TOOLCHAIN.lstrip('vc')
@@ -44,10 +65,10 @@ if TOOLCHAIN.startswith('vc'):
 else:
   env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = TOOLCHAIN)  
 variables.Update(env)
+variables.Save('.variables.py', env)
 
 if env['TOOLCHAIN'].startswith('vc'):
-  env['MSVC_VERSION'] = int(env['TOOLCHAIN'].lstrip('vc'))
-  if 8 <= env['MSVS_VERSION'] < 10:
+  if 8 <= int(float(env['MSVS_VERSION'])) < 10:
     env['LINKCOM'] = [env['LINKCOM'], 'mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;1']
     env['SHLINKCOM'] = [env['SHLINKCOM'], 'mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;2']
   CCFLAGS = []
@@ -85,13 +106,14 @@ else:
 
 from distutils import sysconfig
 if sysconfig.get_python_inc():
-  env.AppendUnique(CPPPATH=[sysconfig.get_python_inc()])
+  pyinc = sysconfig.get_python_inc()
+  env.AppendUnique(CPPPATH=[pyinc])
 if env['TOOLCHAIN'].startswith('vc'):
   env.AppendUnique(LIBS = ['boost_python',
-                           'python' + sysconfig.get_python_version().replace('.', '')])
+                           'python' + sysconfig.get_python_version()])
 else:
   env.AppendUnique(LIBS = ['boost_python',
-                           'python' + sysconfig.get_python_version()])
+                           pyinc.split(os.sep)[-1]])
   env.AppendUnique(LIBPATH=[sysconfig.get_config_var('LIBDIR')])
 env.AppendUnique(CPPDEFINES = ['BOOST_PYTHON_DYNAMIC_LIB', 'BOOST_ALL_NO_LIB'])
   
@@ -103,6 +125,7 @@ else:
   env.Prepend(CPPPATH='$PREFIX/include')
   env.Prepend(LIBPATH='$PREFIX/lib')
 
+# Custom
 if not env['TOOLCHAIN'].startswith('vc'):
     env.AppendUnique(CXXFLAGS=['-std=c++0x',
                                '-fvisibility-inlines-hidden',
@@ -163,12 +186,12 @@ env.AppendUnique(LIBS=['clangIndex',
 
 process = subprocess.Popen(['llvm-config', '--libs'], stdout=subprocess.PIPE)
 out, err = process.communicate()
-env.AppendUnique(LIBS=[lib.strip() for lib in out.strip().split('-l') if lib])
+env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split('-l') if lib])
 
 
 process = subprocess.Popen(['llvm-config', '--system-libs'], stdout=subprocess.PIPE)
 out, err = process.communicate()
-env.AppendUnique(LIBS=[lib.strip() for lib in out.strip().split('-l') if lib])
+env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split('-l') if lib])
 
 VariantDir('build', 'src')
 SConscript(os.path.join('build', 'cpp', 'SConscript'), exports="env")
