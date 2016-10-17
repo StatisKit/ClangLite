@@ -54,16 +54,13 @@ install:
 
 script:
   - cd conda
-  - sed -i'' -e '8,10d' build.sh
-  - sed -i'' -e '$ d' build.sh
-  - more build.sh
   - bash build.sh
   - cd ..
   
 after_success:
   - ls $HOME/.cache
   - touch $HOME/.cache/$TRAVIS_JOB_NUMBER.txt
-  - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]] && [[ ! -z $ANACONDA_USERNAME ]] && [[ ! -z $ANACONDA_PASSWORD ]]; then
+  - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]] && [[ ! -z $ANACONDA_USERNAME ]]; then
       cd conda;
       bash upload.sh;
       cd ..;
