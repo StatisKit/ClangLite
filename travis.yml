@@ -15,11 +15,14 @@
 ##################################################################################
 
 language: cpp
-
+  
+env:
+  - CONDA_CACHE_DIR=$HOME"/.cache"
+  
 cache:
   directories:
-    - $HOME/.cache
-  
+    - $CONDA_CACHE_DIR
+    
 matrix:
   include:
     - os: linux
