@@ -23,7 +23,7 @@ install:
   - cd ..
   
 build_script:
-  - if not "%APPVEYOR_PULL_REQUEST_NUMBER"== "" set ANACONDA_CHANNEL=file://$CONDA_CACHE_DIR
+  - if not "%APPVEYOR_PULL_REQUEST_NUMBER"== "" set ANACONDA_CHANNEL=file://%CONDA_CACHE_DIR%
   - cd conda
   - '%CMD_IN_ENV% call bld.bat'
   - cd ..
