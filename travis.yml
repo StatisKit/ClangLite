@@ -17,7 +17,7 @@
 language: cpp
   
 env:
-  - CONDA_CACHE_DIR=$HOME"/.cache"
+  global: CONDA_CACHE_DIR=$HOME"/.cache"
   
 cache:
   directories:
