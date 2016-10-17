@@ -16,6 +16,10 @@
 
 language: cpp
 
+cache:
+  directories:
+    - $HOME/.cache
+  
 matrix:
   include:
     - os: linux
@@ -57,8 +61,12 @@ script:
   - cd ..
   
 after_success:
+  - ls $HOME/.cache
+  - touch $HOME/.cache/$TRAVIS_JOB_NUMBER.txt
   - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]] && [[ ! -z $ANACONDA_USERNAME ]] && [[ ! -z $ANACONDA_PASSWORD ]]; then
       cd conda;
       bash upload.sh;
       cd ..;
     fi
+  - ls $HOME/.cache
+
