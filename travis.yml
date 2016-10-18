@@ -25,15 +25,11 @@ cache:
     - $CONDA_CACHE_DIR
   
 before_cache:
-  - rm -rf $CONDA_CACHE_DIR/pip
-  - rm -rf $CONDA_CACHE_DIR/heroku
-  - rm -rf $CONDA_CACHE_DIR/motd.legal-displayed
-  - rm -rf $CONDA_CACHE_DIR/composer
-  - rm -rf $CONDA_CACHE_DIR/mozilla
-  - rm -rf $CONDA_CACHE_DIR/svn_cache
-  - rm -rf $CONDA_CACHE_DIR/hg_cache
-  - rm -rf $CONDA_CACHE_DIR/git_cache
-  - rm -rf $CONDA_CACHE_DIR/src_cache
+  - for $UNCACHED_DIR in "pip heroku motd.legal-displayed composer mozilla svn_cache hg_cache git_cache src_cache"; do
+      if [[ -d "$CONDA_CACHE_DIR/$UNCACHED_DIR" ]]; then
+        rm -rf $CONDA_CACHE_DIR/$UNCACHED_DIR;
+      fi
+    done
 
 matrix:
   include:
