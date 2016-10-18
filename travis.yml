@@ -23,7 +23,8 @@ env:
   
 cache:
   directories:
-    - $CONDA_CACHE_DIR
+    - $CONDA_CACHE_DIR/linux-64
+    - $CONDA_CACHE_DIR/osx-64
     
 matrix:
   include:
