@@ -23,9 +23,11 @@ env:
   
 cache:
   directories:
-    - $CONDA_CACHE_DIR/linux-64
-    - $CONDA_CACHE_DIR/osx-64
-    
+    - $CONDA_CACHE_DIR
+  
+before_cache:
+  - rm -rf $CONDA_CACHE_DIR/pip
+  
 matrix:
   include:
     - os: linux
@@ -54,7 +56,7 @@ matrix:
     
 install:
   - ls $CONDA_CACHE_DIR
-  - ls $CONDA_CACHE_DIR/linux-64
+  #- ls $CONDA_CACHE_DIR/linux-64
   - git clone https://gist.github.com/319558c83d145620a6d4decdcadfbfb0.git config-travis
   - cd config-travis
   - source config.sh
