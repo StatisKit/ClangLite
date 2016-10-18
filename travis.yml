@@ -72,9 +72,6 @@ script:
     elif [[ "$TRAVIS_JOB_NUMBER" = "$TRAVIS_BUILD_NUMBER.3" ]]; then
       export BUILD_TARGETS="libclanglite python-clanglite";
     fi
-  - if [[ ! "$TRAVIS_PULL_REQUEST" = "false" ]]; then
-      export ANACONDA_CHANNEL=file:/$CONDA_CACHE_DIR;
-    fi
   - cd conda
   - bash build.sh
   - cd ..
