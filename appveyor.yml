@@ -2,7 +2,7 @@ platform:
   - x64
 
 environment:
-  CONDA_CACHE_DIR: '%SystemDrive%\cache'
+  CONDA_CACHE_DIR: '%APPVEYOR_BUILD_FOLDER%\cache'
   matrix:
     - BUILD_TARGETS: libllvm
       MINICONDA: "3"
@@ -14,7 +14,7 @@ environment:
       MINICONDA: "3"
 
 cache:
-  - C:\cache
+  - cache
   #- '%CONDA_CACHE_DIR%'
 
 install:
