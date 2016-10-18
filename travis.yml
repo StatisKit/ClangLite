@@ -53,11 +53,13 @@ matrix:
     - os: osx  
     
 install:
+  - ls $CONDA_CACHE_DIR
   - ls $CONDA_CACHE_DIR/linux-64
   - git clone https://gist.github.com/319558c83d145620a6d4decdcadfbfb0.git config-travis
   - cd config-travis
   - source config.sh
   - cd ..
+  - ls $CONDA_CACHE_DIR
   - ls $CONDA_CACHE_DIR/linux-64
 
 
@@ -68,6 +70,7 @@ script:
   - cd conda
   - timeout $TIMEOUT bash build.sh
   - cd ..
+  - ls $CONDA_CACHE_DIR
   - ls $CONDA_CACHE_DIR/linux-64
 
 after_success:
