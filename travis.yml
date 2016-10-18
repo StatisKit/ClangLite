@@ -19,7 +19,7 @@ language: cpp
 env:
   global:
    - CONDA_CACHE_DIR=$HOME/.cache
-   - TIMEOUT=5
+   - TIMEOUT=2400
   
 cache:
   directories:
