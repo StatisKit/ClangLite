@@ -17,35 +17,31 @@
 language: cpp
   
 env:
-  global: CONDA_CACHE_DIR=$HOME/.cache
+  global:
+   - CONDA_CACHE_DIR=$HOME/.cache
   
 cache:
   directories:
     - $CONDA_CACHE_DIR
-    
+  
+before_cache:
+  - for $UNCACHED_DIR in "pip heroku motd.legal-displayed composer mozilla svn_cache hg_cache git_cache src_cache"; do
+      if [[ -d "$CONDA_CACHE_DIR/$UNCACHED_DIR" ]]; then
+        rm -rf $CONDA_CACHE_DIR/$UNCACHED_DIR;
+      fi
+    done
+
 matrix:
   include:
     - os: linux
       dist: trusty
       sudo: required
-      env: BUILD_TARGETS="libllvm"
     - os: linux
       dist: trusty
       sudo: required
-      env: BUILD_TARGETS="libclang"
     - os: linux
       dist: trusty
       sudo: required
-      env: BUILD_TARGETS="libclanglite python-clanglite"
-    - os: osx
-      osx_image: xcode7.2
-      env: BUILD_TARGETS="libllvm"
-    - os: osx
-      osx_image: xcode7.2
-      env: BUILD_TARGETS="libclang"
-    - os: osx
-      osx_image: xcode7.2
-      env: BUILD_TARGETS="libclanglite python-clanglite"
   allow_failures:
     - os: osx  
     
@@ -56,17 +52,20 @@ install:
   - cd ..
 
 script:
+  - if [[ "$TRAVIS_JOB_NUMBER" = "$TRAVIS_BUILD_NUMBER.1" ]]; then
+      export BUILD_TARGETS="libllvm";
+    elif [[ "$TRAVIS_JOB_NUMBER" = "$TRAVIS_BUILD_NUMBER.2" ]]; then
+      export BUILD_TARGETS="libclang";
+    elif [[ "$TRAVIS_JOB_NUMBER" = "$TRAVIS_BUILD_NUMBER.3" ]]; then
+      export BUILD_TARGETS="libclanglite python-clanglite";
+    fi
   - cd conda
   - bash build.sh
   - cd ..
-  
+
 after_success:
-  - ls $HOME/.cache
-  - touch $HOME/.cache/$TRAVIS_JOB_NUMBER.txt
   - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]] && [[ ! -z $ANACONDA_USERNAME ]]; then
       cd conda;
       bash upload.sh;
       cd ..;
     fi
-  - ls $HOME/.cache
-
