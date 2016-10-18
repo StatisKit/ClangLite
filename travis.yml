@@ -17,7 +17,9 @@
 language: cpp
   
 env:
-  global: CONDA_CACHE_DIR=$HOME/.cache
+  global:
+   - CONDA_CACHE_DIR=$HOME/.cache
+   - TIMEOUT=5
   
 cache:
   directories:
@@ -61,7 +63,7 @@ script:
       export ANACONDA_CHANNEL=file:/$CONDA_CACHE_DIR;
     fi
   - cd conda
-  - bash build.sh
+  - bash build.sh & sleep $TIMEOUT; kill $!
   - cd ..
 
 after_success:
