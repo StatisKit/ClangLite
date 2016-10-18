@@ -17,19 +17,19 @@ cache:
   - '%CONDA_CACHE_DIR%'
 
 install:
-  - dir %CONDA_CACHE_DIR%
+  - dir %SystemDrive%\cache
   - git clone https://gist.github.com/a08b6eb1c97fad864de50601d70008c8.git config-appveyor
   - cd config-appveyor
   - call config.bat
   - cd ..
-  - dir %CONDA_CACHE_DIR%
+  - dir %SystemDrive%\cache
 
 build_script:
-  - dir %CONDA_CACHE_DIR%
+  - dir %SystemDrive%\cache
   - cd conda
   - '%CMD_IN_ENV% call bld.bat'
   - cd ..
-  - dir %CONDA_CACHE_DIR%
+  - dir %SystemDrive%\cache
   
 on_success:
   - cd conda
