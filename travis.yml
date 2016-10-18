@@ -63,7 +63,7 @@ script:
       export ANACONDA_CHANNEL=file:/$CONDA_CACHE_DIR;
     fi
   - cd conda
-  - bash build.sh & sleep $TIMEOUT; kill $!
+  - timeout $TIMEOUT bash build.sh
   - cd ..
 
 after_success:
