@@ -19,7 +19,6 @@ language: cpp
 env:
   global:
    - CONDA_CACHE_DIR=$HOME/.cache
-   - TIMEOUT=2400
   
 cache:
   directories:
@@ -27,7 +26,15 @@ cache:
   
 before_cache:
   - rm -rf $CONDA_CACHE_DIR/pip
-  
+  - rm -rf $CONDA_CACHE_DIR/heroku
+  - rm -rf $CONDA_CACHE_DIR/motd.legal-displayed
+  - rm -rf $CONDA_CACHE_DIR/composer
+  - rm -rf $CONDA_CACHE_DIR/mozilla
+  - rm -rf $CONDA_CACHE_DIR/svn_cache
+  - rm -rf $CONDA_CACHE_DIR/hg_cache
+  - rm -rf $CONDA_CACHE_DIR/git_cache
+  - rm -rf $CONDA_CACHE_DIR/src_cache
+
 matrix:
   include:
     - os: linux
@@ -52,12 +59,10 @@ matrix:
     - os: osx  
     
 install:
-  - ls $CONDA_CACHE_DIR
   - git clone https://gist.github.com/319558c83d145620a6d4decdcadfbfb0.git config-travis
   - cd config-travis
   - source config.sh
   - cd ..
-  - ls $CONDA_CACHE_DIR
 
 script:
   - if [[ "$TRAVIS_JOB_NUMBER" = "$TRAVIS_BUILD_NUMBER.1" ]]; then
@@ -71,10 +76,8 @@ script:
       export ANACONDA_CHANNEL=file:/$CONDA_CACHE_DIR;
     fi
   - cd conda
-  - timeout $TIMEOUT bash build.sh
+  - bash build.sh
   - cd ..
-  - ls $CONDA_CACHE_DIR
-  - ls $CONDA_CACHE_DIR/linux-64
 
 after_success:
   - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]] && [[ ! -z $ANACONDA_USERNAME ]]; then
