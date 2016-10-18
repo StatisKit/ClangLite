@@ -2,7 +2,6 @@ platform:
   - x64
 
 environment:
-  CONDA_CACHE_DIR: '%APPVEYOR_BUILD_FOLDER%\cache'
   matrix:
     - BUILD_TARGETS: libllvm
       MINICONDA: "3"
@@ -12,28 +11,17 @@ environment:
       MINICONDA: "3"
     - BUILD_TARGETS: python-clanglite
       MINICONDA: "3"
-
-cache:
-  - cache
-  #- '%CONDA_CACHE_DIR%'
-
-artifacts:
-  - path: cache
-    name: Cache
     
 install:
   - git clone https://gist.github.com/a08b6eb1c97fad864de50601d70008c8.git config-appveyor
   - cd config-appveyor
   - call config.bat
   - cd ..
-  - dir %CONDA_CACHE_DIR%
 
 build_script:
-  - dir %CONDA_CACHE_DIR%
   - cd conda
   - '%CMD_IN_ENV% call bld.bat'
   - cd ..
-  - dir %CONDA_CACHE_DIR%
   
 on_success:
   - cd conda
