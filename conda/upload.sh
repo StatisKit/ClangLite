@@ -9,7 +9,7 @@ else
 fi
 
 if [[ -z $ANACONDA_PASSWORD ]]; then
-  read -s -p %ANACONDA_USERNAME"'s password: " ANACONDA_PASSWORD;
+  read -s -p $ANACONDA_USERNAME"'s password: " ANACONDA_PASSWORD;
 else
   echo $ANACONDA_USERNAME"'s password: [secure]";
 fi
