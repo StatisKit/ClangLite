@@ -68,8 +68,8 @@ variables.Update(env)
 variables.Save('.variables.py', env)
 
 if env['TOOLCHAIN'].startswith('vc'):
-  env['CC'] = '"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\bin\\amd64\\cl.exe"'
-  env['LINK'] = '"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\bin\\amd64\\link.exe"'
+  env['CC'] = '"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\bin\\x86_amd64\\cl.exe"'
+  env['LINK'] = '"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\bin\\x86_amd64\\link.exe"'
   env.AppendUnique(CPPPATH=['C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include',
                             'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\ATLMFC\\include',
                             'C:\\Program Files (x86)\\Windows Kits\\10\\include\\10.0.14393.0\\ucrt',
