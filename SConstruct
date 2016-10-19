@@ -53,7 +53,7 @@ variables.Add(BoolVariable('static',
                       False))
 
 # SConsign
-SConsignFile()
+# SConsignFile()
 
 # Environement
 TOOLCHAIN = GetOption('toolchain')
