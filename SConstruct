@@ -58,25 +58,25 @@ variables.Add(BoolVariable('static',
 # Environement
 TOOLCHAIN = GetOption('toolchain')
 if TOOLCHAIN.startswith('vc'):
-  MSVC_VERSION = TOOLCHAIN.lstrip('vc')
-  if '.' not in MSVC_VERSION:
-    MSVC_VERSION += '.0'
-  env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = TOOLCHAIN, MSVC_VERSION = MSVC_VERSION)
+  MSVS_VERSION = TOOLCHAIN.lstrip('vc')
+  if '.' not in MSVS_VERSION:
+    MSVS_VERSION += '.0'
+  env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = TOOLCHAIN, MSVS_VERSION = MSVS_VERSION)
 else:
   env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = TOOLCHAIN)  
 variables.Update(env)
 variables.Save('.variables.py', env)
 
 if env['TOOLCHAIN'].startswith('vc'):
-  env['CC'] = '"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\bin\\cl.exe"'
-  env.AppendUnique(CPPPATH=['C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include',
-                            'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\ATLMFC\\include',
-                            'C:\\Program Files (x86)\\Windows Kits\\10\include\\10.0.14393.0\\ucrt',
-                            'C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.6.1\include\\um',
-                            'C:\\Program Files (x86)\\Windows Kits\\10\include\\10.0.14393.0\\shared',
-                            'C:\\Program Files (x86)\\Windows Kits\\10\include\\10.0.14393.0\\um',
-                            'C:\\Program Files (x86)\\Windows Kits\\10\include\\10.0.14393.0\\winrt'])
-  env.AppendUnique(LIBPATH=['C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\lib'])
+  #env['CC'] = '"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\bin\\cl.exe"'
+  #env.AppendUnique(CPPPATH=['C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include',
+  #                          'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\ATLMFC\\include',
+  #                          'C:\\Program Files (x86)\\Windows Kits\\10\include\\10.0.14393.0\\ucrt',
+  #                          'C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.6.1\include\\um',
+  #                          'C:\\Program Files (x86)\\Windows Kits\\10\include\\10.0.14393.0\\shared',
+  #                          'C:\\Program Files (x86)\\Windows Kits\\10\include\\10.0.14393.0\\um',
+  #                          'C:\\Program Files (x86)\\Windows Kits\\10\include\\10.0.14393.0\\winrt'])
+  #env.AppendUnique(LIBPATH=['C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\lib'])
   if 8 <= int(float(env['MSVS_VERSION'])) < 10:
     env['LINKCOM'] = [env['LINKCOM'], 'mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;1']
     env['SHLINKCOM'] = [env['SHLINKCOM'], 'mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;2']
