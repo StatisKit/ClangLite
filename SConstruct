@@ -78,10 +78,10 @@ if env['TOOLCHAIN'].startswith('vc'):
                             'C:\\Program Files (x86)\\Windows Kits\\10\include\\10.0.14393.0\\um',
                             'C:\\Program Files (x86)\\Windows Kits\\10\include\\10.0.14393.0\\winrt'])
   env.AppendUnique(LIBPATH=['C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\lib\\amd64',
-                            'C:\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\ATLMFC\\LIB\\amd64',
-                            'C:\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.14393.0\\ucrt\\x64',
-                            'C:\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.6.1\\lib\\um\\x64',
-                            'C:\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.14393.0\\um\\x64'])
+                            'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\ATLMFC\\LIB\\amd64',
+                            'C:\\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.14393.0\\ucrt\\x64',
+                            'C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.6.1\\lib\\um\\x64',
+                            'C:\\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.14393.0\\um\\x64'])
   if 8 <= int(float(env['MSVS_VERSION'])) < 10:
     env['LINKCOM'] = [env['LINKCOM'], 'mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;1']
     env['SHLINKCOM'] = [env['SHLINKCOM'], 'mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;2']
@@ -206,8 +206,6 @@ env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').stri
 process = subprocess.Popen(['llvm-config', '--system-libs'], stdout=subprocess.PIPE)
 out, err = process.communicate()
 env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split('-l') if lib])
-
-print(env.Dump())
 
 VariantDir('build', 'src')
 SConscript(os.path.join('build', 'cpp', 'SConscript'), exports="env")
