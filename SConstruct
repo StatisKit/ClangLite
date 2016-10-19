@@ -193,6 +193,8 @@ process = subprocess.Popen(['llvm-config', '--system-libs'], stdout=subprocess.P
 out, err = process.communicate()
 env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split('-l') if lib])
 
+print(env.Dump())
+
 VariantDir('build', 'src')
 SConscript(os.path.join('build', 'cpp', 'SConscript'), exports="env")
 SConscript(os.path.join('build', 'py', 'SConscript'), exports="env")
