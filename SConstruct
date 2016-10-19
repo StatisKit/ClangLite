@@ -72,12 +72,12 @@ if env['TOOLCHAIN'].startswith('vc'):
   env['LINK'] = '"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\bin\\amd64\\link.exe"'
   env.AppendUnique(CPPPATH=['C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include',
                             'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\ATLMFC\\include',
-                            'C:\\Program Files (x86)\\Windows Kits\\10\include\\10.0.14393.0\\ucrt',
-                            'C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.6.1\include\\um',
+                            'C:\\Program Files (x86)\\Windows Kits\\10\\include\\10.0.14393.0\\ucrt',
+                            'C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.6.1\\include\\um',
                             'C:\\Program Files (x86)\\Windows Kits\\10\\include\\10.0.14393.0\\shared',
                             'C:\\Program Files (x86)\\Windows Kits\\10\\include\\10.0.14393.0\\um',
                             'C:\\Program Files (x86)\\Windows Kits\\10\\include\\10.0.14393.0\\winrt'])
-  #env.AppendUnique(LIBPATH=['C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\lib\\amd64',
+  env.AppendUnique(LIBPATH=['C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\lib\\amd64']#,
   #                          'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\ATLMFC\\LIB\\amd64',
   #                          'C:\\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.14393.0\\ucrt\\x64',
   #                          'C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.6.1\\lib\\um\\x64',
