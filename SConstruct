@@ -61,7 +61,7 @@ if TOOLCHAIN.startswith('vc'):
   MSVS_VERSION = TOOLCHAIN.lstrip('vc')
   if '.' not in MSVS_VERSION:
     MSVS_VERSION += '.0'
-  env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = TOOLCHAIN, MSVS_VERSION = MSVS_VERSION)
+  env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = TOOLCHAIN, MSVS_VERSION = MSVS_VERSION, MSVS_ARCH='x64')
 else:
   env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = TOOLCHAIN)  
 variables.Update(env)
