@@ -68,6 +68,7 @@ variables.Update(env)
 variables.Save('.variables.py', env)
 
 if env['TOOLCHAIN'].startswith('vc'):
+  env['CC'] = 'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\bin\\cl.exe'
   if 8 <= int(float(env['MSVS_VERSION'])) < 10:
     env['LINKCOM'] = [env['LINKCOM'], 'mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;1']
     env['SHLINKCOM'] = [env['SHLINKCOM'], 'mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;2']
