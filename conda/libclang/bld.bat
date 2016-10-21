@@ -1,3 +1,5 @@
+rmdir bindings /s /Q
+if errorlevel 1 exit 1
 mkdir build_clang
 if errorlevel 1 exit 1
 cd build_clang
