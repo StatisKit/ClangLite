@@ -55,7 +55,7 @@ cd ..
 rmdir toolchain /s /q
 
 for %%x in (%UPLOAD_TARGETS%) do (
-  for /f %%i in ('conda build %%x -c %ANACONDA_CHANNEL% %ANACONDA_FLAGS% --output') do anaconda upload --user %ANACONDA_CHANNEL% %%i
+  for /f %%i in ('conda build %%x -c %ANACONDA_CHANNEL% %ANACONDA_FLAGS% --output') do anaconda upload --user %ANACONDA_CHANNEL% %%i %ANACONDA_UPLOAD_OPTIONS%
 )
 
 anaconda logout
