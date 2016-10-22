@@ -3,9 +3,9 @@ platform:
 
 environment:
   matrix:
-    - BUILD_TARGETS: libllvm
+    - ANACONDA_BUILD_RECIPES: libllvm
       MINICONDA: "3"
-    - BUILD_TARGETS: libclang
+    - ANACONDA_BUILD_RECIPES: libclang
       MINICONDA: "3"
     # - BUILD_TARGETS: libclanglite
     #   MINICONDA: "3"
