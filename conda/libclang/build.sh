@@ -1,3 +1,4 @@
+rm -rf bindings
 mkdir build_clang
 cd build_clang
 if [ -n "$MACOSX_DEPLOYMENT_TARGET" ]; then
