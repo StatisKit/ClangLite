@@ -9,21 +9,18 @@ import pickle
 if os.path.exists('.options.pkl'):
   with open('.options.pkl', 'rb') as filehandler:
     defaults = pickle.load(filehandler)
-  AddOption('--toolchain',
-            dest    = 'toolchain',
-            type    = 'string',
-            nargs   = 1,
-            action  = 'store',
-            help    = 'toolchain to use',
-            default = defaults['toolchain'])
-else:
-  AddOption('--toolchain',
-            dest   = 'toolchain',
-            type   = 'string',
-            nargs  = 1,
-            action = 'store',
-            help   = 'toolchain to use')
-  defaults = dict(prefix = sys.prefix)
+if 'toolchain' not in defaults:
+  defaults['toolchain'] = os.environ.get('TOOLCHAIN')
+if 'prefix' not in defaults:
+  defaults['prefix'] = sys.prefix
+  
+AddOption('--toolchain',
+          dest    = 'toolchain',
+          type    = 'string',
+          nargs   = 1,
+          action  = 'store',
+          help    = 'toolchain to use',
+          default = defaults['toolchain'])
   
 AddOption('--prefix',
           dest    = 'prefix',
@@ -53,36 +50,21 @@ variables.Add(BoolVariable('static',
                       False))
 
 # SConsign
-# SConsignFile()
+SConsignFile()
 
 # Environement
 TOOLCHAIN = GetOption('toolchain')
 if TOOLCHAIN.startswith('vc'):
-  MSVS_VERSION = TOOLCHAIN.lstrip('vc')
-  if '.' not in MSVS_VERSION:
-    MSVS_VERSION += '.0'
-  env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = TOOLCHAIN, MSVS_VERSION = MSVS_VERSION, MSVS_ARCH='X86')
+  MSVC_VERSION = TOOLCHAIN.lstrip('vc')
+  if '.' not in MSVC_VERSION:
+    MSVC_VERSION += '.0'
+  env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = TOOLCHAIN, MSVC_VERSION = MSVC_VERSION)
 else:
   env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = TOOLCHAIN)  
 variables.Update(env)
 variables.Save('.variables.py', env)
 
 if env['TOOLCHAIN'].startswith('vc'):
-  env['CC'] = '"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\bin\\x86_amd64\\cl.exe"'
-  env['LINK'] = '"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\bin\\x86_amd64\\link.exe"'
-  env.AppendUnique(CPPPATH=['C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\include',
-                            'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\ATLMFC\\include',
-                            'C:\\Program Files (x86)\\Windows Kits\\10\\include\\10.0.14393.0\\ucrt',
-                            'C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.6.1\\include\\um',
-                            'C:\\Program Files (x86)\\Windows Kits\\10\\include\\10.0.14393.0\\shared',
-                            'C:\\Program Files (x86)\\Windows Kits\\10\\include\\10.0.14393.0\\um',
-                            'C:\\Program Files (x86)\\Windows Kits\\10\\include\\10.0.14393.0\\winrt'])
-  env.AppendUnique(LIBPATH=['C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\lib\\amd64',
-                            'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\ATLMFC\\LIB\\amd64',
-                            'C:\\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.14393.0\\ucrt\\x64',
-                            'C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.6.1\\lib\\um\\x64',
-                            'C:\\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.14393.0\\um\\x64'])
-  
   if 8 <= int(float(env['MSVS_VERSION'])) < 10:
     env['LINKCOM'] = [env['LINKCOM'], 'mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;1']
     env['SHLINKCOM'] = [env['SHLINKCOM'], 'mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;2']
