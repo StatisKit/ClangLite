@@ -5,15 +5,17 @@ import subprocess
 import sys
 import pickle
 
-# Options
 if os.path.exists('.options.pkl'):
   with open('.options.pkl', 'rb') as filehandler:
     defaults = pickle.load(filehandler)
-if 'toolchain' not in defaults:
-  defaults['toolchain'] = os.environ.get('TOOLCHAIN')
-if 'prefix' not in defaults:
-  defaults['prefix'] = sys.prefix
+else:
+  defaults = dict()
   
+if not 'toolchain' in defaults:
+  defaults['toolchain'] = os.environ.get('TOOLCHAIN')
+if not 'prefix' in defaults:
+  defaults['prefix'] = sys.prefix
+
 AddOption('--toolchain',
           dest    = 'toolchain',
           type    = 'string',
