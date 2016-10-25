@@ -53,11 +53,11 @@ install:
 
 script:
   - if [[ "$TRAVIS_JOB_NUMBER" = "$TRAVIS_BUILD_NUMBER.1" ]]; then
-      export ANACONDA_BUILD_TARGETS="libllvm";
+      export ANACONDA_BUILD_RECIPES="libllvm";
     elif [[ "$TRAVIS_JOB_NUMBER" = "$TRAVIS_BUILD_NUMBER.2" ]]; then
-      export ANACONDA_BUILD_TARGETS="libclang";
+      export ANACONDA_BUILD_RECIPES="libclang";
     elif [[ "$TRAVIS_JOB_NUMBER" = "$TRAVIS_BUILD_NUMBER.3" ]]; then
-      export ANACONDA_BUILD_TARGETS="libclanglite python-clanglite";
+      export ANACONDA_BUILD_RECIPES="libclanglite python-clanglite";
     fi
   - cd conda
   - bash build.sh
