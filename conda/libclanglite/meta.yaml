@@ -23,12 +23,6 @@ source:
 
 build:
   number: 0
-  script_env:
-    - TOOLCHAIN
-  features:
-    - {{ TOOLCHAIN }}
-  track_features:
-    - {{ TOOLCHAIN }}
 
 about:
   home: pyclanglite.readthedocs.org
@@ -36,12 +30,12 @@ about:
 
 requirements:
   build:
-    - libclang
+    - cpp-build 
+    - py-build
+    - clang
     - libboost
-    - python-scons
-    - pyyaml
-    - python
   run:
-    - libclang
+    - cpp-run 
+    - py-run
+    - clang
     - libboost
-    - python
