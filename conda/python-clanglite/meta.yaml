@@ -23,12 +23,6 @@ source:
 
 build:
   number: 0
-  script_env:
-    - TOOLCHAIN
-  features:
-    - {{ TOOLCHAIN }}
-  track_features:
-    - {{ TOOLCHAIN }}
 
 
 about:
@@ -37,17 +31,15 @@ about:
 
 requirements:
   build:
-    - libclang
-    - libclanglite
+    - cpp-build
+    - py-build
     - libboost
-    - python-scons # [not win]
-    - pyyaml
-    - python-pkgtk
+    - libclanglite
   run:
-    - libclang
+    - cpp-run
+    - py-run
     - libclanglite
     - libboost
-    - python
     - numpy
 
 test:
