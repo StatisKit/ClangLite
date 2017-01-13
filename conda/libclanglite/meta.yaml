@@ -30,12 +30,12 @@ about:
 
 requirements:
   build:
-    - cpp-build 
-    - py-build
+    - libdev 
+    - python-dev
+    - python
     - clang
     - libboost
   run:
-    - cpp-run 
-    - py-run
+    - python
     - clang
     - libboost
