@@ -31,16 +31,15 @@ about:
 
 requirements:
   build:
-    - cpp-build
-    - py-build
+    - libdev 
+    - python-dev
+    - python
     - libboost
     - libclanglite
   run:
-    - cpp-run
-    - py-run
+    - python
     - libclanglite
     - libboost
-    - numpy
 
 test:
   commands:
