@@ -23,13 +23,6 @@ source:
 
 build:
   number: 0
-  script_env:
-    - TOOLCHAIN
-  features:
-    - {{ TOOLCHAIN }}
-  track_features:
-    - {{ TOOLCHAIN }}
-
 
 about:
   home: autowig.readthedocs.org
@@ -37,18 +30,18 @@ about:
 
 requirements:
   build:
-    - libclang
-    - libclanglite
+    - libdev
     - libboost
-    - python-scons # [not win]
-    - pyyaml
-    - python-pkgtk
+    - python-dev
+    - clang
+    - libclanglite
+    - python-scons
+    - python-pkg
   run:
-    - libclang
+    - clang
     - libclanglite
     - libboost
     - python
-    - numpy
 
 test:
   commands:
