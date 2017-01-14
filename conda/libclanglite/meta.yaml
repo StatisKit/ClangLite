@@ -36,12 +36,13 @@ about:
 
 requirements:
   build:
-    - libclang
+    - clang
+    - libdev
     - libboost
     - python-scons
-    - pyyaml
     - python
+    - python-pkg
   run:
-    - libclang
+    - clang
     - libboost
     - python
