@@ -1,71 +1,47 @@
-##################################################################################
-#                                                                                #
-# PyClangLite: Python bindings for Clang                                         #
-#                                                                                #
-# Homepage: http://pyclanglite.readthedocs.io/                                   #
-#                                                                                #
-# Copyright (c) 2016 Pierre Fernique                                             #
-#                                                                                #
-# This software is distributed under the CeCILL-C license. You should have       #
-# received a copy of the legalcode along with this work. If not, see             #
-# <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 #
-#                                                                                #
-# File authors: Pierre Fernique <pfernique@gmail.com> (70)                       #
-#                                                                                #
-##################################################################################
-
 language: cpp
+
+os:
+  - linux
+  - osx
+
+sudo: required
+
+services:
+  - docker
   
 env:
-  global:
-   - CONDA_CACHE_DIR=$HOME/.cache
-  
-cache:
-  directories:
-    - $CONDA_CACHE_DIR
-  
-before_cache:
-  - for $UNCACHED_DIR in "pip heroku motd.legal-displayed composer mozilla svn_cache hg_cache git_cache src_cache"; do
-      if [[ -d "$CONDA_CACHE_DIR/$UNCACHED_DIR" ]]; then
-        rm -rf $CONDA_CACHE_DIR/$UNCACHED_DIR;
-      fi
-    done
+  - RECIPE=libclanglite
+  - RECIPE=python-clanglite
 
-matrix:
-  include:
-    - os: linux
-      dist: trusty
-      sudo: required
-    - os: linux
-      dist: trusty
-      sudo: required
-    - os: linux
-      dist: trusty
-      sudo: required
-  allow_failures:
-    - os: osx  
-    
 install:
-  - git clone https://gist.github.com/319558c83d145620a6d4decdcadfbfb0.git config-travis
-  - cd config-travis
-  - source config.sh
-  - cd ..
+  - git clone https://gist.github.com/319558c83d145620a6d4decdcadfbfb0.git travis-ci
+  - cd travis-ci
+  - source install.sh
+
+before_script:
+  - source before_script.sh
 
 script:
-  - if [[ "$TRAVIS_JOB_NUMBER" = "$TRAVIS_BUILD_NUMBER.1" ]]; then
-      export ANACONDA_BUILD_RECIPES="libllvm";
-    elif [[ "$TRAVIS_JOB_NUMBER" = "$TRAVIS_BUILD_NUMBER.2" ]]; then
-      export ANACONDA_BUILD_RECIPES="libclang";
-    elif [[ "$TRAVIS_JOB_NUMBER" = "$TRAVIS_BUILD_NUMBER.3" ]]; then
-      export ANACONDA_BUILD_RECIPES="libclanglite python-clanglite";
-    fi
-  - cd conda
-  - bash build.sh
-  - cd ..
+  - source script.sh
 
 after_success:
-  - if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]] && [[ ! -z $ANACONDA_USERNAME ]]; then
-      cd conda;
-      bash upload.sh;
-      cd ..;
-    fi
+  - source after_success.sh
+
+after_failure:
+  - source after_failure.sh
+
+before_deploy:
+  - source before_deploy.sh
+
+deploy:
+  skip_cleanup: true
+  provider: script
+  on:
+      branch: master
+  script: bash deploy_script.sh
+
+after_deploy:
+  - source after_deploy.sh
+
+after_script:
+  - source after_script.sh
