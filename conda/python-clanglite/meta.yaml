@@ -24,22 +24,24 @@ source:
 build:
   number: 0
 
-
 about:
   home: autowig.readthedocs.org
   license: CeCILL-C
 
 requirements:
   build:
-    - libdev 
+    - libdev
+    - libboost
     - python-dev
-    - python
-    - libboost
+    - clang
     - libclanglite
+    - python-scons
+    - python-pkg
   run:
-    - python
+    - clang
     - libclanglite
     - libboost
+    - python
 
 test:
   commands:

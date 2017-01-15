@@ -35,6 +35,8 @@ requirements:
     - python
     - clang
     - libboost
+    - python-scons
+    - python-pkg
   run:
     - python
     - clang
