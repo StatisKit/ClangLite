@@ -5,21 +5,34 @@ import sys
 import itertools
 from distutils import sysconfig
 
-operating_system = os.name.lower()
-platform = sys.platform.lower()
-
 Import("env")
 
 pyenv = env.Clone()
 
-if pyenv['TOOLCHAIN'].startswith('gnu'):
+from distutils import sysconfig
+if sysconfig.get_python_inc():
+  pyinc = sysconfig.get_python_inc()
+  pyenv.AppendUnique(CPPPATH=[pyinc])
+if env['SYSTEM'] is 'windows':
+  pyenv.AppendUnique(LIBS = ['boost_python',
+                           'python' + sysconfig.get_python_version().replace('.','')])
+else:
+  pyenv.AppendUnique(LIBS = ['boost_python',
+                           pyinc.split(os.sep)[-1]])
+  pyenv.AppendUnique(LIBPATH=[sysconfig.get_config_var('LIBDIR')])
+pyenv.AppendUnique(CPPDEFINES = ['BOOST_PYTHON_DYNAMIC_LIB', 'BOOST_ALL_NO_LIB'])
+
+operating_system = os.name.lower()
+platform = sys.platform.lower()
+
+if pyenv['SYSTEM'] is 'linux':
     header = pyenv.Glob('*.h')
     if len(header) == 1:
         cmd = pyenv.Command(header[0].target_from_source('', '.h.gch'), header, '$CXX -o $TARGET -x c++-header -c -fPIC $SHCXXFLAGS $_CCCOMCOM $SOURCE')
         #pyenv.AppendUnique(CXXFLAGS = ['-include' + header[0].target_from_source('', '.h').abspath ])
 
 targets = list(itertools.chain(*[pyenv.SharedObject(None, source) for source in pyenv.Glob('*.cpp')]))
-if pyenv['TOOLCHAIN'].startswith('gnu') and len(header) == 1:
+if pyenv['SYSTEM'] is 'linux' and len(header) == 1:
     pyenv.Depends(targets, cmd)
 
 source = pyenv.File('response_file.rsp')
@@ -33,11 +46,6 @@ pyenv.AppendUnique(LIBS = ['clanglite'])
 
 kwargs = dict()
 
-print('OS:')
-print(operating_system)
-print('platform:')
-print(platform)
-
 if operating_system == 'nt':
     kwargs['SHLIBSUFFIX'] = '.pyd'
 else:
@@ -45,8 +53,8 @@ else:
 
 kwargs['SHLIBPREFIX'] = ''
 
-if operating_system == "posix":
-    pyenv.AppendUnique(CXXFLAGS = ['-ftemplate-depth-100'])
+# if operating_system == "posix":
+#     pyenv.AppendUnique(CXXFLAGS = ['-ftemplate-depth-100'])
 
 
 # if pyenv['compiler'] == 'msvc' and '8.0' in pyenv['MSVS_VERSION']:
