@@ -1,29 +1,27 @@
 # -*-python-*-
 
 import os
-import subprocess
-import sys
 import pickle
 
 if os.path.exists('.options.pkl'):
-  with open('.options.pkl', 'rb') as filehandler:
-    defaults = pickle.load(filehandler)
-else:
-  defaults = dict()
+  with open('.options.pkl', 'wb') as filehandler:
+    options = pickle.load(filehandler)
   
-if not 'toolchain' in defaults:
-  defaults['toolchain'] = os.environ.get('TOOLCHAIN')
-if not 'prefix' in defaults:
-  defaults['prefix'] = sys.prefix
-
-AddOption('--toolchain',
-          dest    = 'toolchain',
+if not 'system' in options:
+  import platform
+  options['system'] = platform.system().lower()
+AddOption('--system',
+          dest    = 'system',
           type    = 'string',
           nargs   = 1,
           action  = 'store',
-          help    = 'toolchain to use',
-          default = defaults['toolchain'])
-  
+          help    = 'target system',
+          default = options['system']) 
+options['system'] = GetOption('system')
+
+if not 'prefix' in options:
+  import sys
+  options['prefix'] = sys.prefix
 AddOption('--prefix',
           dest    = 'prefix',
           type    = 'string',
@@ -31,101 +29,74 @@ AddOption('--prefix',
           action  = 'store',
           metavar = 'DIR',
           help    = 'installation prefix',
-          default = defaults['prefix']) 
+          default = options['prefix'])
+options['prefix'] = options('prefix')
 
-defaults['toolchain'] = GetOption('toolchain')
-defaults['prefix'] = GetOption('prefix')
+if not 'python' in options:
+  import sysconfig
+  options['python'] = sysconfig.get_python_version()
+AddOption('--python',
+          dest    = 'python',
+          type    = 'string',
+          nargs   = 1,
+          action  = 'store',
+          help    = 'python version',
+          default = options['python'])
+options['python'] = GetOption('python')
+
+system = options['system']
+if system is 'windows':
+  python = options['python']
+  if python in ['2.6', '2.7', '3.0', '3.1', '3.2']:
+    MSVC_VERSION = '9.0'
+  elif python in ['3.3', '3.4']:
+    MSVC_VERSION = '10.0'
+  elif python is '3.5':
+    MSVC_VERSION = '14.0'
+  else:
+    raise ValueError('unknown MSVC version for Python ' + python)
+  options['msvc_version'] = MSVC_VERSION
+  AddOption('--msvc_version',
+            dest    = 'msvc_version',
+            type    = 'string',
+            nargs   = 1,
+            action  = 'store',
+            help    = 'msvc version',
+            default = options['msvc_version'])
+  options['msvc_version'] = GetOption('msvc_version')
+
 with open('.options.pkl', 'wb') as filehandler:
+  import pickle
   pickle.dump(defaults, filehandler)
-
-# Variables
-variables = Variables(".variables.py", ARGUMENTS)
-
-variables.Add(BoolVariable('debug', 
-                     'compilation in a debug mode',
-                      False))
-variables.Add(BoolVariable('warnings',
-                      'compilation with -Wall and similar',
-                      False))
-variables.Add(BoolVariable('static',
-                      '',
-                      False))
 
 # SConsign
 SConsignFile()
 
 # Environement
-TOOLCHAIN = GetOption('toolchain')
-if TOOLCHAIN.startswith('vc'):
-  MSVC_VERSION = TOOLCHAIN.lstrip('vc')
-  if '.' not in MSVC_VERSION:
-    MSVC_VERSION += '.0'
-  env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = TOOLCHAIN, MSVC_VERSION = MSVC_VERSION)
-else:
-  env = Environment(PREFIX = GetOption('prefix'), TOOLCHAIN = TOOLCHAIN)  
-variables.Update(env)
-variables.Save('.variables.py', env)
+env = Environment(**{key.uppercase() = value for key, value in options.iteritems()})  
 
-if env['TOOLCHAIN'].startswith('vc'):
-  if 8 <= int(float(env['MSVS_VERSION'])) < 10:
-    env['LINKCOM'] = [env['LINKCOM'], 'mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;1']
-    env['SHLINKCOM'] = [env['SHLINKCOM'], 'mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;2']
-  CCFLAGS = []
-  CPPDEFINES = ['WIN32']
-  if env["debug"]:
-     # Optimization
-     # Od2: disable optimizations
-     CCFLAGS.extend(['/Od'])
-     # language
-     # /Zi enable debugging information
-     CCFLAGS.extend(['/Zi'])
-     # code generation
-     # /GZ: enable runtime debug checks
-     # /Gm: enable minimal rebuild
-     CCFLAGS.extend(['/GZ','/Gm'])
-     CPPDEFINES.append('_DEBUG')
-  else:
-     # Optimization
-     # /O2: maximum speed
-     # /ob2: inline expansion (n=2)
-     CCFLAGS.extend(['/O2','/Ob2'])
-     # code generation
-     # /Gy: separate functions for linker
-     # /GF: enable read-only string pooling
-     # /GA: enable for Windows Application
-     # /GR: enable C++ RTTI
-     CCFLAGS.extend(['/Gy','/GF','/GA'])
-  CCFLAGS.extend(['/MD','/GR','/EHsc'])
-  CPPDEFINES.append('UNICODE')
-  env.AppendUnique(CCFLAGS=CCFLAGS,
-                   CPPDEFINES=CPPDEFINES)
+if env['SYSTEM'] is 'windows':
+  from distutils.version import StrictVersion
+  if StrictVersion('8.0') <= StrictVersion(env['MSVC_VERSION']) < StrictVersion('10.0'):
+    env['LINKCOM'].append('mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;1')
+    env['SHLINKCOM'].append('mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;2')
+  env.AppendUnique(CCFLAGS=['/O2','/Ob2', '/MD','/GR','/EHsc', '/Gy','/GF','/GA'],
+                   CPPDEFINES=['WIN32', 'UNICODE'])
 else:
-  if env["debug"]:
-    env.Append(CCFLAGS = '-g')
-
-from distutils import sysconfig
-if sysconfig.get_python_inc():
-  pyinc = sysconfig.get_python_inc()
-  env.AppendUnique(CPPPATH=[pyinc])
-if env['TOOLCHAIN'].startswith('vc'):
-  env.AppendUnique(LIBS = ['boost_python',
-                           'python' + sysconfig.get_python_version().replace('.','')])
-else:
-  env.AppendUnique(LIBS = ['boost_python',
-                           pyinc.split(os.sep)[-1]])
-  env.AppendUnique(LIBPATH=[sysconfig.get_config_var('LIBDIR')])
-env.AppendUnique(CPPDEFINES = ['BOOST_PYTHON_DYNAMIC_LIB', 'BOOST_ALL_NO_LIB'])
+  pass
+#   if env["debug"]:
+#     env.Append(CCFLAGS = '-g')
   
-if env['TOOLCHAIN'].startswith('vc'):
-  env.PrependUnique(CPPPATH=['$PREFIX\include'])
-  env.PrependUnique(LIBPATH=['$PREFIX\lib'])
-  env.PrependUnique(LIBPATH=['$PREFIX\..\libs'])
+if env['SYSTEM'] is 'windows':
+  env.Prepend(CPPPATH='$PREFIX\include',
+              LIBPATH='$PREFIX\lib',
+              LIBPATH='$PREFIX\..\libs')
 else:
-  env.Prepend(CPPPATH='$PREFIX/include')
-  env.Prepend(LIBPATH='$PREFIX/lib')
+  env.Prepend(CPPPATH='$PREFIX/include',
+              LIBPATH='$PREFIX/lib')
 
 # Custom
-if not env['TOOLCHAIN'].startswith('vc'):
+if env['SYSTEM'] is not 'windows:
     env.AppendUnique(CXXFLAGS=['-std=c++0x',
                                '-fvisibility-inlines-hidden',
                                '-ffunction-sections',
