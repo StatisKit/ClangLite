@@ -1,5 +1,7 @@
 platform:
-  -   x64
+  - x86
+  - x64
+
 
 environment:
   matrix:

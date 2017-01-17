@@ -1,5 +1,7 @@
 # -*-python-*-
 
+import os
+
 env = Environment(tools = ['default',
                             'prefix',
                             'toolchains'])
