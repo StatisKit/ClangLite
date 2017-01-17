@@ -10,13 +10,13 @@ Import("env")
 pyenv = env.Clone(tools = ['python', 'boost_python', 'setuptools'],
                   LIBS  = ['clanglite'])
 
-bpm = env.BoostPythonModule(pyenv.File("clanglite/__clanglite").srcnode(),
-                            pyenv.Glob('*.*'))
+bpm = pyenv.BoostPythonModule(pyenv.File("clanglite/__clanglite").srcnode(),
+                              pyenv.Glob('*.*'))
 Alias("py", bpm)
 Alias("build", bpm)
 
-egg = env.SetuptoolsInstallEgg(None,
-                               pyenv.File("../../setup.py"))
+egg = pyenv.SetuptoolsInstallEgg(None,
+                                 pyenv.File("../../setup.py"))
 Alias("py", egg)
 Alias("build", egg)
 

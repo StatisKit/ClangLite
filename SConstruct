@@ -103,7 +103,7 @@ env = Environment(tools = ['default',
 
 SYSTEM = env['SYSTEM']
 
-if not SYSTEM == 'windows':
+if not SYSTEM == 'win':
 	env.AppendUnique(CXXFLAGS=['-std=c++0x',
 		                       '-fvisibility-inlines-hidden',
 		                       '-ffunction-sections',
