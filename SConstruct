@@ -3,6 +3,7 @@
 import os
 
 env = Environment(tools = ['default',
+	                        'system',
                             'prefix',
                             'toolchains'])
 # # import os
@@ -100,10 +101,9 @@ env = Environment(tools = ['default',
 #   env.Prepend(CPPPATH='$PREFIX/include',
 #               LIBPATH='$PREFIX/lib')
 
-import platform
-system = platform.system().lower()
+SYSTEM = env['SYSTEM']
 
-if system is not 'windows':
+if not SYSTEM == 'windows':
 	env.AppendUnique(CXXFLAGS=['-std=c++0x',
 		                       '-fvisibility-inlines-hidden',
 		                       '-ffunction-sections',
