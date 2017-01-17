@@ -4,7 +4,7 @@ import os
 
 Import("env")
 
-cppenv = env.Clone(#tools = ['autowig'],
+cppenv = env.Clone(tools = ['boost_python'],#autowig'],
                    CPPDEFINES = ['BUILD_LIBCLANGLITE'])
 
 inc = cppenv.Install(os.path.join(cppenv['PREFIX'], "include", "clanglite"), cppenv.Glob('*.h*'))
