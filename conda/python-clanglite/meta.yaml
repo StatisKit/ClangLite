@@ -23,7 +23,10 @@ source:
 
 build:
   number: 0
-
+  script:
+    - scons py --prefix=$PREFIX -j$CPU_COUNT            [not win]
+    - scons py --prefix=%LIBRARY_PREFIX% -j%CPU_COUNT%  [win]
+    
 about:
   home: autowig.readthedocs.org
   license: CeCILL-C
