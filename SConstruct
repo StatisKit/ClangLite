@@ -159,6 +159,7 @@ env.AppendUnique(LIBS=['clangIndex',
                        'clangLex',
                        'clangBasic'])
 
+import subprocess
 process = subprocess.Popen(['llvm-config', '--libs'], stdout=subprocess.PIPE)
 out, err = process.communicate()
 env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split('-l') if lib])
