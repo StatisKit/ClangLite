@@ -2,9 +2,7 @@
 
 import os
 
-env = Environment(tools = ['default',
-	                         'system',
-                           'prefix',
+env = Environment(tools = ['system',
                            'toolchains',
                            'boost_python'])
 # # import os

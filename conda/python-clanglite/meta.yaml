@@ -26,6 +26,7 @@ build:
   script:
     - scons py --prefix=$PREFIX -j$CPU_COUNT            [not win]
     - scons py --prefix=%LIBRARY_PREFIX% -j%CPU_COUNT%  [win]
+    - python setup.py install
     
 about:
   home: autowig.readthedocs.org
@@ -33,7 +34,6 @@ about:
 
 requirements:
   build:
-    - libdev
     - libboost
     - python-dev
     - clang
