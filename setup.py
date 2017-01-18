@@ -22,12 +22,12 @@ for package in find_packages("src" + os.sep + "py"):
     packages[package] = "src" + os.sep + "py"
 
 try:
-    from mngit.config import load_config
+    from pkg.config import load_config
     config = load_config('.')
 except:
     import os
     import yaml
-    with open('.' + os.sep + '.pkgtk.yml', 'r') as filehandler:
+    with open('.' + os.sep + '.pkg.yml', 'r') as filehandler:
         config = yaml.load(filehandler.read())
 
 with open('README.rst', 'r') as filehandler:
