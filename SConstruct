@@ -171,7 +171,13 @@ out, err = process.communicate()
 env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split('-l') if lib])
 
 VariantDir('build', 'src')
-SConscript(os.path.join('build', 'cpp', 'SConscript'), exports="env")
-SConscript(os.path.join('build', 'py', 'SConscript'), exports="env")
+try:
+  SConscript(os.path.join('build', 'cpp', 'SConscript'), exports="env")
+except:
+  pass
+try:
+  SConscript(os.path.join('build', 'py', 'SConscript'), exports="env")
+except:
+  pass
 
 # Default("build")
