@@ -24,7 +24,7 @@ source:
 build:
   number: 0
   script:
-    - scons py --prefix=$PREFIX -j$CPU_COUNT            [not win]
+    - scons py --prefix=$PREFIX -j$CPU_COUNT -k         [not win]
     - scons py --prefix=%LIBRARY_PREFIX% -j%CPU_COUNT%  [win]
     - python setup.py install
     
@@ -38,7 +38,6 @@ requirements:
     - python-dev
     - clang
     - libclanglite
-    - python-scons
     - python-pkg
   run:
     - clang
