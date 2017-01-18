@@ -4,16 +4,17 @@ import os
 
 Import("env")
 
-cppenv = env.Clone(#tools = ['autowig'],
+cppenv = env.Clone(tools = ['cpp'],
                    CPPDEFINES = ['BUILD_LIBCLANGLITE'])
 
-inc = cppenv.Install(os.path.join(cppenv['PREFIX'], "include", "clanglite"), cppenv.Glob('*.h*'))
-Alias("cpp", inc)
-Alias("build", inc)
+exclude = """
+""".split()
 
-lib = cppenv.SharedLibrary(os.path.join(cppenv['PREFIX'], "lib", "clanglite"), cppenv.Glob('*.cpp'))
-Alias("cpp", lib)
-Alias("build", lib)
+sources = [source for source in cppenv.Glob('*.*') if not source.name in exclude]
+
+targets = cppenv.BuildCpp("clanglite", sources)
+Alias("cpp", targets)
+Alias("build", targets)
 
 # def autowig_controller(asg):
     

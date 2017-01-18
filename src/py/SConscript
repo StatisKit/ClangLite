@@ -6,19 +6,22 @@
 import os
 
 Import("env")
-
 pyenv = env.Clone(#tools = ['boost_python'],
                   LIBS  = ['clanglite'])
 
-bpm = pyenv.BoostPythonModule(pyenv.File("clanglite/__clanglite").srcnode(),
-                              pyenv.Glob('*.*'))
-Alias("py", bpm)
-Alias("build", bpm)
+exclude = """
+""".split()
 
-egg = pyenv.SetuptoolsInstallEgg(None,
-                                 pyenv.File("../../setup.py"))
-Alias("py", egg)
-Alias("build", egg)
+sources = [source for source in pyenv.Glob('*.*') if source.name not in exclude]
+
+targets = pyenv.BuildBoostPython("clanglite/__clanglite", sources)
+Alias("py", targets)
+Alias("build", targets)
+
+# egg = pyenv.SetuptoolsInstallEgg(None,
+#                                  pyenv.File("../../setup.py"))
+# Alias("py", egg)
+# Alias("build", egg)
 
 # import sys
 # import itertools
