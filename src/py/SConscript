@@ -6,16 +6,14 @@
 import os
 
 Import("env")
-#env = env.Clone()#tools = ['boost_python'],
-#                  #LIBS  = ['clanglite'])
-env.PrependUnique(LIBS = ['clanglite'])
+pyenv = env.Clone(LIBS = ['clanglite'])
 
 exclude = """
 """.split()
 
-sources = [source for source in env.Glob('*.*') if source.name not in exclude]
+sources = [source for source in pyenv.Glob('*.*') if source.name not in exclude]
 
-targets = env.BuildBoostPython("clanglite/__clanglite", sources)
+targets = pyenv.BuildBoostPython("clanglite/__clanglite", sources)
 Alias("py", targets)
 Alias("build", targets)
 
