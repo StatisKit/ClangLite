@@ -5,109 +5,15 @@ import os
 env = Environment(tools = ['system',
                            'toolchain',
                            'boost_python'])
-# # import os
-# # import pickle
-
-# # if os.path.exists('.options.pkl'):
-# #   with open('.options.pkl', 'wb') as filehandler:
-# #     options = pickle.load(filehandler)
-  
-# # if not 'system' in options:
-# #   import platform
-# #   options['system'] = platform.system().lower()
-# # AddOption('--system',
-# #           dest    = 'system',
-# #           type    = 'string',
-# #           nargs   = 1,
-# #           action  = 'store',
-# #           help    = 'target system',
-# #           default = options['system']) 
-# # options['system'] = GetOption('system')
-
-# # if not 'prefix' in options:
-# #   import sys
-# #   options['prefix'] = sys.prefix
-# # AddOption('--prefix',
-# #           dest    = 'prefix',
-# #           type    = 'string',
-# #           nargs   = 1,
-# #           action  = 'store',
-# #           metavar = 'DIR',
-# #           help    = 'installation prefix',
-# #           default = options['prefix'])
-# # options['prefix'] = options('prefix')
-
-# # if not 'python' in options:
-# #   import sysconfig
-# #   options['python'] = sysconfig.get_python_version()
-# # AddOption('--python',
-# #           dest    = 'python',
-# #           type    = 'string',
-# #           nargs   = 1,
-# #           action  = 'store',
-# #           help    = 'python version',
-# #           default = options['python'])
-# # options['python'] = GetOption('python')
-
-# # system = options['system']
-# # if system is 'windows':
-# #   python = options['python']
-# #   if python in ['2.6', '2.7', '3.0', '3.1', '3.2']:
-# #     MSVC_VERSION = '9.0'
-# #   elif python in ['3.3', '3.4']:
-# #     MSVC_VERSION = '10.0'
-# #   elif python is '3.5':
-# #     MSVC_VERSION = '14.0'
-# #   else:
-# #     raise ValueError('unknown MSVC version for Python ' + python)
-# #   options['msvc_version'] = MSVC_VERSION
-# #   AddOption('--msvc_version',
-# #             dest    = 'msvc_version',
-# #             type    = 'string',
-# #             nargs   = 1,
-# #             action  = 'store',
-# #             help    = 'msvc version',
-# #             default = options['msvc_version'])
-# #   options['msvc_version'] = GetOption('msvc_version')
-
-# # with open('.options.pkl', 'wb') as filehandler:
-# #   import pickle
-# #   pickle.dump(defaults, filehandler)
-
-# # SConsign
-# SConsignFile()
-
-# # Environement
-# env = Environment(**{key.uppercase() = value for key, value in options.iteritems()})  
-
-# if env['SYSTEM'] is 'windows':
-#   from distutils.version import StrictVersion
-#   if StrictVersion('8.0') <= StrictVersion(env['MSVC_VERSION']) < StrictVersion('10.0'):
-#     env['LINKCOM'].append('mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;1')
-#     env['SHLINKCOM'].append('mt.exe -nologo -manifest ${TARGET}.manifest -outputresource:$TARGET;2')
-#   env.AppendUnique(CCFLAGS=['/O2','/Ob2', '/MD','/GR','/EHsc', '/Gy','/GF','/GA'],
-#                    CPPDEFINES=['WIN32', 'UNICODE'])
-# else:
-#   pass
-# #   if env["debug"]:
-# #     env.Append(CCFLAGS = '-g')
-  
-# if env['SYSTEM'] is 'windows':
-#   env.Prepend(CPPPATH='$PREFIX\include',
-#               LIBPATH='$PREFIX\lib',
-#               LIBPATH='$PREFIX\..\libs')
-# else:
-#   env.Prepend(CPPPATH='$PREFIX/include',
-#               LIBPATH='$PREFIX/lib')
 
 SYSTEM = env['SYSTEM']
 
 if not SYSTEM == 'win':
 	env.AppendUnique(CXXFLAGS=['-std=c++11',
-		                       '-fvisibility-inlines-hidden',
-		                       '-ffunction-sections',
-		                       '-fdata-sections',
-		                       '-Wno-deprecated-declarations'])
+		                   '-fvisibility-inlines-hidden',
+		                   '-ffunction-sections',
+		                   '-fdata-sections',
+		                   '-Wno-deprecated-declarations'])
 else:
    env.AppendUnique(CPPDEFINES = ['_WINDOWS', 'NDEBUG',
                                   '_HAS_EXCEPTIONS=0',
