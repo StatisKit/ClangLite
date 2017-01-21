@@ -1,6 +1,7 @@
 # -*-python-*-
 
 import os
+from SCons import Errors
 
 env = Environment(tools = ['system',
                            'toolchain',
@@ -79,13 +80,13 @@ env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').stri
 VariantDir('build', 'src')
 try:
   SConscript(os.path.join('build', 'cpp', 'SConscript'), exports="env")
-except EnvironmentError:
+except Errors.EnvironmentError:
   pass
 except Exception:
   raise
 try:
   SConscript(os.path.join('build', 'py', 'SConscript'), exports="env")
-except EnvironmentError:
+except Errors.EnvironmentError:
   pass
 except Exception:
   raise
