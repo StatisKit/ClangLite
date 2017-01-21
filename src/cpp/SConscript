@@ -4,8 +4,9 @@ import os
 
 Import("env")
 
-cppenv = env.Clone(tools = ['cpp'],
-                   CPPDEFINES = ['BUILD_LIBCLANGLITE'])
+cppenv = env.Clone(tools = ['cpp'])
+
+cppenv.AppendUnique(CPPDEFINES = ['BUILD_LIBCLANGLITE'])
 
 exclude = """
 """.split()
