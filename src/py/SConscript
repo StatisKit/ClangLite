@@ -6,7 +6,9 @@
 import os
 
 Import("env")
-pyenv = env.Clone(LIBS = ['clanglite'])
+pyenv = env.Clone()
+
+pyenv.AppendUnique(LIBS = ['clanglite'])
 
 exclude = """
 """.split()
