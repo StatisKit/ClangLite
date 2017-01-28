@@ -193,6 +193,7 @@ void wrapper_fa70cbf14eb958718b2fd94051e17863()
     class_fa70cbf14eb958718b2fd94051e17863.def("cast_as_array_type_unsafe", method_pointer_5777011164fb5f3d97a440042eba7a66, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
     class_fa70cbf14eb958718b2fd94051e17863.def("contains_unexpanded_parameter_pack", method_pointer_bfedba3fd45854d1af5b3c1c528605b7, "");
     class_fa70cbf14eb958718b2fd94051e17863.def("dump", method_pointer_4a8f82f467b45c7a8237200063b9a86a, "");
+    class_fa70cbf14eb958718b2fd94051e17863.def("get_as_typedef_name_decl", clanglite::get_as_typedef_name_decl, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
     class_fa70cbf14eb958718b2fd94051e17863.def("get_array_element_type_no_type_qual", method_pointer_1de0cc73c8395b55b171cfd12a6f6318, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
     class_fa70cbf14eb958718b2fd94051e17863.def("get_as_array_type_unsafe", method_pointer_454b694c94f35490882103f1a190256a, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
     class_fa70cbf14eb958718b2fd94051e17863.def("get_as_cxx_record_decl", method_pointer_b4068e3fd2715d66a530f60d3ee21275, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");

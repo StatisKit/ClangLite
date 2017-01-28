@@ -60,7 +60,7 @@ autowig.controller['bootstrap'] = bootstrap_controller
 autowig.controller.plugin = 'bootstrap'
 autowig.controller(asg)
 
-def bootstrap_generator(asg)
+def bootstrap_generator(asg):
     subset = asg.nodes('::clang::tooling::buildASTFromCodeWithArgs')
     classes = [asg['class ::clang::PCHContainerOperations'], asg['class ::clang::Type'], asg['class ::clang::Decl']]
     subset += classes

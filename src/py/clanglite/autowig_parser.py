@@ -74,7 +74,15 @@ def read_qualified_type(asg, qtype, inline):
     while True:
         if ttype is None:
             raise NotImplementedError('none type')
-        elif ttype.get_type_class() in [clang.Type.type_class.TYPEDEF,  clang.Type.type_class.SUBST_TEMPLATE_TYPE_PARM, clang.Type.type_class.ELABORATED]:
+        elif ttype.get_type_class() in [clang.Type.type_class.TYPEDEF]:
+            if qtype.is_local_const_qualified() and not qualifiers.startswith(' const'):
+                qualifiers = ' const' + qualifiers
+            if qtype.is_local_volatile_qualified() and not qualifiers.startswith(' volatile'):
+                qualifiers = ' volatile' + qualifiers
+            typedef = qtype.get_as_typedef_name_decl()
+            typedef = read_typedef(asg, typedef, out=False, inline=inline, permissive=False)
+            return typedef[0], qualifiers
+        elif ttype.get_type_class() in [clang.Type.type_class.SUBST_TEMPLATE_TYPE_PARM, clang.Type.type_class.ELABORATED]:
             qtype = ttype.get_canonical_type_internal()
             if qtype.is_local_const_qualified() and not qualifiers.startswith(' const'):
                 qualifiers = ' const' + qualifiers
