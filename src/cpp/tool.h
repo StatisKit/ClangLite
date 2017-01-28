@@ -425,6 +425,8 @@ namespace clanglite
     CLANGLITE_API boost::python::list get_bases(clang::CXXRecordDecl& decl);
     CLANGLITE_API boost::python::list get_virtual_bases(clang::CXXRecordDecl& decl);
 
+    CLANGLITE_API clang::TypedefNameDecl * get_as_typedef_name_decl(clang::Type& type);
+
     CLANGLITE_API clang::TranslationUnitDecl * as_translation_unit(clang::DeclContext * decl);
     CLANGLITE_API clang::NamespaceDecl * as_namespace(clang::DeclContext * decl);
     CLANGLITE_API clang::RecordDecl * as_record(clang::DeclContext * decl);
