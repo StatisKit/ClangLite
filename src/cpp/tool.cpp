@@ -109,6 +109,9 @@ namespace clanglite
         return children;
     }
 
+    clang::TypedefNameDecl * get_as_typedef_name_decl(clang::Type& type)
+    { return type.getAs< clang::TypedefType >()->getDecl(); }
+
     clang::TranslationUnitDecl * as_translation_unit(clang::DeclContext * decl)
     { return static_cast< clang::TranslationUnitDecl * >(decl); }
 
