@@ -79,8 +79,8 @@ def read_qualified_type(asg, qtype, inline):
                 qualifiers = ' const' + qualifiers
             if qtype.is_local_volatile_qualified() and not qualifiers.startswith(' volatile'):
                 qualifiers = ' volatile' + qualifiers
-            typedef = qtype.get_as_typedef_name_decl()
-            typedef = read_typedef(asg, typedef, out=False, inline=inline, permissive=False)
+            typedef = qtype.get_type_ptr_or_null().get_as_typedef_name_decl()
+            typedef = read_typedef(asg, typedef, inline=inline, permissive=False)
             return typedef[0], qualifiers
         elif ttype.get_type_class() in [clang.Type.type_class.SUBST_TEMPLATE_TYPE_PARM, clang.Type.type_class.ELABORATED]:
             qtype = ttype.get_canonical_type_internal()
@@ -809,7 +809,7 @@ def read_lexical_parent(asg, decl):
     return read_parent(asg, decl.get_lexical_parent())
 
 def read_syntaxic_parent(asg, decl):
-    if isinstance(decl, (clang.TypedefDecl, clang.ClassTemplateDecl, clang.ClassTemplatePartialSpecializationDecl, clang.EnumConstantDecl, clang.VarDecl, clang.FieldDecl)):
+    if isinstance(decl, (clang.TypedefNameDecl, clang.ClassTemplateDecl, clang.ClassTemplatePartialSpecializationDecl, clang.EnumConstantDecl, clang.VarDecl, clang.FieldDecl)):
         return read_parent(asg, decl.get_decl_context())
     #elif isinstance(decl, (clang.NamespaceDecl, clang.TagDecl, clang.FunctionDecl)):
     #    return read_parent(asg, decl.get_syntaxic_parent())
