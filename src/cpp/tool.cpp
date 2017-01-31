@@ -172,8 +172,8 @@ namespace clanglite
 
     boost::python::str get_name(clang::ClassTemplateSpecializationDecl * decl)
     {
-        std::map< clang::ClassTemplateSpecializationDecl*, clang::TypeSourceInfo* > mapping;
-        unset_as_written(mapping, decl);
+        // std::map< clang::ClassTemplateSpecializationDecl*, clang::TypeSourceInfo* > mapping;
+        // unset_as_written(mapping, decl);
         std::string spelling = "";
         llvm::raw_string_ostream os(spelling);
         os << decl->getName();
@@ -188,7 +188,7 @@ namespace clanglite
                                                                   args.size(),
                                                                   policy);
         std::string res = os.str();
-        set_as_written(mapping, decl);        
+        // set_as_written(mapping, decl);        
         return boost::python::str(res);
     }
 
