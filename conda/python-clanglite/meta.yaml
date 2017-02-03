@@ -23,10 +23,6 @@ source:
 
 build:
   number: 0
-  script:
-    - scons py --prefix=$PREFIX -j$CPU_COUNT -k         [not win]
-    - scons py --prefix=%LIBRARY_PREFIX% -j%CPU_COUNT%  [win]
-    - python setup.py install
     
 about:
   home: autowig.readthedocs.org
