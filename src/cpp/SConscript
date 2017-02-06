@@ -13,9 +13,9 @@ exclude = """
 
 sources = [source for source in cppenv.Glob('*.*') if not source.name in exclude]
 
-targets = cppenv.BuildCpp("clanglite", sources)
+targets = cppenv.CppLibrary("clanglite", sources)
 Alias("cpp", targets)
-Alias("build", targets)
+Alias("install", targets)
 
 # def autowig_controller(asg):
     

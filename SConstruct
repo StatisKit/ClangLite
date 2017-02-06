@@ -79,16 +79,22 @@ env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').stri
 
 VariantDir('build', 'src')
 try:
-  SConscript(os.path.join('build', 'cpp', 'SConscript'), exports="env")
+  SConscript(os.path.join('src', 'cpp', 'SConscript'), exports="env")
 except Errors.EnvironmentError:
   pass
 except Exception:
   raise
 try:
-  SConscript(os.path.join('build', 'py', 'SConscript'), exports="env")
+  SConscript(os.path.join('src', 'py', 'SConscript'), exports="env")
 except Errors.EnvironmentError:
   pass
 except Exception:
   raise
+try:
+  SConscript(os.path.join('conda', 'SConscript'), exports="env")
+except EnvironmentError:
+  pass
+except Exception:
+  raise
 
-# Default("build")
+Default("install")
