@@ -49,7 +49,7 @@ void wrapper_e8de972362795c73b92c7a53a3029be0()
     bool  (::clang::BlockDecl::*method_pointer_e42263b543705c6db5143bb05cee98bf)() const = &::clang::BlockDecl::isConversionFromLambda;
     bool  (::clang::BlockDecl::*method_pointer_736ba23f663154f79f2d16ee941e3070)() const = &::clang::BlockDecl::isVariadic;
     bool  (::clang::BlockDecl::*method_pointer_823b2899e3785b018847f83bc78dcebb)() const = &::clang::BlockDecl::param_empty;
-    unsigned int  (::clang::BlockDecl::*method_pointer_570548c468f65a59a83310f1efbade04)() const = &::clang::BlockDecl::param_size;
+    long unsigned int  (::clang::BlockDecl::*method_pointer_570548c468f65a59a83310f1efbade04)() const = &::clang::BlockDecl::param_size;
     void  (::clang::BlockDecl::*method_pointer_7c1ef01c6efa5c4a90aa30c044bb0447)(unsigned int , class ::clang::Decl  *) = &::clang::BlockDecl::setBlockMangling;
     void  (::clang::BlockDecl::*method_pointer_ec32fecb3fe15289b16e5f53ee29b435)(bool ) = &::clang::BlockDecl::setBlockMissingReturnType;
     void  (::clang::BlockDecl::*method_pointer_b14b52681c31552294d7cb57af7fb8d3)(bool ) = &::clang::BlockDecl::setIsConversionFromLambda;

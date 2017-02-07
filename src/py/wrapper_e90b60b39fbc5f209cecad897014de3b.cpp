@@ -93,7 +93,7 @@ void wrapper_e90b60b39fbc5f209cecad897014de3b()
     bool  (::clang::FunctionDecl::*method_pointer_3d1e2ed385c554148e1aca4f9d4c6b5a)() const = &::clang::FunctionDecl::isTrivial;
     bool  (::clang::FunctionDecl::*method_pointer_c773a777dd715e37847f8e11970ce4db)() const = &::clang::FunctionDecl::isVariadic;
     bool  (::clang::FunctionDecl::*method_pointer_df5a7765fbcb503cbd4144c4d0f2236b)() const = &::clang::FunctionDecl::isVirtualAsWritten;
-    unsigned int  (::clang::FunctionDecl::*method_pointer_7353d16c1bd85519be224183912c1e22)() const = &::clang::FunctionDecl::param_size;
+    long unsigned int  (::clang::FunctionDecl::*method_pointer_7353d16c1bd85519be224183912c1e22)() const = &::clang::FunctionDecl::param_size;
     void  (::clang::FunctionDecl::*method_pointer_f66b8c8cffed58a6a1a4003f66780501)(bool ) = &::clang::FunctionDecl::setConstexpr;
     void  (::clang::FunctionDecl::*method_pointer_667fdff82fcf52b4bf9c259c50995852)(bool ) = &::clang::FunctionDecl::setDefaulted;
     void  (::clang::FunctionDecl::*method_pointer_26918a01fbee574da07937d3b02a5899)(bool ) = &::clang::FunctionDecl::setDeletedAsWritten;
