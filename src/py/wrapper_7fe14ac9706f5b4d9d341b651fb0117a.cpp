@@ -40,7 +40,7 @@ void wrapper_7fe14ac9706f5b4d9d341b651fb0117a()
     class ::llvm::StringRef  (::clang::TagDecl::*method_pointer_220985d2e6605aeea484a800ea22c854)() const = &::clang::TagDecl::getKindName;
     unsigned int  (::clang::TagDecl::*method_pointer_64d29e6e946a576cb388e370f1283932)() const = &::clang::TagDecl::getNumTemplateParameterLists;
     class ::clang::SourceLocation  (::clang::TagDecl::*method_pointer_8b9674db41625f9d9cb4b5e2f3e54d58)() const = &::clang::TagDecl::getOuterLocStart;
-   // class ::clang::SourceLocation  (::clang::TagDecl::*method_pointer_951493dca1495063b3d500278dd3efd1)() const = &::clang::TagDecl::getRBraceLoc;
+    class ::clang::SourceLocation  (::clang::TagDecl::*method_pointer_951493dca1495063b3d500278dd3efd1)() const = &::clang::TagDecl::getRBraceLoc;
     class ::clang::TypedefNameDecl  * (::clang::TagDecl::*method_pointer_29d80fe0a3895a27bff53b5f9e828f2e)() const = &::clang::TagDecl::getTypedefNameForAnonDecl;
     bool  (::clang::TagDecl::*method_pointer_a04e94afcaaa5f4db1761d830874605c)() const = &::clang::TagDecl::hasNameForLinkage;
     bool  (::clang::TagDecl::*method_pointer_f56832c38e8158b6a43d90925b278576)() const = &::clang::TagDecl::isBeingDefined;
@@ -59,7 +59,7 @@ void wrapper_7fe14ac9706f5b4d9d341b651fb0117a()
     void  (::clang::TagDecl::*method_pointer_117956323058513c8204fdc210b0c8fd)(bool ) = &::clang::TagDecl::setCompleteDefinitionRequired;
     void  (::clang::TagDecl::*method_pointer_ae8ad46a52dd566ca3d9d74cc80bd5d0)(bool ) = &::clang::TagDecl::setEmbeddedInDeclarator;
     void  (::clang::TagDecl::*method_pointer_71cb75ef508b5f66ac3dd52ac7aba2de)(bool ) = &::clang::TagDecl::setFreeStanding;
-    //void  (::clang::TagDecl::*method_pointer_97f54233f7655b38af4c8231712f4907)(class ::clang::SourceLocation ) = &::clang::TagDecl::setRBraceLoc;
+    void  (::clang::TagDecl::*method_pointer_97f54233f7655b38af4c8231712f4907)(class ::clang::SourceLocation ) = &::clang::TagDecl::setRBraceLoc;
     void  (::clang::TagDecl::*method_pointer_3d9a90ee6a985e84a7ffa1250c360d75)(class ::clang::TypedefNameDecl  *) = &::clang::TagDecl::setTypedefNameForAnonDecl;
     void  (::clang::TagDecl::*method_pointer_c85cc394b70f593cae2e5f8c4ba76f4f)() = &::clang::TagDecl::startDefinition;
     boost::python::class_< class ::clang::TagDecl, autowig::HeldType< class ::clang::TagDecl >, boost::python::bases< class ::clang::TypeDecl, class ::clang::DeclContext >, boost::noncopyable > class_7fe14ac9706f5b4d9d341b651fb0117a("TagDecl", "", boost::python::no_init);
@@ -74,7 +74,7 @@ void wrapper_7fe14ac9706f5b4d9d341b651fb0117a()
     class_7fe14ac9706f5b4d9d341b651fb0117a.def("get_kind_name", method_pointer_220985d2e6605aeea484a800ea22c854, "");
     class_7fe14ac9706f5b4d9d341b651fb0117a.def("get_num_template_parameter_lists", method_pointer_64d29e6e946a576cb388e370f1283932, "");
     class_7fe14ac9706f5b4d9d341b651fb0117a.def("get_outer_loc_start", method_pointer_8b9674db41625f9d9cb4b5e2f3e54d58, "");
-    //class_7fe14ac9706f5b4d9d341b651fb0117a.def("get_r_brace_loc", method_pointer_951493dca1495063b3d500278dd3efd1, "");
+    class_7fe14ac9706f5b4d9d341b651fb0117a.def("get_r_brace_loc", method_pointer_951493dca1495063b3d500278dd3efd1, "");
     class_7fe14ac9706f5b4d9d341b651fb0117a.def("get_typedef_name_for_anon_decl", method_pointer_29d80fe0a3895a27bff53b5f9e828f2e, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
     class_7fe14ac9706f5b4d9d341b651fb0117a.def("has_name_for_linkage", method_pointer_a04e94afcaaa5f4db1761d830874605c, "");
     class_7fe14ac9706f5b4d9d341b651fb0117a.def("is_being_defined", method_pointer_f56832c38e8158b6a43d90925b278576, "");
@@ -93,7 +93,7 @@ void wrapper_7fe14ac9706f5b4d9d341b651fb0117a()
     class_7fe14ac9706f5b4d9d341b651fb0117a.def("set_complete_definition_required", method_pointer_117956323058513c8204fdc210b0c8fd, "");
     class_7fe14ac9706f5b4d9d341b651fb0117a.def("set_embedded_in_declarator", method_pointer_ae8ad46a52dd566ca3d9d74cc80bd5d0, "");
     class_7fe14ac9706f5b4d9d341b651fb0117a.def("set_free_standing", method_pointer_71cb75ef508b5f66ac3dd52ac7aba2de, "");
-    //class_7fe14ac9706f5b4d9d341b651fb0117a.def("set_r_brace_loc", method_pointer_97f54233f7655b38af4c8231712f4907, "");
+    class_7fe14ac9706f5b4d9d341b651fb0117a.def("set_r_brace_loc", method_pointer_97f54233f7655b38af4c8231712f4907, "");
     class_7fe14ac9706f5b4d9d341b651fb0117a.def("set_typedef_name_for_anon_decl", method_pointer_3d9a90ee6a985e84a7ffa1250c360d75, "");
     class_7fe14ac9706f5b4d9d341b651fb0117a.def("start_definition", method_pointer_c85cc394b70f593cae2e5f8c4ba76f4f, "");
     class_7fe14ac9706f5b4d9d341b651fb0117a.staticmethod("classof_kind");

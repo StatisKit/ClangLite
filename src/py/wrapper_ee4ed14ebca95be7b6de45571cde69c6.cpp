@@ -38,7 +38,7 @@ void wrapper_ee4ed14ebca95be7b6de45571cde69c6()
     unsigned int  (::clang::FunctionProtoType::*method_pointer_9f3b63e98ee6591aa472b0d78a364ff7)() const = &::clang::FunctionProtoType::getNumParams;
     class ::clang::QualType  (::clang::FunctionProtoType::*method_pointer_b3246def90b05192854c6b5059dde3fa)(unsigned int ) const = &::clang::FunctionProtoType::getParamType;
     unsigned int  (::clang::FunctionProtoType::*method_pointer_60b157732fc85892a1662a5d5926427f)() const = &::clang::FunctionProtoType::getTypeQuals;
-    //bool  (::clang::FunctionProtoType::*method_pointer_d5791b793ad15023826b2a934cad1afb)() const = &::clang::FunctionProtoType::hasAnyConsumedParams;
+    bool  (::clang::FunctionProtoType::*method_pointer_d5791b793ad15023826b2a934cad1afb)() const = &::clang::FunctionProtoType::hasAnyConsumedParams;
     bool  (::clang::FunctionProtoType::*method_pointer_e20e409b9e555317959cdbed5ebc19a4)() const = &::clang::FunctionProtoType::hasDependentExceptionSpec;
     bool  (::clang::FunctionProtoType::*method_pointer_c08e39df525b5caca3171e05dcf5f1b1)() const = &::clang::FunctionProtoType::hasDynamicExceptionSpec;
     bool  (::clang::FunctionProtoType::*method_pointer_d6102fc9ebd259d9bfcc549f1bd1fa13)() const = &::clang::FunctionProtoType::hasExceptionSpec;
@@ -58,7 +58,7 @@ void wrapper_ee4ed14ebca95be7b6de45571cde69c6()
     class_ee4ed14ebca95be7b6de45571cde69c6.def("get_num_params", method_pointer_9f3b63e98ee6591aa472b0d78a364ff7, "");
     class_ee4ed14ebca95be7b6de45571cde69c6.def("get_param_type", method_pointer_b3246def90b05192854c6b5059dde3fa, "");
     class_ee4ed14ebca95be7b6de45571cde69c6.def("get_type_quals", method_pointer_60b157732fc85892a1662a5d5926427f, "");
-    //class_ee4ed14ebca95be7b6de45571cde69c6.def("has_any_consumed_params", method_pointer_d5791b793ad15023826b2a934cad1afb, "");
+    class_ee4ed14ebca95be7b6de45571cde69c6.def("has_any_consumed_params", method_pointer_d5791b793ad15023826b2a934cad1afb, "");
     class_ee4ed14ebca95be7b6de45571cde69c6.def("has_dependent_exception_spec", method_pointer_e20e409b9e555317959cdbed5ebc19a4, "");
     class_ee4ed14ebca95be7b6de45571cde69c6.def("has_dynamic_exception_spec", method_pointer_c08e39df525b5caca3171e05dcf5f1b1, "");
     class_ee4ed14ebca95be7b6de45571cde69c6.def("has_exception_spec", method_pointer_d6102fc9ebd259d9bfcc549f1bd1fa13, "");

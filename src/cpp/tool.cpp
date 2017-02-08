@@ -184,7 +184,8 @@ namespace clanglite
         policy.SuppressSpecifiers = false;
         policy.SuppressScope = false;
         policy.SuppressUnwrittenScope = true;
-        clang::TemplateSpecializationType::PrintTemplateArgumentList(os, args.asArray(),
+        clang::TemplateSpecializationType::PrintTemplateArgumentList(os, args.data(),
+                                                                  args.size(),
                                                                   policy);
         std::string res = os.str();
         // set_as_written(mapping, decl);        
