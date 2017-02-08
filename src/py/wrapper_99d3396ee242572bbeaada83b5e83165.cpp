@@ -43,7 +43,7 @@ void wrapper_99d3396ee242572bbeaada83b5e83165()
     class ::clang::VarDecl  const * (::clang::VarDecl::*method_pointer_77c7cde7522d52ecb35f5b07cd030c72)(class ::clang::ASTContext  &) const = &::clang::VarDecl::getDefinition;
     class ::clang::VarTemplateDecl  * (::clang::VarDecl::*method_pointer_ef435efadba857989de25e3fe7d401e7)() const = &::clang::VarDecl::getDescribedVarTemplate;
     class ::clang::VarDecl  * (::clang::VarDecl::*method_pointer_4c27261877f257b1b85d7c22ea606bb7)() const = &::clang::VarDecl::getInstantiatedFromStaticDataMember;
-    //class ::clang::VarDecl  * (::clang::VarDecl::*method_pointer_156c5d31ac525a3fa1359b2570eb3f3f)() = &::clang::VarDecl::getOutOfLineDefinition;
+    class ::clang::VarDecl  * (::clang::VarDecl::*method_pointer_156c5d31ac525a3fa1359b2570eb3f3f)() = &::clang::VarDecl::getOutOfLineDefinition;
     class ::clang::SourceLocation  (::clang::VarDecl::*method_pointer_c5e69400c70857c3a8cf3e92a9071854)() const = &::clang::VarDecl::getPointOfInstantiation;
     bool  (::clang::VarDecl::*method_pointer_c4f1cc4e82795c8b9bd8f91dd6b75e33)() const = &::clang::VarDecl::hasExternalStorage;
     bool  (::clang::VarDecl::*method_pointer_edae0114f44854a4b047e7963480702a)() const = &::clang::VarDecl::hasGlobalStorage;
@@ -51,7 +51,7 @@ void wrapper_99d3396ee242572bbeaada83b5e83165()
     bool  (::clang::VarDecl::*method_pointer_1fb95c683b7459cab7676dd9254a57a0)() const = &::clang::VarDecl::hasLocalStorage;
     bool  (::clang::VarDecl::*method_pointer_b7ae578eae1f558a950314b51866ec18)() const = &::clang::VarDecl::isARCPseudoStrong;
     bool  (::clang::VarDecl::*method_pointer_f071048605a4564fa78ef89c1361e43e)() const = &::clang::VarDecl::isCXXForRangeDecl;
-    //bool  (::clang::VarDecl::*method_pointer_b8c5d2e9a5cf51808f46db3da59b67cd)() const = &::clang::VarDecl::isConcept;
+    bool  (::clang::VarDecl::*method_pointer_b8c5d2e9a5cf51808f46db3da59b67cd)() const = &::clang::VarDecl::isConcept;
     bool  (::clang::VarDecl::*method_pointer_82daba4fd1805ccf859d5347f3b6930f)() const = &::clang::VarDecl::isConstexpr;
     bool  (::clang::VarDecl::*method_pointer_8640a363c6ae58f29edd764afff9b46f)() const = &::clang::VarDecl::isDirectInit;
     bool  (::clang::VarDecl::*method_pointer_5d41fc9b3b995818bbcc7f78a411005c)() const = &::clang::VarDecl::isExceptionVariable;
@@ -73,7 +73,7 @@ void wrapper_99d3396ee242572bbeaada83b5e83165()
     bool  (::clang::VarDecl::*method_pointer_f78bb98032f4571cb8e2b909885627f4)(class ::clang::ASTContext  &) const = &::clang::VarDecl::isUsableInConstantExpressions;
     void  (::clang::VarDecl::*method_pointer_f01c462bbf7652298bc047f2f2492b55)(bool ) = &::clang::VarDecl::setARCPseudoStrong;
     void  (::clang::VarDecl::*method_pointer_728d7b151a36507b846db85a56f72c7a)(bool ) = &::clang::VarDecl::setCXXForRangeDecl;
-    //void  (::clang::VarDecl::*method_pointer_980a476897e15b639bde1d4e2892aaf0)(bool ) = &::clang::VarDecl::setConcept;
+    void  (::clang::VarDecl::*method_pointer_980a476897e15b639bde1d4e2892aaf0)(bool ) = &::clang::VarDecl::setConcept;
     void  (::clang::VarDecl::*method_pointer_00b779c78d58587e81e661c52a858832)(bool ) = &::clang::VarDecl::setConstexpr;
     void  (::clang::VarDecl::*method_pointer_7c902077157f5488997ce0381d4b548f)(class ::clang::VarTemplateDecl  *) = &::clang::VarDecl::setDescribedVarTemplate;
     void  (::clang::VarDecl::*method_pointer_8140f84d80c150439662ace4d64f8220)(bool ) = &::clang::VarDecl::setExceptionVariable;
@@ -95,7 +95,7 @@ void wrapper_99d3396ee242572bbeaada83b5e83165()
     class_99d3396ee242572bbeaada83b5e83165.def("get_definition", method_pointer_77c7cde7522d52ecb35f5b07cd030c72, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
     class_99d3396ee242572bbeaada83b5e83165.def("get_described_var_template", method_pointer_ef435efadba857989de25e3fe7d401e7, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
     class_99d3396ee242572bbeaada83b5e83165.def("get_instantiated_from_static_data_member", method_pointer_4c27261877f257b1b85d7c22ea606bb7, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    //class_99d3396ee242572bbeaada83b5e83165.def("get_out_of_line_definition", method_pointer_156c5d31ac525a3fa1359b2570eb3f3f, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_99d3396ee242572bbeaada83b5e83165.def("get_out_of_line_definition", method_pointer_156c5d31ac525a3fa1359b2570eb3f3f, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
     class_99d3396ee242572bbeaada83b5e83165.def("get_point_of_instantiation", method_pointer_c5e69400c70857c3a8cf3e92a9071854, "");
     class_99d3396ee242572bbeaada83b5e83165.def("has_external_storage", method_pointer_c4f1cc4e82795c8b9bd8f91dd6b75e33, "");
     class_99d3396ee242572bbeaada83b5e83165.def("has_global_storage", method_pointer_edae0114f44854a4b047e7963480702a, "");
@@ -103,7 +103,7 @@ void wrapper_99d3396ee242572bbeaada83b5e83165()
     class_99d3396ee242572bbeaada83b5e83165.def("has_local_storage", method_pointer_1fb95c683b7459cab7676dd9254a57a0, "");
     class_99d3396ee242572bbeaada83b5e83165.def("is_arc_pseudo_strong", method_pointer_b7ae578eae1f558a950314b51866ec18, "");
     class_99d3396ee242572bbeaada83b5e83165.def("is_cxx_for_range_decl", method_pointer_f071048605a4564fa78ef89c1361e43e, "");
-    //class_99d3396ee242572bbeaada83b5e83165.def("is_concept", method_pointer_b8c5d2e9a5cf51808f46db3da59b67cd, "");
+    class_99d3396ee242572bbeaada83b5e83165.def("is_concept", method_pointer_b8c5d2e9a5cf51808f46db3da59b67cd, "");
     class_99d3396ee242572bbeaada83b5e83165.def("is_constexpr", method_pointer_82daba4fd1805ccf859d5347f3b6930f, "");
     class_99d3396ee242572bbeaada83b5e83165.def("is_direct_init", method_pointer_8640a363c6ae58f29edd764afff9b46f, "");
     class_99d3396ee242572bbeaada83b5e83165.def("is_exception_variable", method_pointer_5d41fc9b3b995818bbcc7f78a411005c, "");
@@ -125,7 +125,7 @@ void wrapper_99d3396ee242572bbeaada83b5e83165()
     class_99d3396ee242572bbeaada83b5e83165.def("is_usable_in_constant_expressions", method_pointer_f78bb98032f4571cb8e2b909885627f4, "");
     class_99d3396ee242572bbeaada83b5e83165.def("set_arc_pseudo_strong", method_pointer_f01c462bbf7652298bc047f2f2492b55, "");
     class_99d3396ee242572bbeaada83b5e83165.def("set_cxx_for_range_decl", method_pointer_728d7b151a36507b846db85a56f72c7a, "");
-    //class_99d3396ee242572bbeaada83b5e83165.def("set_concept", method_pointer_980a476897e15b639bde1d4e2892aaf0, "");
+    class_99d3396ee242572bbeaada83b5e83165.def("set_concept", method_pointer_980a476897e15b639bde1d4e2892aaf0, "");
     class_99d3396ee242572bbeaada83b5e83165.def("set_constexpr", method_pointer_00b779c78d58587e81e661c52a858832, "");
     class_99d3396ee242572bbeaada83b5e83165.def("set_described_var_template", method_pointer_7c902077157f5488997ce0381d4b548f, "");
     class_99d3396ee242572bbeaada83b5e83165.def("set_exception_variable", method_pointer_8140f84d80c150439662ace4d64f8220, "");

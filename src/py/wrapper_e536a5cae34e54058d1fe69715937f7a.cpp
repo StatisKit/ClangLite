@@ -33,7 +33,7 @@ void wrapper_e536a5cae34e54058d1fe69715937f7a()
     bool  (::clang::ASTContext::*method_pointer_91d35169290d527bb48bc3ef31b68de1)(class ::clang::QualType , class ::clang::VarDecl  const *) = &::clang::ASTContext::BlockRequiresCopying;
     unsigned int  (::clang::ASTContext::*method_pointer_ae67d4ac228c5b688bb2a4b6cacc17b0)(class ::clang::ObjCInterfaceDecl  const *) const = &::clang::ASTContext::CountNonClassIvars;
     bool  (::clang::ASTContext::*method_pointer_1e484c2c93725f9bb90e22db2e4b636e)(class ::clang::Decl  const *) = &::clang::ASTContext::DeclMustBeEmitted;
-    //bool  (::clang::ASTContext::*method_pointer_378e28c85b91552f933c77e91ff4623e)(class ::clang::FunctionProtoType  const *, class ::clang::FunctionProtoType  const *) = &::clang::ASTContext::FunctionTypesMatchOnNSConsumedAttrs;
+    bool  (::clang::ASTContext::*method_pointer_378e28c85b91552f933c77e91ff4623e)(class ::clang::FunctionProtoType  const *, class ::clang::FunctionProtoType  const *) = &::clang::ASTContext::FunctionTypesMatchOnNSConsumedAttrs;
     bool  (::clang::ASTContext::*method_pointer_799e0ab98087501eb192fba358785f53)(class ::clang::ObjCMethodDecl  const *, class ::clang::ObjCMethodDecl  const *) = &::clang::ASTContext::ObjCMethodsAreEqual;
     bool  (::clang::ASTContext::*method_pointer_2c8f8ebdc34c54439090d795d09c4c16)(class ::clang::QualType , class ::clang::ObjCInterfaceDecl  *) = &::clang::ASTContext::ObjCObjectAdoptsQTypeProtocols;
     bool  (::clang::ASTContext::*method_pointer_3cf017c23ea7500696a1c8df7413610c)(class ::clang::QualType , class ::clang::QualType ) = &::clang::ASTContext::ObjCQualifiedClassTypesAreCompatible;
@@ -105,7 +105,7 @@ void wrapper_e536a5cae34e54058d1fe69715937f7a()
     class ::clang::ExternCContextDecl  * (::clang::ASTContext::*method_pointer_69f006dee6e650e59fa5409930058788)() const = &::clang::ASTContext::getExternCContextDecl;
     class ::clang::QualType  (::clang::ASTContext::*method_pointer_38c50ec6a71b583bac89fcbee292fa2f)() const = &::clang::ASTContext::getFILEType;
     uint64_t  (::clang::ASTContext::*method_pointer_8b73c19fa39f5c6ebfebb5b7b646e978)(class ::clang::ValueDecl  const *) const = &::clang::ASTContext::getFieldOffset;
-    //class ::clang::TypeDecl  * (::clang::ASTContext::*method_pointer_e243da77181d5aa38790fce3ae0375fd)() const = &::clang::ASTContext::getFloat128StubType;
+    class ::clang::TypeDecl  * (::clang::ASTContext::*method_pointer_e243da77181d5aa38790fce3ae0375fd)() const = &::clang::ASTContext::getFloat128StubType;
     class ::clang::QualType  (::clang::ASTContext::*method_pointer_410b84d046175a3f84341227917a98eb)(class ::clang::QualType , class ::clang::QualType ) const = &::clang::ASTContext::getFloatingTypeOfSizeWithinDomain;
     int  (::clang::ASTContext::*method_pointer_2583f933dd7a521c9bf55e6fe3e1dfaf)(class ::clang::QualType , class ::clang::QualType ) const = &::clang::ASTContext::getFloatingTypeOrder;
     class ::clang::QualType  (::clang::ASTContext::*method_pointer_305d60453cd95c828f1ca87e7705b110)(class ::clang::QualType ) const = &::clang::ASTContext::getFunctionNoProtoType;
@@ -249,7 +249,7 @@ void wrapper_e536a5cae34e54058d1fe69715937f7a()
     class_e536a5cae34e54058d1fe69715937f7a.def("block_requires_copying", method_pointer_91d35169290d527bb48bc3ef31b68de1, "");
     class_e536a5cae34e54058d1fe69715937f7a.def("count_non_class_ivars", method_pointer_ae67d4ac228c5b688bb2a4b6cacc17b0, "");
     class_e536a5cae34e54058d1fe69715937f7a.def("decl_must_be_emitted", method_pointer_1e484c2c93725f9bb90e22db2e4b636e, "");
-    //class_e536a5cae34e54058d1fe69715937f7a.def("function_types_match_on_ns_consumed_attrs", method_pointer_378e28c85b91552f933c77e91ff4623e, "");
+    class_e536a5cae34e54058d1fe69715937f7a.def("function_types_match_on_ns_consumed_attrs", method_pointer_378e28c85b91552f933c77e91ff4623e, "");
     class_e536a5cae34e54058d1fe69715937f7a.def("obj_c_methods_are_equal", method_pointer_799e0ab98087501eb192fba358785f53, "");
     class_e536a5cae34e54058d1fe69715937f7a.def("obj_c_object_adopts_q_type_protocols", method_pointer_2c8f8ebdc34c54439090d795d09c4c16, "");
     class_e536a5cae34e54058d1fe69715937f7a.def("obj_c_qualified_class_types_are_compatible", method_pointer_3cf017c23ea7500696a1c8df7413610c, "");
@@ -321,7 +321,7 @@ void wrapper_e536a5cae34e54058d1fe69715937f7a()
     class_e536a5cae34e54058d1fe69715937f7a.def("get_extern_c_context_decl", method_pointer_69f006dee6e650e59fa5409930058788, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
     class_e536a5cae34e54058d1fe69715937f7a.def("get_file_type", method_pointer_38c50ec6a71b583bac89fcbee292fa2f, "");
     class_e536a5cae34e54058d1fe69715937f7a.def("get_field_offset", method_pointer_8b73c19fa39f5c6ebfebb5b7b646e978, "");
-    //class_e536a5cae34e54058d1fe69715937f7a.def("get_float_128_stub_type", method_pointer_e243da77181d5aa38790fce3ae0375fd, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_e536a5cae34e54058d1fe69715937f7a.def("get_float_128_stub_type", method_pointer_e243da77181d5aa38790fce3ae0375fd, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
     class_e536a5cae34e54058d1fe69715937f7a.def("get_floating_type_of_size_within_domain", method_pointer_410b84d046175a3f84341227917a98eb, "");
     class_e536a5cae34e54058d1fe69715937f7a.def("get_floating_type_order", method_pointer_2583f933dd7a521c9bf55e6fe3e1dfaf, "");
     class_e536a5cae34e54058d1fe69715937f7a.def("get_function_no_proto_type", method_pointer_305d60453cd95c828f1ca87e7705b110, "");

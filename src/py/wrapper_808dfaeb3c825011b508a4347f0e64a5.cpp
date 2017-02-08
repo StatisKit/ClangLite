@@ -30,7 +30,7 @@ void wrapper_808dfaeb3c825011b508a4347f0e64a5()
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
     bool  (*method_pointer_6493ec084a4952098157ef66ce3a21f7)(class ::clang::Type  const *) = ::clang::FunctionType::classof;
-    class ::clang::QualType  (::clang::FunctionType::*method_pointer_eb9330d505f15ffe81d1d8c44d3c202d)(const class ::clang::ASTContext  &) const = &::clang::FunctionType::getCallResultType;
+    class ::clang::QualType  (::clang::FunctionType::*method_pointer_eb9330d505f15ffe81d1d8c44d3c202d)(class ::clang::ASTContext  &) const = &::clang::FunctionType::getCallResultType;
     bool  (::clang::FunctionType::*method_pointer_7add434352e75f32b8912b0cfd8b03d5)() const = &::clang::FunctionType::getHasRegParm;
     bool  (::clang::FunctionType::*method_pointer_0c19ff001e005eb6be66c6df03ff86c5)() const = &::clang::FunctionType::getNoReturnAttr;
     unsigned int  (::clang::FunctionType::*method_pointer_217bfbdf128c581fb90ed5b483fa8539)() const = &::clang::FunctionType::getRegParmType;
