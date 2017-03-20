@@ -1,6 +1,6 @@
 echo ON
 
-scons py --prefix=%LIBRARY_PREFIX% -j%CPU_COUNT% --msvc-version=14.0
+scons py --prefix=%LIBRARY_PREFIX% -j%CPU_COUNT%
 if errorlevel 1 exit 1
 
 python setup.py install --prefix=%PREFIX%
