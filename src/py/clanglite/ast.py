@@ -20,7 +20,7 @@ except:
 	pass
 
 import subprocess
-from path import path
+from path import Path
 
 from .clanglite import *
 
@@ -33,7 +33,7 @@ class AbstractSyntaxTree(object):
         self._children = dict()
         content = ""
         for filepath in filepaths:
-            content += '#include "' + str(path(filepath).abspath()) + '"\n'
+            content += '#include "' + str(Path(filepath).abspath()) + '"\n'
 
         if 'c' in flags:
             language = 'c'
@@ -55,7 +55,7 @@ class AbstractSyntaxTree(object):
                     warnings.warn('System includes not computed: parsing clang command output failed', Warning)
                 else:
                     sysincludes = sysincludes[sysincludes.index('#include <...> search starts here:')+1:sysincludes.index('End of search list.')]
-                    flags.extend(['-I'+str(path(sysinclude.strip()).abspath()) for sysinclude in sysincludes])
+                    flags.extend(['-I'+str(Path(sysinclude.strip()).abspath()) for sysinclude in sysincludes])
         tu = clang.tooling.build_ast_from_code_with_args(content, flags)
         self._nodes[0] = tu
         self._children[0] = []

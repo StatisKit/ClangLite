@@ -16,7 +16,7 @@
 
 import warnings
 import uuid
-from path import path
+from path import Path
 from autowig.asg import *
 from autowig._parser import pre_processing, post_processing
 from clanglite import *
@@ -37,7 +37,7 @@ def read_file(asg, spelling, decl):
     if not fid.is_invalid():
         filename = sm.get_filename(loc).str()
         if filename:
-            filename = str(path(filename).abspath())
+            filename = str(Path(filename).abspath())
             filenode = asg.add_file(filename, proxy=HeaderProxy)
             filenode.language = asg._language
             asg._nodes[spelling]['_header'] = filenode.globalname
@@ -47,7 +47,7 @@ def read_file(asg, spelling, decl):
                 if not fid.is_invalid():
                     includename = sm.get_filename(loc).str()
                     if includename:
-                        includename = str(path(includename).abspath())
+                        includename = str(Path(includename).abspath())
                         filenode = asg.add_file(includename, proxy=HeaderProxy)
                         asg._include_edges[filename] = filenode._node
                         filename = includename
