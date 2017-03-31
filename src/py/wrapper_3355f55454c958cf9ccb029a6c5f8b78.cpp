@@ -61,7 +61,7 @@ void wrapper_3355f55454c958cf9ccb029a6c5f8b78()
     void  (::clang::ASTUnit::*method_pointer_dbcc36f137265cadad64c83ad8dc75e1)(bool ) = &::clang::ASTUnit::setUnsafeToFree;
     unsigned int  (::clang::ASTUnit::*method_pointer_ba0a1488bca954df989662cee66b8fbb)() const = &::clang::ASTUnit::stored_diag_size;
     bool  (::clang::ASTUnit::*method_pointer_6f18a34f14835372baab96bc31d6022c)() const = &::clang::ASTUnit::top_level_empty;
-    unsigned long int  (::clang::ASTUnit::*method_pointer_8214c563cabf562187a43fedd98e99d4)() const = &::clang::ASTUnit::top_level_size;
+    size_t  (::clang::ASTUnit::*method_pointer_8214c563cabf562187a43fedd98e99d4)() const = &::clang::ASTUnit::top_level_size;
     struct function_group
     {
         static class ::boost::python::list  function_b1a22cba7153510188e9319b37b2fcc5(class ::clang::ASTUnit  & parameter_0)
