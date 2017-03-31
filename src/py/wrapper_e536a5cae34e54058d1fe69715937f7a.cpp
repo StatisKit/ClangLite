@@ -60,7 +60,7 @@ void wrapper_e536a5cae34e54058d1fe69715937f7a()
     bool  (::clang::ASTContext::*method_pointer_68e665149e3d50398bd9278240bd9efb)(class ::clang::QualType , class ::clang::QualType ) = &::clang::ASTContext::canBindObjCObjectType;
     void  (::clang::ASTContext::*method_pointer_03d3e483e22f5a26b881bbaa1d121359)(class ::clang::NamedDecl  *) = &::clang::ASTContext::deduplicateMergedDefinitonsFor;
     void  (::clang::ASTContext::*method_pointer_7f6f0cc18a235956a949e62fed9ca1b5)(class ::clang::Decl  const *) = &::clang::ASTContext::eraseDeclAttrs;
-    unsigned long int  (::clang::ASTContext::*method_pointer_0bda0eeacebc53418360e5bd4acf8612)() const = &::clang::ASTContext::getASTAllocatedMemory;
+    size_t  (::clang::ASTContext::*method_pointer_0bda0eeacebc53418360e5bd4acf8612)() const = &::clang::ASTContext::getASTAllocatedMemory;
     class ::clang::QualType  (::clang::ASTContext::*method_pointer_cf7b49010bce57d582670fc70ef5ed37)(class ::clang::QualType , unsigned int ) const = &::clang::ASTContext::getAddrSpaceQualType;
     class ::clang::QualType  (::clang::ASTContext::*method_pointer_fba2a8de010459308c5f433d54674524)(class ::clang::QualType ) const = &::clang::ASTContext::getAdjustedParameterType;
     class ::clang::QualType  (::clang::ASTContext::*method_pointer_8a06d4068c5352658df1bf7de3ecf267)(class ::clang::QualType , class ::clang::QualType ) const = &::clang::ASTContext::getAdjustedType;
@@ -163,7 +163,7 @@ void wrapper_e536a5cae34e54058d1fe69715937f7a()
     class ::clang::QualType  (::clang::ASTContext::*method_pointer_2408d8be88775b76afaf1d1caae036c7)(unsigned int ) const = &::clang::ASTContext::getRealTypeForBitwidth;
     class ::clang::QualType  (::clang::ASTContext::*method_pointer_89749e4ca22f5e2c840923ffaebc1499)(class ::clang::RecordDecl  const *) const = &::clang::ASTContext::getRecordType;
     class ::clang::QualType  (::clang::ASTContext::*method_pointer_d551b0c4c96558e593a8ce7cb14df00b)(class ::clang::QualType ) const = &::clang::ASTContext::getRestrictType;
-    unsigned long int  (::clang::ASTContext::*method_pointer_9aa878c0019a5a998c2a213c91c079fe)() const = &::clang::ASTContext::getSideTableAllocatedMemory;
+    size_t  (::clang::ASTContext::*method_pointer_9aa878c0019a5a998c2a213c91c079fe)() const = &::clang::ASTContext::getSideTableAllocatedMemory;
     class ::clang::QualType  (::clang::ASTContext::*method_pointer_68e6afb95fc557108ebba201654c1bfe)(class ::clang::QualType ) const = &::clang::ASTContext::getSignatureParameterType;
     class ::clang::QualType  (::clang::ASTContext::*method_pointer_b3434171a7925e68a1b700321c8d55e8)() const = &::clang::ASTContext::getSignedWCharType;
     class ::clang::SourceManager  & (::clang::ASTContext::*method_pointer_9498d2bc2b555d5496f87f577da4b3ec)() = &::clang::ASTContext::getSourceManager;
