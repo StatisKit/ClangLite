@@ -36,8 +36,8 @@ void wrapper_9e52028d1c305f31bd87257e6d3ccc53()
     class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_a4bc4c9bd7f75ee69f9971e003ae73b9)(class ::clang::SourceLocation , class ::clang::SourceLocation , class ::clang::SourceLocation , unsigned int , int , unsigned int ) = &::clang::SourceManager::createExpansionLoc;
     class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_41f8fa04198b5f90a2fb89621a7ed56e)(class ::clang::SourceLocation , class ::clang::SourceLocation , unsigned int ) = &::clang::SourceManager::createMacroArgExpansionLoc;
     void  (::clang::SourceManager::*method_pointer_90329136ed6d56c0a2df8b42e24c6d1a)() const = &::clang::SourceManager::dump;
-    unsigned long int  (::clang::SourceManager::*method_pointer_b3c1ce3e64cf599dac9e6d953e9fc8d1)() const = &::clang::SourceManager::getContentCacheSize;
-    unsigned long int  (::clang::SourceManager::*method_pointer_29af9405f1c154f9b9ecd7e61a15ddfb)() const = &::clang::SourceManager::getDataStructureSizes;
+    size_t  (::clang::SourceManager::*method_pointer_b3c1ce3e64cf599dac9e6d953e9fc8d1)() const = &::clang::SourceManager::getContentCacheSize;
+    size_t  (::clang::SourceManager::*method_pointer_29af9405f1c154f9b9ecd7e61a15ddfb)() const = &::clang::SourceManager::getDataStructureSizes;
     class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_bb365fb9f3eb580aaa1c914252810d0e)(class ::clang::SourceLocation ) const = &::clang::SourceManager::getExpansionLoc;
     class ::clang::FileID  (::clang::SourceManager::*method_pointer_dbb4f9f83ad55272adeedb74edf17210)(class ::clang::SourceLocation ) const = &::clang::SourceManager::getFileID;
     unsigned int  (::clang::SourceManager::*method_pointer_0d6c5c4769f451618cdcfe8e929227e9)(class ::clang::FileID ) const = &::clang::SourceManager::getFileIDSize;
