@@ -4,7 +4,7 @@ about:
   brief: !!python/unicode 'Python bindings for Clang'
   email: !!python/unicode 'statiskit@googlegroups.com'
   homepage: !!python/unicode 'http://pyclanglite.readthedocs.io/'
-  name: !!python/unicode 'PyClangLite'
+  name: !!python/unicode 'ClangLite'
   plugin: github
   version: v1.0
 authors:
@@ -19,5 +19,5 @@ license:
   - ./.pkgtk.yml
   - ./CONTRIBUTORS.rst
   - ./LICENSE.rst
-  plugin: CeCILL-C
+  plugin: CeCILL
   width: 78

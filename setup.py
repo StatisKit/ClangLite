@@ -21,14 +21,10 @@ packages = {"" : "src" + os.sep + "py"}
 for package in find_packages("src" + os.sep + "py"):
     packages[package] = "src" + os.sep + "py"
 
-try:
-    from pkg.config import load_config
-    config = load_config('.')
-except:
-    import os
-    import yaml
-    with open('.' + os.sep + '.pkg.yml', 'r') as filehandler:
-        config = yaml.load(filehandler.read())
+import os
+import yaml
+with open('.' + os.sep + '.pkg.yml', 'r') as filehandler:
+    config = yaml.load(filehandler.read())
 
 with open('README.rst', 'r') as filehandler:
     long_description = filehandler.read()

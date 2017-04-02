@@ -34,7 +34,6 @@ requirements:
     - python-dev
     - clang
     - libclanglite
-    - python-pkg
   run:
     - clang
     - libclanglite
