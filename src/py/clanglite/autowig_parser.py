@@ -637,6 +637,20 @@ def read_tag(asg, decl, inline, permissive, out=True):
                     asg._base_edges[spelling] = []
                     asg._syntax_edges[scope].append(spelling)
                     read_access(asg, decl.get_access_unsafe(), spelling)
+            elif not isinstance(decl, (clang.ClassTemplateDecl, clang.ClassTemplateSpecializationDecl)) and not isinstance(asg[spelling], (ClassProxy, ClassTemplateProxy)):
+                    asg._nodes[spelling] = dict(_proxy = ClassProxy,
+                        #_scope = scope,
+                        #default_access=default_access,
+                        _is_abstract=False,
+                        _is_copyable=True,
+                        _is_complete=False)
+                    if not spelling in asg._syntax_edges:
+                        asg._syntax_edges[spelling] = []
+                    if not spelling in asg._base_edges:
+                        asg._base_edges[spelling] = []
+                    if not spelling in asg._syntax_edges[scope]:
+                        asg._syntax_edges[scope].append(spelling)
+                    read_access(asg, decl.get_access_unsafe(), spelling)
     if out and not spelling in asg._read and decl.is_complete_definition():
         if not asg[spelling].comment:
             if not isinstance(decl, clang.ClassTemplateSpecializationDecl) or decl.is_explicit_specialization():
