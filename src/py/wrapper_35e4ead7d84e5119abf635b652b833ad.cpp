@@ -1,25 +1,21 @@
-/**********************************************************************************/
-/*                                                                                */
-/* PyClangLite: Python bindings for Clang                                         */
-/*                                                                                */
-/* Homepage: http://pyclanglite.readthedocs.io/                                   */
-/*                                                                                */
-/* Copyright (c) 2016 Pierre Fernique                                             */
-/*                                                                                */
-/* This software is distributed under the CeCILL-C license. You should have       */
-/* received a copy of the legalcode along with this work. If not, see             */
-/* <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 */
-/*                                                                                */
-/* File authors: Pierre Fernique <pfernique@gmail.com> (37)                       */
-/*                                                                                */
-/**********************************************************************************/
-
 #include "_clanglite.h"
+
 
 
 namespace autowig
 {
+
 }
+
+#if defined(_MSC_VER)
+    #if (_MSC_VER == 1900)
+namespace boost
+{
+    template <> class ::clang::TagType const volatile * get_pointer<class ::clang::TagType const volatile >(class ::clang::TagType const volatile *c) { return c; }
+}
+    #endif
+#endif
+
 
 
 void wrapper_35e4ead7d84e5119abf635b652b833ad()
@@ -29,18 +25,19 @@ void wrapper_35e4ead7d84e5119abf635b652b833ad()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_2596eaf8783551139013f307e56c7960)(class ::clang::Type  const *) = ::clang::TagType::classof;
-    class ::clang::TagDecl  * (::clang::TagType::*method_pointer_60898b33ca7a522c92209fde4b7899b2)() const = &::clang::TagType::getDecl;
-    bool  (::clang::TagType::*method_pointer_d17cac88cc39559fae585b4e18afbbe4)() const = &::clang::TagType::isBeingDefined;
-    boost::python::class_< class ::clang::TagType, autowig::HeldType< class ::clang::TagType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_35e4ead7d84e5119abf635b652b833ad("TagType", "", boost::python::no_init);
-    class_35e4ead7d84e5119abf635b652b833ad.def("classof", method_pointer_2596eaf8783551139013f307e56c7960, "");
-    class_35e4ead7d84e5119abf635b652b833ad.def("get_decl", method_pointer_60898b33ca7a522c92209fde4b7899b2, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_35e4ead7d84e5119abf635b652b833ad.def("is_being_defined", method_pointer_d17cac88cc39559fae585b4e18afbbe4, "");
+    class ::clang::TagDecl * (::clang::TagType::*method_pointer_23ff12fb08e451f2871580f6e8f12fb2)() const = &::clang::TagType::getDecl;
+    bool  (::clang::TagType::*method_pointer_9b64d8c9e48b5e1698e4139ba9c602a8)() const = &::clang::TagType::isBeingDefined;
+    bool  (*method_pointer_d7a6e6d29b425ad680de53c8dbaca7ef)(class ::clang::Type const *) = ::clang::TagType::classof;
+    boost::python::class_< class ::clang::TagType, autowig::Held< class ::clang::TagType >::Type, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_35e4ead7d84e5119abf635b652b833ad("TagType", "", boost::python::no_init);
+    class_35e4ead7d84e5119abf635b652b833ad.def("get_decl", method_pointer_23ff12fb08e451f2871580f6e8f12fb2, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_35e4ead7d84e5119abf635b652b833ad.def("is_being_defined", method_pointer_9b64d8c9e48b5e1698e4139ba9c602a8, ":Return Type:\n    :cpp:any:`bool`\n\n");
+    class_35e4ead7d84e5119abf635b652b833ad.def("classof", method_pointer_d7a6e6d29b425ad680de53c8dbaca7ef, "");
     class_35e4ead7d84e5119abf635b652b833ad.staticmethod("classof");
 
-    if(std::is_class< autowig::HeldType< class ::clang::TagType > >::value)
+    if(autowig::Held< class ::clang::TagType >::is_class)
     {
-        boost::python::implicitly_convertible< autowig::HeldType< class ::clang::TagType >, autowig::HeldType< class ::clang::Type > >();
+        boost::python::implicitly_convertible< autowig::Held< class ::clang::TagType >::Type, autowig::Held< class ::clang::Type >::Type >();
+        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::TagType >::Type, boost::python::objects::make_ptr_instance< class ::clang::TagType, boost::python::objects::pointer_holder< autowig::Held< class ::clang::TagType >::Type, class ::clang::TagType > > >();
     }
 
 }

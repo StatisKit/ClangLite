@@ -1,25 +1,21 @@
-/**********************************************************************************/
-/*                                                                                */
-/* PyClangLite: Python bindings for Clang                                         */
-/*                                                                                */
-/* Homepage: http://pyclanglite.readthedocs.io/                                   */
-/*                                                                                */
-/* Copyright (c) 2016 Pierre Fernique                                             */
-/*                                                                                */
-/* This software is distributed under the CeCILL-C license. You should have       */
-/* received a copy of the legalcode along with this work. If not, see             */
-/* <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 */
-/*                                                                                */
-/* File authors: Pierre Fernique <pfernique@gmail.com> (36)                       */
-/*                                                                                */
-/**********************************************************************************/
-
 #include "_clanglite.h"
+
 
 
 namespace autowig
 {
+
 }
+
+#if defined(_MSC_VER)
+    #if (_MSC_VER == 1900)
+namespace boost
+{
+    template <> class ::clang::UsingShadowDecl const volatile * get_pointer<class ::clang::UsingShadowDecl const volatile >(class ::clang::UsingShadowDecl const volatile *c) { return c; }
+}
+    #endif
+#endif
+
 
 
 void wrapper_8ed765a365325afd812394a92e49d498()
@@ -29,35 +25,36 @@ void wrapper_8ed765a365325afd812394a92e49d498()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    class ::clang::UsingShadowDecl  * (*method_pointer_00458f0f0e9256a1a8871c2bcafee98f)(class ::clang::ASTContext  &, class ::clang::DeclContext  *, class ::clang::SourceLocation , class ::clang::UsingDecl  *, class ::clang::NamedDecl  *) = ::clang::UsingShadowDecl::Create;
-    class ::clang::UsingShadowDecl  * (*method_pointer_3c63e735b0df5bdd997704ebccaf5815)(class ::clang::ASTContext  &, unsigned int ) = ::clang::UsingShadowDecl::CreateDeserialized;
-    bool  (*method_pointer_1ac529cddda65fccbaf3cf1a9a142391)(class ::clang::Decl  const *) = ::clang::UsingShadowDecl::classof;
-    bool  (*method_pointer_2ee1dc0ba0ba5b0b9bb64faef856cfac)(enum ::clang::Decl::Kind ) = ::clang::UsingShadowDecl::classofKind;
-    class ::clang::UsingShadowDecl  * (::clang::UsingShadowDecl::*method_pointer_740f8fea9a9856ca9efb4c4dc03249e9)() = &::clang::UsingShadowDecl::getCanonicalDecl;
-    class ::clang::UsingShadowDecl  const * (::clang::UsingShadowDecl::*method_pointer_f67b13877f765667b3c88ebbcda0de41)() const = &::clang::UsingShadowDecl::getCanonicalDecl;
-    class ::clang::UsingShadowDecl  * (::clang::UsingShadowDecl::*method_pointer_9c2588219ad2532f997075deee8112eb)() const = &::clang::UsingShadowDecl::getNextUsingShadowDecl;
-    class ::clang::NamedDecl  * (::clang::UsingShadowDecl::*method_pointer_49ad76773ebc5e628341e88602c4521f)() const = &::clang::UsingShadowDecl::getTargetDecl;
-    class ::clang::UsingDecl  * (::clang::UsingShadowDecl::*method_pointer_543ee2806f0854d9868653977fd8d5ff)() const = &::clang::UsingShadowDecl::getUsingDecl;
-    void  (::clang::UsingShadowDecl::*method_pointer_b5a1c6ca15715a9cbf18b70e6fb28141)(class ::clang::NamedDecl  *) = &::clang::UsingShadowDecl::setTargetDecl;
-    boost::python::class_< class ::clang::UsingShadowDecl, autowig::HeldType< class ::clang::UsingShadowDecl >, boost::python::bases< class ::clang::NamedDecl >, boost::noncopyable > class_8ed765a365325afd812394a92e49d498("UsingShadowDecl", "", boost::python::no_init);
-    class_8ed765a365325afd812394a92e49d498.def("create", method_pointer_00458f0f0e9256a1a8871c2bcafee98f, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_8ed765a365325afd812394a92e49d498.def("create_deserialized", method_pointer_3c63e735b0df5bdd997704ebccaf5815, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_8ed765a365325afd812394a92e49d498.def("classof", method_pointer_1ac529cddda65fccbaf3cf1a9a142391, "");
-    class_8ed765a365325afd812394a92e49d498.def("classof_kind", method_pointer_2ee1dc0ba0ba5b0b9bb64faef856cfac, "");
-    class_8ed765a365325afd812394a92e49d498.def("get_canonical_decl", method_pointer_740f8fea9a9856ca9efb4c4dc03249e9, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_8ed765a365325afd812394a92e49d498.def("get_canonical_decl", method_pointer_f67b13877f765667b3c88ebbcda0de41, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_8ed765a365325afd812394a92e49d498.def("get_next_using_shadow_decl", method_pointer_9c2588219ad2532f997075deee8112eb, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_8ed765a365325afd812394a92e49d498.def("get_target_decl", method_pointer_49ad76773ebc5e628341e88602c4521f, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_8ed765a365325afd812394a92e49d498.def("get_using_decl", method_pointer_543ee2806f0854d9868653977fd8d5ff, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_8ed765a365325afd812394a92e49d498.def("set_target_decl", method_pointer_b5a1c6ca15715a9cbf18b70e6fb28141, "");
+    class ::clang::UsingShadowDecl * (*method_pointer_ab165a2b9f555eea93e0daf9dea8711b)(class ::clang::ASTContext &, class ::clang::DeclContext *, class ::clang::SourceLocation , class ::clang::UsingDecl *, class ::clang::NamedDecl *) = ::clang::UsingShadowDecl::Create;
+    class ::clang::UsingShadowDecl * (*method_pointer_956b2972581c5a0a8c67f5e99b8fbd7d)(class ::clang::ASTContext &, unsigned int ) = ::clang::UsingShadowDecl::CreateDeserialized;
+    class ::clang::UsingShadowDecl * (::clang::UsingShadowDecl::*method_pointer_7eea10668e605bcf8fe9e603fe3391b7)() = &::clang::UsingShadowDecl::getCanonicalDecl;
+    class ::clang::UsingShadowDecl const * (::clang::UsingShadowDecl::*method_pointer_28670bc7d400527a9b3cb3736611ff46)() const = &::clang::UsingShadowDecl::getCanonicalDecl;
+    class ::clang::NamedDecl * (::clang::UsingShadowDecl::*method_pointer_9d109885e6d75cd7b34f0a220943aa8f)() const = &::clang::UsingShadowDecl::getTargetDecl;
+    void  (::clang::UsingShadowDecl::*method_pointer_5ff8d916fa3b5825835084c2fc5b832d)(class ::clang::NamedDecl *) = &::clang::UsingShadowDecl::setTargetDecl;
+    class ::clang::UsingDecl * (::clang::UsingShadowDecl::*method_pointer_6e02fbd1249653a6bd687e882786e921)() const = &::clang::UsingShadowDecl::getUsingDecl;
+    class ::clang::UsingShadowDecl * (::clang::UsingShadowDecl::*method_pointer_2b62529882545bd5969cfbefc13553a8)() const = &::clang::UsingShadowDecl::getNextUsingShadowDecl;
+    bool  (*method_pointer_de2c137bcfb552189e09c4a983129224)(class ::clang::Decl const *) = ::clang::UsingShadowDecl::classof;
+    bool  (*method_pointer_ecff7f40a4e458e5a1ebb9e899cc97ec)(enum ::clang::Decl::Kind ) = ::clang::UsingShadowDecl::classofKind;
+    boost::python::class_< class ::clang::UsingShadowDecl, autowig::Held< class ::clang::UsingShadowDecl >::Type, boost::python::bases< class ::clang::NamedDecl >, boost::noncopyable > class_8ed765a365325afd812394a92e49d498("UsingShadowDecl", "Represents a shadow declaration introduced into a scope by a (resolved)\nusing declaration.\n\nFor example,\n\n", boost::python::no_init);
+    class_8ed765a365325afd812394a92e49d498.def("create", method_pointer_ab165a2b9f555eea93e0daf9dea8711b, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_8ed765a365325afd812394a92e49d498.def("create_deserialized", method_pointer_956b2972581c5a0a8c67f5e99b8fbd7d, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_8ed765a365325afd812394a92e49d498.def("get_canonical_decl", method_pointer_7eea10668e605bcf8fe9e603fe3391b7, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_8ed765a365325afd812394a92e49d498.def("get_canonical_decl", method_pointer_28670bc7d400527a9b3cb3736611ff46, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_8ed765a365325afd812394a92e49d498.def("get_target_decl", method_pointer_9d109885e6d75cd7b34f0a220943aa8f, boost::python::return_value_policy< boost::python::reference_existing_object >(), "Gets the underlying declaration which has been brought into the local\nscope.\n\n:Return Type:\n    :py:class:`clanglite.clang.NamedDecl`\n\n");
+    class_8ed765a365325afd812394a92e49d498.def("set_target_decl", method_pointer_5ff8d916fa3b5825835084c2fc5b832d, "Sets the underlying declaration which has been brought into the local\nscope.\n\n:Parameter:\n    `ND` (:py:class:`clanglite.clang.NamedDecl`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
+    class_8ed765a365325afd812394a92e49d498.def("get_using_decl", method_pointer_6e02fbd1249653a6bd687e882786e921, boost::python::return_value_policy< boost::python::reference_existing_object >(), "Gets the using declaration to which this declaration is tied.\n\n:Return Type:\n    :py:class:`clanglite.clang.UsingDecl`\n\n");
+    class_8ed765a365325afd812394a92e49d498.def("get_next_using_shadow_decl", method_pointer_2b62529882545bd5969cfbefc13553a8, boost::python::return_value_policy< boost::python::reference_existing_object >(), "The next using shadow declaration contained in the shadow decl chain of\nthe using declaration which introduced this decl.\n\n:Return Type:\n    :py:class:`clanglite.clang.UsingShadowDecl`\n\n");
+    class_8ed765a365325afd812394a92e49d498.def("classof", method_pointer_de2c137bcfb552189e09c4a983129224, "");
+    class_8ed765a365325afd812394a92e49d498.def("classof_kind", method_pointer_ecff7f40a4e458e5a1ebb9e899cc97ec, "");
     class_8ed765a365325afd812394a92e49d498.staticmethod("classof_kind");
     class_8ed765a365325afd812394a92e49d498.staticmethod("create");
     class_8ed765a365325afd812394a92e49d498.staticmethod("create_deserialized");
     class_8ed765a365325afd812394a92e49d498.staticmethod("classof");
 
-    if(std::is_class< autowig::HeldType< class ::clang::UsingShadowDecl > >::value)
+    if(autowig::Held< class ::clang::UsingShadowDecl >::is_class)
     {
-        boost::python::implicitly_convertible< autowig::HeldType< class ::clang::UsingShadowDecl >, autowig::HeldType< class ::clang::NamedDecl > >();
+        boost::python::implicitly_convertible< autowig::Held< class ::clang::UsingShadowDecl >::Type, autowig::Held< class ::clang::NamedDecl >::Type >();
+        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::UsingShadowDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::UsingShadowDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::UsingShadowDecl >::Type, class ::clang::UsingShadowDecl > > >();
     }
 
 }

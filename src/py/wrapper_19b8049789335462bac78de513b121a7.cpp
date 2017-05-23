@@ -1,25 +1,21 @@
-/**********************************************************************************/
-/*                                                                                */
-/* PyClangLite: Python bindings for Clang                                         */
-/*                                                                                */
-/* Homepage: http://pyclanglite.readthedocs.io/                                   */
-/*                                                                                */
-/* Copyright (c) 2016 Pierre Fernique                                             */
-/*                                                                                */
-/* This software is distributed under the CeCILL-C license. You should have       */
-/* received a copy of the legalcode along with this work. If not, see             */
-/* <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 */
-/*                                                                                */
-/* File authors: Pierre Fernique <pfernique@gmail.com> (36)                       */
-/*                                                                                */
-/**********************************************************************************/
-
 #include "_clanglite.h"
+
 
 
 namespace autowig
 {
+
 }
+
+#if defined(_MSC_VER)
+    #if (_MSC_VER == 1900)
+namespace boost
+{
+    template <> class ::clang::ObjCPropertyImplDecl const volatile * get_pointer<class ::clang::ObjCPropertyImplDecl const volatile >(class ::clang::ObjCPropertyImplDecl const volatile *c) { return c; }
+}
+    #endif
+#endif
+
 
 
 void wrapper_19b8049789335462bac78de513b121a7()
@@ -29,36 +25,37 @@ void wrapper_19b8049789335462bac78de513b121a7()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    class ::clang::ObjCPropertyImplDecl  * (*method_pointer_d254dcf91a0953daa328a891fbafb204)(class ::clang::ASTContext  &, unsigned int ) = ::clang::ObjCPropertyImplDecl::CreateDeserialized;
-    bool  (*method_pointer_6b31830154f551c78adb472b4d2a4f50)(class ::clang::Decl  const *) = ::clang::ObjCPropertyImplDecl::classof;
-    bool  (*method_pointer_0d277fff003d5615a56e9ce23fe4f705)(enum ::clang::Decl::Kind ) = ::clang::ObjCPropertyImplDecl::classofKind;
-    class ::clang::SourceLocation  (::clang::ObjCPropertyImplDecl::*method_pointer_778c284b14f254e68a8c8f2933a43bbb)() const = &::clang::ObjCPropertyImplDecl::getLocStart;
-    class ::clang::ObjCPropertyDecl  * (::clang::ObjCPropertyImplDecl::*method_pointer_46779851429250a7946ddb7f928f1b97)() const = &::clang::ObjCPropertyImplDecl::getPropertyDecl;
-    class ::clang::ObjCIvarDecl  * (::clang::ObjCPropertyImplDecl::*method_pointer_7fb27b145dcf554ba660b2deda2e1d1a)() const = &::clang::ObjCPropertyImplDecl::getPropertyIvarDecl;
-    class ::clang::SourceLocation  (::clang::ObjCPropertyImplDecl::*method_pointer_84c712090fdf56458f6ff4bfe487b6ed)() const = &::clang::ObjCPropertyImplDecl::getPropertyIvarDeclLoc;
-    bool  (::clang::ObjCPropertyImplDecl::*method_pointer_b98c34b0a473567cbcfbab8cf7aa8b29)() const = &::clang::ObjCPropertyImplDecl::isIvarNameSpecified;
-    void  (::clang::ObjCPropertyImplDecl::*method_pointer_de7a68bdc5b65fd6ad4a808f598e1ab0)(class ::clang::SourceLocation ) = &::clang::ObjCPropertyImplDecl::setAtLoc;
-    void  (::clang::ObjCPropertyImplDecl::*method_pointer_e6129f9f86d55ad3aecd5ad1621a0f79)(class ::clang::ObjCPropertyDecl  *) = &::clang::ObjCPropertyImplDecl::setPropertyDecl;
-    void  (::clang::ObjCPropertyImplDecl::*method_pointer_c6db1916d9e7528f84763354ebe130d2)(class ::clang::ObjCIvarDecl  *, class ::clang::SourceLocation ) = &::clang::ObjCPropertyImplDecl::setPropertyIvarDecl;
-    boost::python::class_< class ::clang::ObjCPropertyImplDecl, autowig::HeldType< class ::clang::ObjCPropertyImplDecl >, boost::python::bases< class ::clang::Decl >, boost::noncopyable > class_19b8049789335462bac78de513b121a7("ObjCPropertyImplDecl", "", boost::python::no_init);
-    class_19b8049789335462bac78de513b121a7.def("create_deserialized", method_pointer_d254dcf91a0953daa328a891fbafb204, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_19b8049789335462bac78de513b121a7.def("classof", method_pointer_6b31830154f551c78adb472b4d2a4f50, "");
-    class_19b8049789335462bac78de513b121a7.def("classof_kind", method_pointer_0d277fff003d5615a56e9ce23fe4f705, "");
-    class_19b8049789335462bac78de513b121a7.def("get_loc_start", method_pointer_778c284b14f254e68a8c8f2933a43bbb, "");
-    class_19b8049789335462bac78de513b121a7.def("get_property_decl", method_pointer_46779851429250a7946ddb7f928f1b97, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_19b8049789335462bac78de513b121a7.def("get_property_ivar_decl", method_pointer_7fb27b145dcf554ba660b2deda2e1d1a, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_19b8049789335462bac78de513b121a7.def("get_property_ivar_decl_loc", method_pointer_84c712090fdf56458f6ff4bfe487b6ed, "");
-    class_19b8049789335462bac78de513b121a7.def("is_ivar_name_specified", method_pointer_b98c34b0a473567cbcfbab8cf7aa8b29, "");
-    class_19b8049789335462bac78de513b121a7.def("set_at_loc", method_pointer_de7a68bdc5b65fd6ad4a808f598e1ab0, "");
-    class_19b8049789335462bac78de513b121a7.def("set_property_decl", method_pointer_e6129f9f86d55ad3aecd5ad1621a0f79, "");
-    class_19b8049789335462bac78de513b121a7.def("set_property_ivar_decl", method_pointer_c6db1916d9e7528f84763354ebe130d2, "");
+    class ::clang::ObjCPropertyImplDecl * (*method_pointer_35d4ec1ca4a65158977227acfc5ea324)(class ::clang::ASTContext &, unsigned int ) = ::clang::ObjCPropertyImplDecl::CreateDeserialized;
+    class ::clang::SourceLocation  (::clang::ObjCPropertyImplDecl::*method_pointer_b17a68e8ce1a5993ac1c2f461c22eb54)() const = &::clang::ObjCPropertyImplDecl::getLocStart;
+    void  (::clang::ObjCPropertyImplDecl::*method_pointer_5a42b08f2b5c5646877f49230aa2a499)(class ::clang::SourceLocation ) = &::clang::ObjCPropertyImplDecl::setAtLoc;
+    class ::clang::ObjCPropertyDecl * (::clang::ObjCPropertyImplDecl::*method_pointer_352baacce881584c9be94f636849f025)() const = &::clang::ObjCPropertyImplDecl::getPropertyDecl;
+    void  (::clang::ObjCPropertyImplDecl::*method_pointer_eb2e58982a005d93a7926f230e533b44)(class ::clang::ObjCPropertyDecl *) = &::clang::ObjCPropertyImplDecl::setPropertyDecl;
+    class ::clang::ObjCIvarDecl * (::clang::ObjCPropertyImplDecl::*method_pointer_0da1fa1d3f9b5c7d88a1e56a5b1c5558)() const = &::clang::ObjCPropertyImplDecl::getPropertyIvarDecl;
+    class ::clang::SourceLocation  (::clang::ObjCPropertyImplDecl::*method_pointer_4d0969817a595bd19b79eae96bd9425f)() const = &::clang::ObjCPropertyImplDecl::getPropertyIvarDeclLoc;
+    void  (::clang::ObjCPropertyImplDecl::*method_pointer_d9bef8551e885dfcb1dbce0355b47c54)(class ::clang::ObjCIvarDecl *, class ::clang::SourceLocation ) = &::clang::ObjCPropertyImplDecl::setPropertyIvarDecl;
+    bool  (::clang::ObjCPropertyImplDecl::*method_pointer_774cc4638db35e7985906ef51bed057d)() const = &::clang::ObjCPropertyImplDecl::isIvarNameSpecified;
+    bool  (*method_pointer_5cfda90e8bb25dd18e0dba8126c21cbb)(class ::clang::Decl const *) = ::clang::ObjCPropertyImplDecl::classof;
+    bool  (*method_pointer_45abfdf03e2f5243a6f16654d62e0fb7)(enum ::clang::Decl::Kind ) = ::clang::ObjCPropertyImplDecl::classofKind;
+    boost::python::class_< class ::clang::ObjCPropertyImplDecl, autowig::Held< class ::clang::ObjCPropertyImplDecl >::Type, boost::python::bases< class ::clang::Decl >, boost::noncopyable > class_19b8049789335462bac78de513b121a7("ObjCPropertyImplDecl", "", boost::python::no_init);
+    class_19b8049789335462bac78de513b121a7.def("create_deserialized", method_pointer_35d4ec1ca4a65158977227acfc5ea324, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_19b8049789335462bac78de513b121a7.def("get_loc_start", method_pointer_b17a68e8ce1a5993ac1c2f461c22eb54, "");
+    class_19b8049789335462bac78de513b121a7.def("set_at_loc", method_pointer_5a42b08f2b5c5646877f49230aa2a499, "");
+    class_19b8049789335462bac78de513b121a7.def("get_property_decl", method_pointer_352baacce881584c9be94f636849f025, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_19b8049789335462bac78de513b121a7.def("set_property_decl", method_pointer_eb2e58982a005d93a7926f230e533b44, "");
+    class_19b8049789335462bac78de513b121a7.def("get_property_ivar_decl", method_pointer_0da1fa1d3f9b5c7d88a1e56a5b1c5558, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_19b8049789335462bac78de513b121a7.def("get_property_ivar_decl_loc", method_pointer_4d0969817a595bd19b79eae96bd9425f, "");
+    class_19b8049789335462bac78de513b121a7.def("set_property_ivar_decl", method_pointer_d9bef8551e885dfcb1dbce0355b47c54, "");
+    class_19b8049789335462bac78de513b121a7.def("is_ivar_name_specified", method_pointer_774cc4638db35e7985906ef51bed057d, "For @synthesize, returns true if an ivar name was explicitly specified.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_19b8049789335462bac78de513b121a7.def("classof", method_pointer_5cfda90e8bb25dd18e0dba8126c21cbb, "");
+    class_19b8049789335462bac78de513b121a7.def("classof_kind", method_pointer_45abfdf03e2f5243a6f16654d62e0fb7, "");
     class_19b8049789335462bac78de513b121a7.staticmethod("classof_kind");
     class_19b8049789335462bac78de513b121a7.staticmethod("create_deserialized");
     class_19b8049789335462bac78de513b121a7.staticmethod("classof");
 
-    if(std::is_class< autowig::HeldType< class ::clang::ObjCPropertyImplDecl > >::value)
+    if(autowig::Held< class ::clang::ObjCPropertyImplDecl >::is_class)
     {
-        boost::python::implicitly_convertible< autowig::HeldType< class ::clang::ObjCPropertyImplDecl >, autowig::HeldType< class ::clang::Decl > >();
+        boost::python::implicitly_convertible< autowig::Held< class ::clang::ObjCPropertyImplDecl >::Type, autowig::Held< class ::clang::Decl >::Type >();
+        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::ObjCPropertyImplDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::ObjCPropertyImplDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::ObjCPropertyImplDecl >::Type, class ::clang::ObjCPropertyImplDecl > > >();
     }
 
 }

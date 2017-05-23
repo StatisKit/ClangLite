@@ -1,19 +1,3 @@
-/**********************************************************************************/
-/*                                                                                */
-/* PyClangLite: Python bindings for Clang                                         */
-/*                                                                                */
-/* Homepage: http://pyclanglite.readthedocs.io/                                   */
-/*                                                                                */
-/* Copyright (c) 2016 Pierre Fernique                                             */
-/*                                                                                */
-/* This software is distributed under the CeCILL-C license. You should have       */
-/* received a copy of the legalcode along with this work. If not, see             */
-/* <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 */
-/*                                                                                */
-/* File authors: Pierre Fernique <pfernique@gmail.com> (5)                        */
-/*                                                                                */
-/**********************************************************************************/
-
 #include "_clanglite.h"
 
 
@@ -28,7 +12,10 @@ void wrapper_0c11b148868f50d9aba81b8d12b3ed37()
     boost::python::object module_693db0b37725552a85ff783087528c5b(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_693db0b37725552a85ff783087528c5b.c_str()))));
     boost::python::scope().attr("_linkage_spec_decl") = module_693db0b37725552a85ff783087528c5b;
     boost::python::scope scope_693db0b37725552a85ff783087528c5b = module_693db0b37725552a85ff783087528c5b;
-    boost::python::enum_< enum ::clang::LinkageSpecDecl::LanguageIDs >("language_i_ds")
-        .value("LANG_C", ::clang::LinkageSpecDecl::lang_c)
-        .value("LANG_CXX", ::clang::LinkageSpecDecl::lang_cxx);
+    boost::python::enum_< enum ::clang::LinkageSpecDecl::LanguageIDs > enum_0c11b148868f50d9aba81b8d12b3ed37("language_i_ds");
+
+    enum_0c11b148868f50d9aba81b8d12b3ed37.value("LANG_C", ::clang::LinkageSpecDecl::lang_c);
+
+    enum_0c11b148868f50d9aba81b8d12b3ed37.value("LANG_CXX", ::clang::LinkageSpecDecl::lang_cxx);
+
 }

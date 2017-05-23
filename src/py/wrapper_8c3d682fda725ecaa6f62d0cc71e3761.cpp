@@ -1,25 +1,21 @@
-/**********************************************************************************/
-/*                                                                                */
-/* PyClangLite: Python bindings for Clang                                         */
-/*                                                                                */
-/* Homepage: http://pyclanglite.readthedocs.io/                                   */
-/*                                                                                */
-/* Copyright (c) 2016 Pierre Fernique                                             */
-/*                                                                                */
-/* This software is distributed under the CeCILL-C license. You should have       */
-/* received a copy of the legalcode along with this work. If not, see             */
-/* <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 */
-/*                                                                                */
-/* File authors: Pierre Fernique <pfernique@gmail.com> (35)                       */
-/*                                                                                */
-/**********************************************************************************/
-
 #include "_clanglite.h"
+
 
 
 namespace autowig
 {
+
 }
+
+#if defined(_MSC_VER)
+    #if (_MSC_VER == 1900)
+namespace boost
+{
+    template <> class ::clang::SubstTemplateTypeParmPackType const volatile * get_pointer<class ::clang::SubstTemplateTypeParmPackType const volatile >(class ::clang::SubstTemplateTypeParmPackType const volatile *c) { return c; }
+}
+    #endif
+#endif
+
 
 
 void wrapper_8c3d682fda725ecaa6f62d0cc71e3761()
@@ -29,22 +25,23 @@ void wrapper_8c3d682fda725ecaa6f62d0cc71e3761()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_fbc9847f7cbf539fa5e49b5649bcfe5f)(class ::clang::Type  const *) = ::clang::SubstTemplateTypeParmPackType::classof;
-    class ::clang::QualType  (::clang::SubstTemplateTypeParmPackType::*method_pointer_ed510711462d5c0cbc0d2bd5d7a2deff)() const = &::clang::SubstTemplateTypeParmPackType::desugar;
-    class ::clang::TemplateArgument  (::clang::SubstTemplateTypeParmPackType::*method_pointer_1c424703cd6f5dfe8013fd8d40d04259)() const = &::clang::SubstTemplateTypeParmPackType::getArgumentPack;
-    class ::clang::TemplateTypeParmType  const * (::clang::SubstTemplateTypeParmPackType::*method_pointer_7ee0ee6057155c1b963c937871a99718)() const = &::clang::SubstTemplateTypeParmPackType::getReplacedParameter;
-    bool  (::clang::SubstTemplateTypeParmPackType::*method_pointer_18c671809e015b95b5bc018753dc83f0)() const = &::clang::SubstTemplateTypeParmPackType::isSugared;
-    boost::python::class_< class ::clang::SubstTemplateTypeParmPackType, autowig::HeldType< class ::clang::SubstTemplateTypeParmPackType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_8c3d682fda725ecaa6f62d0cc71e3761("SubstTemplateTypeParmPackType", "", boost::python::no_init);
-    class_8c3d682fda725ecaa6f62d0cc71e3761.def("classof", method_pointer_fbc9847f7cbf539fa5e49b5649bcfe5f, "");
-    class_8c3d682fda725ecaa6f62d0cc71e3761.def("desugar", method_pointer_ed510711462d5c0cbc0d2bd5d7a2deff, "");
-    class_8c3d682fda725ecaa6f62d0cc71e3761.def("get_argument_pack", method_pointer_1c424703cd6f5dfe8013fd8d40d04259, "");
-    class_8c3d682fda725ecaa6f62d0cc71e3761.def("get_replaced_parameter", method_pointer_7ee0ee6057155c1b963c937871a99718, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_8c3d682fda725ecaa6f62d0cc71e3761.def("is_sugared", method_pointer_18c671809e015b95b5bc018753dc83f0, "");
+    class ::clang::TemplateTypeParmType const * (::clang::SubstTemplateTypeParmPackType::*method_pointer_0c33fc3517115f639c8ea0769f7d69c5)() const = &::clang::SubstTemplateTypeParmPackType::getReplacedParameter;
+    bool  (::clang::SubstTemplateTypeParmPackType::*method_pointer_7a9bf362ddf45fc6a7104f6204416ac9)() const = &::clang::SubstTemplateTypeParmPackType::isSugared;
+    class ::clang::QualType  (::clang::SubstTemplateTypeParmPackType::*method_pointer_5e37981f84d754189d29f8d079a463c8)() const = &::clang::SubstTemplateTypeParmPackType::desugar;
+    class ::clang::TemplateArgument  (::clang::SubstTemplateTypeParmPackType::*method_pointer_2c5f487b719c5c99aea2ed69b3e96137)() const = &::clang::SubstTemplateTypeParmPackType::getArgumentPack;
+    bool  (*method_pointer_82c9b3a123945f5eb1fac41ee0810bae)(class ::clang::Type const *) = ::clang::SubstTemplateTypeParmPackType::classof;
+    boost::python::class_< class ::clang::SubstTemplateTypeParmPackType, autowig::Held< class ::clang::SubstTemplateTypeParmPackType >::Type, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_8c3d682fda725ecaa6f62d0cc71e3761("SubstTemplateTypeParmPackType", "Represents the result of substituting a set of types for a template type\nparameter pack.\n\nWhen a pack expansion in the source code contains multiple parameter\npacks and those parameter packs correspond to different levels of\ntemplate parameter lists, this type node is used to represent a template\ntype parameter pack from an outer level, which has already had its\nargument pack substituted but that still lives within a pack expansion\nthat itself could not be instantiated. When actually performing a\nsubstitution into that pack expansion (e.g., when all template\nparameters have corresponding arguments), this type will be replaced\nwith the :raw-latex:`\\c S`ubstTemplateTypeParmType at the current pack\nsubstitution index.\n\n", boost::python::no_init);
+    class_8c3d682fda725ecaa6f62d0cc71e3761.def("get_replaced_parameter", method_pointer_0c33fc3517115f639c8ea0769f7d69c5, boost::python::return_value_policy< boost::python::reference_existing_object >(), ":Return Type:\n    :py:class:`clanglite.clang.TemplateTypeParmType`\n\n");
+    class_8c3d682fda725ecaa6f62d0cc71e3761.def("is_sugared", method_pointer_7a9bf362ddf45fc6a7104f6204416ac9, "");
+    class_8c3d682fda725ecaa6f62d0cc71e3761.def("desugar", method_pointer_5e37981f84d754189d29f8d079a463c8, "");
+    class_8c3d682fda725ecaa6f62d0cc71e3761.def("get_argument_pack", method_pointer_2c5f487b719c5c99aea2ed69b3e96137, "");
+    class_8c3d682fda725ecaa6f62d0cc71e3761.def("classof", method_pointer_82c9b3a123945f5eb1fac41ee0810bae, "");
     class_8c3d682fda725ecaa6f62d0cc71e3761.staticmethod("classof");
 
-    if(std::is_class< autowig::HeldType< class ::clang::SubstTemplateTypeParmPackType > >::value)
+    if(autowig::Held< class ::clang::SubstTemplateTypeParmPackType >::is_class)
     {
-        boost::python::implicitly_convertible< autowig::HeldType< class ::clang::SubstTemplateTypeParmPackType >, autowig::HeldType< class ::clang::Type > >();
+        boost::python::implicitly_convertible< autowig::Held< class ::clang::SubstTemplateTypeParmPackType >::Type, autowig::Held< class ::clang::Type >::Type >();
+        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::SubstTemplateTypeParmPackType >::Type, boost::python::objects::make_ptr_instance< class ::clang::SubstTemplateTypeParmPackType, boost::python::objects::pointer_holder< autowig::Held< class ::clang::SubstTemplateTypeParmPackType >::Type, class ::clang::SubstTemplateTypeParmPackType > > >();
     }
 
 }

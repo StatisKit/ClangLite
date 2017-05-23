@@ -1,25 +1,21 @@
-/**********************************************************************************/
-/*                                                                                */
-/* PyClangLite: Python bindings for Clang                                         */
-/*                                                                                */
-/* Homepage: http://pyclanglite.readthedocs.io/                                   */
-/*                                                                                */
-/* Copyright (c) 2016 Pierre Fernique                                             */
-/*                                                                                */
-/* This software is distributed under the CeCILL-C license. You should have       */
-/* received a copy of the legalcode along with this work. If not, see             */
-/* <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 */
-/*                                                                                */
-/* File authors: Pierre Fernique <pfernique@gmail.com> (35)                       */
-/*                                                                                */
-/**********************************************************************************/
-
 #include "_clanglite.h"
+
 
 
 namespace autowig
 {
+
 }
+
+#if defined(_MSC_VER)
+    #if (_MSC_VER == 1900)
+namespace boost
+{
+    template <> class ::clang::DependentNameType const volatile * get_pointer<class ::clang::DependentNameType const volatile >(class ::clang::DependentNameType const volatile *c) { return c; }
+}
+    #endif
+#endif
+
 
 
 void wrapper_411e70b105bb5141b394c3e9e429e0b0()
@@ -29,18 +25,19 @@ void wrapper_411e70b105bb5141b394c3e9e429e0b0()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_ecb618c05c895c2b814a0702bb5335a1)(class ::clang::Type  const *) = ::clang::DependentNameType::classof;
-    class ::clang::QualType  (::clang::DependentNameType::*method_pointer_999bfa4263fa5304849338bbc650d41b)() const = &::clang::DependentNameType::desugar;
-    bool  (::clang::DependentNameType::*method_pointer_e3441c2a85af5d84b4307fd77063e9dc)() const = &::clang::DependentNameType::isSugared;
-    boost::python::class_< class ::clang::DependentNameType, autowig::HeldType< class ::clang::DependentNameType >, boost::python::bases< class ::clang::TypeWithKeyword >, boost::noncopyable > class_411e70b105bb5141b394c3e9e429e0b0("DependentNameType", "", boost::python::no_init);
-    class_411e70b105bb5141b394c3e9e429e0b0.def("classof", method_pointer_ecb618c05c895c2b814a0702bb5335a1, "");
-    class_411e70b105bb5141b394c3e9e429e0b0.def("desugar", method_pointer_999bfa4263fa5304849338bbc650d41b, "");
-    class_411e70b105bb5141b394c3e9e429e0b0.def("is_sugared", method_pointer_e3441c2a85af5d84b4307fd77063e9dc, "");
+    bool  (::clang::DependentNameType::*method_pointer_e9382f0de3af5ecab4a0b8bac03a20e8)() const = &::clang::DependentNameType::isSugared;
+    class ::clang::QualType  (::clang::DependentNameType::*method_pointer_c155e08860d951389c669e2d2fa816d9)() const = &::clang::DependentNameType::desugar;
+    bool  (*method_pointer_e0286efa07e65ec883a9cf4bfa594a48)(class ::clang::Type const *) = ::clang::DependentNameType::classof;
+    boost::python::class_< class ::clang::DependentNameType, autowig::Held< class ::clang::DependentNameType >::Type, boost::python::bases< class ::clang::TypeWithKeyword >, boost::noncopyable > class_411e70b105bb5141b394c3e9e429e0b0("DependentNameType", "Represents a qualified type name for which the type name is dependent.\n\nDependentNameType represents a class of dependent types that involve a\npossibly dependent nested-name-specifier (e.g., 'T::') followed by a\nname of a type. The DependentNameType may start with a 'typename' (for a\ntypename-specifier), 'class', 'struct', 'union', or 'enum' (for a\ndependent elaborated-type-specifier), or nothing (in contexts where we\nknow that we must be referring to a type, e.g., in a base class\nspecifier). Typically the nested-name-specifier is dependent, but in\nMSVC compatibility mode, this type is used with non-dependent names to\ndelay name lookup until instantiation.\n\n", boost::python::no_init);
+    class_411e70b105bb5141b394c3e9e429e0b0.def("is_sugared", method_pointer_e9382f0de3af5ecab4a0b8bac03a20e8, "");
+    class_411e70b105bb5141b394c3e9e429e0b0.def("desugar", method_pointer_c155e08860d951389c669e2d2fa816d9, "");
+    class_411e70b105bb5141b394c3e9e429e0b0.def("classof", method_pointer_e0286efa07e65ec883a9cf4bfa594a48, "");
     class_411e70b105bb5141b394c3e9e429e0b0.staticmethod("classof");
 
-    if(std::is_class< autowig::HeldType< class ::clang::DependentNameType > >::value)
+    if(autowig::Held< class ::clang::DependentNameType >::is_class)
     {
-        boost::python::implicitly_convertible< autowig::HeldType< class ::clang::DependentNameType >, autowig::HeldType< class ::clang::TypeWithKeyword > >();
+        boost::python::implicitly_convertible< autowig::Held< class ::clang::DependentNameType >::Type, autowig::Held< class ::clang::TypeWithKeyword >::Type >();
+        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::DependentNameType >::Type, boost::python::objects::make_ptr_instance< class ::clang::DependentNameType, boost::python::objects::pointer_holder< autowig::Held< class ::clang::DependentNameType >::Type, class ::clang::DependentNameType > > >();
     }
 
 }

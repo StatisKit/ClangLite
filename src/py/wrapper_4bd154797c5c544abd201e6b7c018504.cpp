@@ -1,19 +1,3 @@
-/**********************************************************************************/
-/*                                                                                */
-/* PyClangLite: Python bindings for Clang                                         */
-/*                                                                                */
-/* Homepage: http://pyclanglite.readthedocs.io/                                   */
-/*                                                                                */
-/* Copyright (c) 2016 Pierre Fernique                                             */
-/*                                                                                */
-/* This software is distributed under the CeCILL-C license. You should have       */
-/* received a copy of the legalcode along with this work. If not, see             */
-/* <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 */
-/*                                                                                */
-/* File authors: Pierre Fernique <pfernique@gmail.com> (6)                        */
-/*                                                                                */
-/**********************************************************************************/
-
 #include "_clanglite.h"
 
 
@@ -28,106 +12,208 @@ void wrapper_4bd154797c5c544abd201e6b7c018504()
     boost::python::object module_a6aedb4654a55a40aeecf4b1dc5fcc98(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_a6aedb4654a55a40aeecf4b1dc5fcc98.c_str()))));
     boost::python::scope().attr("_decl") = module_a6aedb4654a55a40aeecf4b1dc5fcc98;
     boost::python::scope scope_a6aedb4654a55a40aeecf4b1dc5fcc98 = module_a6aedb4654a55a40aeecf4b1dc5fcc98;
-    boost::python::enum_< enum ::clang::Decl::Kind >("kind")
-        .value("ACCESS_SPEC", ::clang::Decl::AccessSpec)
-        .value("BLOCK", ::clang::Decl::Block)
-        .value("BUILTIN_TEMPLATE", ::clang::Decl::BuiltinTemplate)
-        .value("CXX_CONSTRUCTOR", ::clang::Decl::CXXConstructor)
-        .value("CXX_CONVERSION", ::clang::Decl::CXXConversion)
-        .value("CXX_DESTRUCTOR", ::clang::Decl::CXXDestructor)
-        .value("CXX_METHOD", ::clang::Decl::CXXMethod)
-        .value("CXX_RECORD", ::clang::Decl::CXXRecord)
-        .value("CAPTURED", ::clang::Decl::Captured)
-        .value("CLASS_SCOPE_FUNCTION_SPECIALIZATION", ::clang::Decl::ClassScopeFunctionSpecialization)
-        .value("CLASS_TEMPLATE", ::clang::Decl::ClassTemplate)
-        .value("CLASS_TEMPLATE_PARTIAL_SPECIALIZATION", ::clang::Decl::ClassTemplatePartialSpecialization)
-        .value("CLASS_TEMPLATE_SPECIALIZATION", ::clang::Decl::ClassTemplateSpecialization)
-        .value("EMPTY", ::clang::Decl::Empty)
-        .value("ENUM", ::clang::Decl::Enum)
-        .value("ENUM_CONSTANT", ::clang::Decl::EnumConstant)
-        .value("EXTERN_C_CONTEXT", ::clang::Decl::ExternCContext)
-        .value("FIELD", ::clang::Decl::Field)
-        .value("FILE_SCOPE_ASM", ::clang::Decl::FileScopeAsm)
-        .value("FRIEND", ::clang::Decl::Friend)
-        .value("FRIEND_TEMPLATE", ::clang::Decl::FriendTemplate)
-        .value("FUNCTION", ::clang::Decl::Function)
-        .value("FUNCTION_TEMPLATE", ::clang::Decl::FunctionTemplate)
-        .value("IMPLICIT_PARAM", ::clang::Decl::ImplicitParam)
-        .value("IMPORT", ::clang::Decl::Import)
-        .value("INDIRECT_FIELD", ::clang::Decl::IndirectField)
-        .value("LABEL", ::clang::Decl::Label)
-        .value("LINKAGE_SPEC", ::clang::Decl::LinkageSpec)
-        .value("MS_PROPERTY", ::clang::Decl::MSProperty)
-        .value("NAMESPACE", ::clang::Decl::Namespace)
-        .value("NAMESPACE_ALIAS", ::clang::Decl::NamespaceAlias)
-        .value("NON_TYPE_TEMPLATE_PARM", ::clang::Decl::NonTypeTemplateParm)
-        .value("OMP_THREAD_PRIVATE", ::clang::Decl::OMPThreadPrivate)
-        .value("OBJ_C_AT_DEFS_FIELD", ::clang::Decl::ObjCAtDefsField)
-        .value("OBJ_C_CATEGORY", ::clang::Decl::ObjCCategory)
-        .value("OBJ_C_CATEGORY_IMPL", ::clang::Decl::ObjCCategoryImpl)
-        .value("OBJ_C_COMPATIBLE_ALIAS", ::clang::Decl::ObjCCompatibleAlias)
-        .value("OBJ_C_IMPLEMENTATION", ::clang::Decl::ObjCImplementation)
-        .value("OBJ_C_INTERFACE", ::clang::Decl::ObjCInterface)
-        .value("OBJ_C_IVAR", ::clang::Decl::ObjCIvar)
-        .value("OBJ_C_METHOD", ::clang::Decl::ObjCMethod)
-        .value("OBJ_C_PROPERTY", ::clang::Decl::ObjCProperty)
-        .value("OBJ_C_PROPERTY_IMPL", ::clang::Decl::ObjCPropertyImpl)
-        .value("OBJ_C_PROTOCOL", ::clang::Decl::ObjCProtocol)
-        .value("OBJ_C_TYPE_PARAM", ::clang::Decl::ObjCTypeParam)
-        .value("PARM_VAR", ::clang::Decl::ParmVar)
-        .value("RECORD", ::clang::Decl::Record)
-        .value("STATIC_ASSERT", ::clang::Decl::StaticAssert)
-        .value("TEMPLATE_TEMPLATE_PARM", ::clang::Decl::TemplateTemplateParm)
-        .value("TEMPLATE_TYPE_PARM", ::clang::Decl::TemplateTypeParm)
-        .value("TRANSLATION_UNIT", ::clang::Decl::TranslationUnit)
-        .value("TYPE_ALIAS", ::clang::Decl::TypeAlias)
-        .value("TYPE_ALIAS_TEMPLATE", ::clang::Decl::TypeAliasTemplate)
-        .value("TYPEDEF", ::clang::Decl::Typedef)
-        .value("UNRESOLVED_USING_TYPENAME", ::clang::Decl::UnresolvedUsingTypename)
-        .value("UNRESOLVED_USING_VALUE", ::clang::Decl::UnresolvedUsingValue)
-        .value("USING", ::clang::Decl::Using)
-        .value("USING_DIRECTIVE", ::clang::Decl::UsingDirective)
-        .value("USING_SHADOW", ::clang::Decl::UsingShadow)
-        .value("VAR", ::clang::Decl::Var)
-        .value("VAR_TEMPLATE", ::clang::Decl::VarTemplate)
-        .value("VAR_TEMPLATE_PARTIAL_SPECIALIZATION", ::clang::Decl::VarTemplatePartialSpecialization)
-        .value("VAR_TEMPLATE_SPECIALIZATION", ::clang::Decl::VarTemplateSpecialization)
-        .value("FIRST_CXX_METHOD", ::clang::Decl::firstCXXMethod)
-        .value("FIRST_CXX_RECORD", ::clang::Decl::firstCXXRecord)
-        .value("FIRST_CLASS_TEMPLATE_SPECIALIZATION", ::clang::Decl::firstClassTemplateSpecialization)
-        .value("FIRST_DECL", ::clang::Decl::firstDecl)
-        .value("FIRST_DECLARATOR", ::clang::Decl::firstDeclarator)
-        .value("FIRST_FIELD", ::clang::Decl::firstField)
-        .value("FIRST_FUNCTION", ::clang::Decl::firstFunction)
-        .value("FIRST_NAMED", ::clang::Decl::firstNamed)
-        .value("FIRST_OBJ_C_CONTAINER", ::clang::Decl::firstObjCContainer)
-        .value("FIRST_OBJ_C_IMPL", ::clang::Decl::firstObjCImpl)
-        .value("FIRST_RECORD", ::clang::Decl::firstRecord)
-        .value("FIRST_REDECLARABLE_TEMPLATE", ::clang::Decl::firstRedeclarableTemplate)
-        .value("FIRST_TAG", ::clang::Decl::firstTag)
-        .value("FIRST_TEMPLATE", ::clang::Decl::firstTemplate)
-        .value("FIRST_TYPE", ::clang::Decl::firstType)
-        .value("FIRST_TYPEDEF_NAME", ::clang::Decl::firstTypedefName)
-        .value("FIRST_VALUE", ::clang::Decl::firstValue)
-        .value("FIRST_VAR", ::clang::Decl::firstVar)
-        .value("FIRST_VAR_TEMPLATE_SPECIALIZATION", ::clang::Decl::firstVarTemplateSpecialization)
-        .value("LAST_CXX_METHOD", ::clang::Decl::lastCXXMethod)
-        .value("LAST_CXX_RECORD", ::clang::Decl::lastCXXRecord)
-        .value("LAST_CLASS_TEMPLATE_SPECIALIZATION", ::clang::Decl::lastClassTemplateSpecialization)
-        .value("LAST_DECL", ::clang::Decl::lastDecl)
-        .value("LAST_DECLARATOR", ::clang::Decl::lastDeclarator)
-        .value("LAST_FIELD", ::clang::Decl::lastField)
-        .value("LAST_FUNCTION", ::clang::Decl::lastFunction)
-        .value("LAST_NAMED", ::clang::Decl::lastNamed)
-        .value("LAST_OBJ_C_CONTAINER", ::clang::Decl::lastObjCContainer)
-        .value("LAST_OBJ_C_IMPL", ::clang::Decl::lastObjCImpl)
-        .value("LAST_RECORD", ::clang::Decl::lastRecord)
-        .value("LAST_REDECLARABLE_TEMPLATE", ::clang::Decl::lastRedeclarableTemplate)
-        .value("LAST_TAG", ::clang::Decl::lastTag)
-        .value("LAST_TEMPLATE", ::clang::Decl::lastTemplate)
-        .value("LAST_TYPE", ::clang::Decl::lastType)
-        .value("LAST_TYPEDEF_NAME", ::clang::Decl::lastTypedefName)
-        .value("LAST_VALUE", ::clang::Decl::lastValue)
-        .value("LAST_VAR", ::clang::Decl::lastVar)
-        .value("LAST_VAR_TEMPLATE_SPECIALIZATION", ::clang::Decl::lastVarTemplateSpecialization);
+    boost::python::enum_< enum ::clang::Decl::Kind > enum_4bd154797c5c544abd201e6b7c018504("kind");
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("ACCESS_SPEC", ::clang::Decl::AccessSpec);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("BLOCK", ::clang::Decl::Block);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("CAPTURED", ::clang::Decl::Captured);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("CLASS_SCOPE_FUNCTION_SPECIALIZATION", ::clang::Decl::ClassScopeFunctionSpecialization);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("EMPTY", ::clang::Decl::Empty);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("EXTERN_C_CONTEXT", ::clang::Decl::ExternCContext);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FILE_SCOPE_ASM", ::clang::Decl::FileScopeAsm);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FRIEND", ::clang::Decl::Friend);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FRIEND_TEMPLATE", ::clang::Decl::FriendTemplate);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("IMPORT", ::clang::Decl::Import);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("LINKAGE_SPEC", ::clang::Decl::LinkageSpec);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("LABEL", ::clang::Decl::Label);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("NAMESPACE", ::clang::Decl::Namespace);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("NAMESPACE_ALIAS", ::clang::Decl::NamespaceAlias);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("OBJ_C_COMPATIBLE_ALIAS", ::clang::Decl::ObjCCompatibleAlias);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("OBJ_C_CATEGORY", ::clang::Decl::ObjCCategory);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("OBJ_C_CATEGORY_IMPL", ::clang::Decl::ObjCCategoryImpl);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("OBJ_C_IMPLEMENTATION", ::clang::Decl::ObjCImplementation);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_OBJ_C_IMPL", ::clang::Decl::firstObjCImpl);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("LAST_OBJ_C_IMPL", ::clang::Decl::lastObjCImpl);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("OBJ_C_INTERFACE", ::clang::Decl::ObjCInterface);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("OBJ_C_PROTOCOL", ::clang::Decl::ObjCProtocol);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_OBJ_C_CONTAINER", ::clang::Decl::firstObjCContainer);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("LAST_OBJ_C_CONTAINER", ::clang::Decl::lastObjCContainer);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("OBJ_C_METHOD", ::clang::Decl::ObjCMethod);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("OBJ_C_PROPERTY", ::clang::Decl::ObjCProperty);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("BUILTIN_TEMPLATE", ::clang::Decl::BuiltinTemplate);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("CLASS_TEMPLATE", ::clang::Decl::ClassTemplate);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FUNCTION_TEMPLATE", ::clang::Decl::FunctionTemplate);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("TYPE_ALIAS_TEMPLATE", ::clang::Decl::TypeAliasTemplate);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("VAR_TEMPLATE", ::clang::Decl::VarTemplate);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_REDECLARABLE_TEMPLATE", ::clang::Decl::firstRedeclarableTemplate);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("LAST_REDECLARABLE_TEMPLATE", ::clang::Decl::lastRedeclarableTemplate);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("TEMPLATE_TEMPLATE_PARM", ::clang::Decl::TemplateTemplateParm);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_TEMPLATE", ::clang::Decl::firstTemplate);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("LAST_TEMPLATE", ::clang::Decl::lastTemplate);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("ENUM", ::clang::Decl::Enum);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("RECORD", ::clang::Decl::Record);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("CXX_RECORD", ::clang::Decl::CXXRecord);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("CLASS_TEMPLATE_SPECIALIZATION", ::clang::Decl::ClassTemplateSpecialization);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("CLASS_TEMPLATE_PARTIAL_SPECIALIZATION", ::clang::Decl::ClassTemplatePartialSpecialization);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_CLASS_TEMPLATE_SPECIALIZATION", ::clang::Decl::firstClassTemplateSpecialization);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("LAST_CLASS_TEMPLATE_SPECIALIZATION", ::clang::Decl::lastClassTemplateSpecialization);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_CXX_RECORD", ::clang::Decl::firstCXXRecord);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("LAST_CXX_RECORD", ::clang::Decl::lastCXXRecord);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_RECORD", ::clang::Decl::firstRecord);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("LAST_RECORD", ::clang::Decl::lastRecord);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_TAG", ::clang::Decl::firstTag);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("LAST_TAG", ::clang::Decl::lastTag);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("TEMPLATE_TYPE_PARM", ::clang::Decl::TemplateTypeParm);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("OBJ_C_TYPE_PARAM", ::clang::Decl::ObjCTypeParam);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("TYPE_ALIAS", ::clang::Decl::TypeAlias);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("TYPEDEF", ::clang::Decl::Typedef);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_TYPEDEF_NAME", ::clang::Decl::firstTypedefName);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("LAST_TYPEDEF_NAME", ::clang::Decl::lastTypedefName);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("UNRESOLVED_USING_TYPENAME", ::clang::Decl::UnresolvedUsingTypename);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_TYPE", ::clang::Decl::firstType);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("LAST_TYPE", ::clang::Decl::lastType);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("USING", ::clang::Decl::Using);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("USING_DIRECTIVE", ::clang::Decl::UsingDirective);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("USING_SHADOW", ::clang::Decl::UsingShadow);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FIELD", ::clang::Decl::Field);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("OBJ_C_AT_DEFS_FIELD", ::clang::Decl::ObjCAtDefsField);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("OBJ_C_IVAR", ::clang::Decl::ObjCIvar);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_FIELD", ::clang::Decl::firstField);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("LAST_FIELD", ::clang::Decl::lastField);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FUNCTION", ::clang::Decl::Function);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("CXX_METHOD", ::clang::Decl::CXXMethod);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("CXX_CONSTRUCTOR", ::clang::Decl::CXXConstructor);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("CXX_CONVERSION", ::clang::Decl::CXXConversion);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("CXX_DESTRUCTOR", ::clang::Decl::CXXDestructor);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_CXX_METHOD", ::clang::Decl::firstCXXMethod);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("LAST_CXX_METHOD", ::clang::Decl::lastCXXMethod);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_FUNCTION", ::clang::Decl::firstFunction);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("LAST_FUNCTION", ::clang::Decl::lastFunction);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("MS_PROPERTY", ::clang::Decl::MSProperty);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("NON_TYPE_TEMPLATE_PARM", ::clang::Decl::NonTypeTemplateParm);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("VAR", ::clang::Decl::Var);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("IMPLICIT_PARAM", ::clang::Decl::ImplicitParam);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("PARM_VAR", ::clang::Decl::ParmVar);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("VAR_TEMPLATE_SPECIALIZATION", ::clang::Decl::VarTemplateSpecialization);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("VAR_TEMPLATE_PARTIAL_SPECIALIZATION", ::clang::Decl::VarTemplatePartialSpecialization);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_VAR_TEMPLATE_SPECIALIZATION", ::clang::Decl::firstVarTemplateSpecialization);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("LAST_VAR_TEMPLATE_SPECIALIZATION", ::clang::Decl::lastVarTemplateSpecialization);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_VAR", ::clang::Decl::firstVar);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("LAST_VAR", ::clang::Decl::lastVar);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_DECLARATOR", ::clang::Decl::firstDeclarator);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("LAST_DECLARATOR", ::clang::Decl::lastDeclarator);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("ENUM_CONSTANT", ::clang::Decl::EnumConstant);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("INDIRECT_FIELD", ::clang::Decl::IndirectField);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("UNRESOLVED_USING_VALUE", ::clang::Decl::UnresolvedUsingValue);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_VALUE", ::clang::Decl::firstValue);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("LAST_VALUE", ::clang::Decl::lastValue);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_NAMED", ::clang::Decl::firstNamed);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("LAST_NAMED", ::clang::Decl::lastNamed);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("OMP_THREAD_PRIVATE", ::clang::Decl::OMPThreadPrivate);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("OBJ_C_PROPERTY_IMPL", ::clang::Decl::ObjCPropertyImpl);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("STATIC_ASSERT", ::clang::Decl::StaticAssert);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("TRANSLATION_UNIT", ::clang::Decl::TranslationUnit);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_DECL", ::clang::Decl::firstDecl);
+
+    enum_4bd154797c5c544abd201e6b7c018504.value("LAST_DECL", ::clang::Decl::lastDecl);
+
 }

@@ -1,25 +1,21 @@
-/**********************************************************************************/
-/*                                                                                */
-/* PyClangLite: Python bindings for Clang                                         */
-/*                                                                                */
-/* Homepage: http://pyclanglite.readthedocs.io/                                   */
-/*                                                                                */
-/* Copyright (c) 2016 Pierre Fernique                                             */
-/*                                                                                */
-/* This software is distributed under the CeCILL-C license. You should have       */
-/* received a copy of the legalcode along with this work. If not, see             */
-/* <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 */
-/*                                                                                */
-/* File authors: Pierre Fernique <pfernique@gmail.com> (37)                       */
-/*                                                                                */
-/**********************************************************************************/
-
 #include "_clanglite.h"
+
 
 
 namespace autowig
 {
+
 }
+
+#if defined(_MSC_VER)
+    #if (_MSC_VER == 1900)
+namespace boost
+{
+    template <> class ::clang::TypeOfType const volatile * get_pointer<class ::clang::TypeOfType const volatile >(class ::clang::TypeOfType const volatile *c) { return c; }
+}
+    #endif
+#endif
+
 
 
 void wrapper_69d409490fc05f00af970e471a94279a()
@@ -29,20 +25,21 @@ void wrapper_69d409490fc05f00af970e471a94279a()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_cad42045a661520996ecd5d4143d3ef4)(class ::clang::Type  const *) = ::clang::TypeOfType::classof;
-    class ::clang::QualType  (::clang::TypeOfType::*method_pointer_a4ea441095c85bb88f27a899c3e0b055)() const = &::clang::TypeOfType::desugar;
-    class ::clang::QualType  (::clang::TypeOfType::*method_pointer_c1acbcf90a9f50038a321c9d0d6bfe93)() const = &::clang::TypeOfType::getUnderlyingType;
-    bool  (::clang::TypeOfType::*method_pointer_ad2e15af87f15ba9964db6b5ec009b48)() const = &::clang::TypeOfType::isSugared;
-    boost::python::class_< class ::clang::TypeOfType, autowig::HeldType< class ::clang::TypeOfType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_69d409490fc05f00af970e471a94279a("TypeOfType", "", boost::python::no_init);
-    class_69d409490fc05f00af970e471a94279a.def("classof", method_pointer_cad42045a661520996ecd5d4143d3ef4, "");
-    class_69d409490fc05f00af970e471a94279a.def("desugar", method_pointer_a4ea441095c85bb88f27a899c3e0b055, "");
-    class_69d409490fc05f00af970e471a94279a.def("get_underlying_type", method_pointer_c1acbcf90a9f50038a321c9d0d6bfe93, "");
-    class_69d409490fc05f00af970e471a94279a.def("is_sugared", method_pointer_ad2e15af87f15ba9964db6b5ec009b48, "");
+    class ::clang::QualType  (::clang::TypeOfType::*method_pointer_1c953d3302d051e79d282c7ecff266bc)() const = &::clang::TypeOfType::getUnderlyingType;
+    class ::clang::QualType  (::clang::TypeOfType::*method_pointer_75a001cdafcb542a8df5e5ccd5a5c894)() const = &::clang::TypeOfType::desugar;
+    bool  (::clang::TypeOfType::*method_pointer_7de6f64d01e250c390259f230956f1fa)() const = &::clang::TypeOfType::isSugared;
+    bool  (*method_pointer_f0571cdd3a155e3b8c87b70bbe8d88ef)(class ::clang::Type const *) = ::clang::TypeOfType::classof;
+    boost::python::class_< class ::clang::TypeOfType, autowig::Held< class ::clang::TypeOfType >::Type, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_69d409490fc05f00af970e471a94279a("TypeOfType", "", boost::python::no_init);
+    class_69d409490fc05f00af970e471a94279a.def("get_underlying_type", method_pointer_1c953d3302d051e79d282c7ecff266bc, "");
+    class_69d409490fc05f00af970e471a94279a.def("desugar", method_pointer_75a001cdafcb542a8df5e5ccd5a5c894, "Remove a single level of sugar.\n\n:Return Type:\n    :py:class:`clanglite.clang.QualType`\n\n");
+    class_69d409490fc05f00af970e471a94279a.def("is_sugared", method_pointer_7de6f64d01e250c390259f230956f1fa, "Returns whether this type directly provides sugar.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_69d409490fc05f00af970e471a94279a.def("classof", method_pointer_f0571cdd3a155e3b8c87b70bbe8d88ef, "");
     class_69d409490fc05f00af970e471a94279a.staticmethod("classof");
 
-    if(std::is_class< autowig::HeldType< class ::clang::TypeOfType > >::value)
+    if(autowig::Held< class ::clang::TypeOfType >::is_class)
     {
-        boost::python::implicitly_convertible< autowig::HeldType< class ::clang::TypeOfType >, autowig::HeldType< class ::clang::Type > >();
+        boost::python::implicitly_convertible< autowig::Held< class ::clang::TypeOfType >::Type, autowig::Held< class ::clang::Type >::Type >();
+        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::TypeOfType >::Type, boost::python::objects::make_ptr_instance< class ::clang::TypeOfType, boost::python::objects::pointer_holder< autowig::Held< class ::clang::TypeOfType >::Type, class ::clang::TypeOfType > > >();
     }
 
 }

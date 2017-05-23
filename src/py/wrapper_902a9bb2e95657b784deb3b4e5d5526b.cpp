@@ -1,25 +1,21 @@
-/**********************************************************************************/
-/*                                                                                */
-/* PyClangLite: Python bindings for Clang                                         */
-/*                                                                                */
-/* Homepage: http://pyclanglite.readthedocs.io/                                   */
-/*                                                                                */
-/* Copyright (c) 2016 Pierre Fernique                                             */
-/*                                                                                */
-/* This software is distributed under the CeCILL-C license. You should have       */
-/* received a copy of the legalcode along with this work. If not, see             */
-/* <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 */
-/*                                                                                */
-/* File authors: Pierre Fernique <pfernique@gmail.com> (36)                       */
-/*                                                                                */
-/**********************************************************************************/
-
 #include "_clanglite.h"
+
 
 
 namespace autowig
 {
+
 }
+
+#if defined(_MSC_VER)
+    #if (_MSC_VER == 1900)
+namespace boost
+{
+    template <> class ::clang::FriendDecl const volatile * get_pointer<class ::clang::FriendDecl const volatile >(class ::clang::FriendDecl const volatile *c) { return c; }
+}
+    #endif
+#endif
+
 
 
 void wrapper_902a9bb2e95657b784deb3b4e5d5526b()
@@ -29,30 +25,31 @@ void wrapper_902a9bb2e95657b784deb3b4e5d5526b()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    class ::clang::FriendDecl  * (*method_pointer_37c78875bc205ad6b276c82dc2bc2e7b)(class ::clang::ASTContext  &, unsigned int , unsigned int ) = ::clang::FriendDecl::CreateDeserialized;
-    bool  (*method_pointer_e6deac98aec55964ae054be3150fad6c)(class ::clang::Decl  const *) = ::clang::FriendDecl::classof;
-    bool  (*method_pointer_b305b874fde253fca89ce55b30114543)(enum ::clang::Decl::Kind ) = ::clang::FriendDecl::classofKind;
-    class ::clang::NamedDecl  * (::clang::FriendDecl::*method_pointer_bab9a5f4d94a55cc9f6aa5756cfc90df)() const = &::clang::FriendDecl::getFriendDecl;
-    class ::clang::SourceLocation  (::clang::FriendDecl::*method_pointer_a219f67359ab52dfab3271332210e322)() const = &::clang::FriendDecl::getFriendLoc;
-    unsigned int  (::clang::FriendDecl::*method_pointer_27ae365ad16a58feae6f382314a992c8)() const = &::clang::FriendDecl::getFriendTypeNumTemplateParameterLists;
-    bool  (::clang::FriendDecl::*method_pointer_cb47702cea2c5f34a5191299519b5751)() const = &::clang::FriendDecl::isUnsupportedFriend;
-    void  (::clang::FriendDecl::*method_pointer_7994e652af885262b166e50e82a1392e)(bool ) = &::clang::FriendDecl::setUnsupportedFriend;
-    boost::python::class_< class ::clang::FriendDecl, autowig::HeldType< class ::clang::FriendDecl >, boost::python::bases< class ::clang::Decl >, boost::noncopyable > class_902a9bb2e95657b784deb3b4e5d5526b("FriendDecl", "", boost::python::no_init);
-    class_902a9bb2e95657b784deb3b4e5d5526b.def("create_deserialized", method_pointer_37c78875bc205ad6b276c82dc2bc2e7b, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_902a9bb2e95657b784deb3b4e5d5526b.def("classof", method_pointer_e6deac98aec55964ae054be3150fad6c, "");
-    class_902a9bb2e95657b784deb3b4e5d5526b.def("classof_kind", method_pointer_b305b874fde253fca89ce55b30114543, "");
-    class_902a9bb2e95657b784deb3b4e5d5526b.def("get_friend_decl", method_pointer_bab9a5f4d94a55cc9f6aa5756cfc90df, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_902a9bb2e95657b784deb3b4e5d5526b.def("get_friend_loc", method_pointer_a219f67359ab52dfab3271332210e322, "");
-    class_902a9bb2e95657b784deb3b4e5d5526b.def("get_friend_type_num_template_parameter_lists", method_pointer_27ae365ad16a58feae6f382314a992c8, "");
-    class_902a9bb2e95657b784deb3b4e5d5526b.def("is_unsupported_friend", method_pointer_cb47702cea2c5f34a5191299519b5751, "");
-    class_902a9bb2e95657b784deb3b4e5d5526b.def("set_unsupported_friend", method_pointer_7994e652af885262b166e50e82a1392e, "");
+    class ::clang::FriendDecl * (*method_pointer_313d62f5e1155c27a374d262d1d0cf10)(class ::clang::ASTContext &, unsigned int , unsigned int ) = ::clang::FriendDecl::CreateDeserialized;
+    unsigned int  (::clang::FriendDecl::*method_pointer_64f9b69545bb5b55be711fb798e02a8f)() const = &::clang::FriendDecl::getFriendTypeNumTemplateParameterLists;
+    class ::clang::NamedDecl * (::clang::FriendDecl::*method_pointer_9d0769e1c5a95ef1bbd3f3ce2053e7df)() const = &::clang::FriendDecl::getFriendDecl;
+    class ::clang::SourceLocation  (::clang::FriendDecl::*method_pointer_abd897004ca95fbf89204c2891b614bb)() const = &::clang::FriendDecl::getFriendLoc;
+    bool  (::clang::FriendDecl::*method_pointer_9e33cbbfc29f57ecbd64aeef13b5429c)() const = &::clang::FriendDecl::isUnsupportedFriend;
+    void  (::clang::FriendDecl::*method_pointer_b8260f1b5684520db53ab443ff976b0c)(bool ) = &::clang::FriendDecl::setUnsupportedFriend;
+    bool  (*method_pointer_9c6213a019b65e60ad27d703fbd785c5)(class ::clang::Decl const *) = ::clang::FriendDecl::classof;
+    bool  (*method_pointer_81efb23d1246509e8074c1574b4f25f1)(enum ::clang::Decl::Kind ) = ::clang::FriendDecl::classofKind;
+    boost::python::class_< class ::clang::FriendDecl, autowig::Held< class ::clang::FriendDecl >::Type, boost::python::bases< class ::clang::Decl >, boost::noncopyable > class_902a9bb2e95657b784deb3b4e5d5526b("FriendDecl", "", boost::python::no_init);
+    class_902a9bb2e95657b784deb3b4e5d5526b.def("create_deserialized", method_pointer_313d62f5e1155c27a374d262d1d0cf10, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_902a9bb2e95657b784deb3b4e5d5526b.def("get_friend_type_num_template_parameter_lists", method_pointer_64f9b69545bb5b55be711fb798e02a8f, "");
+    class_902a9bb2e95657b784deb3b4e5d5526b.def("get_friend_decl", method_pointer_9d0769e1c5a95ef1bbd3f3ce2053e7df, boost::python::return_value_policy< boost::python::reference_existing_object >(), ":Return Type:\n    :py:class:`clanglite.clang.NamedDecl`\n\n");
+    class_902a9bb2e95657b784deb3b4e5d5526b.def("get_friend_loc", method_pointer_abd897004ca95fbf89204c2891b614bb, ":Return Type:\n    :py:class:`clanglite.clang.SourceLocation`\n\n");
+    class_902a9bb2e95657b784deb3b4e5d5526b.def("is_unsupported_friend", method_pointer_9e33cbbfc29f57ecbd64aeef13b5429c, ":Return Type:\n    :cpp:any:`bool`\n\n");
+    class_902a9bb2e95657b784deb3b4e5d5526b.def("set_unsupported_friend", method_pointer_b8260f1b5684520db53ab443ff976b0c, "");
+    class_902a9bb2e95657b784deb3b4e5d5526b.def("classof", method_pointer_9c6213a019b65e60ad27d703fbd785c5, "");
+    class_902a9bb2e95657b784deb3b4e5d5526b.def("classof_kind", method_pointer_81efb23d1246509e8074c1574b4f25f1, "");
     class_902a9bb2e95657b784deb3b4e5d5526b.staticmethod("classof_kind");
     class_902a9bb2e95657b784deb3b4e5d5526b.staticmethod("create_deserialized");
     class_902a9bb2e95657b784deb3b4e5d5526b.staticmethod("classof");
 
-    if(std::is_class< autowig::HeldType< class ::clang::FriendDecl > >::value)
+    if(autowig::Held< class ::clang::FriendDecl >::is_class)
     {
-        boost::python::implicitly_convertible< autowig::HeldType< class ::clang::FriendDecl >, autowig::HeldType< class ::clang::Decl > >();
+        boost::python::implicitly_convertible< autowig::Held< class ::clang::FriendDecl >::Type, autowig::Held< class ::clang::Decl >::Type >();
+        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::FriendDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::FriendDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::FriendDecl >::Type, class ::clang::FriendDecl > > >();
     }
 
 }

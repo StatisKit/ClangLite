@@ -312,9 +312,7 @@ def read_variable(asg, decl, inline, permissive):
                 return [spelling]
 
 def read_function(asg, decl, inline, permissive):
-    if decl.is_deleted():
-        return []
-    elif isinstance(decl, clang.FunctionTemplateDecl):
+    if isinstance(decl, clang.FunctionTemplateDecl):
         if permissive:
             return []
         else:
@@ -333,6 +331,10 @@ def read_function(asg, decl, inline, permissive):
             spelling += '::' + str(uuid.uuid5(uuid.NAMESPACE_X500, decl.get_mangling()))
         if not spelling in asg._nodes:
             if isinstance(decl, clang.CXXMethodDecl):
+                if decl.is_deleted():
+                    access = "deleted"
+                else:
+                    access = None
                 if isinstance(decl, clang.CXXConversionDecl):
                     if permissive:
                         return []
@@ -379,7 +381,10 @@ def read_function(asg, decl, inline, permissive):
                                 asg._nodes[spelling] = dict(_proxy=ConstructorProxy,
                                         _is_virtual=decl.is_virtual())
                             asg._syntax_edges[scope].append(spelling)
-                            read_access(asg, decl.get_access_unsafe(), spelling)
+                            if access:
+                                asg._nodes[spelling]['_access'] = access
+                            else:
+                                read_access(asg, decl.get_access_unsafe(), spelling)
                             return [spelling]
                     else:
                         if not spelling in asg._nodes:
@@ -387,7 +392,10 @@ def read_function(asg, decl, inline, permissive):
                                     _is_virtual=decl.is_virtual(),
                                     _comment = decl.get_comment())
                             asg._syntax_edges[scope].append(spelling)
-                        read_access(asg, decl.get_access_unsafe(), spelling)
+                        if access:
+                            asg._nodes[spelling]['_access'] = access
+                        else:
+                            read_access(asg, decl.get_access_unsafe(), spelling)
                         return [spelling]
             else:
                 asg._parameter_edges[spelling] = []
@@ -544,7 +552,7 @@ def read_tag(asg, decl, inline, permissive, out=True):
                 _spelling = spelling[:index+1]
                 templates = decl.get_template_args()
                 template_names = []
-                for template in [templates.get(index) for index in range(templates.size())]:
+                for template in [templates.get(index) for index in range(len(templates))]:
                     if template.get_kind() is clang.TemplateArgument.arg_kind.TYPE:
                         target, qualifiers = read_qualified_type(asg, template.get_as_type(), inline=inline)
                         template_names.append(target.strip('::') + qualifiers)
@@ -594,7 +602,7 @@ def read_tag(asg, decl, inline, permissive, out=True):
                             specialize = specialize.pop()
                         templates = decl.get_template_args()
                         template_edges = []
-                        for template in [templates.get(index) for index in range(templates.size())]:
+                        for template in [templates.get(index) for index in range(len(templates))]:
                             if template.get_kind() is clang.TemplateArgument.arg_kind.TYPE:
                                 target, qualifiers = read_qualified_type(asg, template.get_as_type(), inline=inline)
                                 template_edges.append(dict(target = target, qualifiers = qualifiers))
@@ -616,7 +624,6 @@ def read_tag(asg, decl, inline, permissive, out=True):
                             #_scope = scope,
                             #default_access=default_access,
                             _is_abstract=False,
-                            _is_copyable=True,
                             _is_complete=False,
                             _is_explicit=True,
                             _comment = "")
@@ -631,7 +638,6 @@ def read_tag(asg, decl, inline, permissive, out=True):
                         #_scope = scope,
                         #default_access=default_access,
                         _is_abstract=False,
-                        _is_copyable=True,
                         _is_complete=False)
                     asg._syntax_edges[spelling] = []
                     asg._base_edges[spelling] = []
@@ -642,7 +648,6 @@ def read_tag(asg, decl, inline, permissive, out=True):
                         #_scope = scope,
                         #default_access=default_access,
                         _is_abstract=False,
-                        _is_copyable=True,
                         _is_complete=False)
                     if not spelling in asg._syntax_edges:
                         asg._syntax_edges[spelling] = []
@@ -662,7 +667,6 @@ def read_tag(asg, decl, inline, permissive, out=True):
                 asg._syntax_edges[scope].append(spelling)
                 if isinstance(decl, clang.CXXRecordDecl):
                     asg._nodes[spelling]['_is_abstract'] = decl.is_abstract()
-                    asg._nodes[spelling]['_is_copyable'] = decl.is_copyable()
                 else:
                     asg._nodes[spelling]['_is_abstract'] = False
                     asg._nodes[spelling]['_is_copyable'] = True

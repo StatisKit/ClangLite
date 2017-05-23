@@ -1,25 +1,21 @@
-/**********************************************************************************/
-/*                                                                                */
-/* PyClangLite: Python bindings for Clang                                         */
-/*                                                                                */
-/* Homepage: http://pyclanglite.readthedocs.io/                                   */
-/*                                                                                */
-/* Copyright (c) 2016 Pierre Fernique                                             */
-/*                                                                                */
-/* This software is distributed under the CeCILL-C license. You should have       */
-/* received a copy of the legalcode along with this work. If not, see             */
-/* <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 */
-/*                                                                                */
-/* File authors: Pierre Fernique <pfernique@gmail.com> (36)                       */
-/*                                                                                */
-/**********************************************************************************/
-
 #include "_clanglite.h"
+
 
 
 namespace autowig
 {
+
 }
+
+#if defined(_MSC_VER)
+    #if (_MSC_VER == 1900)
+namespace boost
+{
+    template <> class ::clang::OMPThreadPrivateDecl const volatile * get_pointer<class ::clang::OMPThreadPrivateDecl const volatile >(class ::clang::OMPThreadPrivateDecl const volatile *c) { return c; }
+}
+    #endif
+#endif
+
 
 
 void wrapper_9e2974d2ed6b5833946cd12a4205bb14()
@@ -29,24 +25,25 @@ void wrapper_9e2974d2ed6b5833946cd12a4205bb14()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    class ::clang::OMPThreadPrivateDecl  * (*method_pointer_74a4fce7661d5bb8ab19e7576d9b606a)(class ::clang::ASTContext  &, unsigned int , unsigned int ) = ::clang::OMPThreadPrivateDecl::CreateDeserialized;
-    bool  (*method_pointer_6012288208735f4e891c781740bc528a)(class ::clang::Decl  const *) = ::clang::OMPThreadPrivateDecl::classof;
-    bool  (*method_pointer_1c3f02eac11350a79c9ecd4ef0e64016)(enum ::clang::Decl::Kind ) = ::clang::OMPThreadPrivateDecl::classofKind;
-    bool  (::clang::OMPThreadPrivateDecl::*method_pointer_828421e65f2e5683a8cacaf9cb53a18f)() const = &::clang::OMPThreadPrivateDecl::varlist_empty;
-    unsigned int  (::clang::OMPThreadPrivateDecl::*method_pointer_63b3f89d424856b1a603d82f98e48504)() const = &::clang::OMPThreadPrivateDecl::varlist_size;
-    boost::python::class_< class ::clang::OMPThreadPrivateDecl, autowig::HeldType< class ::clang::OMPThreadPrivateDecl >, boost::python::bases< class ::clang::Decl >, boost::noncopyable > class_9e2974d2ed6b5833946cd12a4205bb14("OMPThreadPrivateDecl", "", boost::python::no_init);
-    class_9e2974d2ed6b5833946cd12a4205bb14.def("create_deserialized", method_pointer_74a4fce7661d5bb8ab19e7576d9b606a, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_9e2974d2ed6b5833946cd12a4205bb14.def("classof", method_pointer_6012288208735f4e891c781740bc528a, "");
-    class_9e2974d2ed6b5833946cd12a4205bb14.def("classof_kind", method_pointer_1c3f02eac11350a79c9ecd4ef0e64016, "");
-    class_9e2974d2ed6b5833946cd12a4205bb14.def("varlist_empty", method_pointer_828421e65f2e5683a8cacaf9cb53a18f, "");
-    class_9e2974d2ed6b5833946cd12a4205bb14.def("varlist_size", method_pointer_63b3f89d424856b1a603d82f98e48504, "");
+    class ::clang::OMPThreadPrivateDecl * (*method_pointer_3eb975a8e60f5867a91d24cf4f65c268)(class ::clang::ASTContext &, unsigned int , unsigned int ) = ::clang::OMPThreadPrivateDecl::CreateDeserialized;
+    unsigned int  (::clang::OMPThreadPrivateDecl::*method_pointer_0ea384a7028e5b81b1490daf41472c5b)() const = &::clang::OMPThreadPrivateDecl::varlist_size;
+    bool  (::clang::OMPThreadPrivateDecl::*method_pointer_2319219169d85a93a23d9b18c46223f0)() const = &::clang::OMPThreadPrivateDecl::varlist_empty;
+    bool  (*method_pointer_5209c5362ad558f683e2da4c1d95f174)(class ::clang::Decl const *) = ::clang::OMPThreadPrivateDecl::classof;
+    bool  (*method_pointer_c62dc7ff539456679abd95c24df2ddd8)(enum ::clang::Decl::Kind ) = ::clang::OMPThreadPrivateDecl::classofKind;
+    boost::python::class_< class ::clang::OMPThreadPrivateDecl, autowig::Held< class ::clang::OMPThreadPrivateDecl >::Type, boost::python::bases< class ::clang::Decl >, boost::noncopyable > class_9e2974d2ed6b5833946cd12a4205bb14("OMPThreadPrivateDecl", "This represents '#pragma omp threadprivate ...' directive. For example,\nin the following, both 'a' and 'A::b' are threadprivate:\n\n", boost::python::no_init);
+    class_9e2974d2ed6b5833946cd12a4205bb14.def("create_deserialized", method_pointer_3eb975a8e60f5867a91d24cf4f65c268, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_9e2974d2ed6b5833946cd12a4205bb14.def("varlist_size", method_pointer_0ea384a7028e5b81b1490daf41472c5b, "");
+    class_9e2974d2ed6b5833946cd12a4205bb14.def("varlist_empty", method_pointer_2319219169d85a93a23d9b18c46223f0, "");
+    class_9e2974d2ed6b5833946cd12a4205bb14.def("classof", method_pointer_5209c5362ad558f683e2da4c1d95f174, "");
+    class_9e2974d2ed6b5833946cd12a4205bb14.def("classof_kind", method_pointer_c62dc7ff539456679abd95c24df2ddd8, "");
     class_9e2974d2ed6b5833946cd12a4205bb14.staticmethod("classof_kind");
     class_9e2974d2ed6b5833946cd12a4205bb14.staticmethod("create_deserialized");
     class_9e2974d2ed6b5833946cd12a4205bb14.staticmethod("classof");
 
-    if(std::is_class< autowig::HeldType< class ::clang::OMPThreadPrivateDecl > >::value)
+    if(autowig::Held< class ::clang::OMPThreadPrivateDecl >::is_class)
     {
-        boost::python::implicitly_convertible< autowig::HeldType< class ::clang::OMPThreadPrivateDecl >, autowig::HeldType< class ::clang::Decl > >();
+        boost::python::implicitly_convertible< autowig::Held< class ::clang::OMPThreadPrivateDecl >::Type, autowig::Held< class ::clang::Decl >::Type >();
+        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::OMPThreadPrivateDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::OMPThreadPrivateDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::OMPThreadPrivateDecl >::Type, class ::clang::OMPThreadPrivateDecl > > >();
     }
 
 }

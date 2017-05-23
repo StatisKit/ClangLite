@@ -1,19 +1,3 @@
-/**********************************************************************************/
-/*                                                                                */
-/* PyClangLite: Python bindings for Clang                                         */
-/*                                                                                */
-/* Homepage: http://pyclanglite.readthedocs.io/                                   */
-/*                                                                                */
-/* Copyright (c) 2016 Pierre Fernique                                             */
-/*                                                                                */
-/* This software is distributed under the CeCILL-C license. You should have       */
-/* received a copy of the legalcode along with this work. If not, see             */
-/* <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 */
-/*                                                                                */
-/* File authors: Pierre Fernique <pfernique@gmail.com> (6)                        */
-/*                                                                                */
-/**********************************************************************************/
-
 #include "_clanglite.h"
 
 
@@ -28,14 +12,24 @@ void wrapper_7bc3191eac5451618d350bf624886bc4()
     boost::python::object module_c135a712d4ea5ecca5fd38e224a91e4a(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_c135a712d4ea5ecca5fd38e224a91e4a.c_str()))));
     boost::python::scope().attr("_template_argument") = module_c135a712d4ea5ecca5fd38e224a91e4a;
     boost::python::scope scope_c135a712d4ea5ecca5fd38e224a91e4a = module_c135a712d4ea5ecca5fd38e224a91e4a;
-    boost::python::enum_< enum ::clang::TemplateArgument::ArgKind >("arg_kind")
-        .value("DECLARATION", ::clang::TemplateArgument::Declaration)
-        .value("EXPRESSION", ::clang::TemplateArgument::Expression)
-        .value("INTEGRAL", ::clang::TemplateArgument::Integral)
-        .value("NULL", ::clang::TemplateArgument::Null)
-        .value("NULL_PTR", ::clang::TemplateArgument::NullPtr)
-        .value("PACK", ::clang::TemplateArgument::Pack)
-        .value("TEMPLATE", ::clang::TemplateArgument::Template)
-        .value("TEMPLATE_EXPANSION", ::clang::TemplateArgument::TemplateExpansion)
-        .value("TYPE", ::clang::TemplateArgument::Type);
+    boost::python::enum_< enum ::clang::TemplateArgument::ArgKind > enum_7bc3191eac5451618d350bf624886bc4("arg_kind");
+
+    enum_7bc3191eac5451618d350bf624886bc4.value("NULL", ::clang::TemplateArgument::Null);
+
+    enum_7bc3191eac5451618d350bf624886bc4.value("TYPE", ::clang::TemplateArgument::Type);
+
+    enum_7bc3191eac5451618d350bf624886bc4.value("DECLARATION", ::clang::TemplateArgument::Declaration);
+
+    enum_7bc3191eac5451618d350bf624886bc4.value("NULL_PTR", ::clang::TemplateArgument::NullPtr);
+
+    enum_7bc3191eac5451618d350bf624886bc4.value("INTEGRAL", ::clang::TemplateArgument::Integral);
+
+    enum_7bc3191eac5451618d350bf624886bc4.value("TEMPLATE", ::clang::TemplateArgument::Template);
+
+    enum_7bc3191eac5451618d350bf624886bc4.value("TEMPLATE_EXPANSION", ::clang::TemplateArgument::TemplateExpansion);
+
+    enum_7bc3191eac5451618d350bf624886bc4.value("EXPRESSION", ::clang::TemplateArgument::Expression);
+
+    enum_7bc3191eac5451618d350bf624886bc4.value("PACK", ::clang::TemplateArgument::Pack);
+
 }

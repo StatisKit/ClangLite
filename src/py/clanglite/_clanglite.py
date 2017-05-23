@@ -1,19 +1,3 @@
-##################################################################################
-#                                                                                #
-# PyClangLite: Python bindings for Clang                                         #
-#                                                                                #
-# Homepage: http://pyclanglite.readthedocs.io/                                   #
-#                                                                                #
-# Copyright (c) 2016 Pierre Fernique                                             #
-#                                                                                #
-# This software is distributed under the CeCILL-C license. You should have       #
-# received a copy of the legalcode along with this work. If not, see             #
-# <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 #
-#                                                                                #
-# File authors: Pierre Fernique <pfernique@gmail.com> (16)                       #
-#                                                                                #
-##################################################################################
-
 __all__ = []
 
 
@@ -27,4 +11,6 @@ __clanglite.clang.TemplateArgument.arg_kind = __clanglite.clang._template_argume
 __clanglite.clang.BuiltinType.kind = __clanglite.clang._builtin_type.kind
 __clanglite.clang.Type.type_class = __clanglite.clang._type.type_class
 
+# Group template specializations
+__clanglite.llvm.detail._AlignmentCalcImpl = (__clanglite.llvm.detail._AlignmentCalcImpl_6bc87a1668d653eba3c26946758eb6dc)
 

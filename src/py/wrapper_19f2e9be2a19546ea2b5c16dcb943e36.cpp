@@ -1,25 +1,21 @@
-/**********************************************************************************/
-/*                                                                                */
-/* PyClangLite: Python bindings for Clang                                         */
-/*                                                                                */
-/* Homepage: http://pyclanglite.readthedocs.io/                                   */
-/*                                                                                */
-/* Copyright (c) 2016 Pierre Fernique                                             */
-/*                                                                                */
-/* This software is distributed under the CeCILL-C license. You should have       */
-/* received a copy of the legalcode along with this work. If not, see             */
-/* <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 */
-/*                                                                                */
-/* File authors: Pierre Fernique <pfernique@gmail.com> (36)                       */
-/*                                                                                */
-/**********************************************************************************/
-
 #include "_clanglite.h"
+
 
 
 namespace autowig
 {
+
 }
+
+#if defined(_MSC_VER)
+    #if (_MSC_VER == 1900)
+namespace boost
+{
+    template <> class ::clang::TypeAliasTemplateDecl const volatile * get_pointer<class ::clang::TypeAliasTemplateDecl const volatile >(class ::clang::TypeAliasTemplateDecl const volatile *c) { return c; }
+}
+    #endif
+#endif
+
 
 
 void wrapper_19f2e9be2a19546ea2b5c16dcb943e36()
@@ -29,32 +25,33 @@ void wrapper_19f2e9be2a19546ea2b5c16dcb943e36()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    class ::clang::TypeAliasTemplateDecl  * (*method_pointer_38417bcdbb165f33a99e119f0c024c0d)(class ::clang::ASTContext  &, unsigned int ) = ::clang::TypeAliasTemplateDecl::CreateDeserialized;
-    bool  (*method_pointer_0ba0f13fade657dc988e2bdde912e0cf)(class ::clang::Decl  const *) = ::clang::TypeAliasTemplateDecl::classof;
-    bool  (*method_pointer_9a0a0ea231505a65b2628277cea20730)(enum ::clang::Decl::Kind ) = ::clang::TypeAliasTemplateDecl::classofKind;
-    class ::clang::TypeAliasTemplateDecl  * (::clang::TypeAliasTemplateDecl::*method_pointer_3d8d7be7dbb555ef8beef40b0e5cd638)() = &::clang::TypeAliasTemplateDecl::getCanonicalDecl;
-    class ::clang::TypeAliasTemplateDecl  const * (::clang::TypeAliasTemplateDecl::*method_pointer_b568d1d5d55f500c9ac93a17a60c97dd)() const = &::clang::TypeAliasTemplateDecl::getCanonicalDecl;
-    class ::clang::TypeAliasTemplateDecl  * (::clang::TypeAliasTemplateDecl::*method_pointer_d412c27ff8fd5f99a93ebc74928fb49b)() const = &::clang::TypeAliasTemplateDecl::getInstantiatedFromMemberTemplate;
-    class ::clang::TypeAliasTemplateDecl  * (::clang::TypeAliasTemplateDecl::*method_pointer_9a2496afe79f5200b7e46b1bc5f01fc2)() = &::clang::TypeAliasTemplateDecl::getPreviousDecl;
-    class ::clang::TypeAliasTemplateDecl  const * (::clang::TypeAliasTemplateDecl::*method_pointer_1dd5a6aa53c454529ae36a8e6168d456)() const = &::clang::TypeAliasTemplateDecl::getPreviousDecl;
-    class ::clang::TypeAliasDecl  * (::clang::TypeAliasTemplateDecl::*method_pointer_6f68d7e391f553a5ad1f9c69b5711f3b)() const = &::clang::TypeAliasTemplateDecl::getTemplatedDecl;
-    boost::python::class_< class ::clang::TypeAliasTemplateDecl, autowig::HeldType< class ::clang::TypeAliasTemplateDecl >, boost::python::bases< class ::clang::RedeclarableTemplateDecl >, boost::noncopyable > class_19f2e9be2a19546ea2b5c16dcb943e36("TypeAliasTemplateDecl", "", boost::python::no_init);
-    class_19f2e9be2a19546ea2b5c16dcb943e36.def("create_deserialized", method_pointer_38417bcdbb165f33a99e119f0c024c0d, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_19f2e9be2a19546ea2b5c16dcb943e36.def("classof", method_pointer_0ba0f13fade657dc988e2bdde912e0cf, "");
-    class_19f2e9be2a19546ea2b5c16dcb943e36.def("classof_kind", method_pointer_9a0a0ea231505a65b2628277cea20730, "");
-    class_19f2e9be2a19546ea2b5c16dcb943e36.def("get_canonical_decl", method_pointer_3d8d7be7dbb555ef8beef40b0e5cd638, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_19f2e9be2a19546ea2b5c16dcb943e36.def("get_canonical_decl", method_pointer_b568d1d5d55f500c9ac93a17a60c97dd, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_19f2e9be2a19546ea2b5c16dcb943e36.def("get_instantiated_from_member_template", method_pointer_d412c27ff8fd5f99a93ebc74928fb49b, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_19f2e9be2a19546ea2b5c16dcb943e36.def("get_previous_decl", method_pointer_9a2496afe79f5200b7e46b1bc5f01fc2, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_19f2e9be2a19546ea2b5c16dcb943e36.def("get_previous_decl", method_pointer_1dd5a6aa53c454529ae36a8e6168d456, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_19f2e9be2a19546ea2b5c16dcb943e36.def("get_templated_decl", method_pointer_6f68d7e391f553a5ad1f9c69b5711f3b, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class ::clang::TypeAliasDecl * (::clang::TypeAliasTemplateDecl::*method_pointer_92f0c5703a845875830a32e9a9cdbdf0)() const = &::clang::TypeAliasTemplateDecl::getTemplatedDecl;
+    class ::clang::TypeAliasTemplateDecl * (::clang::TypeAliasTemplateDecl::*method_pointer_19e38818e5995c98a503a6e06eef670c)() = &::clang::TypeAliasTemplateDecl::getCanonicalDecl;
+    class ::clang::TypeAliasTemplateDecl const * (::clang::TypeAliasTemplateDecl::*method_pointer_51bc98d4e5b751dc9d4f277c7119c336)() const = &::clang::TypeAliasTemplateDecl::getCanonicalDecl;
+    class ::clang::TypeAliasTemplateDecl * (::clang::TypeAliasTemplateDecl::*method_pointer_9b4f829df9695f04966c3579c8f91c44)() = &::clang::TypeAliasTemplateDecl::getPreviousDecl;
+    class ::clang::TypeAliasTemplateDecl const * (::clang::TypeAliasTemplateDecl::*method_pointer_08da488b26c25ed19152c194de98fea2)() const = &::clang::TypeAliasTemplateDecl::getPreviousDecl;
+    class ::clang::TypeAliasTemplateDecl * (::clang::TypeAliasTemplateDecl::*method_pointer_21212176034c501cbf2236dbc37612aa)() const = &::clang::TypeAliasTemplateDecl::getInstantiatedFromMemberTemplate;
+    class ::clang::TypeAliasTemplateDecl * (*method_pointer_21f40cbf27c3543c841f243e1b77ee11)(class ::clang::ASTContext &, unsigned int ) = ::clang::TypeAliasTemplateDecl::CreateDeserialized;
+    bool  (*method_pointer_f308a8e811215c80a130624632513b04)(class ::clang::Decl const *) = ::clang::TypeAliasTemplateDecl::classof;
+    bool  (*method_pointer_9364c7fed91c5b769f6378f3d4e0391a)(enum ::clang::Decl::Kind ) = ::clang::TypeAliasTemplateDecl::classofKind;
+    boost::python::class_< class ::clang::TypeAliasTemplateDecl, autowig::Held< class ::clang::TypeAliasTemplateDecl >::Type, boost::python::bases< class ::clang::RedeclarableTemplateDecl >, boost::noncopyable > class_19f2e9be2a19546ea2b5c16dcb943e36("TypeAliasTemplateDecl", "Declaration of an alias template.\n\nFor example:\n\n", boost::python::no_init);
+    class_19f2e9be2a19546ea2b5c16dcb943e36.def("get_templated_decl", method_pointer_92f0c5703a845875830a32e9a9cdbdf0, boost::python::return_value_policy< boost::python::reference_existing_object >(), ":Return Type:\n    :py:class:`clanglite.clang.TypeAliasDecl`\n\n");
+    class_19f2e9be2a19546ea2b5c16dcb943e36.def("get_canonical_decl", method_pointer_19e38818e5995c98a503a6e06eef670c, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_19f2e9be2a19546ea2b5c16dcb943e36.def("get_canonical_decl", method_pointer_51bc98d4e5b751dc9d4f277c7119c336, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_19f2e9be2a19546ea2b5c16dcb943e36.def("get_previous_decl", method_pointer_9b4f829df9695f04966c3579c8f91c44, boost::python::return_value_policy< boost::python::reference_existing_object >(), "Retrieve the previous declaration of this function template, or NULL if\nno such declaration exists.\n\n:Return Type:\n    :py:class:`clanglite.clang.TypeAliasTemplateDecl`\n\n");
+    class_19f2e9be2a19546ea2b5c16dcb943e36.def("get_previous_decl", method_pointer_08da488b26c25ed19152c194de98fea2, boost::python::return_value_policy< boost::python::reference_existing_object >(), "Retrieve the previous declaration of this function template, or NULL if\nno such declaration exists.\n\n:Return Type:\n    :py:class:`clanglite.clang.TypeAliasTemplateDecl`\n\n");
+    class_19f2e9be2a19546ea2b5c16dcb943e36.def("get_instantiated_from_member_template", method_pointer_21212176034c501cbf2236dbc37612aa, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_19f2e9be2a19546ea2b5c16dcb943e36.def("create_deserialized", method_pointer_21f40cbf27c3543c841f243e1b77ee11, boost::python::return_value_policy< boost::python::reference_existing_object >(), "Create an empty alias template node.\n\n:Parameters:\n  - `C` (:py:class:`clanglite.clang.ASTContext`) - Undocumented\n  - `ID` (:cpp:any:`unsigned` int) - Undocumented\n\n:Return Type:\n    :py:class:`clanglite.clang.TypeAliasTemplateDecl`\n\n");
+    class_19f2e9be2a19546ea2b5c16dcb943e36.def("classof", method_pointer_f308a8e811215c80a130624632513b04, "");
+    class_19f2e9be2a19546ea2b5c16dcb943e36.def("classof_kind", method_pointer_9364c7fed91c5b769f6378f3d4e0391a, "");
     class_19f2e9be2a19546ea2b5c16dcb943e36.staticmethod("classof_kind");
     class_19f2e9be2a19546ea2b5c16dcb943e36.staticmethod("create_deserialized");
     class_19f2e9be2a19546ea2b5c16dcb943e36.staticmethod("classof");
 
-    if(std::is_class< autowig::HeldType< class ::clang::TypeAliasTemplateDecl > >::value)
+    if(autowig::Held< class ::clang::TypeAliasTemplateDecl >::is_class)
     {
-        boost::python::implicitly_convertible< autowig::HeldType< class ::clang::TypeAliasTemplateDecl >, autowig::HeldType< class ::clang::RedeclarableTemplateDecl > >();
+        boost::python::implicitly_convertible< autowig::Held< class ::clang::TypeAliasTemplateDecl >::Type, autowig::Held< class ::clang::RedeclarableTemplateDecl >::Type >();
+        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::TypeAliasTemplateDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::TypeAliasTemplateDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::TypeAliasTemplateDecl >::Type, class ::clang::TypeAliasTemplateDecl > > >();
     }
 
 }

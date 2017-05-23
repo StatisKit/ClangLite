@@ -1,25 +1,21 @@
-/**********************************************************************************/
-/*                                                                                */
-/* PyClangLite: Python bindings for Clang                                         */
-/*                                                                                */
-/* Homepage: http://pyclanglite.readthedocs.io/                                   */
-/*                                                                                */
-/* Copyright (c) 2016 Pierre Fernique                                             */
-/*                                                                                */
-/* This software is distributed under the CeCILL-C license. You should have       */
-/* received a copy of the legalcode along with this work. If not, see             */
-/* <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 */
-/*                                                                                */
-/* File authors: Pierre Fernique <pfernique@gmail.com> (35)                       */
-/*                                                                                */
-/**********************************************************************************/
-
 #include "_clanglite.h"
+
 
 
 namespace autowig
 {
+
 }
+
+#if defined(_MSC_VER)
+    #if (_MSC_VER == 1900)
+namespace boost
+{
+    template <> class ::clang::VariableArrayType const volatile * get_pointer<class ::clang::VariableArrayType const volatile >(class ::clang::VariableArrayType const volatile *c) { return c; }
+}
+    #endif
+#endif
+
 
 
 void wrapper_77869ea344e0552885031daa303806b9()
@@ -29,22 +25,23 @@ void wrapper_77869ea344e0552885031daa303806b9()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_1557c4c1fe985304ad98a0f9a342ef1f)(class ::clang::Type  const *) = ::clang::VariableArrayType::classof;
-    class ::clang::QualType  (::clang::VariableArrayType::*method_pointer_729a4ac24c8752318e2106fde06687b5)() const = &::clang::VariableArrayType::desugar;
-    class ::clang::SourceLocation  (::clang::VariableArrayType::*method_pointer_8aea16501c0b533aaf2632ae649b96c6)() const = &::clang::VariableArrayType::getLBracketLoc;
-    class ::clang::SourceLocation  (::clang::VariableArrayType::*method_pointer_1e2e738cf0b455b285548698e7fd46a3)() const = &::clang::VariableArrayType::getRBracketLoc;
-    bool  (::clang::VariableArrayType::*method_pointer_44a912023dce5d5bb3e215d2ccddf85f)() const = &::clang::VariableArrayType::isSugared;
-    boost::python::class_< class ::clang::VariableArrayType, autowig::HeldType< class ::clang::VariableArrayType >, boost::python::bases< class ::clang::ArrayType >, boost::noncopyable > class_77869ea344e0552885031daa303806b9("VariableArrayType", "", boost::python::no_init);
-    class_77869ea344e0552885031daa303806b9.def("classof", method_pointer_1557c4c1fe985304ad98a0f9a342ef1f, "");
-    class_77869ea344e0552885031daa303806b9.def("desugar", method_pointer_729a4ac24c8752318e2106fde06687b5, "");
-    class_77869ea344e0552885031daa303806b9.def("get_l_bracket_loc", method_pointer_8aea16501c0b533aaf2632ae649b96c6, "");
-    class_77869ea344e0552885031daa303806b9.def("get_r_bracket_loc", method_pointer_1e2e738cf0b455b285548698e7fd46a3, "");
-    class_77869ea344e0552885031daa303806b9.def("is_sugared", method_pointer_44a912023dce5d5bb3e215d2ccddf85f, "");
+    class ::clang::SourceLocation  (::clang::VariableArrayType::*method_pointer_91fa005535c05c1f8b7db2e454978229)() const = &::clang::VariableArrayType::getLBracketLoc;
+    class ::clang::SourceLocation  (::clang::VariableArrayType::*method_pointer_0eff004e01eb57f2995721d08cd7a82a)() const = &::clang::VariableArrayType::getRBracketLoc;
+    bool  (::clang::VariableArrayType::*method_pointer_b9307fd0eb2f5345b55ec88fc82cfb89)() const = &::clang::VariableArrayType::isSugared;
+    class ::clang::QualType  (::clang::VariableArrayType::*method_pointer_64bbc0896de95e48973d6c6f429f48e8)() const = &::clang::VariableArrayType::desugar;
+    bool  (*method_pointer_551d4d399de55b229f38a8b0c928c78f)(class ::clang::Type const *) = ::clang::VariableArrayType::classof;
+    boost::python::class_< class ::clang::VariableArrayType, autowig::Held< class ::clang::VariableArrayType >::Type, boost::python::bases< class ::clang::ArrayType >, boost::noncopyable > class_77869ea344e0552885031daa303806b9("VariableArrayType", "", boost::python::no_init);
+    class_77869ea344e0552885031daa303806b9.def("get_l_bracket_loc", method_pointer_91fa005535c05c1f8b7db2e454978229, "");
+    class_77869ea344e0552885031daa303806b9.def("get_r_bracket_loc", method_pointer_0eff004e01eb57f2995721d08cd7a82a, "");
+    class_77869ea344e0552885031daa303806b9.def("is_sugared", method_pointer_b9307fd0eb2f5345b55ec88fc82cfb89, "");
+    class_77869ea344e0552885031daa303806b9.def("desugar", method_pointer_64bbc0896de95e48973d6c6f429f48e8, "");
+    class_77869ea344e0552885031daa303806b9.def("classof", method_pointer_551d4d399de55b229f38a8b0c928c78f, "");
     class_77869ea344e0552885031daa303806b9.staticmethod("classof");
 
-    if(std::is_class< autowig::HeldType< class ::clang::VariableArrayType > >::value)
+    if(autowig::Held< class ::clang::VariableArrayType >::is_class)
     {
-        boost::python::implicitly_convertible< autowig::HeldType< class ::clang::VariableArrayType >, autowig::HeldType< class ::clang::ArrayType > >();
+        boost::python::implicitly_convertible< autowig::Held< class ::clang::VariableArrayType >::Type, autowig::Held< class ::clang::ArrayType >::Type >();
+        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::VariableArrayType >::Type, boost::python::objects::make_ptr_instance< class ::clang::VariableArrayType, boost::python::objects::pointer_holder< autowig::Held< class ::clang::VariableArrayType >::Type, class ::clang::VariableArrayType > > >();
     }
 
 }

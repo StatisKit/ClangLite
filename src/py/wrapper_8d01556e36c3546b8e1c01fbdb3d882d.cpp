@@ -1,25 +1,21 @@
-/**********************************************************************************/
-/*                                                                                */
-/* PyClangLite: Python bindings for Clang                                         */
-/*                                                                                */
-/* Homepage: http://pyclanglite.readthedocs.io/                                   */
-/*                                                                                */
-/* Copyright (c) 2016 Pierre Fernique                                             */
-/*                                                                                */
-/* This software is distributed under the CeCILL-C license. You should have       */
-/* received a copy of the legalcode along with this work. If not, see             */
-/* <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 */
-/*                                                                                */
-/* File authors: Pierre Fernique <pfernique@gmail.com> (35)                       */
-/*                                                                                */
-/**********************************************************************************/
-
 #include "_clanglite.h"
+
 
 
 namespace autowig
 {
+
 }
+
+#if defined(_MSC_VER)
+    #if (_MSC_VER == 1900)
+namespace boost
+{
+    template <> class ::clang::MemberPointerType const volatile * get_pointer<class ::clang::MemberPointerType const volatile >(class ::clang::MemberPointerType const volatile *c) { return c; }
+}
+    #endif
+#endif
+
 
 
 void wrapper_8d01556e36c3546b8e1c01fbdb3d882d()
@@ -29,28 +25,29 @@ void wrapper_8d01556e36c3546b8e1c01fbdb3d882d()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_cba9eff26e8d503db353bb6024ad60ca)(class ::clang::Type  const *) = ::clang::MemberPointerType::classof;
-    class ::clang::QualType  (::clang::MemberPointerType::*method_pointer_3673284679a35a84b30a7fb2166b400c)() const = &::clang::MemberPointerType::desugar;
-    class ::clang::Type  const * (::clang::MemberPointerType::*method_pointer_27ac5346a67a5e64be44f2689e48d7d5)() const = &::clang::MemberPointerType::getClass;
-    class ::clang::CXXRecordDecl  * (::clang::MemberPointerType::*method_pointer_221c69872fda5e72ba5ccfa3363a30d6)() const = &::clang::MemberPointerType::getMostRecentCXXRecordDecl;
-    class ::clang::QualType  (::clang::MemberPointerType::*method_pointer_e0f1581ceb0f5a7b9f6725c9c601dfa7)() const = &::clang::MemberPointerType::getPointeeType;
-    bool  (::clang::MemberPointerType::*method_pointer_9b99a7e9f68d559b876f00efb78a9de3)() const = &::clang::MemberPointerType::isMemberDataPointer;
-    bool  (::clang::MemberPointerType::*method_pointer_5fc81185d8385ef380977ac06c29f5e8)() const = &::clang::MemberPointerType::isMemberFunctionPointer;
-    bool  (::clang::MemberPointerType::*method_pointer_345f94b9b53e5bc3a2d63cd80a0906b5)() const = &::clang::MemberPointerType::isSugared;
-    boost::python::class_< class ::clang::MemberPointerType, autowig::HeldType< class ::clang::MemberPointerType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_8d01556e36c3546b8e1c01fbdb3d882d("MemberPointerType", "", boost::python::no_init);
-    class_8d01556e36c3546b8e1c01fbdb3d882d.def("classof", method_pointer_cba9eff26e8d503db353bb6024ad60ca, "");
-    class_8d01556e36c3546b8e1c01fbdb3d882d.def("desugar", method_pointer_3673284679a35a84b30a7fb2166b400c, "");
-    class_8d01556e36c3546b8e1c01fbdb3d882d.def("get_class", method_pointer_27ac5346a67a5e64be44f2689e48d7d5, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_8d01556e36c3546b8e1c01fbdb3d882d.def("get_most_recent_cxx_record_decl", method_pointer_221c69872fda5e72ba5ccfa3363a30d6, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_8d01556e36c3546b8e1c01fbdb3d882d.def("get_pointee_type", method_pointer_e0f1581ceb0f5a7b9f6725c9c601dfa7, "");
-    class_8d01556e36c3546b8e1c01fbdb3d882d.def("is_member_data_pointer", method_pointer_9b99a7e9f68d559b876f00efb78a9de3, "");
-    class_8d01556e36c3546b8e1c01fbdb3d882d.def("is_member_function_pointer", method_pointer_5fc81185d8385ef380977ac06c29f5e8, "");
-    class_8d01556e36c3546b8e1c01fbdb3d882d.def("is_sugared", method_pointer_345f94b9b53e5bc3a2d63cd80a0906b5, "");
+    class ::clang::QualType  (::clang::MemberPointerType::*method_pointer_2312c5863e1e5b8ea300ed2ca0e9c6d8)() const = &::clang::MemberPointerType::getPointeeType;
+    bool  (::clang::MemberPointerType::*method_pointer_6e26f84b50eb5397a94f7d40d3c53d3e)() const = &::clang::MemberPointerType::isMemberFunctionPointer;
+    bool  (::clang::MemberPointerType::*method_pointer_86ea463eb281550a9b20abc567441e68)() const = &::clang::MemberPointerType::isMemberDataPointer;
+    class ::clang::Type const * (::clang::MemberPointerType::*method_pointer_da95e96e24a85a9784cf7bd8950cf3cc)() const = &::clang::MemberPointerType::getClass;
+    class ::clang::CXXRecordDecl * (::clang::MemberPointerType::*method_pointer_0d08fa2be25b572d9718e05a6d3cc316)() const = &::clang::MemberPointerType::getMostRecentCXXRecordDecl;
+    bool  (::clang::MemberPointerType::*method_pointer_2922d768a09a5046adb567daeed2305c)() const = &::clang::MemberPointerType::isSugared;
+    class ::clang::QualType  (::clang::MemberPointerType::*method_pointer_c375c71eb4985eccb6a80cc07a575707)() const = &::clang::MemberPointerType::desugar;
+    bool  (*method_pointer_35ed1d80743257938884b3484499193e)(class ::clang::Type const *) = ::clang::MemberPointerType::classof;
+    boost::python::class_< class ::clang::MemberPointerType, autowig::Held< class ::clang::MemberPointerType >::Type, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_8d01556e36c3546b8e1c01fbdb3d882d("MemberPointerType", "", boost::python::no_init);
+    class_8d01556e36c3546b8e1c01fbdb3d882d.def("get_pointee_type", method_pointer_2312c5863e1e5b8ea300ed2ca0e9c6d8, "");
+    class_8d01556e36c3546b8e1c01fbdb3d882d.def("is_member_function_pointer", method_pointer_6e26f84b50eb5397a94f7d40d3c53d3e, ":Return Type:\n    :cpp:any:`bool`\n\n");
+    class_8d01556e36c3546b8e1c01fbdb3d882d.def("is_member_data_pointer", method_pointer_86ea463eb281550a9b20abc567441e68, ":Return Type:\n    :cpp:any:`bool`\n\n");
+    class_8d01556e36c3546b8e1c01fbdb3d882d.def("get_class", method_pointer_da95e96e24a85a9784cf7bd8950cf3cc, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_8d01556e36c3546b8e1c01fbdb3d882d.def("get_most_recent_cxx_record_decl", method_pointer_0d08fa2be25b572d9718e05a6d3cc316, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_8d01556e36c3546b8e1c01fbdb3d882d.def("is_sugared", method_pointer_2922d768a09a5046adb567daeed2305c, "");
+    class_8d01556e36c3546b8e1c01fbdb3d882d.def("desugar", method_pointer_c375c71eb4985eccb6a80cc07a575707, "");
+    class_8d01556e36c3546b8e1c01fbdb3d882d.def("classof", method_pointer_35ed1d80743257938884b3484499193e, "");
     class_8d01556e36c3546b8e1c01fbdb3d882d.staticmethod("classof");
 
-    if(std::is_class< autowig::HeldType< class ::clang::MemberPointerType > >::value)
+    if(autowig::Held< class ::clang::MemberPointerType >::is_class)
     {
-        boost::python::implicitly_convertible< autowig::HeldType< class ::clang::MemberPointerType >, autowig::HeldType< class ::clang::Type > >();
+        boost::python::implicitly_convertible< autowig::Held< class ::clang::MemberPointerType >::Type, autowig::Held< class ::clang::Type >::Type >();
+        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::MemberPointerType >::Type, boost::python::objects::make_ptr_instance< class ::clang::MemberPointerType, boost::python::objects::pointer_holder< autowig::Held< class ::clang::MemberPointerType >::Type, class ::clang::MemberPointerType > > >();
     }
 
 }

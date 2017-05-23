@@ -1,25 +1,21 @@
-/**********************************************************************************/
-/*                                                                                */
-/* PyClangLite: Python bindings for Clang                                         */
-/*                                                                                */
-/* Homepage: http://pyclanglite.readthedocs.io/                                   */
-/*                                                                                */
-/* Copyright (c) 2016 Pierre Fernique                                             */
-/*                                                                                */
-/* This software is distributed under the CeCILL-C license. You should have       */
-/* received a copy of the legalcode along with this work. If not, see             */
-/* <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 */
-/*                                                                                */
-/* File authors: Pierre Fernique <pfernique@gmail.com> (19)                       */
-/*                                                                                */
-/**********************************************************************************/
-
 #include "_clanglite.h"
+
 
 
 namespace autowig
 {
+
 }
+
+#if defined(_MSC_VER)
+    #if (_MSC_VER == 1900)
+namespace boost
+{
+    template <> class ::clang::SourceManager const volatile * get_pointer<class ::clang::SourceManager const volatile >(class ::clang::SourceManager const volatile *c) { return c; }
+}
+    #endif
+#endif
+
 
 
 void wrapper_9e52028d1c305f31bd87257e6d3ccc53()
@@ -29,114 +25,114 @@ void wrapper_9e52028d1c305f31bd87257e6d3ccc53()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    void  (::clang::SourceManager::*method_pointer_e253bcd881cb5795ba6b2c3a11fd6e76)(class ::clang::SourceLocation , unsigned int , int ) = &::clang::SourceManager::AddLineNote;
-    void  (::clang::SourceManager::*method_pointer_f1cc4088b9c25c80a06ba87923cc4866)(class ::clang::SourceLocation , unsigned int , int , bool , bool , bool , bool ) = &::clang::SourceManager::AddLineNote;
-    void  (::clang::SourceManager::*method_pointer_6487f3f2e58e5f799238920d04fb411d)() const = &::clang::SourceManager::PrintStats;
-    void  (::clang::SourceManager::*method_pointer_f52a1e2320575bc29db5b9373f73ca5a)() = &::clang::SourceManager::clearIDTables;
-    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_a4bc4c9bd7f75ee69f9971e003ae73b9)(class ::clang::SourceLocation , class ::clang::SourceLocation , class ::clang::SourceLocation , unsigned int , int , unsigned int ) = &::clang::SourceManager::createExpansionLoc;
-    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_41f8fa04198b5f90a2fb89621a7ed56e)(class ::clang::SourceLocation , class ::clang::SourceLocation , unsigned int ) = &::clang::SourceManager::createMacroArgExpansionLoc;
-    void  (::clang::SourceManager::*method_pointer_90329136ed6d56c0a2df8b42e24c6d1a)() const = &::clang::SourceManager::dump;
-    size_t  (::clang::SourceManager::*method_pointer_b3c1ce3e64cf599dac9e6d953e9fc8d1)() const = &::clang::SourceManager::getContentCacheSize;
-    size_t  (::clang::SourceManager::*method_pointer_29af9405f1c154f9b9ecd7e61a15ddfb)() const = &::clang::SourceManager::getDataStructureSizes;
-    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_bb365fb9f3eb580aaa1c914252810d0e)(class ::clang::SourceLocation ) const = &::clang::SourceManager::getExpansionLoc;
-    class ::clang::FileID  (::clang::SourceManager::*method_pointer_dbb4f9f83ad55272adeedb74edf17210)(class ::clang::SourceLocation ) const = &::clang::SourceManager::getFileID;
-    unsigned int  (::clang::SourceManager::*method_pointer_0d6c5c4769f451618cdcfe8e929227e9)(class ::clang::FileID ) const = &::clang::SourceManager::getFileIDSize;
-    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_4040e9abb67d5163b503c2dc456ad462)(class ::clang::SourceLocation ) const = &::clang::SourceManager::getFileLoc;
-    unsigned int  (::clang::SourceManager::*method_pointer_1269fd03101654f59cb5ecc699bebf5a)(class ::clang::SourceLocation ) const = &::clang::SourceManager::getFileOffset;
-    class ::llvm::StringRef  (::clang::SourceManager::*method_pointer_a3f84c2ab6a556f998dd7c78647afb23)(class ::clang::SourceLocation ) const = &::clang::SourceManager::getFilename;
-    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_101519ccdc3b556595a844cf5a489201)(class ::clang::SourceLocation ) const = &::clang::SourceManager::getImmediateMacroCallerLoc;
-    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_f1cf1a7a4e12557e83e3ef06d162e1df)(class ::clang::SourceLocation ) const = &::clang::SourceManager::getImmediateSpellingLoc;
-    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_bac9124d08315a21acbd6b35a72c893d)(class ::clang::FileID ) const = &::clang::SourceManager::getIncludeLoc;
-    unsigned int  (::clang::SourceManager::*method_pointer_ca7a77f251435747bdd13332527bdd95)(class ::llvm::StringRef ) = &::clang::SourceManager::getLineTableFilenameID;
-    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_c89ab88a33f45c299e7ac8e7f3ba470f)(class ::clang::FileID ) const = &::clang::SourceManager::getLocForEndOfFile;
-    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_caaeb8aa45075dcaa4c572e8bf805ad4)(class ::clang::FileID ) const = &::clang::SourceManager::getLocForStartOfFile;
-    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_ce762ffaceb25e6c8ee01f965db5ca9d)(class ::clang::SourceLocation ) const = &::clang::SourceManager::getMacroArgExpandedLocation;
-    class ::clang::FileID  (::clang::SourceManager::*method_pointer_95ef03f146395e49bca16d532ff72535)() const = &::clang::SourceManager::getMainFileID;
-    unsigned int  (::clang::SourceManager::*method_pointer_90e4e48dd58257c790ba1451fce51c21)() const = &::clang::SourceManager::getNextLocalOffset;
-    unsigned int  (::clang::SourceManager::*method_pointer_fd1c1f57a8d756258c6862029f2f80d7)(class ::clang::FileID ) const = &::clang::SourceManager::getNumCreatedFIDsForFileID;
-    class ::clang::FileID  (::clang::SourceManager::*method_pointer_79b6650bfc385d8abf3fc00ec395bd24)() const = &::clang::SourceManager::getPreambleFileID;
-    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_6d27e9e4de665becadef954fd026a660)(class ::clang::SourceLocation ) const = &::clang::SourceManager::getSpellingLoc;
-    bool  (::clang::SourceManager::*method_pointer_80063b28eee8545893a3d13929c2fe78)() const = &::clang::SourceManager::hasLineTable;
-    bool  (::clang::SourceManager::*method_pointer_3aa8b33033d857108eabe087de8ef976)(class ::clang::SourceLocation , class ::clang::SourceLocation  *) const = &::clang::SourceManager::isAtEndOfImmediateMacroExpansion;
-    bool  (::clang::SourceManager::*method_pointer_596cf4eff4cf529a941f8960f184fb6e)(class ::clang::SourceLocation , class ::clang::SourceLocation  *) const = &::clang::SourceManager::isAtStartOfImmediateMacroExpansion;
-    bool  (::clang::SourceManager::*method_pointer_f6b2c00d85db57acb92c47eb23b75dbd)(class ::clang::SourceLocation , class ::clang::SourceLocation ) const = &::clang::SourceManager::isBeforeInSLocAddrSpace;
-    bool  (::clang::SourceManager::*method_pointer_5d3f386f62f45af883cba728207609bf)(class ::clang::SourceLocation , unsigned int ) const = &::clang::SourceManager::isBeforeInSLocAddrSpace;
-    bool  (::clang::SourceManager::*method_pointer_9d2ff1a6b00e57aca9f14372e0fa244b)(class ::clang::SourceLocation , class ::clang::SourceLocation ) const = &::clang::SourceManager::isBeforeInTranslationUnit;
-    bool  (::clang::SourceManager::*method_pointer_b1fd10e9363b5642ac33cbe89f25f8e3)(class ::clang::SourceLocation ) const = &::clang::SourceManager::isInExternCSystemHeader;
-    bool  (::clang::SourceManager::*method_pointer_880a26fb1f3953f99283ca77f55d3c97)(class ::clang::SourceLocation ) const = &::clang::SourceManager::isInMainFile;
-    bool  (::clang::SourceManager::*method_pointer_457a725e02955d4c8f9ba4cca569c58a)(class ::clang::SourceLocation ) const = &::clang::SourceManager::isInSystemHeader;
-    bool  (::clang::SourceManager::*method_pointer_0f20c5ed07785c0c998a69cae245886d)(class ::clang::SourceLocation ) = &::clang::SourceManager::isInSystemMacro;
-    bool  (::clang::SourceManager::*method_pointer_38b133f29e0a514699d53ca269850594)(class ::clang::FileID ) const = &::clang::SourceManager::isLoadedFileID;
-    bool  (::clang::SourceManager::*method_pointer_180f85141ded56589af79b35ce1829ae)(class ::clang::SourceLocation ) const = &::clang::SourceManager::isLoadedSourceLocation;
-    bool  (::clang::SourceManager::*method_pointer_ce164472197150549f8e67667568928d)(class ::clang::FileID ) const = &::clang::SourceManager::isLocalFileID;
-    bool  (::clang::SourceManager::*method_pointer_d1333484ab3e5639bcaeaf9571ad840a)(class ::clang::SourceLocation ) const = &::clang::SourceManager::isLocalSourceLocation;
-    bool  (::clang::SourceManager::*method_pointer_f02621f3848b51cf99df32e6b9181a86)(class ::clang::SourceLocation , class ::clang::SourceLocation  *) const = &::clang::SourceManager::isMacroArgExpansion;
-    bool  (::clang::SourceManager::*method_pointer_af094ac23446548ebae5dc844d449ff7)(class ::clang::SourceLocation ) const = &::clang::SourceManager::isMacroBodyExpansion;
-    bool  (::clang::SourceManager::*method_pointer_86a6a44013e15f77a8ecf3e19aad3b7e)(class ::clang::SourceLocation ) const = &::clang::SourceManager::isWrittenInMainFile;
-    bool  (::clang::SourceManager::*method_pointer_8b2f18864d62527b9e514ea35490a281)(class ::clang::SourceLocation , class ::clang::SourceLocation ) const = &::clang::SourceManager::isWrittenInSameFile;
-    unsigned int  (::clang::SourceManager::*method_pointer_977c27d1e2f85b4097789973ea2b313c)() const = &::clang::SourceManager::loaded_sloc_entry_size;
-    unsigned int  (::clang::SourceManager::*method_pointer_dc96db91538758fe8371a1e0a18721ea)() const = &::clang::SourceManager::local_sloc_entry_size;
-    void  (::clang::SourceManager::*method_pointer_462ae1ae54055596a7eb3924d39998bb)(bool ) = &::clang::SourceManager::setAllFilesAreTransient;
-    void  (::clang::SourceManager::*method_pointer_b4e764ebba55507d93ea4c19b7b33e83)(class ::clang::FileID ) = &::clang::SourceManager::setMainFileID;
-    void  (::clang::SourceManager::*method_pointer_2f4aa114b60951698429a683806dfaa6)(class ::clang::FileID , unsigned int ) const = &::clang::SourceManager::setNumCreatedFIDsForFileID;
-    void  (::clang::SourceManager::*method_pointer_afea19c8ae8250d1a626f77f8612b9fb)(bool ) = &::clang::SourceManager::setOverridenFilesKeepOriginalName;
-    void  (::clang::SourceManager::*method_pointer_5f482aebf78d5c4598fe4f2559fce43a)(class ::clang::FileID ) = &::clang::SourceManager::setPreambleFileID;
-    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_bc74e81ddb5253e388333f84c60f2859)(class ::clang::FileID , unsigned int , unsigned int ) const = &::clang::SourceManager::translateLineCol;
-    bool  (::clang::SourceManager::*method_pointer_b568db2bdce75e1885bf2382348fda68)() const = &::clang::SourceManager::userFilesAreVolatile;
-    boost::python::class_< class ::clang::SourceManager, autowig::HeldType< class ::clang::SourceManager >, boost::noncopyable > class_9e52028d1c305f31bd87257e6d3ccc53("SourceManager", "", boost::python::no_init);
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("add_line_note", method_pointer_e253bcd881cb5795ba6b2c3a11fd6e76, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("add_line_note", method_pointer_f1cc4088b9c25c80a06ba87923cc4866, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("print_stats", method_pointer_6487f3f2e58e5f799238920d04fb411d, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("clear_id_tables", method_pointer_f52a1e2320575bc29db5b9373f73ca5a, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("create_expansion_loc", method_pointer_a4bc4c9bd7f75ee69f9971e003ae73b9, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("create_macro_arg_expansion_loc", method_pointer_41f8fa04198b5f90a2fb89621a7ed56e, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("dump", method_pointer_90329136ed6d56c0a2df8b42e24c6d1a, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_content_cache_size", method_pointer_b3c1ce3e64cf599dac9e6d953e9fc8d1, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_data_structure_sizes", method_pointer_29af9405f1c154f9b9ecd7e61a15ddfb, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_expansion_loc", method_pointer_bb365fb9f3eb580aaa1c914252810d0e, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_file_id", method_pointer_dbb4f9f83ad55272adeedb74edf17210, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_file_id_size", method_pointer_0d6c5c4769f451618cdcfe8e929227e9, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_file_loc", method_pointer_4040e9abb67d5163b503c2dc456ad462, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_file_offset", method_pointer_1269fd03101654f59cb5ecc699bebf5a, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_filename", method_pointer_a3f84c2ab6a556f998dd7c78647afb23, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_immediate_macro_caller_loc", method_pointer_101519ccdc3b556595a844cf5a489201, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_immediate_spelling_loc", method_pointer_f1cf1a7a4e12557e83e3ef06d162e1df, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_include_loc", method_pointer_bac9124d08315a21acbd6b35a72c893d, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_line_table_filename_id", method_pointer_ca7a77f251435747bdd13332527bdd95, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_loc_for_end_of_file", method_pointer_c89ab88a33f45c299e7ac8e7f3ba470f, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_loc_for_start_of_file", method_pointer_caaeb8aa45075dcaa4c572e8bf805ad4, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_macro_arg_expanded_location", method_pointer_ce762ffaceb25e6c8ee01f965db5ca9d, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_main_file_id", method_pointer_95ef03f146395e49bca16d532ff72535, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_next_local_offset", method_pointer_90e4e48dd58257c790ba1451fce51c21, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_num_created_fi_ds_for_file_id", method_pointer_fd1c1f57a8d756258c6862029f2f80d7, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_preamble_file_id", method_pointer_79b6650bfc385d8abf3fc00ec395bd24, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_spelling_loc", method_pointer_6d27e9e4de665becadef954fd026a660, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("has_line_table", method_pointer_80063b28eee8545893a3d13929c2fe78, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_at_end_of_immediate_macro_expansion", method_pointer_3aa8b33033d857108eabe087de8ef976, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_at_start_of_immediate_macro_expansion", method_pointer_596cf4eff4cf529a941f8960f184fb6e, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_before_in_s_loc_addr_space", method_pointer_f6b2c00d85db57acb92c47eb23b75dbd, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_before_in_s_loc_addr_space", method_pointer_5d3f386f62f45af883cba728207609bf, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_before_in_translation_unit", method_pointer_9d2ff1a6b00e57aca9f14372e0fa244b, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_in_extern_c_system_header", method_pointer_b1fd10e9363b5642ac33cbe89f25f8e3, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_in_main_file", method_pointer_880a26fb1f3953f99283ca77f55d3c97, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_in_system_header", method_pointer_457a725e02955d4c8f9ba4cca569c58a, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_in_system_macro", method_pointer_0f20c5ed07785c0c998a69cae245886d, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_loaded_file_id", method_pointer_38b133f29e0a514699d53ca269850594, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_loaded_source_location", method_pointer_180f85141ded56589af79b35ce1829ae, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_local_file_id", method_pointer_ce164472197150549f8e67667568928d, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_local_source_location", method_pointer_d1333484ab3e5639bcaeaf9571ad840a, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_macro_arg_expansion", method_pointer_f02621f3848b51cf99df32e6b9181a86, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_macro_body_expansion", method_pointer_af094ac23446548ebae5dc844d449ff7, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_written_in_main_file", method_pointer_86a6a44013e15f77a8ecf3e19aad3b7e, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_written_in_same_file", method_pointer_8b2f18864d62527b9e514ea35490a281, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("loaded_sloc_entry_size", method_pointer_977c27d1e2f85b4097789973ea2b313c, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("local_sloc_entry_size", method_pointer_dc96db91538758fe8371a1e0a18721ea, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("set_all_files_are_transient", method_pointer_462ae1ae54055596a7eb3924d39998bb, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("set_main_file_id", method_pointer_b4e764ebba55507d93ea4c19b7b33e83, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("set_num_created_fi_ds_for_file_id", method_pointer_2f4aa114b60951698429a683806dfaa6, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("set_overriden_files_keep_original_name", method_pointer_afea19c8ae8250d1a626f77f8612b9fb, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("set_preamble_file_id", method_pointer_5f482aebf78d5c4598fe4f2559fce43a, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("translate_line_col", method_pointer_bc74e81ddb5253e388333f84c60f2859, "");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("user_files_are_volatile", method_pointer_b568db2bdce75e1885bf2382348fda68, "");
+    void  (::clang::SourceManager::*method_pointer_b57c36eefda954178145f0a70a4e17d2)() = &::clang::SourceManager::clearIDTables;
+    void  (::clang::SourceManager::*method_pointer_52385ca8558152ff83155889d7285a5c)(bool ) = &::clang::SourceManager::setOverridenFilesKeepOriginalName;
+    bool  (::clang::SourceManager::*method_pointer_e44abadc8583554e9ba52e7f416b3d8b)() const = &::clang::SourceManager::userFilesAreVolatile;
+    class ::clang::FileID  (::clang::SourceManager::*method_pointer_4e4e8226e30e5fa1ab2ffa54f1ce1019)() const = &::clang::SourceManager::getMainFileID;
+    void  (::clang::SourceManager::*method_pointer_f715f6491d47544dbe3ca5215c48685f)(class ::clang::FileID ) = &::clang::SourceManager::setMainFileID;
+    void  (::clang::SourceManager::*method_pointer_7318cb60b14a51b28d94ddf805f6578f)(class ::clang::FileID ) = &::clang::SourceManager::setPreambleFileID;
+    class ::clang::FileID  (::clang::SourceManager::*method_pointer_03171a5069e953399dc4618c659b3218)() const = &::clang::SourceManager::getPreambleFileID;
+    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_ddfdd60422f456af9143f3619a26f3cb)(class ::clang::SourceLocation , class ::clang::SourceLocation , unsigned int ) = &::clang::SourceManager::createMacroArgExpansionLoc;
+    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_7e9044c4045d587a89ffe2b1d674025f)(class ::clang::SourceLocation , class ::clang::SourceLocation , class ::clang::SourceLocation , unsigned int , int , unsigned int ) = &::clang::SourceManager::createExpansionLoc;
+    void  (::clang::SourceManager::*method_pointer_95e0f926b0115a44ab9d481a5e85ed72)(bool ) = &::clang::SourceManager::setAllFilesAreTransient;
+    unsigned int  (::clang::SourceManager::*method_pointer_ced308c6824c59bf81d0041251e73d8b)(class ::clang::FileID ) const = &::clang::SourceManager::getNumCreatedFIDsForFileID;
+    void  (::clang::SourceManager::*method_pointer_fd5a8f2dfa8d5ad3853d52f3deeaa636)(class ::clang::FileID , unsigned int ) const = &::clang::SourceManager::setNumCreatedFIDsForFileID;
+    class ::clang::FileID  (::clang::SourceManager::*method_pointer_0adca710abbb51628f4fb9013d4b23ea)(class ::clang::SourceLocation ) const = &::clang::SourceManager::getFileID;
+    class ::llvm::StringRef  (::clang::SourceManager::*method_pointer_b6797117a2fc50d28cd62094739324ac)(class ::clang::SourceLocation ) const = &::clang::SourceManager::getFilename;
+    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_3691e1ded7c058e7b4c6886ed034eda1)(class ::clang::FileID ) const = &::clang::SourceManager::getLocForStartOfFile;
+    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_11c653ee1bf25d5ebeed267b51990376)(class ::clang::FileID ) const = &::clang::SourceManager::getLocForEndOfFile;
+    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_0b636f83ea5a55b2b27dcb464c2ebc48)(class ::clang::FileID ) const = &::clang::SourceManager::getIncludeLoc;
+    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_ca28777f0b6c556aa4d6be6d4ffd02ee)(class ::clang::SourceLocation ) const = &::clang::SourceManager::getExpansionLoc;
+    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_9ca48e849af15f4c86a6d1e52a91ca70)(class ::clang::SourceLocation ) const = &::clang::SourceManager::getFileLoc;
+    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_4557ba843e195893b05a9cef379d53ac)(class ::clang::SourceLocation ) const = &::clang::SourceManager::getSpellingLoc;
+    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_7a4336177e8053d8841828ff6a47a602)(class ::clang::SourceLocation ) const = &::clang::SourceManager::getImmediateSpellingLoc;
+    unsigned int  (::clang::SourceManager::*method_pointer_e879a1fe3c00518e89b09e0b84f8b0c4)(class ::clang::SourceLocation ) const = &::clang::SourceManager::getFileOffset;
+    bool  (::clang::SourceManager::*method_pointer_dd7033c7e57653478e0107d4ae701cf3)(class ::clang::SourceLocation , class ::clang::SourceLocation *) const = &::clang::SourceManager::isMacroArgExpansion;
+    bool  (::clang::SourceManager::*method_pointer_23658d6befd3534ab5ddf2b9952b92de)(class ::clang::SourceLocation ) const = &::clang::SourceManager::isMacroBodyExpansion;
+    bool  (::clang::SourceManager::*method_pointer_13e01ae93ec156daa05b2035cae68106)(class ::clang::SourceLocation , class ::clang::SourceLocation *) const = &::clang::SourceManager::isAtStartOfImmediateMacroExpansion;
+    bool  (::clang::SourceManager::*method_pointer_b3f848ce953356b188bf0fef9619aba8)(class ::clang::SourceLocation , class ::clang::SourceLocation *) const = &::clang::SourceManager::isAtEndOfImmediateMacroExpansion;
+    bool  (::clang::SourceManager::*method_pointer_1eeb65bacda15176a646d592b25eed0b)(class ::clang::SourceLocation ) const = &::clang::SourceManager::isInMainFile;
+    bool  (::clang::SourceManager::*method_pointer_ca348d8fab0957ccaddaa7d8b0f4ad2a)(class ::clang::SourceLocation , class ::clang::SourceLocation ) const = &::clang::SourceManager::isWrittenInSameFile;
+    bool  (::clang::SourceManager::*method_pointer_d002d383b3e859d4ba5975ee27d382af)(class ::clang::SourceLocation ) const = &::clang::SourceManager::isWrittenInMainFile;
+    bool  (::clang::SourceManager::*method_pointer_8eafef25a987554c9bfa9f4fc4790eb0)(class ::clang::SourceLocation ) const = &::clang::SourceManager::isInSystemHeader;
+    bool  (::clang::SourceManager::*method_pointer_381e63121be15ec69fcda40b932866b1)(class ::clang::SourceLocation ) const = &::clang::SourceManager::isInExternCSystemHeader;
+    bool  (::clang::SourceManager::*method_pointer_c5bd61f438905f68ae78199548474042)(class ::clang::SourceLocation ) = &::clang::SourceManager::isInSystemMacro;
+    unsigned int  (::clang::SourceManager::*method_pointer_018e2a3de51253ba928a8f2ca7bfc5a6)(class ::clang::FileID ) const = &::clang::SourceManager::getFileIDSize;
+    unsigned int  (::clang::SourceManager::*method_pointer_f33915280379596fa88d82d55ac1e419)(class ::llvm::StringRef ) = &::clang::SourceManager::getLineTableFilenameID;
+    void  (::clang::SourceManager::*method_pointer_788f0ba866bf53ac9d83a6b12fbc84db)(class ::clang::SourceLocation , unsigned int , int ) = &::clang::SourceManager::AddLineNote;
+    void  (::clang::SourceManager::*method_pointer_cfd5369731c95662957e57f1703081ed)(class ::clang::SourceLocation , unsigned int , int , bool , bool , bool , bool ) = &::clang::SourceManager::AddLineNote;
+    bool  (::clang::SourceManager::*method_pointer_eeb2abd849a85d39ba659cfd118536c2)() const = &::clang::SourceManager::hasLineTable;
+    ::size_t  (::clang::SourceManager::*method_pointer_c61bfdc74715556a9a40563e83c3a372)() const = &::clang::SourceManager::getContentCacheSize;
+    ::size_t  (::clang::SourceManager::*method_pointer_5dbf63c37f6f50ad9a0659452f0cd5dc)() const = &::clang::SourceManager::getDataStructureSizes;
+    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_2afa227ec6e5594e992b464be796f167)(class ::clang::FileID , unsigned int , unsigned int ) const = &::clang::SourceManager::translateLineCol;
+    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_32b2dbe681c35b218d3fad695a90382a)(class ::clang::SourceLocation ) const = &::clang::SourceManager::getMacroArgExpandedLocation;
+    bool  (::clang::SourceManager::*method_pointer_01a1bae3fb005efbb9284a80437a93a3)(class ::clang::SourceLocation , class ::clang::SourceLocation ) const = &::clang::SourceManager::isBeforeInTranslationUnit;
+    bool  (::clang::SourceManager::*method_pointer_e4549a3fa5035bf684070daa3b742b00)(class ::clang::SourceLocation , class ::clang::SourceLocation ) const = &::clang::SourceManager::isBeforeInSLocAddrSpace;
+    bool  (::clang::SourceManager::*method_pointer_78a7b297b5a658f8ad7557ed63a0ff34)(class ::clang::SourceLocation , unsigned int ) const = &::clang::SourceManager::isBeforeInSLocAddrSpace;
+    void  (::clang::SourceManager::*method_pointer_e619aab752b25494b81ad77e5cae7dab)() const = &::clang::SourceManager::PrintStats;
+    void  (::clang::SourceManager::*method_pointer_495701e34545535fbb8f8d70ecc058bc)() const = &::clang::SourceManager::dump;
+    unsigned int  (::clang::SourceManager::*method_pointer_b49c49ce8abb5691b9ad381e10124b4f)() const = &::clang::SourceManager::local_sloc_entry_size;
+    unsigned int  (::clang::SourceManager::*method_pointer_8be217ce2c475cb0a9b5422a0bcf29b6)() const = &::clang::SourceManager::loaded_sloc_entry_size;
+    unsigned int  (::clang::SourceManager::*method_pointer_f24bbbfaf2e350988b7cc1f7ad47f3ec)() const = &::clang::SourceManager::getNextLocalOffset;
+    bool  (::clang::SourceManager::*method_pointer_ca344c881ba35285ae9929575011c3c3)(class ::clang::SourceLocation ) const = &::clang::SourceManager::isLoadedSourceLocation;
+    bool  (::clang::SourceManager::*method_pointer_458d7276a93a54f1bbf461766bcbf56e)(class ::clang::SourceLocation ) const = &::clang::SourceManager::isLocalSourceLocation;
+    bool  (::clang::SourceManager::*method_pointer_8e376db816e75a609d9b5f20908df717)(class ::clang::FileID ) const = &::clang::SourceManager::isLoadedFileID;
+    bool  (::clang::SourceManager::*method_pointer_4dbf76cf40c555b48e785abb98e6d4be)(class ::clang::FileID ) const = &::clang::SourceManager::isLocalFileID;
+    class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_c1b60f27bdb6570ab52fedb62de8d824)(class ::clang::SourceLocation ) const = &::clang::SourceManager::getImmediateMacroCallerLoc;
+    boost::python::class_< class ::clang::SourceManager, autowig::Held< class ::clang::SourceManager >::Type, boost::noncopyable > class_9e52028d1c305f31bd87257e6d3ccc53("SourceManager", "This class handles loading and caching of source files into memory.\n\nThis object owns the MemoryBuffer objects for all of the loaded files\nand assigns unique FileID's for each unique #include chain.\n\nThe SourceManager can be queried for information about SourceLocation\nobjects, turning them into either spelling or expansion locations.\nSpelling locations represent where the bytes corresponding to a token\ncame from and expansion locations represent where the location is in the\nuser's view. In the case of a macro expansion, for example, the spelling\nlocation indicates where the expanded token came from and the expansion\nlocation specifies where it was expanded.\n\n", boost::python::no_init);
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("clear_id_tables", method_pointer_b57c36eefda954178145f0a70a4e17d2, "");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("set_overriden_files_keep_original_name", method_pointer_52385ca8558152ff83155889d7285a5c, "Set true if the SourceManager should report the original file name for\ncontents of files that were overridden by other files. Defaults to true.\n\n:Parameter:\n    `value` (:cpp:any:`bool`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("user_files_are_volatile", method_pointer_e44abadc8583554e9ba52e7f416b3d8b, "True if non-system source files should be treated as volatile (likely to\nchange while trying to use them).\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_main_file_id", method_pointer_4e4e8226e30e5fa1ab2ffa54f1ce1019, "Returns the FileID of the main source file.\n\n:Return Type:\n    :py:class:`clanglite.clang.FileID`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("set_main_file_id", method_pointer_f715f6491d47544dbe3ca5215c48685f, "Set the file ID for the main source file.\n\n:Parameter:\n    `FID` (:py:class:`clanglite.clang.FileID`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("set_preamble_file_id", method_pointer_7318cb60b14a51b28d94ddf805f6578f, "Set the file ID for the precompiled preamble.\n\n:Parameter:\n    `Preamble` (:py:class:`clanglite.clang.FileID`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_preamble_file_id", method_pointer_03171a5069e953399dc4618c659b3218, "Get the file ID for the precompiled preamble if there is one.\n\n:Return Type:\n    :py:class:`clanglite.clang.FileID`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("create_macro_arg_expansion_loc", method_pointer_ddfdd60422f456af9143f3619a26f3cb, "Return a new SourceLocation that encodes the fact that a token from\nSpellingLoc should actually be referenced from ExpansionLoc, and that it\nrepresents the expansion of a macro argument into the function-like\nmacro body.\n\n:Parameters:\n  - `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n  - `ExpansionLoc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n  - `TokLength` (:cpp:any:`unsigned` int) - Undocumented\n\n:Return Type:\n    :py:class:`clanglite.clang.SourceLocation`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("create_expansion_loc", method_pointer_7e9044c4045d587a89ffe2b1d674025f, "Return a new SourceLocation that encodes the fact that a token from\nSpellingLoc should actually be referenced from ExpansionLoc.\n\n:Parameters:\n  - `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n  - `ExpansionLocStart` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n  - `ExpansionLocEnd` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n  - `TokLength` (:cpp:any:`unsigned` int) - Undocumented\n  - `LoadedID` (:cpp:any:`int`) - Undocumented\n  - `LoadedOffset` (:cpp:any:`unsigned` int) - Undocumented\n\n:Return Type:\n    :py:class:`clanglite.clang.SourceLocation`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("set_all_files_are_transient", method_pointer_95e0f926b0115a44ab9d481a5e85ed72, "Specify that all files that are read during this compilation are\ntransient.\n\n:Parameter:\n    `Transient` (:cpp:any:`bool`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_num_created_fi_ds_for_file_id", method_pointer_ced308c6824c59bf81d0041251e73d8b, "Get the number of FileIDs (files and macros) that were created during\npreprocessing of :raw-latex:`\\p `FID, including it.\n\n:Parameter:\n    `FID` (:py:class:`clanglite.clang.FileID`) - Undocumented\n\n:Return Type:\n    :cpp:any:`unsigned` int\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("set_num_created_fi_ds_for_file_id", method_pointer_fd5a8f2dfa8d5ad3853d52f3deeaa636, "Set the number of FileIDs (files and macros) that were created during\npreprocessing of :raw-latex:`\\p `FID, including it.\n\n:Parameters:\n  - `FID` (:py:class:`clanglite.clang.FileID`) - Undocumented\n  - `NumFIDs` (:cpp:any:`unsigned` int) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_file_id", method_pointer_0adca710abbb51628f4fb9013d4b23ea, "Return the FileID for a SourceLocation.\n\nThis is a very hot method that is used for all SourceManager queries\nthat start with a SourceLocation object. It is responsible for finding\nthe entry in SLocEntryTable which contains the specified location.\n\n:Parameter:\n    `SpellingLoc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :py:class:`clanglite.clang.FileID`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_filename", method_pointer_b6797117a2fc50d28cd62094739324ac, "Return the filename of the file containing a SourceLocation.\n\n:Parameter:\n    `SpellingLoc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :py:class:`clanglite.llvm.StringRef`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_loc_for_start_of_file", method_pointer_3691e1ded7c058e7b4c6886ed034eda1, "Return the source location corresponding to the first byte of the\nspecified file.\n\n:Parameter:\n    `FID` (:py:class:`clanglite.clang.FileID`) - Undocumented\n\n:Return Type:\n    :py:class:`clanglite.clang.SourceLocation`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_loc_for_end_of_file", method_pointer_11c653ee1bf25d5ebeed267b51990376, "Return the source location corresponding to the last byte of the\nspecified file.\n\n:Parameter:\n    `FID` (:py:class:`clanglite.clang.FileID`) - Undocumented\n\n:Return Type:\n    :py:class:`clanglite.clang.SourceLocation`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_include_loc", method_pointer_0b636f83ea5a55b2b27dcb464c2ebc48, "Returns the include location if :raw-latex:`\\p `FID is a #include'd file\notherwise it returns an invalid location.\n\n:Parameter:\n    `FID` (:py:class:`clanglite.clang.FileID`) - Undocumented\n\n:Return Type:\n    :py:class:`clanglite.clang.SourceLocation`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_expansion_loc", method_pointer_ca28777f0b6c556aa4d6be6d4ffd02ee, "Given a SourceLocation object :raw-latex:`\\p `Loc, return the expansion\nlocation referenced by the ID.\n\n:Parameter:\n    `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :py:class:`clanglite.clang.SourceLocation`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_file_loc", method_pointer_9ca48e849af15f4c86a6d1e52a91ca70, "Given :raw-latex:`\\p `Loc, if it is a macro location return the\nexpansion location or the spelling location, depending on if it comes\nfrom a macro argument or not.\n\n:Parameter:\n    `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :py:class:`clanglite.clang.SourceLocation`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_spelling_loc", method_pointer_4557ba843e195893b05a9cef379d53ac, "Given a SourceLocation object, return the spelling location referenced\nby the ID.\n\nThis is the place where the characters that make up the lexed token can\nbe found.\n\n:Parameter:\n    `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :py:class:`clanglite.clang.SourceLocation`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_immediate_spelling_loc", method_pointer_7a4336177e8053d8841828ff6a47a602, "Given a SourceLocation object, return the spelling location referenced\nby the ID.\n\nThis is the first level down towards the place where the characters that\nmake up the lexed token can be found. This should not generally be used\nby clients.\n\n:Parameter:\n    `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :py:class:`clanglite.clang.SourceLocation`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_file_offset", method_pointer_e879a1fe3c00518e89b09e0b84f8b0c4, "Returns the offset from the start of the file that the specified\nSourceLocation represents.\n\nThis is not very meaningful for a macro ID.\n\n:Parameter:\n    `SpellingLoc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :cpp:any:`unsigned` int\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_macro_arg_expansion", method_pointer_dd7033c7e57653478e0107d4ae701cf3, "Tests whether the given source location represents a macro argument's\nexpansion into the function-like macro definition.\n\n:Parameters:\n  - `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n  - `StartLoc` (:py:class:`clanglite.clang.SourceLocation`) - If non-null and function returns true, it is set to the start location\n                                                              of the macro argument expansion.\n                                                              \n                                                              Such source locations only appear inside of the expansion locations\n                                                              representing where a particular function-like macro was expanded.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_macro_body_expansion", method_pointer_23658d6befd3534ab5ddf2b9952b92de, "Tests whether the given source location represents the expansion of a\nmacro body.\n\nThis is equivalent to testing whether the location is part of a macro\nexpansion but not the expansion of an argument to a function-like macro.\n\n:Parameter:\n    `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_at_start_of_immediate_macro_expansion", method_pointer_13e01ae93ec156daa05b2035cae68106, "Returns true if the given MacroID location points at the beginning of\nthe immediate macro expansion.\n\n:Parameters:\n  - `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n  - `MacroBegin` (:py:class:`clanglite.clang.SourceLocation`) - If non-null and function returns true, it is set to the begin location\n                                                                of the immediate macro expansion.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_at_end_of_immediate_macro_expansion", method_pointer_b3f848ce953356b188bf0fef9619aba8, "Returns true if the given MacroID location points at the character end\nof the immediate macro expansion.\n\n:Parameters:\n  - `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n  - `MacroEnd` (:py:class:`clanglite.clang.SourceLocation`) - If non-null and function returns true, it is set to the character end\n                                                              location of the immediate macro expansion.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_in_main_file", method_pointer_1eeb65bacda15176a646d592b25eed0b, "Returns whether the PresumedLoc for a given SourceLocation is in the\nmain file.\n\nThis computes the 'presumed' location for a SourceLocation, then checks\nwhether it came from a file other than the main file. This is different\nfrom isWrittenInMainFile() because it takes line marker directives into\naccount.\n\n:Parameter:\n    `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_written_in_same_file", method_pointer_ca348d8fab0957ccaddaa7d8b0f4ad2a, "Returns true if the spelling locations for both SourceLocations are part\nof the same file buffer.\n\nThis check ignores line marker directives.\n\n:Parameters:\n  - `Loc1` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n  - `Loc2` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_written_in_main_file", method_pointer_d002d383b3e859d4ba5975ee27d382af, "Returns true if the spelling location for the given location is in the\nmain file buffer.\n\nThis check ignores line marker directives.\n\n:Parameter:\n    `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_in_system_header", method_pointer_8eafef25a987554c9bfa9f4fc4790eb0, "Returns if a SourceLocation is in a system header.\n\n:Parameter:\n    `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_in_extern_c_system_header", method_pointer_381e63121be15ec69fcda40b932866b1, "Returns if a SourceLocation is in an 'extern C' system header.\n\n:Parameter:\n    `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_in_system_macro", method_pointer_c5bd61f438905f68ae78199548474042, "Returns whether :raw-latex:`\\p `Loc is expanded from a macro in a system\nheader.\n\n:Parameter:\n    `loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_file_id_size", method_pointer_018e2a3de51253ba928a8f2ca7bfc5a6, "The size of the SLocEntry that :raw-latex:`\\p `FID represents.\n\n:Parameter:\n    `FID` (:py:class:`clanglite.clang.FileID`) - Undocumented\n\n:Return Type:\n    :cpp:any:`unsigned` int\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_line_table_filename_id", method_pointer_f33915280379596fa88d82d55ac1e419, "Return the uniqued ID for the specified filename.\n\n:Parameter:\n    `Str` (:py:class:`clanglite.llvm.StringRef`) - Undocumented\n\n:Return Type:\n    :cpp:any:`unsigned` int\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("add_line_note", method_pointer_788f0ba866bf53ac9d83a6b12fbc84db, "Add a line note to the line table for the FileID and offset specified by\nLoc.\n\nIf FilenameID is -1, it is considered to be unspecified.\n\n:Parameters:\n  - `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n  - `LineNo` (:cpp:any:`unsigned` int) - Undocumented\n  - `FilenameID` (:cpp:any:`int`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("add_line_note", method_pointer_cfd5369731c95662957e57f1703081ed, "");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("has_line_table", method_pointer_eeb2abd849a85d39ba659cfd118536c2, "Determine if the source manager has a line table.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_content_cache_size", method_pointer_c61bfdc74715556a9a40563e83c3a372, "Return the total amount of physical memory allocated by the ContentCache\nallocator.\n\n:Return Type:\n    :cpp:any:`unsigned` long int\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_data_structure_sizes", method_pointer_5dbf63c37f6f50ad9a0659452f0cd5dc, "Return the amount of memory used for various side tables and data\nstructures in the SourceManager.\n\n:Return Type:\n    :cpp:any:`unsigned` long int\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("translate_line_col", method_pointer_2afa227ec6e5594e992b464be796f167, "Get the source location in :raw-latex:`\\p `FID for the given line:col.\nReturns null location if :raw-latex:`\\p `FID is not a file SLocEntry.\n\n:Parameters:\n  - `FID` (:py:class:`clanglite.clang.FileID`) - Undocumented\n  - `Line` (:cpp:any:`unsigned` int) - Undocumented\n  - `Col` (:cpp:any:`unsigned` int) - Undocumented\n\n:Return Type:\n    :py:class:`clanglite.clang.SourceLocation`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_macro_arg_expanded_location", method_pointer_32b2dbe681c35b218d3fad695a90382a, "If :raw-latex:`\\p `Loc points inside a function macro argument, the\nreturned location will be the macro location in which the argument was\nexpanded. If a macro argument is used multiple times, the expanded\nlocation will be at the first expansion of the argument. e.g.\nMY\\_MACRO(foo); ^ Passing a file location pointing at 'foo', will yield\na macro location where 'foo' was expanded into.\n\n:Parameter:\n    `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :py:class:`clanglite.clang.SourceLocation`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_before_in_translation_unit", method_pointer_01a1bae3fb005efbb9284a80437a93a3, "Determines the order of 2 source locations in the translation unit.\n\n:Parameters:\n  - `LHS` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n  - `RHS` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Returns:\n    true if LHS source location comes before RHS, false otherwise.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_before_in_s_loc_addr_space", method_pointer_e4549a3fa5035bf684070daa3b742b00, "Determines the order of 2 source locations in the 'source location\naddress space'.\n\n:Parameters:\n  - `LHS` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n  - `RHS` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_before_in_s_loc_addr_space", method_pointer_78a7b297b5a658f8ad7557ed63a0ff34, "Determines the order of a source location and a source location offset\nin the 'source location address space'.\n\nNote that we always consider source locations loaded from\n\n:Parameters:\n  - `LHS` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n  - `RHS` (:cpp:any:`unsigned` int) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("print_stats", method_pointer_e619aab752b25494b81ad77e5cae7dab, "Print statistics to stderr.\n\n:Return Type:\n    :cpp:any:`void`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("dump", method_pointer_495701e34545535fbb8f8d70ecc058bc, "");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("local_sloc_entry_size", method_pointer_b49c49ce8abb5691b9ad381e10124b4f, "Get the number of local SLocEntries we have.\n\n:Return Type:\n    :cpp:any:`unsigned` int\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("loaded_sloc_entry_size", method_pointer_8be217ce2c475cb0a9b5422a0bcf29b6, "Get the number of loaded SLocEntries we have.\n\n:Return Type:\n    :cpp:any:`unsigned` int\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_next_local_offset", method_pointer_f24bbbfaf2e350988b7cc1f7ad47f3ec, "");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_loaded_source_location", method_pointer_ca344c881ba35285ae9929575011c3c3, "Returns true if :raw-latex:`\\p `Loc came from a PCH/Module.\n\n:Parameter:\n    `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_local_source_location", method_pointer_458d7276a93a54f1bbf461766bcbf56e, "Returns true if :raw-latex:`\\p `Loc did not come from a PCH/Module.\n\n:Parameter:\n    `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_loaded_file_id", method_pointer_8e376db816e75a609d9b5f20908df717, "Returns true if :raw-latex:`\\p `FID came from a PCH/Module.\n\n:Parameter:\n    `FID` (:py:class:`clanglite.clang.FileID`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_local_file_id", method_pointer_4dbf76cf40c555b48e785abb98e6d4be, "Returns true if :raw-latex:`\\p `FID did not come from a PCH/Module.\n\n:Parameter:\n    `FID` (:py:class:`clanglite.clang.FileID`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("get_immediate_macro_caller_loc", method_pointer_c1b60f27bdb6570ab52fedb62de8d824, ":Parameter:\n    `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :py:class:`clanglite.clang.SourceLocation`\n\n");
 
 }

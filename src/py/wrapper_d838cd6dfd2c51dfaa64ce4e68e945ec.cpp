@@ -1,25 +1,21 @@
-/**********************************************************************************/
-/*                                                                                */
-/* PyClangLite: Python bindings for Clang                                         */
-/*                                                                                */
-/* Homepage: http://pyclanglite.readthedocs.io/                                   */
-/*                                                                                */
-/* Copyright (c) 2016 Pierre Fernique                                             */
-/*                                                                                */
-/* This software is distributed under the CeCILL-C license. You should have       */
-/* received a copy of the legalcode along with this work. If not, see             */
-/* <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 */
-/*                                                                                */
-/* File authors: Pierre Fernique <pfernique@gmail.com> (37)                       */
-/*                                                                                */
-/**********************************************************************************/
-
 #include "_clanglite.h"
+
 
 
 namespace autowig
 {
+
 }
+
+#if defined(_MSC_VER)
+    #if (_MSC_VER == 1900)
+namespace boost
+{
+    template <> class ::clang::CXXBaseSpecifier const volatile * get_pointer<class ::clang::CXXBaseSpecifier const volatile >(class ::clang::CXXBaseSpecifier const volatile *c) { return c; }
+}
+    #endif
+#endif
+
 
 
 void wrapper_d838cd6dfd2c51dfaa64ce4e68e945ec()
@@ -29,28 +25,28 @@ void wrapper_d838cd6dfd2c51dfaa64ce4e68e945ec()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    enum ::clang::AccessSpecifier  (::clang::CXXBaseSpecifier::*method_pointer_f039b2ac49715ad9822725516e688ba7)() const = &::clang::CXXBaseSpecifier::getAccessSpecifier;
-    enum ::clang::AccessSpecifier  (::clang::CXXBaseSpecifier::*method_pointer_9016ec4aa0235d56a93c1c6017e18d9d)() const = &::clang::CXXBaseSpecifier::getAccessSpecifierAsWritten;
-    class ::clang::SourceLocation  (::clang::CXXBaseSpecifier::*method_pointer_b2736a42f54e58778da27d8891af2f89)() const = &::clang::CXXBaseSpecifier::getEllipsisLoc;
-    bool  (::clang::CXXBaseSpecifier::*method_pointer_4a42cc349bff524f8da8b1bcb8297205)() const = &::clang::CXXBaseSpecifier::getInheritConstructors;
-    class ::clang::SourceLocation  (::clang::CXXBaseSpecifier::*method_pointer_05aa1fa57e18592c9d24dcb77dbe0b6e)() const = &::clang::CXXBaseSpecifier::getLocEnd;
-    class ::clang::SourceLocation  (::clang::CXXBaseSpecifier::*method_pointer_cee4eb67442e5308b2c3ebee153a2595)() const = &::clang::CXXBaseSpecifier::getLocStart;
-    class ::clang::QualType  (::clang::CXXBaseSpecifier::*method_pointer_b7f09b7f90175374845fda74bea4d03f)() const = &::clang::CXXBaseSpecifier::getType;
-    bool  (::clang::CXXBaseSpecifier::*method_pointer_c9c0144a97eb5c0895419220bd88e3ba)() const = &::clang::CXXBaseSpecifier::isBaseOfClass;
-    bool  (::clang::CXXBaseSpecifier::*method_pointer_3a6b24d67ed05abeba44bf8ca2a90f29)() const = &::clang::CXXBaseSpecifier::isPackExpansion;
-    bool  (::clang::CXXBaseSpecifier::*method_pointer_9b536d8a89285f69ba409725919576e8)() const = &::clang::CXXBaseSpecifier::isVirtual;
-    void  (::clang::CXXBaseSpecifier::*method_pointer_ef8da8f2f25256858ca3194434da456b)(bool ) = &::clang::CXXBaseSpecifier::setInheritConstructors;
-    boost::python::class_< class ::clang::CXXBaseSpecifier, autowig::HeldType< class ::clang::CXXBaseSpecifier >, boost::noncopyable > class_d838cd6dfd2c51dfaa64ce4e68e945ec("CXXBaseSpecifier", "", boost::python::no_init);
-    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("get_access_specifier", method_pointer_f039b2ac49715ad9822725516e688ba7, "");
-    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("get_access_specifier_as_written", method_pointer_9016ec4aa0235d56a93c1c6017e18d9d, "");
-    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("get_ellipsis_loc", method_pointer_b2736a42f54e58778da27d8891af2f89, "");
-    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("get_inherit_constructors", method_pointer_4a42cc349bff524f8da8b1bcb8297205, "");
-    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("get_loc_end", method_pointer_05aa1fa57e18592c9d24dcb77dbe0b6e, "");
-    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("get_loc_start", method_pointer_cee4eb67442e5308b2c3ebee153a2595, "");
-    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("get_type", method_pointer_b7f09b7f90175374845fda74bea4d03f, "");
-    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("is_base_of_class", method_pointer_c9c0144a97eb5c0895419220bd88e3ba, "");
-    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("is_pack_expansion", method_pointer_3a6b24d67ed05abeba44bf8ca2a90f29, "");
-    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("is_virtual", method_pointer_9b536d8a89285f69ba409725919576e8, "");
-    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("set_inherit_constructors", method_pointer_ef8da8f2f25256858ca3194434da456b, "");
+    class ::clang::SourceLocation  (::clang::CXXBaseSpecifier::*method_pointer_a94b4bec65225a86b8dc6a902fc30ad4)() const = &::clang::CXXBaseSpecifier::getLocStart;
+    class ::clang::SourceLocation  (::clang::CXXBaseSpecifier::*method_pointer_e237d666a088519c94bbaf60bf69ec20)() const = &::clang::CXXBaseSpecifier::getLocEnd;
+    bool  (::clang::CXXBaseSpecifier::*method_pointer_81fbb335c9f45902946ad7f217deaf8a)() const = &::clang::CXXBaseSpecifier::isVirtual;
+    bool  (::clang::CXXBaseSpecifier::*method_pointer_bb69a109b8d554f6b7b336c1821cc050)() const = &::clang::CXXBaseSpecifier::isBaseOfClass;
+    bool  (::clang::CXXBaseSpecifier::*method_pointer_b1a565eb6c065479bfedd6912b7f26b8)() const = &::clang::CXXBaseSpecifier::isPackExpansion;
+    bool  (::clang::CXXBaseSpecifier::*method_pointer_9dbd21fad4205f7b93dff289cfb54094)() const = &::clang::CXXBaseSpecifier::getInheritConstructors;
+    void  (::clang::CXXBaseSpecifier::*method_pointer_dc13bb087b515b14a66fb970ae8a3f5a)(bool ) = &::clang::CXXBaseSpecifier::setInheritConstructors;
+    class ::clang::SourceLocation  (::clang::CXXBaseSpecifier::*method_pointer_2b94360235845e6fbb379ef96acc0b2d)() const = &::clang::CXXBaseSpecifier::getEllipsisLoc;
+    enum ::clang::AccessSpecifier  (::clang::CXXBaseSpecifier::*method_pointer_85a57697a6fd5abf8eb666ed604be448)() const = &::clang::CXXBaseSpecifier::getAccessSpecifier;
+    enum ::clang::AccessSpecifier  (::clang::CXXBaseSpecifier::*method_pointer_a2a99055813757b791073c3913d86f8e)() const = &::clang::CXXBaseSpecifier::getAccessSpecifierAsWritten;
+    class ::clang::QualType  (::clang::CXXBaseSpecifier::*method_pointer_dae61ee019e45bb69a652468baf9999d)() const = &::clang::CXXBaseSpecifier::getType;
+    boost::python::class_< class ::clang::CXXBaseSpecifier, autowig::Held< class ::clang::CXXBaseSpecifier >::Type > class_d838cd6dfd2c51dfaa64ce4e68e945ec("CXXBaseSpecifier", "Represents a base class of a C++ class.\n\nEach CXXBaseSpecifier represents a single, direct base class (or struct)\nof a C++ class (or struct). It specifies the type of that base class,\nwhether it is a virtual or non-virtual base, and what level of access\n(public, protected, private) is used for the derivation. For example:\n\n", boost::python::no_init);
+    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("get_loc_start", method_pointer_a94b4bec65225a86b8dc6a902fc30ad4, "");
+    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("get_loc_end", method_pointer_e237d666a088519c94bbaf60bf69ec20, "");
+    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("is_virtual", method_pointer_81fbb335c9f45902946ad7f217deaf8a, "Determines whether the base class is a virtual base class (or not).\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("is_base_of_class", method_pointer_bb69a109b8d554f6b7b336c1821cc050, "Determine whether this base class is a base of a class declared with the\n'class' keyword (vs. one declared with the 'struct' keyword).\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("is_pack_expansion", method_pointer_b1a565eb6c065479bfedd6912b7f26b8, "Determine whether this base specifier is a pack expansion.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("get_inherit_constructors", method_pointer_9dbd21fad4205f7b93dff289cfb54094, "Determine whether this base class's constructors get inherited.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("set_inherit_constructors", method_pointer_dc13bb087b515b14a66fb970ae8a3f5a, "Set that this base class's constructors should be inherited.\n\n:Parameter:\n    `Inherit` (:cpp:any:`bool`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
+    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("get_ellipsis_loc", method_pointer_2b94360235845e6fbb379ef96acc0b2d, "For a pack expansion, determine the location of the ellipsis.\n\n:Return Type:\n    :py:class:`clanglite.clang.SourceLocation`\n\n");
+    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("get_access_specifier", method_pointer_85a57697a6fd5abf8eb666ed604be448, "Returns the access specifier for this base specifier.\n\nThis is the actual base specifier as used for semantic analysis, so the\nresult can never be AS\\_none. To retrieve the access specifier as\nwritten in the source code, use getAccessSpecifierAsWritten().\n\n:Return Type:\n    :py:obj:`clanglite.clang.access_specifier`\n\n");
+    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("get_access_specifier_as_written", method_pointer_a2a99055813757b791073c3913d86f8e, "Retrieves the access specifier as written in the source code (which may\nmean that no access specifier was explicitly written).\n\nUse getAccessSpecifier() to retrieve the access specifier for use in\nsemantic analysis.\n\n:Return Type:\n    :py:obj:`clanglite.clang.access_specifier`\n\n");
+    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("get_type", method_pointer_dae61ee019e45bb69a652468baf9999d, "Retrieves the type of the base class.\n\nThis type will always be an unqualified class type.\n\n:Return Type:\n    :py:class:`clanglite.clang.QualType`\n\n");
 
 }

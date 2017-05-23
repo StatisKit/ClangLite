@@ -1,25 +1,21 @@
-/**********************************************************************************/
-/*                                                                                */
-/* PyClangLite: Python bindings for Clang                                         */
-/*                                                                                */
-/* Homepage: http://pyclanglite.readthedocs.io/                                   */
-/*                                                                                */
-/* Copyright (c) 2016 Pierre Fernique                                             */
-/*                                                                                */
-/* This software is distributed under the CeCILL-C license. You should have       */
-/* received a copy of the legalcode along with this work. If not, see             */
-/* <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 */
-/*                                                                                */
-/* File authors: Pierre Fernique <pfernique@gmail.com> (35)                       */
-/*                                                                                */
-/**********************************************************************************/
-
 #include "_clanglite.h"
+
 
 
 namespace autowig
 {
+
 }
+
+#if defined(_MSC_VER)
+    #if (_MSC_VER == 1900)
+namespace boost
+{
+    template <> class ::clang::DependentSizedExtVectorType const volatile * get_pointer<class ::clang::DependentSizedExtVectorType const volatile >(class ::clang::DependentSizedExtVectorType const volatile *c) { return c; }
+}
+    #endif
+#endif
+
 
 
 void wrapper_7d10a38ead5950acb903ebd8bb882a64()
@@ -29,22 +25,23 @@ void wrapper_7d10a38ead5950acb903ebd8bb882a64()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    bool  (*method_pointer_1b64128074645dc2b12b2129e2f3661f)(class ::clang::Type  const *) = ::clang::DependentSizedExtVectorType::classof;
-    class ::clang::QualType  (::clang::DependentSizedExtVectorType::*method_pointer_13b7aff907f75038934a22ad02267bf6)() const = &::clang::DependentSizedExtVectorType::desugar;
-    class ::clang::SourceLocation  (::clang::DependentSizedExtVectorType::*method_pointer_bd0209b7429e513591787dc94255317b)() const = &::clang::DependentSizedExtVectorType::getAttributeLoc;
-    class ::clang::QualType  (::clang::DependentSizedExtVectorType::*method_pointer_9415541b44545b4790626954d5c145dd)() const = &::clang::DependentSizedExtVectorType::getElementType;
-    bool  (::clang::DependentSizedExtVectorType::*method_pointer_634b9064ea855bd2afbf1a62e41f0835)() const = &::clang::DependentSizedExtVectorType::isSugared;
-    boost::python::class_< class ::clang::DependentSizedExtVectorType, autowig::HeldType< class ::clang::DependentSizedExtVectorType >, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_7d10a38ead5950acb903ebd8bb882a64("DependentSizedExtVectorType", "", boost::python::no_init);
-    class_7d10a38ead5950acb903ebd8bb882a64.def("classof", method_pointer_1b64128074645dc2b12b2129e2f3661f, "");
-    class_7d10a38ead5950acb903ebd8bb882a64.def("desugar", method_pointer_13b7aff907f75038934a22ad02267bf6, "");
-    class_7d10a38ead5950acb903ebd8bb882a64.def("get_attribute_loc", method_pointer_bd0209b7429e513591787dc94255317b, "");
-    class_7d10a38ead5950acb903ebd8bb882a64.def("get_element_type", method_pointer_9415541b44545b4790626954d5c145dd, "");
-    class_7d10a38ead5950acb903ebd8bb882a64.def("is_sugared", method_pointer_634b9064ea855bd2afbf1a62e41f0835, "");
+    class ::clang::QualType  (::clang::DependentSizedExtVectorType::*method_pointer_f91f23f0fd375062ae158b25dcad6834)() const = &::clang::DependentSizedExtVectorType::getElementType;
+    class ::clang::SourceLocation  (::clang::DependentSizedExtVectorType::*method_pointer_f8a4f7dead185ec2b8e098f7bd4d6172)() const = &::clang::DependentSizedExtVectorType::getAttributeLoc;
+    bool  (::clang::DependentSizedExtVectorType::*method_pointer_137a2faf33fe59a59d5bc6fa22773297)() const = &::clang::DependentSizedExtVectorType::isSugared;
+    class ::clang::QualType  (::clang::DependentSizedExtVectorType::*method_pointer_ed6b22c67de15c75bc0fede3c2eb5ac2)() const = &::clang::DependentSizedExtVectorType::desugar;
+    bool  (*method_pointer_739102925faa5693a39e5e597c74456a)(class ::clang::Type const *) = ::clang::DependentSizedExtVectorType::classof;
+    boost::python::class_< class ::clang::DependentSizedExtVectorType, autowig::Held< class ::clang::DependentSizedExtVectorType >::Type, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_7d10a38ead5950acb903ebd8bb882a64("DependentSizedExtVectorType", "", boost::python::no_init);
+    class_7d10a38ead5950acb903ebd8bb882a64.def("get_element_type", method_pointer_f91f23f0fd375062ae158b25dcad6834, "");
+    class_7d10a38ead5950acb903ebd8bb882a64.def("get_attribute_loc", method_pointer_f8a4f7dead185ec2b8e098f7bd4d6172, "");
+    class_7d10a38ead5950acb903ebd8bb882a64.def("is_sugared", method_pointer_137a2faf33fe59a59d5bc6fa22773297, "");
+    class_7d10a38ead5950acb903ebd8bb882a64.def("desugar", method_pointer_ed6b22c67de15c75bc0fede3c2eb5ac2, "");
+    class_7d10a38ead5950acb903ebd8bb882a64.def("classof", method_pointer_739102925faa5693a39e5e597c74456a, "");
     class_7d10a38ead5950acb903ebd8bb882a64.staticmethod("classof");
 
-    if(std::is_class< autowig::HeldType< class ::clang::DependentSizedExtVectorType > >::value)
+    if(autowig::Held< class ::clang::DependentSizedExtVectorType >::is_class)
     {
-        boost::python::implicitly_convertible< autowig::HeldType< class ::clang::DependentSizedExtVectorType >, autowig::HeldType< class ::clang::Type > >();
+        boost::python::implicitly_convertible< autowig::Held< class ::clang::DependentSizedExtVectorType >::Type, autowig::Held< class ::clang::Type >::Type >();
+        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::DependentSizedExtVectorType >::Type, boost::python::objects::make_ptr_instance< class ::clang::DependentSizedExtVectorType, boost::python::objects::pointer_holder< autowig::Held< class ::clang::DependentSizedExtVectorType >::Type, class ::clang::DependentSizedExtVectorType > > >();
     }
 
 }
