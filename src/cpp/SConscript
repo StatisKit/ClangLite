@@ -11,114 +11,19 @@ cppenv.AppendUnique(CPPDEFINES = ['BUILD_LIBCLANGLITE'])
 exclude = """
 """.split()
 
-sources = [source for source in cppenv.Glob('*.*') if not source.name in exclude]
+sources = [source for source in cppenv.Glob('*.h*') if not source.name in exclude]
 
-targets = cppenv.CppLibrary("clanglite", sources)
+targets = cppenv.CppDev("clanglite", sources)
+Alias("cpp-dev", targets)
 Alias("cpp", targets)
 Alias("install", targets)
 
-# def autowig_controller(asg):
-    
-#     for node in asg['::boost::python'].classes(nested = True):
-#         node.is_copyable = True
-        
-#     for node in asg.classes():
-#         node.boost_python_export = False
-#     for node in asg.enumerations():
-#         node.boost_python_export = False
-#     for node in asg.enumerators():
-#         if node.parent.boost_python_export:
-#             node.boost_python_export = False
-#     for node in asg.typedefs():
-#         node.boost_python_export = False
-            
-#     from autowig.default_controller import refactoring
-#     asg = refactoring(asg)
-#     for fct in asg['::clanglite'].functions():
-#         if not fct.localname == 'build_ast_from_code_with_args':
-#             fct.parent = fct.parameters[0].qualified_type.desugared_type.unqualified_type
-            
-#     for node in asg.functions(free = True):
-#         node.boost_python_export = False
-#     for node in asg.variables(free = True):
-#         node.boost_python_export = False
-    
-#     asg['class ::boost::python::api::object'].boost_python_export = True
-#     asg['class ::boost::python::list'].boost_python_export = True 
-#     asg['class ::boost::python::str'].boost_python_export = True 
+exclude = """
+""".split()
 
-#     subset = []
-#     classes = [asg['class ::clang::QualType'],
-#                asg['class ::clang::Type'],
-#                asg['class ::clang::Decl']]
-#     asg['class ::clang::QualType'].is_abstract = False
-#     asg['class ::clang::QualType'].is_copyable = True
-#     subset += classes
-#     for cls in classes:
-#         subset += cls.subclasses(recursive=True)
-#     subset.append(asg['class ::llvm::StringRef'])
-#     asg['class ::llvm::StringRef'].is_abstract = False
-#     asg['class ::llvm::StringRef'].is_copyable = True
-#     subset.append(asg['class ::clang::ASTUnit'])
-#     subset.append(asg['class ::clang::ASTContext'])
-#     subset.append(asg['class ::clang::SourceManager'])
-#     for mtd in asg['class ::clang::ASTContext'].methods(pattern='.*getSourceManager.*'):
-#         if mtd.return_type.globalname == 'class ::clang::SourceManager &':
-#                 mtd.boost_python_export = True
-#                 break
-#     subset.append(asg['class ::clang::FileID'])
-#     asg['class ::clang::FileID'].is_abstract = False
-#     asg['class ::clang::FileID'].is_copyable = True
-#     subset.append(asg['class ::clang::SourceLocation'])
-#     asg['class ::clang::SourceLocation'].is_abstract = False
-#     asg['class ::clang::SourceLocation'].is_copyable = True
-#     subset.append(asg['class ::clang::CXXBaseSpecifier'])
-#     subset.append(asg['class ::clang::DeclContext'])
-#     subset.append(asg['class ::clang::TemplateArgument'])
-#     asg['class ::clang::TemplateArgument'].is_abstract = False
-#     asg['class ::clang::TemplateArgument'].is_copyable = True
-#     subset.append(asg['class ::clang::TemplateArgumentList'])
-#     subset.append(asg['enum ::clang::Type::TypeClass'])
-#     subset.append(asg['enum ::clang::AccessSpecifier'])
-#     subset.append(asg['enum ::clang::LinkageSpecDecl::LanguageIDs'])
-#     subset.append(asg['enum ::clang::BuiltinType::Kind'])
-#     subset.append(asg['enum ::clang::TemplateArgument::ArgKind'])
-#     subset.append(asg['enum ::clang::Decl::Kind'])
-#     subset.extend(asg['::boost::python'].classes(nested = True))
-#     subset.extend(asg['::boost::python'].enumerations(nested = True))
-#     subset.extend(asg.nodes('::clanglite::build_ast_from_code_with_args'))
+sources = [source for source in cppenv.Glob('*.cpp') if not source.name in exclude]
 
-#     for node in subset:
-#         node.boost_python_export = True
-
-#     if autowig.parser.plugin == 'libclang':
-#         for node in (asg.functions(pattern='.*(llvm|clang).*_(begin|end)')
-#                      + asg.functions(pattern='.*(llvm|clang).*getNameAsString')
-#                      + asg.nodes('::clang::NamedDecl::getQualifiedNameAsString')
-#                      + asg.nodes('::clang::ObjCProtocolDecl::collectInheritedProtocolProperties')
-#                      + asg.nodes('::clang::ASTUnit::LoadFromASTFile')
-#                      + asg.nodes('::clang::ASTUnit::getCachedCompletionTypes')
-#                      + asg.nodes('::clang::ASTUnit::getBufferForFile')
-#                      + asg.nodes('::clang::CXXRecordDecl::getCaptureFields')
-#                      + asg.nodes('::clang::ASTContext::SectionInfos')
-#                      + asg.nodes('::clang::ASTContext::getAllocator')
-#                      + asg.nodes('::clang::ASTContext::getObjCEncoding.*')
-#                      + asg.nodes('::clang::ASTContext::getAllocator')
-#                      + asg.nodes('::clang::QualType::getAsString')
-#                      + asg.nodes('::clang::SourceLocation::printToString')
-#                      + asg['class ::llvm::StringRef'].methods()):
-#             node.boost_python_export = False
-            
-#     import sys
-#     from path import path
-#     for header in (path(sys.prefix)/'include'/'clang').walkfiles('*.h'):
-#         asg[header.abspath()].is_external_dependency = False
-    
-#     return asg
-
-
-# autowig = cppenv.AutoWIG([srcdir/'_clanglite.cpp', srcdir/'clanglite'/'_clanglite.py'], cppenv.Glob('*.h'),
-#                             controller = autowig_controller,
-#                             generator = 'boost_python_pattern',
-#                             generator_kwargs = dict(closure = False))
-# Alias("autowig", autowig)
+targets = cppenv.CppLib("clanglite", sources)
+Alias("cpp-lib", targets)
+Alias("cpp", targets)
+Alias("install", targets)
