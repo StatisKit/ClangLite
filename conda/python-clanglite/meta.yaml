@@ -30,15 +30,16 @@ about:
 
 requirements:
   build:
+    - python=2.7
     - libboost
     - python-dev
     - clang
     - libclanglite
   run:
+    - python=2.7
     - clang
     - libclanglite
     - libboost
-    - python
 
 test:                                     [not win]
   commands:                               [not win]

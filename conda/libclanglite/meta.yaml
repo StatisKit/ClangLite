@@ -30,13 +30,13 @@ about:
 
 requirements:
   build:
+    - python=2.7
     - libdev 
     - python-dev
-    - python
     - clang
     - libboost
     - python-scons
   run:
-    - python
+    - python=2.7
     - clang
     - libboost
