@@ -10,33 +10,37 @@
 # received a copy of the legalcode along with this work. If not, see             #
 # <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 #
 #                                                                                #
-# File authors: Pierre Fernique <pfernique@gmail.com> (3)                        #
+# File authors: Pierre Fernique <pfernique@gmail.com> (9)                        #
 #                                                                                #
 ##################################################################################
 
 package:
-  name: libclanglite
+  name: python-clanglite
   version: "3.8.1"
 
 source:
-  path: ../..
+  path: ../../..
 
 build:
   number: 0
-
+    
 about:
-  home: pyclanglite.readthedocs.org
+  home: autowig.readthedocs.org
   license: CeCILL
 
 requirements:
   build:
     - python 2.7*
-    - libdev 
+    - libboost
     - python-dev
     - clang
-    - libboost
-    - python-scons
+    - libclanglite
   run:
     - python 2.7*
     - clang
+    - libclanglite
     - libboost
+
+test:                                     [not win]
+  commands:                               [not win]
+    - python -c "from clanglite import *" [not win]

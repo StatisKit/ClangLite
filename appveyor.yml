@@ -5,8 +5,8 @@ platform:
 
 environment:
   matrix:
-    - RECIPE: libclanglite
-    - RECIPE: python-clanglite
+    - CONDA_RECIPE: libclanglite
+    - CONDA_RECIPE: python-clanglite
 
 install:
   - git clone https://github.com/StatisKit/appveyor-ci.git appveyor-ci

@@ -10,8 +10,8 @@ services:
   - docker
   
 env:
-  - RECIPE=libclanglite
-  - RECIPE=python-clanglite
+  - CONDA_RECIPE=libclanglite
+  - CONDA_RECIPE=python-clanglite
 
 install:
   - git clone https://github.com/StatisKit/travis-ci.git travis-ci
