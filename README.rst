@@ -14,8 +14,8 @@
 ..                                                                                  ..
 .. ................................................................................ ..
 
-ClangLite
-=========
+**ClangLite**: Minimal Interpreted Interfaces for the **Clang** *C++* Library
+#############################################################################
 
 This *Python* Interface to **Clang** provides a relatively small API that exposes facilities for parsing source code into an abstract syntax tree (AST):
 
