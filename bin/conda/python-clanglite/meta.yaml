@@ -30,13 +30,13 @@ about:
 
 requirements:
   build:
-    - python 2.7*
+    - python
     - libboost
     - python-dev
     - clang
     - libclanglite
   run:
-    - python 2.7*
+    - python
     - clang
     - libclanglite
     - libboost

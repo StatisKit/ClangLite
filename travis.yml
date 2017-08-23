@@ -11,7 +11,13 @@ services:
   
 env:
   - CONDA_RECIPE=libclanglite
+    PYTHON_VERSION=2
+  - CONDA_RECIPE=libclanglite
+    PYTHON_VERSION=3
   - CONDA_RECIPE=python-clanglite
+    PYTHON_VERSION=2
+  - CONDA_RECIPE=python-clanglite
+    PYTHON_VERSION=3
 
 install:
   - git clone https://github.com/StatisKit/travis-ci.git travis-ci
