@@ -16,8 +16,8 @@
 
 from functools import wraps
 
-import _clanglite
-from __clanglite import *
+from . import _clanglite
+from .__clanglite import *
 
 if not hasattr(clang, 'tooling'):
     clang.tooling = clanglite
