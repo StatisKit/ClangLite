@@ -32,7 +32,7 @@ requirements:
   build:
     - python
     - libboost
-    - python-dev
+    - python-toolchain
     - clang
     - libclanglite
   run:
@@ -41,6 +41,6 @@ requirements:
     - libclanglite
     - libboost
 
-test:                                     [not win]
-  commands:                               [not win]
-    - python -c "from clanglite import *" [not win]
+test:                                     
+  commands:                               
+    - python -c "from clanglite import *" 

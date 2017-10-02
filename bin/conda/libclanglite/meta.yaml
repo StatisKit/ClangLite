@@ -31,11 +31,10 @@ about:
 requirements:
   build:
     - python
-    - libdev 
-    - python-dev
+    - libtoolchain 
+    - python-toolchain
     - clang
     - libboost
-    - python-scons
   run:
     - python
     - clang
