@@ -1,5 +1,6 @@
 echo ON
 
+echo %PROCESSOR_ARCHITECTURE%
 scons cpp --prefix=%LIBRARY_PREFIX% -j%CPU_COUNT% --arch=%ARCH%
 if errorlevel 1 exit 1
 

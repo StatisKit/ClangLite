@@ -30,6 +30,7 @@ about:
 
 requirements:
   build:
+    - libtoolchain
     - python
     - libboost
     - python-toolchain

@@ -36,6 +36,7 @@ requirements:
     - clang
     - libboost
   run:
+    - libruntime
     - python
     - clang
     - libboost
