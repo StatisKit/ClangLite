@@ -1,19 +1,20 @@
 ##################################################################################
 #                                                                                #
-# PyClangLite: Python bindings for Clang                                         #
+# AutoWIG: Automatic Wrapper and Interface Generator                             #
 #                                                                                #
-# Homepage: http://pyclanglite.readthedocs.io/                                   #
+# Homepage: http://autowig.readthedocs.io                                        #
 #                                                                                #
 # Copyright (c) 2016 Pierre Fernique                                             #
 #                                                                                #
-# This software is distributed under the CeCILL-C license. You should have       #
+# This software is distributed under the CeCILL license. You should have       #
 # received a copy of the legalcode along with this work. If not, see             #
-# <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 #
+# <http://www.cecill.info/licences/Licence_CeCILL_V2.1-en.html>.                 #
 #                                                                                #
-# File authors: Pierre Fernique <pfernique@gmail.com> (9)                        #
+# File authors: Pierre Fernique <pfernique@gmail.com> (19)                       #
 #                                                                                #
 ##################################################################################
 
+import six
 import os
 from setuptools import setup, find_packages
 
@@ -21,26 +22,16 @@ packages = {"" : "src" + os.sep + "py"}
 for package in find_packages("src" + os.sep + "py"):
     packages[package] = "src" + os.sep + "py"
 
-import os
-import yaml
-with open('.' + os.sep + '.pkg.yml', 'r') as filehandler:
-    config = yaml.load(filehandler.read())
-
-with open('README.rst', 'r') as filehandler:
-    long_description = filehandler.read()
-
 setup(packages = packages.keys(),
       package_dir = {"" : "src" + os.sep + "py"},
-      name = config['about']['name'],
-      version = config['about']['version'],
-      author = config['about']['authors'],
-      author_email = config['about']['email'],
-      description = config['about']['brief'],
-      long_description = long_description,
-      license = config['license']['plugin'],
+      name = 'clanglite',
+      version = '1.0.0',
+      author = 'Pierre Fernique',
+      author_email = 'pfernique@gmail',
+      description = '',
+      long_description = '',
+      license = 'CeCILL',
       package_data = {package: [ "*.so", "*.dll"] for package in packages},
       entry_points = {'autowig.parser': ['clanglite = clanglite.autowig_parser:autowig_parser']},
-      zip_safe = False
+        zip_safe = False
     )
-
-
