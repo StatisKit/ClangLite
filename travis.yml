@@ -11,13 +11,13 @@ services:
   
 env:
   - CONDA_RECIPE=libclanglite
-    PYTHON_VERSION=2
+    CONDA_VERSION=2
   - CONDA_RECIPE=libclanglite
-    PYTHON_VERSION=3
+    CONDA_VERSION=3
   - CONDA_RECIPE=python-clanglite
-    PYTHON_VERSION=2
+    CONDA_VERSION=2
   - CONDA_RECIPE=python-clanglite
-    PYTHON_VERSION=3
+    CONDA_VERSION=3
 
 install:
   - git clone https://github.com/StatisKit/travis-ci.git travis-ci
@@ -42,8 +42,8 @@ before_deploy:
 deploy:
   skip_cleanup: true
   provider: script
-  on:
-      branch: master
+  # on:
+  #     branch: master
   script: bash deploy_script.sh
 
 after_deploy:

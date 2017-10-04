@@ -6,13 +6,13 @@ platform:
 environment:
   matrix:
     - CONDA_RECIPE: libclanglite
-      PYTHON_VERSION: 2
+      CONDA_VERSION: 2
     - CONDA_RECIPE: libclanglite
-      PYTHON_VERSION: 3
+      CONDA_VERSION: 3
     - CONDA_RECIPE: python-clanglite
-      PYTHON_VERSION: 2
+      CONDA_VERSION: 2
     - CONDA_RECIPE: python-clanglite
-      PYTHON_VERSION: 3
+      CONDA_VERSION: 3
 
 install:
   - git clone https://github.com/StatisKit/appveyor-ci.git appveyor-ci
@@ -30,8 +30,8 @@ after_build:
 
 deploy:
   provider: Script
-  on:
-    branch: master
+  # on:
+  #   branch: master
  
 before_deploy:
   - call before_deploy.bat
