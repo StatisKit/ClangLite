@@ -9,7 +9,7 @@ build:
   number: 0
     
 about:
-  home: autowig.readthedocs.org
+  home: http://autowig.rtfd.io/
   license: Apache License 2.0
   summay: A Python interface to the Clang library providing a relatively complete API for parsing source C++ code into an abstract syntax tree.
 
