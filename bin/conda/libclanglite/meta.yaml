@@ -9,7 +9,7 @@ build:
   number: 0
 
 about:
-  home: clanglite.readthedocs.org
+  home: http://autowig.rtfd.io/
   license: Apache License 2.0
   summary: The C++ ClangLite Library is a lightweight library providing some interaction between the Clang and Boost.Python libraries in order to propose a Python interface to Clang.
 
