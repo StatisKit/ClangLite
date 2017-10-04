@@ -11,7 +11,7 @@ build:
 about:
   home: clanglite.readthedocs.org
   license: Apache License 2.0
-  summary: The C++ ClanLite Library is a lightweight library providing some interaction between the Clang and Boost.Python libraries in order to propose a Python interface to Clang.
+  summary: The C++ ClangLite Library is a lightweight library providing some interaction between the Clang and Boost.Python libraries in order to propose a Python interface to Clang.
 
 requirements:
   build:
