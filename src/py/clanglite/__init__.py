@@ -74,6 +74,7 @@ def wrapper(f):
             return f(self)
         except:
             return True
+    return is_this_declaration_a_definition 
             
 clang.ClassTemplateDecl.is_this_declaration_a_definition = wrapper(clang.ClassTemplateDecl.is_this_declaration_a_definition)
 del wrapper
