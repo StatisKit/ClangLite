@@ -90,11 +90,5 @@ except Errors.EnvironmentError:
   pass
 except Exception:
   raise
-try:
-  SConscript(os.path.join('bin', 'conda', 'SConscript'), exports="env")
-except EnvironmentError:
-  pass
-except Exception:
-  raise
 
 Default("install")
