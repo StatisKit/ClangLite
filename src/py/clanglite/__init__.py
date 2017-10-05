@@ -67,4 +67,15 @@ if not hasattr(clang.CXXRecordDecl, 'is_copyable'):
     clang.CXXRecordDecl.is_copyable = record_is_copyable
     del record_is_copyable
 
+def wrapper(f):
+    @wraps(f)
+    def is_this_declaration_a_definition(self):
+        try:
+            return f(self)
+        except:
+            return True
+            
+clang.ClassTemplateDecl.is_this_declaration_a_definition = wrapper(clang.ClassTemplateDecl.is_this_declaration_a_definition)
+del wrapper
+
 del wraps
