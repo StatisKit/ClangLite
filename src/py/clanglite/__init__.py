@@ -73,10 +73,22 @@ def wrapper(f):
         try:
             return f(self)
         except:
-            return True
+            return len(self.get_children()) > 0
     return is_this_declaration_a_definition 
             
 clang.ClassTemplateDecl.is_this_declaration_a_definition = wrapper(clang.ClassTemplateDecl.is_this_declaration_a_definition)
+del wrapper
+
+def wrapper(f):
+    @wraps(f)
+    def get_children(self):
+        try:
+            return f(self)
+        except:
+            return []
+    return get_children
+        
+clang.ClassTemplateDecl.get_children = wrapper(clang.ClassTemplateDecl.get_children)
 del wrapper
 
 del wraps
