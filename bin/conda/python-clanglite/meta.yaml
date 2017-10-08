@@ -29,4 +29,4 @@ requirements:
 
 test:                                     
   commands:                               
-    - python -c "from clanglite import *" [not win]
+    - python -c "from clanglite import *"
