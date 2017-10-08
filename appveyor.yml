@@ -5,10 +5,10 @@ platform:
 
 environment:
   matrix:
-    - CONDA_RECIPE: libclanglite
-      CONDA_VERSION: 2
-    - CONDA_RECIPE: libclanglite
-      CONDA_VERSION: 3
+    # - CONDA_RECIPE: libclanglite
+    #   CONDA_VERSION: 2
+    # - CONDA_RECIPE: libclanglite
+    #   CONDA_VERSION: 3
     - CONDA_RECIPE: python-clanglite
       CONDA_VERSION: 2
     - CONDA_RECIPE: python-clanglite
