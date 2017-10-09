@@ -31,7 +31,7 @@ setup(packages = packages.keys(),
       description = '',
       long_description = '',
       license = 'CeCILL',
-      package_data = {package: [ "*.so", "*.dll"] for package in packages},
+      package_data = {package: [ "*.so", "*.dll", "*.pyd"] for package in packages},
       entry_points = {'autowig.parser': ['clanglite = clanglite.autowig_parser:autowig_parser']},
         zip_safe = False
     )
