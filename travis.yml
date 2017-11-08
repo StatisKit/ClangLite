@@ -10,13 +10,13 @@ services:
   - docker
   
 env:
-  - CONDA_RECIPE=libclanglite
+  - CONDA_RECIPE=bin/conda/libclanglite
     CONDA_VERSION=2
-  - CONDA_RECIPE=libclanglite
+  - CONDA_RECIPE=bin/conda/libclanglite
     CONDA_VERSION=3
-  - CONDA_RECIPE=python-clanglite
+  - CONDA_RECIPE=bin/conda/python-clanglite
     CONDA_VERSION=2
-  - CONDA_RECIPE=python-clanglite
+  - CONDA_RECIPE=bin/conda/python-clanglite
     CONDA_VERSION=3
 
 install:
@@ -42,8 +42,6 @@ before_deploy:
 deploy:
   skip_cleanup: true
   provider: script
-  # on:
-  #     branch: master
   script: bash deploy_script.sh
 
 after_deploy:

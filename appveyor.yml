@@ -5,13 +5,13 @@ platform:
 
 environment:
   matrix:
-    - CONDA_RECIPE: libclanglite
+    - CONDA_RECIPE: bin\conda\libclanglite
       CONDA_VERSION: 2
-    - CONDA_RECIPE: libclanglite
+    - CONDA_RECIPE: bin\conda\libclanglite
       CONDA_VERSION: 3
-    - CONDA_RECIPE: python-clanglite
+    - CONDA_RECIPE: bin\conda\python-clanglite
       CONDA_VERSION: 2
-    - CONDA_RECIPE: python-clanglite
+    - CONDA_RECIPE: bin\conda\python-clanglite
       CONDA_VERSION: 3
 
 install:
@@ -30,8 +30,6 @@ after_build:
 
 deploy:
   provider: Script
-  # on:
-  #   branch: master
  
 before_deploy:
   - call before_deploy.bat
