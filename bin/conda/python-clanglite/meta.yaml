@@ -27,6 +27,6 @@ requirements:
     - libclanglite
     - libboost
 
-test:                                     
-  commands:                               
-    - python -c "from clanglite import *" 
+test:   
+  imports:
+    - clanglite

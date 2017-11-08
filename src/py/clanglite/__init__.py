@@ -1,19 +1,3 @@
-##################################################################################
-#                                                                                #
-# PyClangLite: Python bindings for Clang                                         #
-#                                                                                #
-# Homepage: http://pyclanglite.readthedocs.io/                                   #
-#                                                                                #
-# Copyright (c) 2016 Pierre Fernique                                             #
-#                                                                                #
-# This software is distributed under the CeCILL-C license. You should have       #
-# received a copy of the legalcode along with this work. If not, see             #
-# <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>.                 #
-#                                                                                #
-# File authors: Pierre Fernique <pfernique@gmail.com> (4)                        #
-#                                                                                #
-##################################################################################
-
 from functools import wraps
 
 from . import _clanglite
@@ -73,9 +57,22 @@ def wrapper(f):
         try:
             return f(self)
         except:
-            return True
+            return len(self.get_children()) > 0
+    return is_this_declaration_a_definition 
             
 clang.ClassTemplateDecl.is_this_declaration_a_definition = wrapper(clang.ClassTemplateDecl.is_this_declaration_a_definition)
+del wrapper
+
+def wrapper(f):
+    @wraps(f)
+    def get_children(self):
+        try:
+            return f(self)
+        except:
+            return []
+    return get_children
+        
+clang.ClassTemplateDecl.get_children = wrapper(clang.ClassTemplateDecl.get_children)
 del wrapper
 
 del wraps
