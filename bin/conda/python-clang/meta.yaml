@@ -1,0 +1,27 @@
+package:
+  name: python-clang
+  version: "3.8.1"
+
+source:
+  fn: cfe-3.8.1.src.tar.xz
+  url: http://llvm.org/releases/3.8.1/cfe-3.8.1.src.tar.xz
+
+build:
+  number: 0
+
+about:
+  home: http://www.llvm.org/
+  license: The University of Illinois/NCSA Open Source License
+  summary: The Python interface to libclang library provides a relatively small API that exposes facilities for parsing source code into an abstract syntax tree (AST), loading already-parsed ASTs, traversing the AST, associating physical source locations with elements within the AST, and other facilities that support Clang-based development tools.
+
+requirements:
+  build:
+    - python
+    - python-toolchain
+    - zlib
+    - xz                         [unix]
+    - m2w64-xz                   [win] 
+  run:
+    - python
+    - clang
+    - path.py
