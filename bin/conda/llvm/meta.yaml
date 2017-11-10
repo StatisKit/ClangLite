@@ -17,7 +17,9 @@ source:
     
 build:
   number: 0
-
+  script: source $RECIPE_DIR/linux_build.sh      [linux]
+  script: source $RECIPE_DIR/osx_build.sh        [osx]
+  
 about:
   home: http://www.llvm.org/
   license: The University of Illinois/NCSA Open Source License
@@ -25,12 +27,18 @@ about:
 
 requirements:
   build:
+    - gcc_linux-64        [linux]
+    - gxx_linux-64        [linux]
+    - gfortran_linux-64   [linux]
     - vs2015_runtime      [win]
     - cmake
     - zlib
     - m2w64-xz          [py27 and win]
     - 7za               [win]
   run:
+    - gcc_linux-64        [linux]
+    - gxx_linux-64        [linux]
+    - gfortran_linux-64   [linux]
     - vs2015_runtime      [win]
     
 test:

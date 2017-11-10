@@ -21,6 +21,4 @@ cmake -G "Unix Makefiles" -DBUILD_SHARED_LIBS=ON \
 make -j$CPU_COUNT VERBOSE=1
 make install
 
-# rm $PREFIX/bin/*
-
 set +ve
