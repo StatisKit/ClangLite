@@ -19,9 +19,9 @@ requirements:
     - libtoolchain 
     - python-toolchain
     - libboost
-    - python-autowig
+    # - python-autowig
     - libclanglite
-    - python-clanglite
+    # - python-clanglite
   run:
     - python
     - libtoolchain 
