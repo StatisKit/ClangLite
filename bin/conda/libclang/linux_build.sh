@@ -51,7 +51,7 @@ make -j$CPU_COUNT VERBOSE=1
 make install
 
 rm -rf $PREFIX/bin
-mv -rf $PREFIX/bin.back $PREFIX/bin
+mv $PREFIX/bin.back $PREFIX/bin
 rm -rf $PREFIX/include/clang
 rm -rf $PREFIX/include/clang-c
 

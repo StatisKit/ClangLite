@@ -1,6 +1,6 @@
 echo ON
 
-xcopy %PREFIX%\Library\bin %PREFIX%\Library\bin.back /e /i /h /q
+xcopy "%PREFIX%\Library\bin" "%PREFIX%\Library\bin.back" /e /i /h /q
 
 mkdir build_llvm
 if errorlevel 1 exit 1
@@ -36,7 +36,7 @@ if errorlevel 1 exit 1
 cmake --build . --config "%BUILD_CONFIG%" --target install
 if errorlevel 1 exit 1
 
-rmdir %PREFIX%\Library\bin /s /q
-move %PREFIX%\Library\bin.back %PREFIX%\Library\bin /y
+rmdir "%PREFIX%\Library\bin" /s /q
+move "%PREFIX%\Library\bin.back" "%PREFIX%\Library\bin" /y
 
 echo OFF

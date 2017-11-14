@@ -18,6 +18,29 @@ Alias("cpp-dev", targets)
 Alias("cpp", targets)
 Alias("install", targets)
 
+Alias("cpp-dev", targets)
+Alias("cpp", targets)
+Alias("autowig", targets)
+Alias("install", targets)
+try:
+    wigenv = cppenv.Clone(tools = ['wig'])
+
+    targets = wigenv.BoostPythonWIG('clanglite', [target for target in targets if target.name.endswith('.h')],
+                                    module='../py/_clanglite.cpp',
+                                    decorator='../py/clanglite/_clanglite.py',
+                                    parser_bootstrap=False,
+                                    controller='AutoWIG.py',
+                                    generator='boost_python_pattern',
+                                    generator_closure=False,
+                                    depends=[])
+    Alias("autowig", targets)
+    wigenv.Depends(targets, "cpp-dev")
+except EnvironmentError:
+    Alias("autowig", [])
+    pass
+except Exception:
+    raise
+
 exclude = """
 """.split()
 

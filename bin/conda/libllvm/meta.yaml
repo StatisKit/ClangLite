@@ -1,5 +1,5 @@
 package:
-  name: llvm
+  name: libllvm
   version: "3.8.1"
 
 source:
