@@ -52,7 +52,6 @@ void wrapper_b968379b40f8521d806301d873d53080()
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::TranslationUnitDecl >::Type, autowig::Held< class ::clang::Decl >::Type >();
         boost::python::implicitly_convertible< autowig::Held< class ::clang::TranslationUnitDecl >::Type, autowig::Held< class ::clang::DeclContext >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::TranslationUnitDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::TranslationUnitDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::TranslationUnitDecl >::Type, class ::clang::TranslationUnitDecl > > >();
     }
 
 }

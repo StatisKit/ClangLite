@@ -101,7 +101,6 @@ void wrapper_7fe14ac9706f5b4d9d341b651fb0117a()
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::TagDecl >::Type, autowig::Held< class ::clang::TypeDecl >::Type >();
         boost::python::implicitly_convertible< autowig::Held< class ::clang::TagDecl >::Type, autowig::Held< class ::clang::DeclContext >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::TagDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::TagDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::TagDecl >::Type, class ::clang::TagDecl > > >();
     }
 
 }

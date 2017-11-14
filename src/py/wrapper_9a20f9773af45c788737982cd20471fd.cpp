@@ -74,7 +74,6 @@ void wrapper_9a20f9773af45c788737982cd20471fd()
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::NamespaceDecl >::Type, autowig::Held< class ::clang::NamedDecl >::Type >();
         boost::python::implicitly_convertible< autowig::Held< class ::clang::NamespaceDecl >::Type, autowig::Held< class ::clang::DeclContext >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::NamespaceDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::NamespaceDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::NamespaceDecl >::Type, class ::clang::NamespaceDecl > > >();
     }
 
 }

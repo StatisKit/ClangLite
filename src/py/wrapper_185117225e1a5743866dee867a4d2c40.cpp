@@ -80,7 +80,6 @@ void wrapper_185117225e1a5743866dee867a4d2c40()
     if(autowig::Held< class ::clang::RecordDecl >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::RecordDecl >::Type, autowig::Held< class ::clang::TagDecl >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::RecordDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::RecordDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::RecordDecl >::Type, class ::clang::RecordDecl > > >();
     }
 
 }

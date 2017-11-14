@@ -41,7 +41,6 @@ void wrapper_47d43e4eda7252d2bec0204a93977671()
     if(autowig::Held< class ::clang::DependentSizedArrayType >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::DependentSizedArrayType >::Type, autowig::Held< class ::clang::ArrayType >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::DependentSizedArrayType >::Type, boost::python::objects::make_ptr_instance< class ::clang::DependentSizedArrayType, boost::python::objects::pointer_holder< autowig::Held< class ::clang::DependentSizedArrayType >::Type, class ::clang::DependentSizedArrayType > > >();
     }
 
 }

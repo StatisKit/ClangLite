@@ -275,7 +275,6 @@ void wrapper_6d094fa53b15516db85a0d4b3b7fd665()
     if(autowig::Held< class ::clang::CXXRecordDecl >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::CXXRecordDecl >::Type, autowig::Held< class ::clang::RecordDecl >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::CXXRecordDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::CXXRecordDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::CXXRecordDecl >::Type, class ::clang::CXXRecordDecl > > >();
     }
 
 }

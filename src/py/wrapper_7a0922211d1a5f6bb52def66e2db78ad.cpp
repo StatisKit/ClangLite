@@ -85,7 +85,6 @@ void wrapper_7a0922211d1a5f6bb52def66e2db78ad()
     if(autowig::Held< class ::clang::CXXMethodDecl >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::CXXMethodDecl >::Type, autowig::Held< class ::clang::FunctionDecl >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::CXXMethodDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::CXXMethodDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::CXXMethodDecl >::Type, class ::clang::CXXMethodDecl > > >();
     }
 
 }

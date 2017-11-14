@@ -43,7 +43,6 @@ void wrapper_ee2f6fcd9daa55ddac1faab4f85880a8()
     if(autowig::Held< class ::clang::ClassScopeFunctionSpecializationDecl >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::ClassScopeFunctionSpecializationDecl >::Type, autowig::Held< class ::clang::Decl >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::ClassScopeFunctionSpecializationDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::ClassScopeFunctionSpecializationDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::ClassScopeFunctionSpecializationDecl >::Type, class ::clang::ClassScopeFunctionSpecializationDecl > > >();
     }
 
 }

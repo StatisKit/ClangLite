@@ -65,7 +65,6 @@ void wrapper_693db0b37725552a85ff783087528c5b()
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::LinkageSpecDecl >::Type, autowig::Held< class ::clang::Decl >::Type >();
         boost::python::implicitly_convertible< autowig::Held< class ::clang::LinkageSpecDecl >::Type, autowig::Held< class ::clang::DeclContext >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::LinkageSpecDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::LinkageSpecDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::LinkageSpecDecl >::Type, class ::clang::LinkageSpecDecl > > >();
     }
 
 }

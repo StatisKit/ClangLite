@@ -51,7 +51,6 @@ void wrapper_96d583a082485956938c728f02b79bce()
     if(autowig::Held< class ::clang::ClassTemplatePartialSpecializationDecl >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::ClassTemplatePartialSpecializationDecl >::Type, autowig::Held< class ::clang::ClassTemplateSpecializationDecl >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::ClassTemplatePartialSpecializationDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::ClassTemplatePartialSpecializationDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::ClassTemplatePartialSpecializationDecl >::Type, class ::clang::ClassTemplatePartialSpecializationDecl > > >();
     }
 
 }

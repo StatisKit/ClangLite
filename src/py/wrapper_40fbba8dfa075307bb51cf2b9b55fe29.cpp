@@ -65,7 +65,6 @@ void wrapper_40fbba8dfa075307bb51cf2b9b55fe29()
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::CapturedDecl >::Type, autowig::Held< class ::clang::Decl >::Type >();
         boost::python::implicitly_convertible< autowig::Held< class ::clang::CapturedDecl >::Type, autowig::Held< class ::clang::DeclContext >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::CapturedDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::CapturedDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::CapturedDecl >::Type, class ::clang::CapturedDecl > > >();
     }
 
 }

@@ -52,7 +52,6 @@ void wrapper_6bc87a1668d653eba3c26946758eb6dc()
         boost::python::implicitly_convertible< autowig::Held< autowig::Wrap_6bc87a1668d653eba3c26946758eb6dc >::Type, autowig::Held< struct ::llvm::detail::AlignmentCalcImpl< class ::clang::RedeclarableTemplateDecl, true > >::Type >();
         boost::python::register_ptr_to_python< autowig::Held< struct ::llvm::detail::AlignmentCalcImpl< class ::clang::RedeclarableTemplateDecl, true > >::Type >();
         boost::python::implicitly_convertible< autowig::Held< struct ::llvm::detail::AlignmentCalcImpl< class ::clang::RedeclarableTemplateDecl, true > >::Type, autowig::Held< class ::clang::RedeclarableTemplateDecl >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< struct ::llvm::detail::AlignmentCalcImpl< class ::clang::RedeclarableTemplateDecl, true > >::Type, boost::python::objects::make_ptr_instance< struct ::llvm::detail::AlignmentCalcImpl< class ::clang::RedeclarableTemplateDecl, true >, boost::python::objects::pointer_holder< autowig::Held< struct ::llvm::detail::AlignmentCalcImpl< class ::clang::RedeclarableTemplateDecl, true > >::Type, struct ::llvm::detail::AlignmentCalcImpl< class ::clang::RedeclarableTemplateDecl, true > > > >();
     }
 
 }

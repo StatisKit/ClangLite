@@ -41,7 +41,6 @@ void wrapper_63dc6750407a5028aa2e82229f8ea352()
     if(autowig::Held< class ::clang::UnaryTransformType >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::UnaryTransformType >::Type, autowig::Held< class ::clang::Type >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::UnaryTransformType >::Type, boost::python::objects::make_ptr_instance< class ::clang::UnaryTransformType, boost::python::objects::pointer_holder< autowig::Held< class ::clang::UnaryTransformType >::Type, class ::clang::UnaryTransformType > > >();
     }
 
 }

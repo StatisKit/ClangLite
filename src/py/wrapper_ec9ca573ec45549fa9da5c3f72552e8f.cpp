@@ -41,7 +41,6 @@ void wrapper_ec9ca573ec45549fa9da5c3f72552e8f()
     if(autowig::Held< class ::clang::RecordType >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::RecordType >::Type, autowig::Held< class ::clang::TagType >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::RecordType >::Type, boost::python::objects::make_ptr_instance< class ::clang::RecordType, boost::python::objects::pointer_holder< autowig::Held< class ::clang::RecordType >::Type, class ::clang::RecordType > > >();
     }
 
 }

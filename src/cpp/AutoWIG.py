@@ -2,7 +2,7 @@ import autowig
 import itertools
 
 def controller(asg):
-   for node in asg['::boost::python'].classes(nested = True):
+    for node in asg['::boost::python'].classes(nested = True):
         node.is_copyable = True
         
     for node in asg.classes():

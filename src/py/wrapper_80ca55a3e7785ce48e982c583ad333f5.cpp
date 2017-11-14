@@ -43,7 +43,6 @@ void wrapper_80ca55a3e7785ce48e982c583ad333f5()
     if(autowig::Held< class ::clang::EnumConstantDecl >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::EnumConstantDecl >::Type, autowig::Held< class ::clang::ValueDecl >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::EnumConstantDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::EnumConstantDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::EnumConstantDecl >::Type, class ::clang::EnumConstantDecl > > >();
     }
 
 }

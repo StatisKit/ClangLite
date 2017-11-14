@@ -37,7 +37,6 @@ void wrapper_ca60b4fc83ce57b1b8f217896573c57c()
     if(autowig::Held< class ::clang::LValueReferenceType >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::LValueReferenceType >::Type, autowig::Held< class ::clang::ReferenceType >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::LValueReferenceType >::Type, boost::python::objects::make_ptr_instance< class ::clang::LValueReferenceType, boost::python::objects::pointer_holder< autowig::Held< class ::clang::LValueReferenceType >::Type, class ::clang::LValueReferenceType > > >();
     }
 
 }

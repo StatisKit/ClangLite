@@ -35,7 +35,6 @@ void wrapper_566b7f2eb62955db8f0e90ccbfe7d271()
     if(autowig::Held< class ::clang::LocInfoType >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::LocInfoType >::Type, autowig::Held< class ::clang::Type >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::LocInfoType >::Type, boost::python::objects::make_ptr_instance< class ::clang::LocInfoType, boost::python::objects::pointer_holder< autowig::Held< class ::clang::LocInfoType >::Type, class ::clang::LocInfoType > > >();
     }
 
 }
