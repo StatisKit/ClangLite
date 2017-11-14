@@ -1,6 +1,7 @@
 # -*-python-*-
 
 import os
+from SCons.Errors import EnvironmentError
 
 Import("env")
 
