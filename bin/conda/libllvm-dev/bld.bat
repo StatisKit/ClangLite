@@ -37,6 +37,6 @@ cmake --build . --config "%BUILD_CONFIG%" --target install
 if errorlevel 1 exit 1
 
 rmdir "%PREFIX%\Library\bin" /s /q
-move "%PREFIX%\Library\bin.back" "%PREFIX%\Library\bin" /y
+move /y "%PREFIX%\Library\bin.back" "%PREFIX%\Library\bin"
 
 echo OFF

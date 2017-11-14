@@ -37,7 +37,7 @@ if errorlevel 1 exit 1
 
 rmdir "%PREFIX%\Library\bin" /s /q
 if errorlevel 1 exit 1
-move "%PREFIX%\Library\bin.back" "%PREFIX%\Library\bin" /y
+move /y "%PREFIX%\Library\bin.back" "%PREFIX%\Library\bin"
 if errorlevel 1 exit 1
 
 echo OFF
