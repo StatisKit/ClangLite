@@ -43,7 +43,7 @@ requirements:
     - gfortran_linux-64   [linux]
     - vs2015_runtime      [win]
     
-test:
-  commands:
-  - llvm-config --libs
-  - llc -version
+# test:
+#   commands:
+#   - llvm-config --libs
+#   - llc -version
