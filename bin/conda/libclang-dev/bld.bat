@@ -3,13 +3,16 @@ echo ON
 xcopy %PREFIX%\Library\bin %PREFIX%\Library\bin.back /e /i /h /q
 if errorlevel 1 exit 1
 
-mkdir build_llvm
+rmdir bindings /s /Q
 if errorlevel 1 exit 1
-cd build_llvm
+mkdir build_clang
+if errorlevel 1 exit 1
+cd build_clang
 if errorlevel 1 exit 1
 
 set BUILD_CONFIG=Release
 
+:: Configure step
 if "%ARCH%"=="32" (
      set CMAKE_GENERATOR=Visual Studio 12 2013
 ) else (
@@ -28,16 +31,13 @@ cmake -G "%CMAKE_GENERATOR%" -T "%CMAKE_GENERATOR_TOOLSET%" -DCMAKE_BUILD_TYPE="
 if errorlevel 1 exit 1
 cmake --build . --config "%BUILD_CONFIG%"
 if errorlevel 1 exit 1
+REM Install step
 cmake --build . --config "%BUILD_CONFIG%" --target install
 if errorlevel 1 exit 1
 
 rmdir %PREFIX%\Library\bin /s /q
 if errorlevel 1 exit 1
 move %PREFIX%\Library\bin.back %PREFIX%\Library\bin /y
-if errorlevel 1 exit 1
-rmdir %PREFIX%\Library\include\llvm /s /q
-if errorlevel 1 exit 1
-rmdir %PREFIX%\Library\include\llvm-c /s /q
 if errorlevel 1 exit 1
 
 echo OFF
