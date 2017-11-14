@@ -1,5 +1,7 @@
 set -ve
 
+cp -rf $PREFIX/bin $PREFIX/bin.back
+
 mkdir build_llvm
 cd build_llvm
 
@@ -40,6 +42,8 @@ make -j$CPU_COUNT VERBOSE=1
 make install
 
 rm -rf $PREFIX/bin
-rm -rf $PREFIX/include
+mv -rf $PREFIX/bin.back $PREFIX/bin
+rm -rf $PREFIX/include/llvm
+rm -rf $PREFIX/include/llvm-c
 
 set +ve
