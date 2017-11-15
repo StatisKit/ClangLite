@@ -24,7 +24,7 @@ def read_file(asg, spelling, decl):
             filename = str(Path(filename).abspath())
             filenode = asg.add_file(filename, proxy=HeaderProxy)
             filenode.language = asg._language
-            asg._nodes[spelling]['_header'] = filenode.globalname
+            asg._nodes[spelling]['_header'] = filenode._node
             while True:
                 loc = sm.get_include_loc(fid)
                 fid = sm.get_file_id(loc)

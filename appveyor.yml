@@ -8,14 +8,12 @@ platform:
 
 environment:
   matrix:
-    - CONDA_RECIPE: bin\conda\libllvm
-    - CONDA_RECIPE: bin\conda\libllvm-dev
     - CONDA_RECIPE: bin\conda\llvm
-    - CONDA_RECIPE: bin\conda\libclang
-    - CONDA_RECIPE: bin\conda\libclang-dev
     - CONDA_RECIPE: bin\conda\clang
     - CONDA_RECIPE: bin\conda\python-clang
       CONDA_VERSION: 2
+    - CONDA_RECIPE: bin\conda\python-clang
+      CONDA_VERSION: 3
     - CONDA_RECIPE: bin\conda\libclanglite
       CONDA_VERSION: 2
     - CONDA_RECIPE: bin\conda\libclanglite

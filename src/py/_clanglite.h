@@ -3,14 +3,13 @@
 
 #include <boost/python.hpp>
 #include <type_traits>
-#include <clanglite/tool.h>
-#include <memory>
+#include </home/pfernique/Desktop/develop/ClangLite/src/cpp/tool.h>
 
 namespace autowig
 {
      template<class T> struct Held {
-        typedef std::shared_ptr< T > Type;
-        static bool const is_class = true;
+        typedef T* Type;
+        static bool const is_class = false;
     };
 }
 
