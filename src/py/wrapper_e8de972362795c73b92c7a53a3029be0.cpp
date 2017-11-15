@@ -30,8 +30,8 @@ void wrapper_e8de972362795c73b92c7a53a3029be0()
     class ::clang::SourceLocation  (::clang::BlockDecl::*method_pointer_df4e42d2f22b5ff4b96b117e618bbcc4)() const = &::clang::BlockDecl::getCaretLocation;
     bool  (::clang::BlockDecl::*method_pointer_c6c97e76fb1e5ccfade1b728fd59330e)() const = &::clang::BlockDecl::isVariadic;
     void  (::clang::BlockDecl::*method_pointer_746c4c7f32235bb6bd4ae8d82fd18bb4)(bool ) = &::clang::BlockDecl::setIsVariadic;
-    unsigned int  (::clang::BlockDecl::*method_pointer_b4e3675b529959ad893f8a1a17a621ae)() const = &::clang::BlockDecl::param_size;
     bool  (::clang::BlockDecl::*method_pointer_d2b62052e4585a2d959e2b5d2dc52b59)() const = &::clang::BlockDecl::param_empty;
+    ::size_t  (::clang::BlockDecl::*method_pointer_b4e3675b529959ad893f8a1a17a621ae)() const = &::clang::BlockDecl::param_size;
     unsigned int  (::clang::BlockDecl::*method_pointer_d1c49902e8df5be592b9e2f889648011)() const = &::clang::BlockDecl::getNumParams;
     class ::clang::ParmVarDecl const * (::clang::BlockDecl::*method_pointer_71c5c56e31b858b3840dea1e354473c5)(unsigned int ) const = &::clang::BlockDecl::getParamDecl;
     class ::clang::ParmVarDecl * (::clang::BlockDecl::*method_pointer_8ccb93406bda5c488a97c04a79eb6201)(unsigned int ) = &::clang::BlockDecl::getParamDecl;
@@ -56,8 +56,8 @@ void wrapper_e8de972362795c73b92c7a53a3029be0()
     class_e8de972362795c73b92c7a53a3029be0.def("get_caret_location", method_pointer_df4e42d2f22b5ff4b96b117e618bbcc4, "");
     class_e8de972362795c73b92c7a53a3029be0.def("is_variadic", method_pointer_c6c97e76fb1e5ccfade1b728fd59330e, "");
     class_e8de972362795c73b92c7a53a3029be0.def("set_is_variadic", method_pointer_746c4c7f32235bb6bd4ae8d82fd18bb4, "");
-    class_e8de972362795c73b92c7a53a3029be0.def("param_size", method_pointer_b4e3675b529959ad893f8a1a17a621ae, "");
     class_e8de972362795c73b92c7a53a3029be0.def("param_empty", method_pointer_d2b62052e4585a2d959e2b5d2dc52b59, "");
+    class_e8de972362795c73b92c7a53a3029be0.def("param_size", method_pointer_b4e3675b529959ad893f8a1a17a621ae, "");
     class_e8de972362795c73b92c7a53a3029be0.def("get_num_params", method_pointer_d1c49902e8df5be592b9e2f889648011, "");
     class_e8de972362795c73b92c7a53a3029be0.def("get_param_decl", method_pointer_71c5c56e31b858b3840dea1e354473c5, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
     class_e8de972362795c73b92c7a53a3029be0.def("get_param_decl", method_pointer_8ccb93406bda5c488a97c04a79eb6201, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");

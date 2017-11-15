@@ -37,6 +37,8 @@ void wrapper_d838cd6dfd2c51dfaa64ce4e68e945ec()
     enum ::clang::AccessSpecifier  (::clang::CXXBaseSpecifier::*method_pointer_a2a99055813757b791073c3913d86f8e)() const = &::clang::CXXBaseSpecifier::getAccessSpecifierAsWritten;
     class ::clang::QualType  (::clang::CXXBaseSpecifier::*method_pointer_dae61ee019e45bb69a652468baf9999d)() const = &::clang::CXXBaseSpecifier::getType;
     boost::python::class_< class ::clang::CXXBaseSpecifier, autowig::Held< class ::clang::CXXBaseSpecifier >::Type > class_d838cd6dfd2c51dfaa64ce4e68e945ec("CXXBaseSpecifier", "Represents a base class of a C++ class.\n\nEach CXXBaseSpecifier represents a single, direct base class (or struct)\nof a C++ class (or struct). It specifies the type of that base class,\nwhether it is a virtual or non-virtual base, and what level of access\n(public, protected, private) is used for the derivation. For example:\n\n", boost::python::no_init);
+    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def(boost::python::init<  >(""));
+    class_d838cd6dfd2c51dfaa64ce4e68e945ec.def(boost::python::init< class ::clang::CXXBaseSpecifier const & >(""));
     class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("get_loc_start", method_pointer_a94b4bec65225a86b8dc6a902fc30ad4, "");
     class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("get_loc_end", method_pointer_e237d666a088519c94bbaf60bf69ec20, "");
     class_d838cd6dfd2c51dfaa64ce4e68e945ec.def("is_virtual", method_pointer_81fbb335c9f45902946ad7f217deaf8a, "Determines whether the base class is a virtual base class (or not).\n\n:Return Type:\n    :cpp:any:`bool`\n\n");

@@ -1,6 +1,6 @@
 package:
   name: python-clanglite
-  version: "3.8.1"
+  version: "4.0.1"
 
 source:
   path: ../../..
@@ -19,10 +19,10 @@ requirements:
     - python
     - libboost
     - python-toolchain
-    - libclanglite-dev
+    - libclanglite 4.0.1
   run:
     - python
-    - libclanglite
+    - libclanglite 4.0.1
     - libboost
 
 test:   

@@ -46,6 +46,7 @@ void wrapper_b97237ef74ad5566bc5ae85fdde5a9b6()
     bool  (::clang::DeclContext::*method_pointer_b590e5bbd0005ecaafba5cd695539a7c)() const = &::clang::DeclContext::isDependentContext;
     bool  (::clang::DeclContext::*method_pointer_8c0b12d9bb525559bfe9b3e88a4657af)() const = &::clang::DeclContext::isTransparentContext;
     bool  (::clang::DeclContext::*method_pointer_9bef7cd06cd5539bbcf8ed4fa3ff79a7)() const = &::clang::DeclContext::isExternCContext;
+    class ::clang::LinkageSpecDecl const * (::clang::DeclContext::*method_pointer_69213aeec039585a900d8b1c0eae4f10)() const = &::clang::DeclContext::getExternCContext;
     bool  (::clang::DeclContext::*method_pointer_03979321febe5b1983b40ff39a1e8431)() const = &::clang::DeclContext::isExternCXXContext;
     bool  (::clang::DeclContext::*method_pointer_2e70bb8474e8598c8dcd4f95374ee6a4)(class ::clang::DeclContext const *) const = &::clang::DeclContext::Equals;
     bool  (::clang::DeclContext::*method_pointer_e6861d98b4095c1aac8cd95ee50e89b7)(class ::clang::DeclContext const *) const = &::clang::DeclContext::Encloses;
@@ -115,6 +116,7 @@ void wrapper_b97237ef74ad5566bc5ae85fdde5a9b6()
     class_b97237ef74ad5566bc5ae85fdde5a9b6.def("is_dependent_context", method_pointer_b590e5bbd0005ecaafba5cd695539a7c, "Determines whether this context is dependent on a template parameter.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_b97237ef74ad5566bc5ae85fdde5a9b6.def("is_transparent_context", method_pointer_8c0b12d9bb525559bfe9b3e88a4657af, ":Return Type:\n    :cpp:any:`bool`\n\n");
     class_b97237ef74ad5566bc5ae85fdde5a9b6.def("is_extern_c_context", method_pointer_9bef7cd06cd5539bbcf8ed4fa3ff79a7, "Determines whether this context or some of its ancestors is a linkage\nspecification context that specifies C linkage.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_b97237ef74ad5566bc5ae85fdde5a9b6.def("get_extern_c_context", method_pointer_69213aeec039585a900d8b1c0eae4f10, boost::python::return_value_policy< boost::python::reference_existing_object >(), "Retrieve the nearest enclosing C linkage specification context.\n\n:Return Type:\n    :py:class:`clanglite.clang.LinkageSpecDecl`\n\n");
     class_b97237ef74ad5566bc5ae85fdde5a9b6.def("is_extern_cxx_context", method_pointer_03979321febe5b1983b40ff39a1e8431, "Determines whether this context or some of its ancestors is a linkage\nspecification context that specifies C++ linkage.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_b97237ef74ad5566bc5ae85fdde5a9b6.def("equals", method_pointer_2e70bb8474e8598c8dcd4f95374ee6a4, "Determine whether this declaration context is equivalent to the\ndeclaration context DC.\n\n:Parameter:\n    `DC` (:py:class:`clanglite.clang.DeclContext`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_b97237ef74ad5566bc5ae85fdde5a9b6.def("encloses", method_pointer_e6861d98b4095c1aac8cd95ee50e89b7, "Determine whether this declaration context encloses the declaration\ncontext DC.\n\n:Parameter:\n    `DC` (:py:class:`clanglite.clang.DeclContext`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");

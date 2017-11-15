@@ -31,6 +31,8 @@ void wrapper_e90b60b39fbc5f209cecad897014de3b()
     bool  (::clang::FunctionDecl::*method_pointer_3a2a42c9f55b5f0da2cdf21c15d4832e)() const = &::clang::FunctionDecl::hasTrivialBody;
     bool  (::clang::FunctionDecl::*method_pointer_f66fb7d7eae3551c9ea2415cd35018c5)(class ::clang::FunctionDecl const * &) const = &::clang::FunctionDecl::isDefined;
     bool  (::clang::FunctionDecl::*method_pointer_01f84be8d34e52de8a6bb4d8a5fb6a47)() const = &::clang::FunctionDecl::isDefined;
+    class ::clang::FunctionDecl * (::clang::FunctionDecl::*method_pointer_716f3ae386f75a8d9db3a6928886c41c)() = &::clang::FunctionDecl::getDefinition;
+    class ::clang::FunctionDecl const * (::clang::FunctionDecl::*method_pointer_d30dfca1fd3f5fb98965466e1c69dc8a)() const = &::clang::FunctionDecl::getDefinition;
     bool  (::clang::FunctionDecl::*method_pointer_d7d6bb381d535e66abf93ca9d953816f)() const = &::clang::FunctionDecl::isThisDeclarationADefinition;
     bool  (::clang::FunctionDecl::*method_pointer_a2a8a75f3cff541fb0b62f3320ea13f3)() const = &::clang::FunctionDecl::doesThisDeclarationHaveABody;
     void  (::clang::FunctionDecl::*method_pointer_aaadac25ed1c5b3796f61958d5ede888)(::uint64_t ) = &::clang::FunctionDecl::setLazyBody;
@@ -71,11 +73,14 @@ void wrapper_e90b60b39fbc5f209cecad897014de3b()
     bool  (::clang::FunctionDecl::*method_pointer_567f55b936975332b92387f3421f04fd)() const = &::clang::FunctionDecl::isNoReturn;
     bool  (::clang::FunctionDecl::*method_pointer_5f17133595475f82b98f4ca5044c025c)() const = &::clang::FunctionDecl::hasSkippedBody;
     void  (::clang::FunctionDecl::*method_pointer_dcee77ee5fe657de8b7c30280630d017)(bool ) = &::clang::FunctionDecl::setHasSkippedBody;
+    bool  (::clang::FunctionDecl::*method_pointer_781760e5a8ee55a59ceef23a7dafbd0e)() const = &::clang::FunctionDecl::willHaveBody;
+    void  (::clang::FunctionDecl::*method_pointer_484062774dc3513e99737c87ae288ab7)(bool ) = &::clang::FunctionDecl::setWillHaveBody;
     void  (::clang::FunctionDecl::*method_pointer_26351b8e13365baca4d598206f8881d9)(class ::clang::FunctionDecl *) = &::clang::FunctionDecl::setPreviousDeclaration;
     class ::clang::FunctionDecl * (::clang::FunctionDecl::*method_pointer_d78dec94b1f75827a8f9edf9fdeef5ca)() = &::clang::FunctionDecl::getCanonicalDecl;
     class ::clang::FunctionDecl const * (::clang::FunctionDecl::*method_pointer_8996864d081550acbd9726b44ff3b26a)() const = &::clang::FunctionDecl::getCanonicalDecl;
     unsigned int  (::clang::FunctionDecl::*method_pointer_99f1ef6caf9f5258ac4f08b2b7b110b8)() const = &::clang::FunctionDecl::getBuiltinID;
-    unsigned int  (::clang::FunctionDecl::*method_pointer_b564b5384ddd57258872e1a537a02ff6)() const = &::clang::FunctionDecl::param_size;
+    bool  (::clang::FunctionDecl::*method_pointer_1dd98f1f66765364b88fb76cf499130e)() const = &::clang::FunctionDecl::param_empty;
+    ::size_t  (::clang::FunctionDecl::*method_pointer_b564b5384ddd57258872e1a537a02ff6)() const = &::clang::FunctionDecl::param_size;
     unsigned int  (::clang::FunctionDecl::*method_pointer_df62631bc1755b1bb54e4bc386715182)() const = &::clang::FunctionDecl::getNumParams;
     class ::clang::ParmVarDecl const * (::clang::FunctionDecl::*method_pointer_0a77e3a9dfb659d88db1dfaba37e46ff)(unsigned int ) const = &::clang::FunctionDecl::getParamDecl;
     class ::clang::ParmVarDecl * (::clang::FunctionDecl::*method_pointer_4ca29ec0650c5e1ea902227f202abbfd)(unsigned int ) = &::clang::FunctionDecl::getParamDecl;
@@ -121,6 +126,8 @@ void wrapper_e90b60b39fbc5f209cecad897014de3b()
     class_e90b60b39fbc5f209cecad897014de3b.def("has_trivial_body", method_pointer_3a2a42c9f55b5f0da2cdf21c15d4832e, ":Return Type:\n    :cpp:any:`bool`\n\n");
     class_e90b60b39fbc5f209cecad897014de3b.def("is_defined", method_pointer_f66fb7d7eae3551c9ea2415cd35018c5, ":Parameter:\n    `Definition` (:py:class:`clanglite.clang.FunctionDecl`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_e90b60b39fbc5f209cecad897014de3b.def("is_defined", method_pointer_01f84be8d34e52de8a6bb4d8a5fb6a47, "");
+    class_e90b60b39fbc5f209cecad897014de3b.def("get_definition", method_pointer_716f3ae386f75a8d9db3a6928886c41c, boost::python::return_value_policy< boost::python::reference_existing_object >(), "Get the definition for this declaration.\n\n:Return Type:\n    :py:class:`clanglite.clang.FunctionDecl`\n\n");
+    class_e90b60b39fbc5f209cecad897014de3b.def("get_definition", method_pointer_d30dfca1fd3f5fb98965466e1c69dc8a, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
     class_e90b60b39fbc5f209cecad897014de3b.def("is_this_declaration_a_definition", method_pointer_d7d6bb381d535e66abf93ca9d953816f, ":Return Type:\n    :cpp:any:`bool`\n\n");
     class_e90b60b39fbc5f209cecad897014de3b.def("does_this_declaration_have_a_body", method_pointer_a2a8a75f3cff541fb0b62f3320ea13f3, ":Return Type:\n    :cpp:any:`bool`\n\n");
     class_e90b60b39fbc5f209cecad897014de3b.def("set_lazy_body", method_pointer_aaadac25ed1c5b3796f61958d5ede888, "");
@@ -161,10 +168,13 @@ void wrapper_e90b60b39fbc5f209cecad897014de3b()
     class_e90b60b39fbc5f209cecad897014de3b.def("is_no_return", method_pointer_567f55b936975332b92387f3421f04fd, "Determines whether this function is known to be 'noreturn', through an\nattribute on its declaration or its type.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_e90b60b39fbc5f209cecad897014de3b.def("has_skipped_body", method_pointer_5f17133595475f82b98f4ca5044c025c, "True if the function was a definition but its body was skipped.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_e90b60b39fbc5f209cecad897014de3b.def("set_has_skipped_body", method_pointer_dcee77ee5fe657de8b7c30280630d017, "");
+    class_e90b60b39fbc5f209cecad897014de3b.def("will_have_body", method_pointer_781760e5a8ee55a59ceef23a7dafbd0e, ":Return Type:\n    :cpp:any:`bool`\n\n");
+    class_e90b60b39fbc5f209cecad897014de3b.def("set_will_have_body", method_pointer_484062774dc3513e99737c87ae288ab7, "");
     class_e90b60b39fbc5f209cecad897014de3b.def("set_previous_declaration", method_pointer_26351b8e13365baca4d598206f8881d9, "");
     class_e90b60b39fbc5f209cecad897014de3b.def("get_canonical_decl", method_pointer_d78dec94b1f75827a8f9edf9fdeef5ca, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
     class_e90b60b39fbc5f209cecad897014de3b.def("get_canonical_decl", method_pointer_8996864d081550acbd9726b44ff3b26a, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
     class_e90b60b39fbc5f209cecad897014de3b.def("get_builtin_id", method_pointer_99f1ef6caf9f5258ac4f08b2b7b110b8, "");
+    class_e90b60b39fbc5f209cecad897014de3b.def("param_empty", method_pointer_1dd98f1f66765364b88fb76cf499130e, "");
     class_e90b60b39fbc5f209cecad897014de3b.def("param_size", method_pointer_b564b5384ddd57258872e1a537a02ff6, "");
     class_e90b60b39fbc5f209cecad897014de3b.def("get_num_params", method_pointer_df62631bc1755b1bb54e4bc386715182, ":Return Type:\n    :cpp:any:`unsigned` int\n\n");
     class_e90b60b39fbc5f209cecad897014de3b.def("get_param_decl", method_pointer_0a77e3a9dfb659d88db1dfaba37e46ff, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");

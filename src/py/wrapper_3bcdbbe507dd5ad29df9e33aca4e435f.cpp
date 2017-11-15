@@ -43,12 +43,6 @@ void wrapper_3bcdbbe507dd5ad29df9e33aca4e435f()
     bool  (::clang::QualType::*method_pointer_be1ee6cb2de95f629af8cc9fd2e74f44)() const = &::clang::QualType::hasLocalNonFastQualifiers;
     unsigned int  (::clang::QualType::*method_pointer_eae0399c712254ffb3bb9b9a1dd33e75)() const = &::clang::QualType::getLocalCVRQualifiers;
     unsigned int  (::clang::QualType::*method_pointer_58d019f8fa5b575abc0976f7a449fd37)() const = &::clang::QualType::getCVRQualifiers;
-    bool  (::clang::QualType::*method_pointer_0de3e4fc8aeb5fbe86236e05aafa29ea)(class ::clang::ASTContext &) const = &::clang::QualType::isConstant;
-    bool  (::clang::QualType::*method_pointer_59be1f800e305277b98dae1727bbf374)(class ::clang::ASTContext &) const = &::clang::QualType::isPODType;
-    bool  (::clang::QualType::*method_pointer_babfa5039e7d5779bb5fe29664bfc9b0)(class ::clang::ASTContext &) const = &::clang::QualType::isCXX98PODType;
-    bool  (::clang::QualType::*method_pointer_10964fc31d805045b151adccae4af80b)(class ::clang::ASTContext &) const = &::clang::QualType::isCXX11PODType;
-    bool  (::clang::QualType::*method_pointer_8e19495ac51d5baeb204464e480c27c1)(class ::clang::ASTContext &) const = &::clang::QualType::isTrivialType;
-    bool  (::clang::QualType::*method_pointer_e50b3b6c584f58de93b228c0ee3d79e5)(class ::clang::ASTContext &) const = &::clang::QualType::isTriviallyCopyableType;
     void  (::clang::QualType::*method_pointer_93a0d318e5b059c5838bd2fbc20883a6)() = &::clang::QualType::addConst;
     class ::clang::QualType  (::clang::QualType::*method_pointer_d31eca56dc7e51f3a2b71d2bc11c831e)() const = &::clang::QualType::withConst;
     void  (::clang::QualType::*method_pointer_a93e00cead855ad4b666077cf16c4609)() = &::clang::QualType::addVolatile;
@@ -80,6 +74,7 @@ void wrapper_3bcdbbe507dd5ad29df9e33aca4e435f()
     bool  (::clang::QualType::*method_pointer_08103855b89b55dba8b33fd4af5c6417)() const = &::clang::QualType::hasNonTrivialObjCLifetime;
     bool  (::clang::QualType::*method_pointer_adfb1e7876575909bf814bca23f18342)() const = &::clang::QualType::hasStrongOrWeakObjCLifetime;
     bool  (::clang::QualType::*method_pointer_a0ad4ed8e5a05b72bb2693a73ad1840e)() const = &::clang::QualType::isCForbiddenLValueType;
+    class ::clang::QualType  (::clang::QualType::*method_pointer_75c8ad27e61f50dabd0994e59f945bf3)() const = &::clang::QualType::getAtomicUnqualifiedType;
     boost::python::class_< class ::clang::QualType, autowig::Held< class ::clang::QualType >::Type > class_3bcdbbe507dd5ad29df9e33aca4e435f("QualType", "", boost::python::no_init);
     class_3bcdbbe507dd5ad29df9e33aca4e435f.def(boost::python::init<  >(""));
     class_3bcdbbe507dd5ad29df9e33aca4e435f.def(boost::python::init< class ::clang::Type const *, unsigned int  >(""));
@@ -102,12 +97,6 @@ void wrapper_3bcdbbe507dd5ad29df9e33aca4e435f()
     class_3bcdbbe507dd5ad29df9e33aca4e435f.def("has_local_non_fast_qualifiers", method_pointer_be1ee6cb2de95f629af8cc9fd2e74f44, "Determine whether this particular QualType instance has any 'non-fast'\nqualifiers, e.g., those that are stored in an ExtQualType instance.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_3bcdbbe507dd5ad29df9e33aca4e435f.def("get_local_cvr_qualifiers", method_pointer_eae0399c712254ffb3bb9b9a1dd33e75, "Retrieve the set of CVR (const-volatile-restrict) qualifiers local to\nthis particular QualType instance, not including any qualifiers acquired\nthrough typedefs or other sugar.\n\n:Return Type:\n    :cpp:any:`unsigned` int\n\n");
     class_3bcdbbe507dd5ad29df9e33aca4e435f.def("get_cvr_qualifiers", method_pointer_58d019f8fa5b575abc0976f7a449fd37, "Retrieve the set of CVR (const-volatile-restrict) qualifiers applied to\nthis type.\n\n:Return Type:\n    :cpp:any:`unsigned` int\n\n");
-    class_3bcdbbe507dd5ad29df9e33aca4e435f.def("is_constant", method_pointer_0de3e4fc8aeb5fbe86236e05aafa29ea, "");
-    class_3bcdbbe507dd5ad29df9e33aca4e435f.def("is_pod_type", method_pointer_59be1f800e305277b98dae1727bbf374, "Determine whether this is a Plain Old Data (POD) type (C++ 3.9p10).\n\n:Parameter:\n    `Context` (:py:class:`clanglite.clang.ASTContext`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
-    class_3bcdbbe507dd5ad29df9e33aca4e435f.def("is_cxx98pod_type", method_pointer_babfa5039e7d5779bb5fe29664bfc9b0, ":Parameter:\n    `Context` (:py:class:`clanglite.clang.ASTContext`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
-    class_3bcdbbe507dd5ad29df9e33aca4e435f.def("is_cxx11pod_type", method_pointer_10964fc31d805045b151adccae4af80b, ":Parameter:\n    `Context` (:py:class:`clanglite.clang.ASTContext`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
-    class_3bcdbbe507dd5ad29df9e33aca4e435f.def("is_trivial_type", method_pointer_8e19495ac51d5baeb204464e480c27c1, ":Parameter:\n    `Context` (:py:class:`clanglite.clang.ASTContext`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
-    class_3bcdbbe507dd5ad29df9e33aca4e435f.def("is_trivially_copyable_type", method_pointer_e50b3b6c584f58de93b228c0ee3d79e5, ":Parameter:\n    `Context` (:py:class:`clanglite.clang.ASTContext`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_3bcdbbe507dd5ad29df9e33aca4e435f.def("add_const", method_pointer_93a0d318e5b059c5838bd2fbc20883a6, ":Return Type:\n    :cpp:any:`void`\n\n");
     class_3bcdbbe507dd5ad29df9e33aca4e435f.def("with_const", method_pointer_d31eca56dc7e51f3a2b71d2bc11c831e, "");
     class_3bcdbbe507dd5ad29df9e33aca4e435f.def("add_volatile", method_pointer_a93e00cead855ad4b666077cf16c4609, ":Return Type:\n    :cpp:any:`void`\n\n");
@@ -139,5 +128,6 @@ void wrapper_3bcdbbe507dd5ad29df9e33aca4e435f()
     class_3bcdbbe507dd5ad29df9e33aca4e435f.def("has_non_trivial_obj_c_lifetime", method_pointer_08103855b89b55dba8b33fd4af5c6417, "");
     class_3bcdbbe507dd5ad29df9e33aca4e435f.def("has_strong_or_weak_obj_c_lifetime", method_pointer_adfb1e7876575909bf814bca23f18342, "");
     class_3bcdbbe507dd5ad29df9e33aca4e435f.def("is_c_forbidden_l_value_type", method_pointer_a0ad4ed8e5a05b72bb2693a73ad1840e, ":Return Type:\n    :cpp:any:`bool`\n\n");
+    class_3bcdbbe507dd5ad29df9e33aca4e435f.def("get_atomic_unqualified_type", method_pointer_75c8ad27e61f50dabd0994e59f945bf3, ":Return Type:\n    :py:class:`clanglite.clang.QualType`\n\n");
 
 }

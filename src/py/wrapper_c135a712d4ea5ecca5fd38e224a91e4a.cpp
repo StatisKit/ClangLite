@@ -38,11 +38,13 @@ void wrapper_c135a712d4ea5ecca5fd38e224a91e4a()
     class ::clang::QualType  (::clang::TemplateArgument::*method_pointer_3f4088fd784d510f89ea2aadcbaff58e)() const = &::clang::TemplateArgument::getNullPtrType;
     class ::clang::QualType  (::clang::TemplateArgument::*method_pointer_04d815b923315818a2c25604c25bedf5)() const = &::clang::TemplateArgument::getIntegralType;
     void  (::clang::TemplateArgument::*method_pointer_5d83ef71c8775c3f90a0438ad413ea7e)(class ::clang::QualType ) = &::clang::TemplateArgument::setIntegralType;
+    class ::clang::QualType  (::clang::TemplateArgument::*method_pointer_8b17397eae1c55e1967cfb0fc0370ea1)() const = &::clang::TemplateArgument::getNonTypeTemplateArgumentType;
     ::clang::TemplateArgument::pack_iterator  (::clang::TemplateArgument::*method_pointer_d86cd617373c5094965705a7cfd60b65)() const = &::clang::TemplateArgument::pack_begin;
     ::clang::TemplateArgument::pack_iterator  (::clang::TemplateArgument::*method_pointer_4c2a7f4993f250f7be8f418084855424)() const = &::clang::TemplateArgument::pack_end;
     unsigned int  (::clang::TemplateArgument::*method_pointer_511023b032205f879ba902c0593fae9d)() const = &::clang::TemplateArgument::pack_size;
     bool  (::clang::TemplateArgument::*method_pointer_fc30acfd0a5853babf8e9517bd1117c7)(class ::clang::TemplateArgument const &) const = &::clang::TemplateArgument::structurallyEquals;
     class ::clang::TemplateArgument  (::clang::TemplateArgument::*method_pointer_a43fc2d3f9a85c4e91cc8ab97327dd36)() const = &::clang::TemplateArgument::getPackExpansionPattern;
+    void  (::clang::TemplateArgument::*method_pointer_6a4502d4bd075c7eaf34b8ea67cb1784)() const = &::clang::TemplateArgument::dump;
     struct function_group
     {
         static class ::boost::python::str  function_ff6374551bf55e369f5d000b1edb1b8b(class ::clang::TemplateArgument * parameter_0)
@@ -67,11 +69,13 @@ void wrapper_c135a712d4ea5ecca5fd38e224a91e4a()
     class_c135a712d4ea5ecca5fd38e224a91e4a.def("get_null_ptr_type", method_pointer_3f4088fd784d510f89ea2aadcbaff58e, "Retrieve the type for null non-type template argument.\n\n:Return Type:\n    :py:class:`clanglite.clang.QualType`\n\n");
     class_c135a712d4ea5ecca5fd38e224a91e4a.def("get_integral_type", method_pointer_04d815b923315818a2c25604c25bedf5, "Retrieve the type of the integral value.\n\n:Return Type:\n    :py:class:`clanglite.clang.QualType`\n\n");
     class_c135a712d4ea5ecca5fd38e224a91e4a.def("set_integral_type", method_pointer_5d83ef71c8775c3f90a0438ad413ea7e, "");
+    class_c135a712d4ea5ecca5fd38e224a91e4a.def("get_non_type_template_argument_type", method_pointer_8b17397eae1c55e1967cfb0fc0370ea1, "If this is a non-type template argument, get its type. Otherwise,\nreturns a null QualType.\n\n:Return Type:\n    :py:class:`clanglite.clang.QualType`\n\n");
     class_c135a712d4ea5ecca5fd38e224a91e4a.def("pack_begin", method_pointer_d86cd617373c5094965705a7cfd60b65, boost::python::return_value_policy< boost::python::reference_existing_object >(), "Iterator referencing the first argument of a template argument pack.\n\n:Return Type:\n    :py:class:`clanglite.clang.TemplateArgument`\n\n");
     class_c135a712d4ea5ecca5fd38e224a91e4a.def("pack_end", method_pointer_4c2a7f4993f250f7be8f418084855424, boost::python::return_value_policy< boost::python::reference_existing_object >(), "Iterator referencing one past the last argument of a template argument\npack.\n\n:Return Type:\n    :py:class:`clanglite.clang.TemplateArgument`\n\n");
     class_c135a712d4ea5ecca5fd38e224a91e4a.def("pack_size", method_pointer_511023b032205f879ba902c0593fae9d, "The number of template arguments in the given template argument pack.\n\n:Return Type:\n    :cpp:any:`unsigned` int\n\n");
     class_c135a712d4ea5ecca5fd38e224a91e4a.def("structurally_equals", method_pointer_fc30acfd0a5853babf8e9517bd1117c7, "Determines whether two template arguments are superficially the same.\n\n:Parameter:\n    `Other` (:py:class:`clanglite.clang.TemplateArgument`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_c135a712d4ea5ecca5fd38e224a91e4a.def("get_pack_expansion_pattern", method_pointer_a43fc2d3f9a85c4e91cc8ab97327dd36, "When the template argument is a pack expansion, returns the pattern of\nthe pack expansion.\n\n:Return Type:\n    :py:class:`clanglite.clang.TemplateArgument`\n\n");
+    class_c135a712d4ea5ecca5fd38e224a91e4a.def("dump", method_pointer_6a4502d4bd075c7eaf34b8ea67cb1784, "Debugging aid that dumps the template argument to standard error.\n\n:Return Type:\n    :cpp:any:`void`\n\n");
     class_c135a712d4ea5ecca5fd38e224a91e4a.staticmethod("get_empty_pack");
     class_c135a712d4ea5ecca5fd38e224a91e4a.def("get_name", function_group::function_ff6374551bf55e369f5d000b1edb1b8b, "");
 

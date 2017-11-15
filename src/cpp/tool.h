@@ -275,7 +275,7 @@
 #include <clang/Sema/ExternalSemaSource.h>
 #include <clang/Sema/IdentifierResolver.h>
 #include <clang/Sema/Initialization.h>
-#include <clang/Sema/LocInfoType.h>
+// #include <clang/Sema/LocInfoType.h>
 #include <clang/Sema/Lookup.h>
 #include <clang/Sema/LoopHint.h>
 #include <clang/Sema/MultiplexExternalSemaSource.h>

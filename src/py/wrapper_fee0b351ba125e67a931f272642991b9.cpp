@@ -51,6 +51,7 @@ void wrapper_fee0b351ba125e67a931f272642991b9()
     enum_fee0b351ba125e67a931f272642991b9.value("DEPENDENT_NAME", ::clang::Type::DependentName);
     enum_fee0b351ba125e67a931f272642991b9.value("DEPENDENT_TEMPLATE_SPECIALIZATION", ::clang::Type::DependentTemplateSpecialization);
     enum_fee0b351ba125e67a931f272642991b9.value("PACK_EXPANSION", ::clang::Type::PackExpansion);
+    enum_fee0b351ba125e67a931f272642991b9.value("OBJ_C_TYPE_PARAM", ::clang::Type::ObjCTypeParam);
     enum_fee0b351ba125e67a931f272642991b9.value("OBJ_C_OBJECT", ::clang::Type::ObjCObject);
     enum_fee0b351ba125e67a931f272642991b9.value("OBJ_C_INTERFACE", ::clang::Type::ObjCInterface);
     enum_fee0b351ba125e67a931f272642991b9.value("OBJ_C_OBJECT_POINTER", ::clang::Type::ObjCObjectPointer);

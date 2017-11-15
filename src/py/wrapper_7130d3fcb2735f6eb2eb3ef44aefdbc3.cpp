@@ -65,6 +65,7 @@ void wrapper_7130d3fcb2735f6eb2eb3ef44aefdbc3()
     bool  (::clang::ObjCMethodDecl::*method_pointer_c917c136675151a98c3e0c7c244e27a1)() const = &::clang::ObjCMethodDecl::hasSkippedBody;
     void  (::clang::ObjCMethodDecl::*method_pointer_c455bfe9fabb5a75b8e27d12a366bd26)(bool ) = &::clang::ObjCMethodDecl::setHasSkippedBody;
     class ::clang::ObjCPropertyDecl const * (::clang::ObjCMethodDecl::*method_pointer_405aa6bcc91051698f19948d8279781b)(bool ) const = &::clang::ObjCMethodDecl::findPropertyDecl;
+    bool  (::clang::ObjCMethodDecl::*method_pointer_8420ffaf52d65404b0384fab9d242727)() const = &::clang::ObjCMethodDecl::isOptional;
     bool  (::clang::ObjCMethodDecl::*method_pointer_0c5680823e0e501ca84bd0c596c1ec93)() const = &::clang::ObjCMethodDecl::isThisDeclarationADesignatedInitializer;
     void  (::clang::ObjCMethodDecl::*method_pointer_c7b8373f45c45499bf3c88c886b07533)(::uint64_t ) = &::clang::ObjCMethodDecl::setLazyBody;
     bool  (::clang::ObjCMethodDecl::*method_pointer_d8ed3e88970a598f94acd89f07ddcaad)() const = &::clang::ObjCMethodDecl::isThisDeclarationADefinition;
@@ -113,6 +114,7 @@ void wrapper_7130d3fcb2735f6eb2eb3ef44aefdbc3()
     class_7130d3fcb2735f6eb2eb3ef44aefdbc3.def("has_skipped_body", method_pointer_c917c136675151a98c3e0c7c244e27a1, "True if the method was a definition but its body was skipped.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_7130d3fcb2735f6eb2eb3ef44aefdbc3.def("set_has_skipped_body", method_pointer_c455bfe9fabb5a75b8e27d12a366bd26, "");
     class_7130d3fcb2735f6eb2eb3ef44aefdbc3.def("find_property_decl", method_pointer_405aa6bcc91051698f19948d8279781b, boost::python::return_value_policy< boost::python::reference_existing_object >(), "Returns the property associated with this method's selector.\n\nNote that even if this particular method is not marked as a property\naccessor, it is still possible for it to match a property declared in a\nsuperclass. Pass :raw-latex:`\\c f`alse if you only want to check the\ncurrent class.\n\n:Parameter:\n    `CheckOverrides` (:cpp:any:`bool`) - Undocumented\n\n:Return Type:\n    :py:class:`clanglite.clang.ObjCPropertyDecl`\n\n");
+    class_7130d3fcb2735f6eb2eb3ef44aefdbc3.def("is_optional", method_pointer_8420ffaf52d65404b0384fab9d242727, "");
     class_7130d3fcb2735f6eb2eb3ef44aefdbc3.def("is_this_declaration_a_designated_initializer", method_pointer_0c5680823e0e501ca84bd0c596c1ec93, ":Return Type:\n    :cpp:any:`bool`\n\n");
     class_7130d3fcb2735f6eb2eb3ef44aefdbc3.def("set_lazy_body", method_pointer_c7b8373f45c45499bf3c88c886b07533, "");
     class_7130d3fcb2735f6eb2eb3ef44aefdbc3.def("is_this_declaration_a_definition", method_pointer_d8ed3e88970a598f94acd89f07ddcaad, "Returns whether this specific method is a definition.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");

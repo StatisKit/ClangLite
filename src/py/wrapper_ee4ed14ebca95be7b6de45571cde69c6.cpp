@@ -31,6 +31,7 @@ void wrapper_ee4ed14ebca95be7b6de45571cde69c6()
     bool  (::clang::FunctionProtoType::*method_pointer_c135a8126d59577d907b39b03db9ac35)() const = &::clang::FunctionProtoType::hasDynamicExceptionSpec;
     bool  (::clang::FunctionProtoType::*method_pointer_8c1ee4080781567b8aa0a80f5740aead)() const = &::clang::FunctionProtoType::hasNoexceptExceptionSpec;
     bool  (::clang::FunctionProtoType::*method_pointer_10b375a238d458cba8731ae7e76efd37)() const = &::clang::FunctionProtoType::hasDependentExceptionSpec;
+    bool  (::clang::FunctionProtoType::*method_pointer_1f5d39441de45321b634b68dfbd058a1)() const = &::clang::FunctionProtoType::hasInstantiationDependentExceptionSpec;
     unsigned int  (::clang::FunctionProtoType::*method_pointer_339862439a62516cbac1a5873fe313dd)() const = &::clang::FunctionProtoType::getNumExceptions;
     class ::clang::QualType  (::clang::FunctionProtoType::*method_pointer_5a80b7e5a8ef5694aa05f10491e1d7c7)(unsigned int ) const = &::clang::FunctionProtoType::getExceptionType;
     class ::clang::FunctionDecl * (::clang::FunctionProtoType::*method_pointer_b86b82fdb78b5eb19e72012e2792fdd2)() const = &::clang::FunctionProtoType::getExceptionSpecDecl;
@@ -43,7 +44,7 @@ void wrapper_ee4ed14ebca95be7b6de45571cde69c6()
     ::clang::FunctionProtoType::param_type_iterator  (::clang::FunctionProtoType::*method_pointer_b4727c7672ab5855938da66d8eb475c6)() const = &::clang::FunctionProtoType::param_type_end;
     ::clang::FunctionProtoType::exception_iterator  (::clang::FunctionProtoType::*method_pointer_c0764b61d3165d71b301d7df526f8fea)() const = &::clang::FunctionProtoType::exception_begin;
     ::clang::FunctionProtoType::exception_iterator  (::clang::FunctionProtoType::*method_pointer_d3f2b7fcd84d551ca494293821b5fc9e)() const = &::clang::FunctionProtoType::exception_end;
-    bool  (::clang::FunctionProtoType::*method_pointer_12d1de2a88e15fda8d163042d93233f7)() const = &::clang::FunctionProtoType::hasAnyConsumedParams;
+    bool  (::clang::FunctionProtoType::*method_pointer_9288aaa177e752c48120c1bd8b35de6a)() const = &::clang::FunctionProtoType::hasExtParameterInfos;
     bool  (::clang::FunctionProtoType::*method_pointer_e5c4c374711a5676b764fd570b815ed7)(unsigned int ) const = &::clang::FunctionProtoType::isParamConsumed;
     bool  (::clang::FunctionProtoType::*method_pointer_4431c239cb0b5c79b5e1961ff59c3c9a)() const = &::clang::FunctionProtoType::isSugared;
     class ::clang::QualType  (::clang::FunctionProtoType::*method_pointer_3e4352de276d5f02a21bec41024815e6)() const = &::clang::FunctionProtoType::desugar;
@@ -55,6 +56,7 @@ void wrapper_ee4ed14ebca95be7b6de45571cde69c6()
     class_ee4ed14ebca95be7b6de45571cde69c6.def("has_dynamic_exception_spec", method_pointer_c135a8126d59577d907b39b03db9ac35, ":Return Type:\n    :cpp:any:`bool`\n\n");
     class_ee4ed14ebca95be7b6de45571cde69c6.def("has_noexcept_exception_spec", method_pointer_8c1ee4080781567b8aa0a80f5740aead, ":Return Type:\n    :cpp:any:`bool`\n\n");
     class_ee4ed14ebca95be7b6de45571cde69c6.def("has_dependent_exception_spec", method_pointer_10b375a238d458cba8731ae7e76efd37, ":Return Type:\n    :cpp:any:`bool`\n\n");
+    class_ee4ed14ebca95be7b6de45571cde69c6.def("has_instantiation_dependent_exception_spec", method_pointer_1f5d39441de45321b634b68dfbd058a1, ":Return Type:\n    :cpp:any:`bool`\n\n");
     class_ee4ed14ebca95be7b6de45571cde69c6.def("get_num_exceptions", method_pointer_339862439a62516cbac1a5873fe313dd, "");
     class_ee4ed14ebca95be7b6de45571cde69c6.def("get_exception_type", method_pointer_5a80b7e5a8ef5694aa05f10491e1d7c7, "");
     class_ee4ed14ebca95be7b6de45571cde69c6.def("get_exception_spec_decl", method_pointer_b86b82fdb78b5eb19e72012e2792fdd2, boost::python::return_value_policy< boost::python::reference_existing_object >(), "If this function type has an exception specification which hasn't been\ndetermined yet (either because it has not been evaluated or because it\nhas not been instantiated), this is the function whose exception\nspecification is represented by this type.\n\n:Return Type:\n    :py:class:`clanglite.clang.FunctionDecl`\n\n");
@@ -67,7 +69,7 @@ void wrapper_ee4ed14ebca95be7b6de45571cde69c6()
     class_ee4ed14ebca95be7b6de45571cde69c6.def("param_type_end", method_pointer_b4727c7672ab5855938da66d8eb475c6, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
     class_ee4ed14ebca95be7b6de45571cde69c6.def("exception_begin", method_pointer_c0764b61d3165d71b301d7df526f8fea, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
     class_ee4ed14ebca95be7b6de45571cde69c6.def("exception_end", method_pointer_d3f2b7fcd84d551ca494293821b5fc9e, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
-    class_ee4ed14ebca95be7b6de45571cde69c6.def("has_any_consumed_params", method_pointer_12d1de2a88e15fda8d163042d93233f7, "");
+    class_ee4ed14ebca95be7b6de45571cde69c6.def("has_ext_parameter_infos", method_pointer_9288aaa177e752c48120c1bd8b35de6a, ":Return Type:\n    :cpp:any:`bool`\n\n");
     class_ee4ed14ebca95be7b6de45571cde69c6.def("is_param_consumed", method_pointer_e5c4c374711a5676b764fd570b815ed7, "");
     class_ee4ed14ebca95be7b6de45571cde69c6.def("is_sugared", method_pointer_4431c239cb0b5c79b5e1961ff59c3c9a, "");
     class_ee4ed14ebca95be7b6de45571cde69c6.def("desugar", method_pointer_3e4352de276d5f02a21bec41024815e6, "");

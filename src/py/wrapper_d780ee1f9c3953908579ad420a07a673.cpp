@@ -27,7 +27,7 @@ void wrapper_d780ee1f9c3953908579ad420a07a673()
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
     bool  (*method_pointer_506c844dcb83509993e2b5e7946fc3a6)(class ::clang::Decl const *) = ::clang::BuiltinTemplateDecl::classof;
     bool  (*method_pointer_e05f0673de745da787d6cf12afe97356)(enum ::clang::Decl::Kind ) = ::clang::BuiltinTemplateDecl::classofKind;
-    boost::python::class_< class ::clang::BuiltinTemplateDecl, autowig::Held< class ::clang::BuiltinTemplateDecl >::Type, boost::python::bases< class ::clang::TemplateDecl >, boost::noncopyable > class_d780ee1f9c3953908579ad420a07a673("BuiltinTemplateDecl", "Represents the builtin template declaration which is used to implement\n\\_\\_make\\_integer\\_seq. It serves no real purpose beyond existing as a\nplace to hold template parameters.\n\n", boost::python::no_init);
+    boost::python::class_< class ::clang::BuiltinTemplateDecl, autowig::Held< class ::clang::BuiltinTemplateDecl >::Type, boost::python::bases< class ::clang::TemplateDecl >, boost::noncopyable > class_d780ee1f9c3953908579ad420a07a673("BuiltinTemplateDecl", "Represents the builtin template declaration which is used to implement\n\\_\\_make\\_integer\\_seq and other builtin templates. It serves no real\npurpose beyond existing as a place to hold template parameters.\n\n", boost::python::no_init);
     class_d780ee1f9c3953908579ad420a07a673.def("classof", method_pointer_506c844dcb83509993e2b5e7946fc3a6, "");
     class_d780ee1f9c3953908579ad420a07a673.def("classof_kind", method_pointer_e05f0673de745da787d6cf12afe97356, "");
     class_d780ee1f9c3953908579ad420a07a673.staticmethod("classof_kind");

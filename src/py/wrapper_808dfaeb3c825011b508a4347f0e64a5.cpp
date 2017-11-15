@@ -32,7 +32,6 @@ void wrapper_808dfaeb3c825011b508a4347f0e64a5()
     bool  (::clang::FunctionType::*method_pointer_110584cc4df05ee482d7e3486e4e1d03)() const = &::clang::FunctionType::isConst;
     bool  (::clang::FunctionType::*method_pointer_45026dbd52fd5b19ace7dbe6d779f203)() const = &::clang::FunctionType::isVolatile;
     bool  (::clang::FunctionType::*method_pointer_193af7ab1ee953b09db6e9251c7e701d)() const = &::clang::FunctionType::isRestrict;
-    class ::clang::QualType  (::clang::FunctionType::*method_pointer_744edf570e335075b3f1a5489c7580bd)(class ::clang::ASTContext &) const = &::clang::FunctionType::getCallResultType;
     bool  (*method_pointer_4233a67989755f32aa6b5c0a5db22548)(class ::clang::Type const *) = ::clang::FunctionType::classof;
     boost::python::class_< class ::clang::FunctionType, autowig::Held< class ::clang::FunctionType >::Type, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_808dfaeb3c825011b508a4347f0e64a5("FunctionType", "", boost::python::no_init);
     class_808dfaeb3c825011b508a4347f0e64a5.def("get_return_type", method_pointer_feeecb51a6d95f28a4236d5473e7d580, "");
@@ -42,7 +41,6 @@ void wrapper_808dfaeb3c825011b508a4347f0e64a5()
     class_808dfaeb3c825011b508a4347f0e64a5.def("is_const", method_pointer_110584cc4df05ee482d7e3486e4e1d03, "");
     class_808dfaeb3c825011b508a4347f0e64a5.def("is_volatile", method_pointer_45026dbd52fd5b19ace7dbe6d779f203, "");
     class_808dfaeb3c825011b508a4347f0e64a5.def("is_restrict", method_pointer_193af7ab1ee953b09db6e9251c7e701d, "");
-    class_808dfaeb3c825011b508a4347f0e64a5.def("get_call_result_type", method_pointer_744edf570e335075b3f1a5489c7580bd, "Determine the type of an expression that calls a function of this type.\n\n:Parameter:\n    `Context` (:py:class:`clanglite.clang.ASTContext`) - Undocumented\n\n:Return Type:\n    :py:class:`clanglite.clang.QualType`\n\n");
     class_808dfaeb3c825011b508a4347f0e64a5.def("classof", method_pointer_4233a67989755f32aa6b5c0a5db22548, "");
     class_808dfaeb3c825011b508a4347f0e64a5.staticmethod("classof");
 

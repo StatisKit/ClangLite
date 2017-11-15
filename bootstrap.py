@@ -141,6 +141,11 @@ def clanglite_controller(asg):
             if mtd.localname == 'hasAttr':
                 mtd.boost_python_export = False
                 
+    if 'class ::clang::ConstructorUsingShadowDecl' in asg:
+        for mtd in asg["class ::clang::ConstructorUsingShadowDecl"].methods():
+            if mtd.localname in ['getConstructor', 'setConstructor']:
+                mtd.boost_python_export = False
+                
     import sys
     try:
         from path import path as Path
@@ -184,7 +189,7 @@ if not os.system("conda create -n " + CONDA_ENVIRONMENT + " python=" + PYTHON_VE
 
         os.system("rm src/py/*.cpp")
         os.system("rm src/py/*.h")
-        os.system("rm src/py/clanglite/_clangite.py")
+        os.system("rm src/py/clanglite/_clanglite.py")
 
         headers = ['./src/cpp/tool.h']
             
