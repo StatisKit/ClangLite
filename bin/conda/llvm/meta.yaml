@@ -8,8 +8,7 @@ source:
     
 build:
   number: 0
-  script: source $RECIPE_DIR/linux_build.sh      [linux]
-  script: source $RECIPE_DIR/osx_build.sh        [osx]
+  skipt: true [osx]  
   
 about:
   home: http://www.llvm.org/
