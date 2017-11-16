@@ -155,13 +155,17 @@ source:
     sha256: {{ macosx_109_sdk_sha256 }}
     folder: bootstrap/MacOSX10.9.sdk
 
+build:
+  number: 0
+  skip: true [not osx]
+
 test:
   commands:
   - llvm-config --libs
   - llc -version
   - clang++ -x c++ -v -E /dev/null
   - clang -x c -v -E /dev/null
-  
+
 requirements:
   build:
     # we use selectors rather than jinja2 here because we only want to use the native
