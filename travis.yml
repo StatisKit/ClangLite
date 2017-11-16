@@ -37,7 +37,7 @@ matrix:
     - os: osx
       env: CONDA_RECIPE=bin/conda/llvm
     - os: osx
-      env: CONDA_RECIPE=bin/conda/llvm
+      env: CONDA_RECIPE=bin/conda/clang
 
 install:
   - git clone https://github.com/StatisKit/travis-ci.git travis-ci
