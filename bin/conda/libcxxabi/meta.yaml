@@ -95,7 +95,7 @@ source:
         sha256: 175d89c419e99d49a7a5f7e4196d3cef4c9e19cc17a425c332e86df6b516f7d7
         url: https://opensource.apple.com/tarballs/ld64/ld64-274.2.tar.gz
     -   folder: bootstrap
-        sha256: 5ef4f1f72d0fe4cf03d8eaefb972b4d24219da67124a869ae75e3a6aeb1578f6
+        sha256: 5f697801a46239c04251730b7ccccd3ebbacb9043ad381a061ae6812409e9eae
         url: http://releases.llvm.org/4.0.1/clang+llvm-4.0.1-x86_64-apple-darwin.tar.xz
     -   folder: bootstrap/dyld
         sha256: 13e370ed12c137f0153a96bab12e1d46896db07f8a40bac6b0529585ceac9260
@@ -105,13 +105,14 @@ source:
         url: https://github.com/phracker/MacOSX-SDKs/releases/download/MacOSX10.11.sdk/MacOSX10.9.sdk.tar.xz
 
 build:
-  script: source osx_build.sh [osx]
+  script: source $RECIPE_DIR/osx_build.sh [osx]
   skip: true [not osx]
 
 requirements:
     build:
         - cmake-binary
-
+        - autoconf
+        - automake
 about:
     description: libc++abi is a new implementation of low level support for a standard C++ library
     home: http://libcxxabi.llvm.org/
