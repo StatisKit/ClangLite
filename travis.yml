@@ -14,7 +14,7 @@ services:
   - docker
   
 env:
-  - CONDA_RECIPE=bin/conda/libcxxabi
+  - CONDA_RECIPE=bin/conda/llvm-suite
   - CONDA_RECIPE=bin/conda/llvm
   - CONDA_RECIPE=bin/conda/clang
   - CONDA_RECIPE=bin/conda/python-clang
@@ -33,7 +33,11 @@ env:
 matrix:
   exclude:
     - os: linux
-      env: CONDA_RECIPE=bin/conda/libcxxabi
+      env: CONDA_RECIPE=bin/conda/llvm-suite
+    - os: osx
+      env: CONDA_RECIPE=bin/conda/llvm
+    - os: osx
+      env: CONDA_RECIPE=bin/conda/llvm
 
 install:
   - git clone https://github.com/StatisKit/travis-ci.git travis-ci
