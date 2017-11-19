@@ -17,6 +17,7 @@ env:
   - CONDA_RECIPE=bin/conda/llvm
     TRAVIS_WAIT=50
   - CONDA_RECIPE=bin/conda/clang
+  - CONDA_RECIPE=bin/conda/llvm-suite
   - CONDA_RECIPE=bin/conda/python-clang
     CONDA_VERSION=2
   - CONDA_RECIPE=bin/conda/python-clang
@@ -32,9 +33,19 @@ env:
 
 matrix:
   allow_failures:
-    - CONDA_RECIPE=bin/conda/llvm
-      TRAVIS_WAIT=50
-    - CONDA_RECIPE=bin/conda/clang
+    - os: linux
+      env: CONDA_RECIPE=bin/conda/llvm
+           TRAVIS_WAIT=50
+    - os: linux
+      env: CONDA_RECIPE=bin/conda/clang
+  exclude:
+    - os: linux
+      env: CONDA_RECIPE=bin/conda/llvm-suite
+    - os: osx
+      env: CONDA_RECIPE=bin/conda/llvm
+           TRAVIS_WAIT=50
+    - os: osx
+      env: CONDA_RECIPE=bin/conda/clang
 
 install:
   - git clone https://github.com/StatisKit/travis-ci.git travis-ci
