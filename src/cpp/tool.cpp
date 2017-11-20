@@ -134,7 +134,7 @@ namespace clanglite
     boost::python::str get_name(clang::NamedDecl * decl)
     { return boost::python::str(decl->getNameAsString()); }
 
-    void set_as_written(std::map< clang::ClassTemplateSpecializationDecl*, clang::TypeSourceInfo* >& mapping, clang::ClassTemplateSpecializationDecl* spec)
+    /*void set_as_written(std::map< clang::ClassTemplateSpecializationDecl*, clang::TypeSourceInfo* >& mapping, clang::ClassTemplateSpecializationDecl* spec)
     {
         spec->setTypeAsWritten(mapping[spec]);
         const clang::TemplateArgumentList &args = spec->getTemplateArgs();        
@@ -175,7 +175,7 @@ namespace clanglite
                 }
             }
         }
-    }
+    }*/
 
     boost::python::str get_name(clang::ClassTemplateSpecializationDecl * decl)
     {
