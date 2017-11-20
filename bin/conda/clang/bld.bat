@@ -32,12 +32,11 @@ set BUILD_CONFIG=Release
 
 :: Configure step
 if "%ARCH%"=="32" (
-     set CMAKE_GENERATOR=Visual Studio 12 2013
+     set CMAKE_GENERATOR=Visual Studio 14 2015
 ) else (
-     set CMAKE_GENERATOR=Visual Studio 12 2013 Win64
+     set CMAKE_GENERATOR=Visual Studio 14 2015 Win64
 )
-set CMAKE_GENERATOR_TOOLSET=v120_xp
-:: set CMAKE_GENERATOR=MinGW Makefiles
+set CMAKE_GENERATOR_TOOLSET=v140_xp
 
 :: Reduce build times and package size by removing unused stuff
 set CMAKE_CUSTOM=-DLLVM_TARGETS_TO_BUILD=host ^
@@ -49,8 +48,6 @@ set CMAKE_CUSTOM=-DLLVM_TARGETS_TO_BUILD=host ^
 
 cmake -G "%CMAKE_GENERATOR%" -T "%CMAKE_GENERATOR_TOOLSET%" -DCMAKE_BUILD_TYPE="%BUILD_CONFIG%" -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% -DCMAKE_INSTALL_PREFIX:PATH=%LIBRARY_PREFIX% %CMAKE_CUSTOM% %SRC_DIR%
 if errorlevel 1 exit 1
-::cmake -G "%CMAKE_GENERATOR%" -DCMAKE_BUILD_TYPE="%BUILD_CONFIG%" -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% -DCMAKE_INSTALL_PREFIX:PATH=%LIBRARY_PREFIX% %CMAKE_CUSTOM% %SRC_DIR%
-:: if errorlevel 1 exit 1
 
 REM Build step
 cmake --build . --config "%BUILD_CONFIG%"
