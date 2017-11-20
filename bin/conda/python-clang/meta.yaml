@@ -23,11 +23,11 @@
 
 package:
   name: python-clang
-  version: "3.8.1"
+  version: "4.0.1"
 
 source:
-  fn: cfe-3.8.1.src.tar.xz
-  url: http://llvm.org/releases/3.8.1/cfe-3.8.1.src.tar.xz
+  fn: cfe-4.0.1.src.tar.xz
+  url: http://llvm.org/releases/4.0.1/cfe-4.0.1.src.tar.xz
 
 build:
   number: 0
@@ -41,7 +41,7 @@ requirements:
   build:
     - python
     - python-toolchain
-    - clang 3.8.1
+    - clang 4.0.1
     - zlib
     - xz                         [unix]
     - m2w64-xz                   [win]
