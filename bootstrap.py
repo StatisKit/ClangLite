@@ -193,20 +193,20 @@ if not os.system("conda create -n " + CONDA_ENVIRONMENT + " python=" + PYTHON_VE
         else:
             CONDA_PREFIX = os.path.abspath(os.environ['CONDA_PREFIX'] + '/envs')
         CONDA_PREFIX = os.path.join(CONDA_PREFIX, CONDA_ENVIRONMENT)
-        # if os.system("conda build bin/conda/llvm"):
-        #     raise OSError("Build of the llvm recipe failed !")
+        if os.system("conda build bin/conda/llvm"):
+            raise OSError("Build of the llvm recipe failed !")
         if os.system("conda install -n " + CONDA_ENVIRONMENT + " llvm --use-local -y"):
             raise OSError("Install of llvm failed !")
-        # if os.system("conda build bin/conda/clang"):
-        #     raise OSError("Build of the clang recipe failed !")
+        if os.system("conda build bin/conda/clang"):
+            raise OSError("Build of the clang recipe failed !")
         if os.system("conda install -n " + CONDA_ENVIRONMENT + " clang --use-local -y"):
             raise OSError("Install of clang failed !")
-        # if os.system("conda build bin/conda/python-clang"):
-        #     raise OSError("Build of the python-clang recipe failed !")
-        # if os.system("conda install -n " + CONDA_ENVIRONMENT + " python-clang --use-local -y"):
-        #     raise OSError("Install of python-clang failed !")
-        # if os.system("conda build bin/conda/libclanglite -c statiskit"):
-        #     raise OSError("Build of the libclanglite recipe failed !")
+        if os.system("conda build bin/conda/python-clang"):
+            raise OSError("Build of the python-clang recipe failed !")
+        if os.system("conda install -n " + CONDA_ENVIRONMENT + " python-clang --use-local -y"):
+            raise OSError("Install of python-clang failed !")
+        if os.system("conda build bin/conda/libclanglite -c statiskit"):
+            raise OSError("Build of the libclanglite recipe failed !")
         if os.system("conda install -n " + CONDA_ENVIRONMENT + " libclanglite --use-local -c statiskit -y"):
             raise OSError("Install of libclanglite failed !")
 
@@ -214,7 +214,7 @@ if not os.system("conda create -n " + CONDA_ENVIRONMENT + " python=" + PYTHON_VE
         os.system("rm src/py/*.h")
         os.system("rm src/py/clanglite/_clanglite.py")
 
-        headers = ['./src/cpp/tool.h']
+        headers = [$CONDA_PREFIX + '/include/clanglite/tool.h']
             
         flags = ['-x', 'c++', '-std=c++11',
                  '-D__STDC_LIMIT_MACROS',
