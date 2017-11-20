@@ -34,4 +34,4 @@ for line in output:
         read = False
     elif read:
         INCLUDE_DIRS.add(os.path.realpath(line.strip()))
-print '-I' + ' -I'.join(INCLUDE_DIRS)
+print('-I' + ' -I'.join(INCLUDE_DIRS))
