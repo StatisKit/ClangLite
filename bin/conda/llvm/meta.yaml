@@ -28,7 +28,9 @@ package:
 source:
   fn: llvm-4.0.1.src.tar.xz
   url: http://llvm.org/releases/4.0.1/llvm-4.0.1.src.tar.xz
-    
+  patches:
+    - 0001-Remove-decltype-STLExtras.patch
+
 build:
   number: 0
   skipt: true [osx]  
