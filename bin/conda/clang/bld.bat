@@ -30,7 +30,6 @@ if errorlevel 1 exit 1
 
 set BUILD_CONFIG=Release
 
-:: Configure step
 if "%ARCH%"=="32" (
      set CMAKE_GENERATOR=Visual Studio 14 2015
 ) else (

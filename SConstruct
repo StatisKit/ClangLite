@@ -91,12 +91,17 @@ env.AppendUnique(LIBS=['clangIndex',
 import subprocess
 process = subprocess.Popen(['llvm-config', '--libs'], stdout=subprocess.PIPE)
 out, err = process.communicate()
+print("llvm-config --libs")
+print(out.decode('ascii', 'ignore').strip())
 env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split('-l') if lib])
 
 
 process = subprocess.Popen(['llvm-config', '--system-libs'], stdout=subprocess.PIPE)
 out, err = process.communicate()
-env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split('-l') if lib])
+print("llvm-config --system-libs")
+print(out.decode('ascii', 'ignore').strip())
+if not SYSTEM == 'win':
+    env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split('-l') if lib])
 
 # env.AppendUnique(RPATH=['$PREFIX/lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0',
 #                        '$PREFIX/x86_64-conda_cos6-linux-gnu/sysroot/lib',

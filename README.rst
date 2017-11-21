@@ -34,16 +34,16 @@ For more information refers to **AutoWIG** `documentation <http://autowig.readth
 
 .. |VERSION| replace:: 0.1.0
 
-.. |TRAVIS| image:: https://travis-ci.org/StatisKit/PyClangLite.svg?branch=master
-           :target: https://travis-ci.org/StatisKit/PyClangLite
+.. |TRAVIS| image:: https://travis-ci.org/StatisKit/ClangLite.svg?branch=master
+           :target: https://travis-ci.org/StatisKit/ClangLite
            :alt: Travis
 
-.. |COVERALLS| image:: https://coveralls.io/repos/github/StatisKit/PyClangLite/badge.svg?branch=master
-               :target: https://coveralls.io/github/StatisKit/PyClangLite?branch=master
+.. |COVERALLS| image:: https://coveralls.io/repos/github/StatisKit/ClangLite/badge.svg?branch=master
+               :target: https://coveralls.io/github/StatisKit/ClangLite?branch=master
                :alt: Coveralls
 
-.. |LANDSCAPE| image:: https://landscape.io/github/StatisKit/PyClangLite/master/landscape.svg?style=flat
-                :target: https://landscape.io/github/StatisKit/PyClangLite/master
+.. |LANDSCAPE| image:: https://landscape.io/github/StatisKit/ClangLite/master/landscape.svg?style=flat
+                :target: https://landscape.io/github/StatisKit/ClangLite/master
                 :alt: Landscape
 
 .. Copyright [2017-2018] UMR MISTEA INRA, UMR LEPSE INRA,                ..
