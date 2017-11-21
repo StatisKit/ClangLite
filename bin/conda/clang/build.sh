@@ -23,7 +23,7 @@
 
 set -ve
 
-sed -i -e 's/*B0/*BB0/g' $SRC_DIR/include/clang/Analysis/Analyses/ThreadSafetyTraverse.h
+# sed -i -e 's/*B0/*BB0/g' $SRC_DIR/include/clang/Analysis/Analyses/ThreadSafetyTraverse.h
 
 rm -rf tools/libclang
 rm -rf tools/c-arcmt-test
