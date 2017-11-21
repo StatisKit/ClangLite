@@ -41,10 +41,10 @@ environment:
     #   CONDA_VERSION: 2
     # - CONDA_RECIPE: bin\conda\python-clang
     #   CONDA_VERSION: 3
-    - CONDA_RECIPE: bin\conda\libclanglite
-      CONDA_VERSION: 2
-    - CONDA_RECIPE: bin\conda\libclanglite
-      CONDA_VERSION: 3
+    # - CONDA_RECIPE: bin\conda\libclanglite
+    #   CONDA_VERSION: 2
+    # - CONDA_RECIPE: bin\conda\libclanglite
+    #   CONDA_VERSION: 3
     - CONDA_RECIPE: bin\conda\python-clanglite
       CONDA_VERSION: 2
     - CONDA_RECIPE: bin\conda\python-clanglite
