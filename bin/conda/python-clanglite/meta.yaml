@@ -27,6 +27,8 @@ package:
 
 source:
   path: ../../..
+  patches:
+    - 0001-Correct-Wrapper-for-ASTUnit-top_level_size.patch
 
 build:
   number: 0
