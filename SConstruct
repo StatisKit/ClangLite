@@ -106,7 +106,7 @@ if not SYSTEM == 'win':
     env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split('-l') if lib])
 else:
     env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split(' ') if lib])
-
+    env.AppendUnique(LIBS=["version.lib"])
 # env.AppendUnique(RPATH=['$PREFIX/lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0',
 #                        '$PREFIX/x86_64-conda_cos6-linux-gnu/sysroot/lib',
 #                        '$PREFIX/x86_64-conda_cos6-linux-gnu/lib',
