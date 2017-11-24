@@ -18,9 +18,7 @@ requirements:
     - python
     - libtoolchain 
     - python-toolchain
-    - libboost
+    - libboost_python-dev
   run:
     - python
     - libtoolchain
-    - libruntime
-    - libboost

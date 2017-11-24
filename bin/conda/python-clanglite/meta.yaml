@@ -17,7 +17,7 @@ requirements:
   build:
     - libtoolchain
     - python
-    - libboost
+    - libboost_python-dev
     - python-toolchain
     - clang
     - libclanglite
@@ -25,7 +25,6 @@ requirements:
     - python
     - clang
     - libclanglite
-    - libboost
 
 test:   
   imports:
