@@ -37,7 +37,6 @@ void wrapper_d1031962618550cc8286398791b05794()
     if(autowig::Held< class ::clang::DecayedType >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::DecayedType >::Type, autowig::Held< class ::clang::AdjustedType >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::DecayedType >::Type, boost::python::objects::make_ptr_instance< class ::clang::DecayedType, boost::python::objects::pointer_holder< autowig::Held< class ::clang::DecayedType >::Type, class ::clang::DecayedType > > >();
     }
 
 }

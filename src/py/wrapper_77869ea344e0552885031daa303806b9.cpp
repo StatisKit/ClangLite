@@ -41,7 +41,6 @@ void wrapper_77869ea344e0552885031daa303806b9()
     if(autowig::Held< class ::clang::VariableArrayType >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::VariableArrayType >::Type, autowig::Held< class ::clang::ArrayType >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::VariableArrayType >::Type, boost::python::objects::make_ptr_instance< class ::clang::VariableArrayType, boost::python::objects::pointer_holder< autowig::Held< class ::clang::VariableArrayType >::Type, class ::clang::VariableArrayType > > >();
     }
 
 }

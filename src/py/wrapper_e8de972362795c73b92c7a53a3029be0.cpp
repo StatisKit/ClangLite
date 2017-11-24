@@ -87,7 +87,6 @@ void wrapper_e8de972362795c73b92c7a53a3029be0()
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::BlockDecl >::Type, autowig::Held< class ::clang::Decl >::Type >();
         boost::python::implicitly_convertible< autowig::Held< class ::clang::BlockDecl >::Type, autowig::Held< class ::clang::DeclContext >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::BlockDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::BlockDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::BlockDecl >::Type, class ::clang::BlockDecl > > >();
     }
 
 }

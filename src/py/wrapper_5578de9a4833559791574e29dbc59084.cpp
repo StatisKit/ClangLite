@@ -50,7 +50,6 @@ void wrapper_5578de9a4833559791574e29dbc59084()
     if(autowig::Held< class ::clang::AccessSpecDecl >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::AccessSpecDecl >::Type, autowig::Held< class ::clang::Decl >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::AccessSpecDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::AccessSpecDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::AccessSpecDecl >::Type, class ::clang::AccessSpecDecl > > >();
     }
 
 }

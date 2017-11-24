@@ -53,7 +53,6 @@ void wrapper_1fef548e459e5e63a7da47f30a93388e()
     if(autowig::Held< class ::clang::LabelDecl >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::LabelDecl >::Type, autowig::Held< class ::clang::NamedDecl >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::LabelDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::LabelDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::LabelDecl >::Type, class ::clang::LabelDecl > > >();
     }
 
 }

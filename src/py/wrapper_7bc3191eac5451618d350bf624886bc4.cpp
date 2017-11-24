@@ -13,23 +13,14 @@ void wrapper_7bc3191eac5451618d350bf624886bc4()
     boost::python::scope().attr("_template_argument") = module_c135a712d4ea5ecca5fd38e224a91e4a;
     boost::python::scope scope_c135a712d4ea5ecca5fd38e224a91e4a = module_c135a712d4ea5ecca5fd38e224a91e4a;
     boost::python::enum_< enum ::clang::TemplateArgument::ArgKind > enum_7bc3191eac5451618d350bf624886bc4("arg_kind");
-
     enum_7bc3191eac5451618d350bf624886bc4.value("NULL", ::clang::TemplateArgument::Null);
-
     enum_7bc3191eac5451618d350bf624886bc4.value("TYPE", ::clang::TemplateArgument::Type);
-
     enum_7bc3191eac5451618d350bf624886bc4.value("DECLARATION", ::clang::TemplateArgument::Declaration);
-
     enum_7bc3191eac5451618d350bf624886bc4.value("NULL_PTR", ::clang::TemplateArgument::NullPtr);
-
     enum_7bc3191eac5451618d350bf624886bc4.value("INTEGRAL", ::clang::TemplateArgument::Integral);
-
     enum_7bc3191eac5451618d350bf624886bc4.value("TEMPLATE", ::clang::TemplateArgument::Template);
-
     enum_7bc3191eac5451618d350bf624886bc4.value("TEMPLATE_EXPANSION", ::clang::TemplateArgument::TemplateExpansion);
-
     enum_7bc3191eac5451618d350bf624886bc4.value("EXPRESSION", ::clang::TemplateArgument::Expression);
-
     enum_7bc3191eac5451618d350bf624886bc4.value("PACK", ::clang::TemplateArgument::Pack);
 
 }

@@ -45,7 +45,6 @@ void wrapper_f962c9f0723d5c5fa0f3eb20b8b2a111()
     if(autowig::Held< class ::clang::FileScopeAsmDecl >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::FileScopeAsmDecl >::Type, autowig::Held< class ::clang::Decl >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::FileScopeAsmDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::FileScopeAsmDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::FileScopeAsmDecl >::Type, class ::clang::FileScopeAsmDecl > > >();
     }
 
 }

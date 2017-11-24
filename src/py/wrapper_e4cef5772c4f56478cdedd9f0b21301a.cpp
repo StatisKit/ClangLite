@@ -39,7 +39,6 @@ void wrapper_e4cef5772c4f56478cdedd9f0b21301a()
     if(autowig::Held< class ::clang::ElaboratedType >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::ElaboratedType >::Type, autowig::Held< class ::clang::TypeWithKeyword >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::ElaboratedType >::Type, boost::python::objects::make_ptr_instance< class ::clang::ElaboratedType, boost::python::objects::pointer_holder< autowig::Held< class ::clang::ElaboratedType >::Type, class ::clang::ElaboratedType > > >();
     }
 
 }

@@ -43,7 +43,6 @@ void wrapper_0dd00d729e905a24a952147ef6cb1f26()
     if(autowig::Held< class ::clang::StaticAssertDecl >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::StaticAssertDecl >::Type, autowig::Held< class ::clang::Decl >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::StaticAssertDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::StaticAssertDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::StaticAssertDecl >::Type, class ::clang::StaticAssertDecl > > >();
     }
 
 }

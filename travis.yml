@@ -15,9 +15,12 @@ services:
   
 env:
   - CONDA_RECIPE=bin/conda/llvm
+    TRAVIS_WAIT=50
   - CONDA_RECIPE=bin/conda/clang
   - CONDA_RECIPE=bin/conda/python-clang
     CONDA_VERSION=2
+  - CONDA_RECIPE=bin/conda/python-clang
+    CONDA_VERSION=3
   - CONDA_RECIPE=bin/conda/libclanglite
     CONDA_VERSION=2
   - CONDA_RECIPE=bin/conda/libclanglite
@@ -51,7 +54,9 @@ deploy:
   skip_cleanup: true
   provider: script
   script: bash deploy_script.sh
-
+  on:
+    all_branches: true
+    
 after_deploy:
   - source after_deploy.sh
 

@@ -30,7 +30,6 @@ void wrapper_289d20f99a245c299406a081a1259a49()
     if(autowig::Held< class ::clang::DependentTypeOfExprType >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::DependentTypeOfExprType >::Type, autowig::Held< class ::clang::TypeOfExprType >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::DependentTypeOfExprType >::Type, boost::python::objects::make_ptr_instance< class ::clang::DependentTypeOfExprType, boost::python::objects::pointer_holder< autowig::Held< class ::clang::DependentTypeOfExprType >::Type, class ::clang::DependentTypeOfExprType > > >();
     }
 
 }

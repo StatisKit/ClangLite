@@ -54,7 +54,6 @@ void wrapper_8ed765a365325afd812394a92e49d498()
     if(autowig::Held< class ::clang::UsingShadowDecl >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::UsingShadowDecl >::Type, autowig::Held< class ::clang::NamedDecl >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::UsingShadowDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::UsingShadowDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::UsingShadowDecl >::Type, class ::clang::UsingShadowDecl > > >();
     }
 
 }

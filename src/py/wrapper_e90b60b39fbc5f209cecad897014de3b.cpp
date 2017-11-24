@@ -209,7 +209,6 @@ void wrapper_e90b60b39fbc5f209cecad897014de3b()
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::FunctionDecl >::Type, autowig::Held< class ::clang::DeclaratorDecl >::Type >();
         boost::python::implicitly_convertible< autowig::Held< class ::clang::FunctionDecl >::Type, autowig::Held< class ::clang::DeclContext >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::FunctionDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::FunctionDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::FunctionDecl >::Type, class ::clang::FunctionDecl > > >();
     }
 
 }

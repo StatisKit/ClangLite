@@ -71,7 +71,6 @@ void wrapper_772637d055235cf8aad3a634a5362f9b()
     if(autowig::Held< class ::clang::ObjCPropertyDecl >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::ObjCPropertyDecl >::Type, autowig::Held< class ::clang::NamedDecl >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::ObjCPropertyDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::ObjCPropertyDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::ObjCPropertyDecl >::Type, class ::clang::ObjCPropertyDecl > > >();
     }
 
 }

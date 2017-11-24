@@ -39,7 +39,6 @@ void wrapper_17505392838a5ddf8a16f3bdbb8f586b()
     if(autowig::Held< class ::clang::AtomicType >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::AtomicType >::Type, autowig::Held< class ::clang::Type >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::AtomicType >::Type, boost::python::objects::make_ptr_instance< class ::clang::AtomicType, boost::python::objects::pointer_holder< autowig::Held< class ::clang::AtomicType >::Type, class ::clang::AtomicType > > >();
     }
 
 }

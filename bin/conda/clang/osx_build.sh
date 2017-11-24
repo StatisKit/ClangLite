@@ -1,9 +1,4 @@
-# cd tools
-
-# wget http://llvm.org/releases/3.8.1/cfe-3.8.1.src.tar.xz
-# tar -xJf cfe-3.8.1.src.tar.xz
-# mv cfe-3.8.1.src clang
-# cd ..
+set -ve
 
 sed -i -e 's/*B0/*BB0/g' $SRC_DIR/include/clang/Analysis/Analyses/ThreadSafetyTraverse.h
 
@@ -28,10 +23,4 @@ cmake -G "Unix Makefiles" -DBUILD_SHARED_LIBS=ON \
 make -j$CPU_COUNT VERBOSE=1
 make install
 
-# rm $PREFIX/bin/*
-
-                          # -DCMAKE_INSTALL_PREFIX=${PREFIX} \
-                          # -DCMAKE_C_COMPILER=${PREFIX}/bin/gcc \
-                          # -DCMAKE_CXX_COMPILER=${PREFIX}/bin/g++ \
-                          # -DGCC_INSTALL_PREFIX=${PREFIX} \
-                          # -DCMAKE_CXX_LINK_FLAGS="-L${PREFIX}/lib64 -Wl,-rpath,${PREFIX}/lib64" \
+set +ve

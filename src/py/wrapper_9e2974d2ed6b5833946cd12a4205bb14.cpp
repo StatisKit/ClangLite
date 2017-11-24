@@ -43,7 +43,6 @@ void wrapper_9e2974d2ed6b5833946cd12a4205bb14()
     if(autowig::Held< class ::clang::OMPThreadPrivateDecl >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::OMPThreadPrivateDecl >::Type, autowig::Held< class ::clang::Decl >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::OMPThreadPrivateDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::OMPThreadPrivateDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::OMPThreadPrivateDecl >::Type, class ::clang::OMPThreadPrivateDecl > > >();
     }
 
 }

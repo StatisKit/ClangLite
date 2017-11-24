@@ -69,7 +69,6 @@ void wrapper_72a947d59e2e5194bab98d04fc2841fb()
     if(autowig::Held< class ::clang::FieldDecl >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::FieldDecl >::Type, autowig::Held< class ::clang::DeclaratorDecl >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::FieldDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::FieldDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::FieldDecl >::Type, class ::clang::FieldDecl > > >();
     }
 
 }

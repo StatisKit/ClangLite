@@ -41,7 +41,6 @@ void wrapper_7d10a38ead5950acb903ebd8bb882a64()
     if(autowig::Held< class ::clang::DependentSizedExtVectorType >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::DependentSizedExtVectorType >::Type, autowig::Held< class ::clang::Type >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::DependentSizedExtVectorType >::Type, boost::python::objects::make_ptr_instance< class ::clang::DependentSizedExtVectorType, boost::python::objects::pointer_holder< autowig::Held< class ::clang::DependentSizedExtVectorType >::Type, class ::clang::DependentSizedExtVectorType > > >();
     }
 
 }

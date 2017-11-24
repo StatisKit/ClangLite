@@ -37,7 +37,6 @@ void wrapper_e6f4659cd31f536d8a173fe6b97a9e5a()
     if(autowig::Held< class ::clang::IncompleteArrayType >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::IncompleteArrayType >::Type, autowig::Held< class ::clang::ArrayType >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::IncompleteArrayType >::Type, boost::python::objects::make_ptr_instance< class ::clang::IncompleteArrayType, boost::python::objects::pointer_holder< autowig::Held< class ::clang::IncompleteArrayType >::Type, class ::clang::IncompleteArrayType > > >();
     }
 
 }

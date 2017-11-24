@@ -3,7 +3,7 @@
 
 #include <boost/python.hpp>
 #include <type_traits>
-#include <clanglite/tool.h>
+#include </home/pfernique/Desktop/develop/ClangLite/src/cpp/tool.h>
 
 namespace autowig
 {

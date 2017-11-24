@@ -22,3 +22,4 @@ requirements:
   run:
     - python
     - libtoolchain
+    - clang

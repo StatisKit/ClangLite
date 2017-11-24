@@ -18,9 +18,10 @@ requirements:
   build:
     - python
     - python-toolchain
+    - clang 3.8.1
     - zlib
     - xz                         [unix]
-    - m2w64-xz                   [win] 
+    - m2w64-xz                   [win]
   run:
     - python
     - clang

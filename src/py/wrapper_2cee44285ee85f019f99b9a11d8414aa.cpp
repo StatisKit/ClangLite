@@ -66,7 +66,6 @@ void wrapper_2cee44285ee85f019f99b9a11d8414aa()
         boost::python::implicitly_convertible< autowig::Held< autowig::Wrap_2cee44285ee85f019f99b9a11d8414aa >::Type, autowig::Held< class ::clang::RedeclarableTemplateDecl >::Type >();
         boost::python::register_ptr_to_python< autowig::Held< class ::clang::RedeclarableTemplateDecl >::Type >();
         boost::python::implicitly_convertible< autowig::Held< class ::clang::RedeclarableTemplateDecl >::Type, autowig::Held< class ::clang::TemplateDecl >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::RedeclarableTemplateDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::RedeclarableTemplateDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::RedeclarableTemplateDecl >::Type, class ::clang::RedeclarableTemplateDecl > > >();
     }
 
 }

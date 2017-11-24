@@ -48,7 +48,6 @@ void wrapper_82889ac35d675fc9a65f0285105ee4d5()
     if(autowig::Held< class ::clang::ObjCImplDecl >::is_class)
     {
         boost::python::implicitly_convertible< autowig::Held< class ::clang::ObjCImplDecl >::Type, autowig::Held< class ::clang::ObjCContainerDecl >::Type >();
-        //boost::python::objects::class_value_wrapper< autowig::Held< class ::clang::ObjCImplDecl >::Type, boost::python::objects::make_ptr_instance< class ::clang::ObjCImplDecl, boost::python::objects::pointer_holder< autowig::Held< class ::clang::ObjCImplDecl >::Type, class ::clang::ObjCImplDecl > > >();
     }
 
 }

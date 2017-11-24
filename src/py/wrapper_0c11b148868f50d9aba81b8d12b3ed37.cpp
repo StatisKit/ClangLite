@@ -13,9 +13,7 @@ void wrapper_0c11b148868f50d9aba81b8d12b3ed37()
     boost::python::scope().attr("_linkage_spec_decl") = module_693db0b37725552a85ff783087528c5b;
     boost::python::scope scope_693db0b37725552a85ff783087528c5b = module_693db0b37725552a85ff783087528c5b;
     boost::python::enum_< enum ::clang::LinkageSpecDecl::LanguageIDs > enum_0c11b148868f50d9aba81b8d12b3ed37("language_i_ds");
-
     enum_0c11b148868f50d9aba81b8d12b3ed37.value("LANG_C", ::clang::LinkageSpecDecl::lang_c);
-
     enum_0c11b148868f50d9aba81b8d12b3ed37.value("LANG_CXX", ::clang::LinkageSpecDecl::lang_cxx);
 
 }
