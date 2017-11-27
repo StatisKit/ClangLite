@@ -20,6 +20,7 @@ requirements:
     - libboost_python-dev
     - python-toolchain
     - libclanglite-dev
+    - clang
   run:
     - python
     - libclanglite
