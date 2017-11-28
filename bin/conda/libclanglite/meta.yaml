@@ -18,9 +18,11 @@ requirements:
     - python
     - libtoolchain 
     - python-toolchain
-    - libboost_python-dev
+    - libboost_core-dev
+    - libboost_python
     - clang
   run:
-    - python
-    - libtoolchain
+    - clang
+  run_exports:
+    - libclanglite
     - clang
