@@ -16,11 +16,15 @@ about:
 requirements:
   build:
     - libtoolchain
-    - python
     - libboost_python-dev
     - python-toolchain
     - libclanglite
     - clang
+  run:
+    - python
+    - vs2013_runtime
+    - libboost_python
+    - libclanglite
 
 test:   
   imports:
