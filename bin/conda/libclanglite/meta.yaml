@@ -7,6 +7,9 @@ source:
 
 build:
   number: 0
+  string: py{{ CONDA_PY }}
+  run_exports:
+    - libclanglite
 
 about:
   home: http://autowig.rtfd.io/
@@ -15,13 +18,10 @@ about:
 
 requirements:
   build:
-    - python
     - libtoolchain 
     - python-toolchain
     - libboost_python-dev
     - clang
   run:
     - clang
-  run_exports:
-    - libclanglite
-    - clang
+    - libboost_python

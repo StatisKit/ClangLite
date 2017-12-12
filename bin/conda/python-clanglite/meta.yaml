@@ -7,7 +7,8 @@ source:
 
 build:
   number: 0
-    
+  string: py{{ CONDA_PY }}
+
 about:
   home: http://autowig.rtfd.io/
   license: Apache License 2.0
@@ -20,11 +21,6 @@ requirements:
     - python-toolchain
     - libclanglite
     - clang
-  run:
-    - python
-    - vs2013_runtime
-    - libboost_python
-    - libclanglite
 
 test:   
   imports:

@@ -5,6 +5,7 @@ package:
 source:
   fn: cfe-3.8.1.src.tar.xz
   url: http://llvm.org/releases/3.8.1/cfe-3.8.1.src.tar.xz
+  sha256: 4cd3836dfb4b88b597e075341cae86d61c63ce3963e45c7fe6a8bf59bb382cdf
   
 build:
   number: 0
