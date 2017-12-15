@@ -7,9 +7,10 @@ source:
 
 build:
   number: 0
-  string: py{{ CONDA_PY }}_0
   run_exports:
     - libclanglite
+  ignore_run_exports:
+    - python
 
 about:
   home: http://autowig.rtfd.io/
@@ -23,5 +24,5 @@ requirements:
     - libboost_python-dev
     - clang
   run:
+    - python
     - clang
-    - libboost_python

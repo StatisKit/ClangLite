@@ -34,6 +34,8 @@ requirements:
     - 7za               [win]
     - m2-patch          [win]
     - python
+  run:
+    - libtoolchain
     
 test:
   commands:
