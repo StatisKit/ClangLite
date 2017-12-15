@@ -10,6 +10,10 @@ source:
 build:
   number: 0
   skip: True        [osx]
+  features:
+    - vc12                [win]
+  track_features:
+    - vc12                 [win]
 
 about:
   home: http://www.llvm.org/

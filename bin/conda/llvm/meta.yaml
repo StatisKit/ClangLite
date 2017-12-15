@@ -19,7 +19,11 @@ source:
 build:
   number: 0
   skip: True      [osx]
-  
+  features:
+    - vc12                [win]
+  track_features:
+    - vc12                 [win]
+    
 about:
   home: http://www.llvm.org/
   license: The University of Illinois/NCSA Open Source License
@@ -36,7 +40,7 @@ requirements:
     - python
   run:
     - libtoolchain
-    
+
 test:
   commands:
   - llvm-config --libs

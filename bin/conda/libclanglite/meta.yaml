@@ -6,12 +6,14 @@ source:
   path: ../../..
 
 build:
-  number: 0
+  number: 
+  features:
+    - vc12                [win]
+  track_features:
+    - vc12                 [win]
   run_exports:
     - libclanglite
-  ignore_run_exports:
-    - python
-
+    
 about:
   home: http://autowig.rtfd.io/
   license: Apache License 2.0
@@ -19,7 +21,7 @@ about:
 
 requirements:
   build:
-    - libtoolchain 
+    - libtoolchain
     - python-toolchain
     - libboost_python-dev
     - clang
