@@ -63,7 +63,7 @@ void wrapper_3355f55454c958cf9ccb029a6c5f8b78()
     void  (::clang::ASTUnit::*method_pointer_7d275098fe9a5ec8aeedd00292d54d3a)(bool ) = &::clang::ASTUnit::setOwnsRemappedFileBuffers;
     class ::llvm::StringRef  (::clang::ASTUnit::*method_pointer_ced83189b9d7590286b9c643defd11fc)() const = &::clang::ASTUnit::getMainFileName;
     class ::llvm::StringRef  (::clang::ASTUnit::*method_pointer_2d2cbbf08c60567f90024ecdc46c9902)() const = &::clang::ASTUnit::getASTFileName;
-    unsigned long int  (::clang::ASTUnit::*method_pointer_66729bea6df6571895bb1342f4213b4a)() const = &::clang::ASTUnit::top_level_size;
+    size_t  (::clang::ASTUnit::*method_pointer_66729bea6df6571895bb1342f4213b4a)() const = &::clang::ASTUnit::top_level_size;
     bool  (::clang::ASTUnit::*method_pointer_68f7d671faee5f77888f24350c3a76a9)() const = &::clang::ASTUnit::top_level_empty;
     void  (::clang::ASTUnit::*method_pointer_780f1b020f465a4c8b80d164ba83cc77)(class ::clang::Decl *) = &::clang::ASTUnit::addTopLevelDecl;
     void  (::clang::ASTUnit::*method_pointer_c7c5bad525805ea5977716195d50ee53)(class ::clang::Decl *) = &::clang::ASTUnit::addFileLevelDecl;
