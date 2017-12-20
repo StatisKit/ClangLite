@@ -843,4 +843,4 @@ def read_parent(asg, parent):
     elif kind in [clang.Decl.kind.CLASS_TEMPLATE_PARTIAL_SPECIALIZATION, clang.Decl.kind.FIRST_TEMPLATE, clang.Decl.kind.FIRST_VAR_TEMPLATE_SPECIALIZATION, clang.Decl.kind.LAST_TAG, clang.Decl.kind.LAST_REDECLARABLE_TEMPLATE, clang.Decl.kind.LAST_TEMPLATE]:
         warnings.warn('', Warning)
     else:
-        warnings.warn(kind, Warning)
+        warnings.warn(str(kind), Warning)
