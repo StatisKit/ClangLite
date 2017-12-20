@@ -5,7 +5,7 @@ branches:
 language: cpp
 
 os:
-  # - linux
+  - linux
   - osx
 
 sudo: required
@@ -14,9 +14,9 @@ services:
   - docker
   
 env:
-  # - CONDA_RECIPE=bin/conda/llvm
-  #   TRAVIS_WAIT=50
-  # - CONDA_RECIPE=bin/conda/clang
+  - CONDA_RECIPE=bin/conda/llvm
+    TRAVIS_WAIT=50
+  - CONDA_RECIPE=bin/conda/clang
   # - CONDA_RECIPE=bin/conda/python-clang
   #   CONDA_VERSION=2
   # - CONDA_RECIPE=bin/conda/python-clang

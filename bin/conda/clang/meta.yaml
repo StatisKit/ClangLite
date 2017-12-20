@@ -33,10 +33,14 @@ source:
     - 0002-add-conda-specific-env-var-CONDA_BUILD_SYSROOT.patch
     - 0003-Fix-normalizeProgramName-s-handling-of-dots-ou.patch
     - 0004-Fix-B0-to-BBO-in-ThreadSafetyTraverse.patch
-    
+  
 build:
   number: 0
-  skip: true        [osx]
+  skip: True        [osx]
+  features:
+    - vc14                 [win]
+  track_features:
+    - vc14                 [win]
 
 about:
   home: http://www.llvm.org/
@@ -46,6 +50,8 @@ about:
 requirements:
   build:
     - llvm 4.0.1
+    - libtoolchain
+    - python
     - cmake
     - zlib
     - m2w64-xz                       [py27 and win]
