@@ -90,7 +90,7 @@ void wrapper_4b8444f6e9695ad99a1ccdbf56dc74ac()
     class_4b8444f6e9695ad99a1ccdbf56dc74ac.staticmethod("classof_kind");
     class_4b8444f6e9695ad99a1ccdbf56dc74ac.staticmethod("create_deserialized");
     class_4b8444f6e9695ad99a1ccdbf56dc74ac.staticmethod("classof");
-    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_specializations", function_group::function_1da28d01191e58d8aa492f393e05dcfb, "");
+    class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_children", function_group::function_1da28d01191e58d8aa492f393e05dcfb, "");
 
     if(autowig::Held< class ::clang::ClassTemplateDecl >::is_class)
     {

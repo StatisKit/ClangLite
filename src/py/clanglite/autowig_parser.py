@@ -494,7 +494,7 @@ def read_class_template(asg, decl, inline, permissive, out=True):
         else:
             asg._nodes[spelling]['_is_complete'] = asg._nodes[spelling]['_is_complete'] or decl.is_this_declaration_a_definition()
         if out:
-            for child in decl.get_specializations(asg._sema):
+            for child in decl.get_children(asg._sema):
                 try:
                     asg._specialization_edges[spelling].update(set(read_tag(asg, child, out=out, inline=inline, permissive=permissive)))
                 except Exception as e:

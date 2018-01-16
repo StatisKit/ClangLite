@@ -88,9 +88,9 @@ del wrapper
 
 def wrapper(f):
     @wraps(f)
-    def get_children(self):
+    def get_children(self, sema):
         try:
-            return f(self)
+            return f(self, sema)
         except:
             return []
     return get_children
