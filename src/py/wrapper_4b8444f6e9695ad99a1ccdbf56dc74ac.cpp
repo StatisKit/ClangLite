@@ -69,7 +69,7 @@ void wrapper_4b8444f6e9695ad99a1ccdbf56dc74ac()
         static class ::boost::python::list  function_1da28d01191e58d8aa492f393e05dcfb(class ::clang::ClassTemplateDecl & parameter_0)
         { return ::clanglite::get_children(parameter_0); }
     };
-    boost::python::class_< class ::clang::Sema, autowig::Held< class ::clang::Sema >::Type, boost::noncopyable > class_4b8444f6e9695ad99a1ccdbf56dc74ac("Sema", "", boost::python::no_init);
+    boost::python::class_< class ::clang::Sema, autowig::Held< class ::clang::Sema >::Type, boost::noncopyable > class_sema("Sema", "", boost::python::no_init);
     boost::python::class_< class ::clang::ClassTemplateDecl, autowig::Held< class ::clang::ClassTemplateDecl >::Type, boost::python::bases< class ::clang::RedeclarableTemplateDecl >, boost::noncopyable > class_4b8444f6e9695ad99a1ccdbf56dc74ac("ClassTemplateDecl", "", boost::python::no_init);
     class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("load_lazy_specializations", method_pointer_5105d4d97db85b69b624a2d865af44fb, "Load any lazily-loaded specializations from the external source.\n\n:Return Type:\n    :cpp:any:`void`\n\n");
     class_4b8444f6e9695ad99a1ccdbf56dc74ac.def("get_templated_decl", method_pointer_8a19abec9dde50a49cfd8968a05acecb, boost::python::return_value_policy< boost::python::reference_existing_object >(), "Get the underlying class declarations of the template.\n\n:Return Type:\n    :py:class:`clanglite.clang.CXXRecordDecl`\n\n");
