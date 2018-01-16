@@ -73,7 +73,7 @@ namespace clanglite
             if (retval == nullptr) {
                 retval = ClassTemplateSpecializationDecl::Create(cls.getASTContext(), clang::TTK_Class, cls.getDeclContext(), {}, {}, cls,
                                                                  args.data(), args.size(), nullptr);
-                decl->AddSpecialization(retval, ins_point);
+                cls->AddSpecialization(retval, ins_point);
             }
             if(!sema.RequireCompleteType({}, ast.getTypeDeclType(retval), clang::diag::err_incomplete_type))
             { children.append(boost::python::ptr(retval)); }
