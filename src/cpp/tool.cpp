@@ -67,7 +67,7 @@ namespace clanglite
         boost::python::list children = boost::python::list();
         for(auto it = cls.spec_begin(), it_end = cls.spec_end(); it != it_end; ++it)
         { 
-            const TemplateArgumentList & args = it->getTemplateArgs();
+            const clang::TemplateArgumentList & args = it->getTemplateArgs();
             void* ins_point;
             auto retval = cls.findSpecialization(args.data(), args.size());//, ins_point);
             if (retval == nullptr) {
