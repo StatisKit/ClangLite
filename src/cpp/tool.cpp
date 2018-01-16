@@ -75,7 +75,7 @@ namespace clanglite
                 cls->AddSpecialization(retval, ins_point);
             }
             if(!sema.RequireCompleteType({}, cls->getASTContext().getTypeDeclType(retval), clang::diag::err_incomplete_type))
-            { children.append(boost::python::ptr(retval)); }
+            { children.append(boost::python::ptr(cls->findSpecialization(args.asArray(), ins_point))); }
         }
         return children; 
     }
