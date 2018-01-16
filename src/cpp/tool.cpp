@@ -62,11 +62,14 @@ namespace clanglite
         return children; 
     }
 
-    boost::python::list get_children(clang::ClassTemplateDecl& cls)
+    boost::python::list get_children(clang::ClassTemplateDecl& cls, clang::Sema& sema)
     { 
         boost::python::list children = boost::python::list();
         for(auto it = cls.spec_begin(), it_end = cls.spec_end(); it != it_end; ++it)
-        { children.append(boost::python::ptr(*it)); }
+        { 
+            if(sema.RequireCompleteType({}, cls.getASTContext().getTypeDeclType(*it), clang::diag::err_incomplete_type))
+            { children.append(boost::python::ptr(*it)); }
+        }
         return children; 
     }
 

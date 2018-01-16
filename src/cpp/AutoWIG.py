@@ -95,6 +95,7 @@ def controller(asg):
             cls.is_copyable = True
     subset.append(asg['class ::llvm::StringRef'])
 
+    subset.append(asg['class ::clang::Sema'])
     subset.append(asg['class ::clang::ASTUnit'])
     subset.append(asg['class ::clang::ASTContext'])
     subset.append(asg['class ::clang::SourceManager'])

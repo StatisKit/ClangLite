@@ -67,6 +67,7 @@ def read_translation_unit(asg, tu, inline, permissive):
     """
     """
     asg._read = set()
+    asg._sema = tu.get_sema()
     for child in tu.get_children():
         try:
             read_decl(asg, child, inline=inline, permissive=permissive)
@@ -493,7 +494,7 @@ def read_class_template(asg, decl, inline, permissive, out=True):
         else:
             asg._nodes[spelling]['_is_complete'] = asg._nodes[spelling]['_is_complete'] or decl.is_this_declaration_a_definition()
         if out:
-            for child in decl.get_children():
+            for child in decl.get_children(asg._sema):
                 try:
                     asg._specialization_edges[spelling].update(set(read_tag(asg, child, out=out, inline=inline, permissive=permissive)))
                 except Exception as e:
