@@ -71,8 +71,7 @@ namespace clanglite
             void* ins_point;
             auto retval = cls.findSpecialization(args.data(), args.size());//, ins_point);
             if (retval == nullptr) {
-                retval = clang::ClassTemplateSpecializationDecl::Create(cls.getASTContext(), clang::TTK_Class, cls.getDeclContext(), {}, {}, cls,
-                                                                 args.data(), args.size(), nullptr);
+                retval = clang::ClassTemplateSpecializationDecl::Create(cls.getASTContext(), clang::TTK_Class, cls.getDeclContext(), {}, {}, cls, args.asArray(), nullptr);
                 cls.AddSpecialization(retval, ins_point);
             }
             if(!sema.RequireCompleteType({}, cls.getASTContext().getTypeDeclType(retval), clang::diag::err_incomplete_type))
