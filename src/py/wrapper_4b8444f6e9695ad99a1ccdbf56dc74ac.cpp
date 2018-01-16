@@ -66,7 +66,7 @@ void wrapper_4b8444f6e9695ad99a1ccdbf56dc74ac()
     bool  (*method_pointer_548717680bae54119cbc1c757e2542b5)(enum ::clang::Decl::Kind ) = ::clang::ClassTemplateDecl::classofKind;
     struct function_group
     {
-        static class ::boost::python::list  function_1da28d01191e58d8aa492f393e05dcfb(class ::clang::ClassTemplateDecl & parameter_0, clang::Sema& sema)
+        static class ::boost::python::list  function_1da28d01191e58d8aa492f393e05dcfb(class ::clang::ClassTemplateDecl * parameter_0, clang::Sema& sema)
         { return ::clanglite::get_children(parameter_0, sema); }
     };
     boost::python::class_< class ::clang::Sema, autowig::Held< class ::clang::Sema >::Type, boost::noncopyable > class_sema("Sema", "", boost::python::no_init);
