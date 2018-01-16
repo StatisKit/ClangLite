@@ -485,14 +485,14 @@ def read_class_template(asg, decl, inline, permissive, out=True):
         spelling = 'class ' + spelling
         if not spelling in asg._nodes:
             asg._nodes[spelling] = dict(_proxy=ClassTemplateProxy,
-                    _is_complete=decl.is_this_declaration_a_definition())
+                    _is_complete=decl.is_this_declaration_a_definition(asg._sema))
             asg._syntax_edges[scope].append(spelling)
             asg._specialization_edges[spelling] = set()
             asg._syntax_edges[spelling] = []
             read_file(asg, spelling, decl)
             read_access(asg, decl.get_access_unsafe(), spelling)
         else:
-            asg._nodes[spelling]['_is_complete'] = asg._nodes[spelling]['_is_complete'] or decl.is_this_declaration_a_definition()
+            asg._nodes[spelling]['_is_complete'] = asg._nodes[spelling]['_is_complete'] or decl.is_this_declaration_a_definition(asg._sema)
         if out:
             for child in decl.get_children(asg._sema):
                 try:
