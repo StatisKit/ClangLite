@@ -67,8 +67,16 @@ namespace clanglite
         boost::python::list children = boost::python::list();
         for(auto it = cls.spec_begin(), it_end = cls.spec_end(); it != it_end; ++it)
         { 
-            if(!sema.RequireCompleteType({}, cls.getASTContext().getTypeDeclType(*it), clang::diag::err_incomplete_type))
-            { children.append(boost::python::ptr(*it)); }
+            auto args = it->getTemplateArgs();
+            void* ins_point;
+            auto retval = cls->findSpecialization(args.data(), args.size(), ins_point);
+            if (retval == nullptr) {
+                retval = ClassTemplateSpecializationDecl::Create(cls.getASTContext(), clang::TTK_Class, cls.getDeclContext(), {}, {}, cls,
+                                                                 args.data(), args.size(), nullptr);
+                decl->AddSpecialization(retval, ins_point);
+            }
+            if(!sema.RequireCompleteType({}, ast.getTypeDeclType(retval), clang::diag::err_incomplete_type))
+            { children.append(boost::python::ptr(retval)); }
         }
         return children; 
     }
