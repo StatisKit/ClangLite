@@ -79,13 +79,15 @@ void wrapper_3355f55454c958cf9ccb029a6c5f8b78()
     unsigned int  (::clang::ASTUnit::*method_pointer_31509b6e5aa3516982986f740f3358f4)() const = &::clang::ASTUnit::cached_completion_size;
     bool  (::clang::ASTUnit::*method_pointer_7d7f1255f5ed57feb65b2158e3f1fab5)() = &::clang::ASTUnit::isModuleFile;
     bool  (::clang::ASTUnit::*method_pointer_621316ea48f3511fa390cb0c4fac7657)(class ::llvm::StringRef ) = &::clang::ASTUnit::Save;
+    ::clang::Sema&  (::clang::ASTUnit::*method_pointer_sema)() const = &clang::ASTUnit::getSema;
+
     struct function_group
     {
         static class ::boost::python::list  function_d39550f58a685797a3dc2b5a02ccf049(class ::clang::ASTUnit & parameter_0)
         { return ::clanglite::get_children(parameter_0); }
     };
     boost::python::class_< class ::clang::ASTUnit, autowig::Held< class ::clang::ASTUnit >::Type, boost::noncopyable > class_3355f55454c958cf9ccb029a6c5f8b78("ASTUnit", "Utility class for loading a ASTContext from an AST file.\n\n", boost::python::no_init);
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("get_sema", &clang::ASTUnit::getSema, "");
+    class_3355f55454c958cf9ccb029a6c5f8b78.def("get_sema", method_pointer_sema, "");
     class_3355f55454c958cf9ccb029a6c5f8b78.def("is_main_file_ast", method_pointer_3e808aebd4675bef93a92088f727170a, "");
     class_3355f55454c958cf9ccb029a6c5f8b78.def("is_unsafe_to_free", method_pointer_5ab42ee56d0a5514abb4121f1eb2a619, "");
     class_3355f55454c958cf9ccb029a6c5f8b78.def("set_unsafe_to_free", method_pointer_cd308b04f8055866b779f8510a89a287, "");
