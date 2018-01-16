@@ -69,9 +69,9 @@ namespace clanglite
         { 
             const TemplateArgumentList & args = it->getTemplateArgs();
             void* ins_point;
-            auto retval = cls.findSpecialization(args.data(), args.size(), ins_point);
+            auto retval = cls.findSpecialization(args.data(), args.size());//, ins_point);
             if (retval == nullptr) {
-                retval = ClassTemplateSpecializationDecl::Create(cls.getASTContext(), clang::TTK_Class, cls.getDeclContext(), {}, {}, cls,
+                retval = clang::ClassTemplateSpecializationDecl::Create(cls.getASTContext(), clang::TTK_Class, cls.getDeclContext(), {}, {}, cls,
                                                                  args.data(), args.size(), nullptr);
                 cls.AddSpecialization(retval, ins_point);
             }
