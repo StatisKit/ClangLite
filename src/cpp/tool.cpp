@@ -62,19 +62,19 @@ namespace clanglite
         return children; 
     }
 
-    boost::python::list get_children(clang::ClassTemplateDecl& cls, clang::Sema& sema)
+    boost::python::list get_children(clang::ClassTemplateDecl* cls, clang::Sema& sema)
     { 
         boost::python::list children = boost::python::list();
-        for(auto it = cls.spec_begin(), it_end = cls.spec_end(); it != it_end; ++it)
+        for(auto it = cls->spec_begin(), it_end = cls->spec_end(); it != it_end; ++it)
         { 
             const clang::TemplateArgumentList & args = it->getTemplateArgs();
             void* ins_point;
-            auto retval = cls.findSpecialization(args.asArray());//, args.size());//, ins_point);
+            auto retval = cls->findSpecialization(args.asArray());//, args.size());//, ins_point);
             if (retval == nullptr) {
-                retval = clang::ClassTemplateSpecializationDecl::Create(cls.getASTContext(), clang::TTK_Class, cls.getDeclContext(), {}, {}, cls, args.asArray(), nullptr);
-                cls.AddSpecialization(retval, ins_point);
+                retval = clang::ClassTemplateSpecializationDecl::Create(cls->getASTContext(), clang::TTK_Class, cls->getDeclContext(), {}, {}, cls, args.asArray(), nullptr);
+                cls->AddSpecialization(retval, ins_point);
             }
-            if(!sema.RequireCompleteType({}, cls.getASTContext().getTypeDeclType(retval), clang::diag::err_incomplete_type))
+            if(!sema.RequireCompleteType({}, cls->getASTContext().getTypeDeclType(retval), clang::diag::err_incomplete_type))
             { children.append(boost::python::ptr(retval)); }
         }
         return children; 
