@@ -85,6 +85,7 @@ void wrapper_3355f55454c958cf9ccb029a6c5f8b78()
         { return ::clanglite::get_children(parameter_0); }
     };
     boost::python::class_< class ::clang::ASTUnit, autowig::Held< class ::clang::ASTUnit >::Type, boost::noncopyable > class_3355f55454c958cf9ccb029a6c5f8b78("ASTUnit", "Utility class for loading a ASTContext from an AST file.\n\n", boost::python::no_init);
+    class_3355f55454c958cf9ccb029a6c5f8b78.def("get_sema", &clang::ASTUnit::getSema, "");
     class_3355f55454c958cf9ccb029a6c5f8b78.def("is_main_file_ast", method_pointer_3e808aebd4675bef93a92088f727170a, "");
     class_3355f55454c958cf9ccb029a6c5f8b78.def("is_unsafe_to_free", method_pointer_5ab42ee56d0a5514abb4121f1eb2a619, "");
     class_3355f55454c958cf9ccb029a6c5f8b78.def("set_unsafe_to_free", method_pointer_cd308b04f8055866b779f8510a89a287, "");
