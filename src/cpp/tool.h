@@ -422,7 +422,7 @@ namespace clanglite
 
     CLANGLITE_API boost::python::list get_children(clang::ASTUnit& ast);
     CLANGLITE_API boost::python::list get_children(clang::DeclContext& decl);
-    CLANGLITE_API boost::python::list get_children(clang::ClassTemplateDecl* cls, clang::Sema& sema);
+    CLANGLITE_API boost::python::list get_children(clang::ClassTemplateDecl& cls);
     CLANGLITE_API boost::python::list get_children(clang::FunctionDecl& cls);
 
     CLANGLITE_API clang::TemplateArgumentList* get_template_args(clang::ClassTemplateSpecializationDecl& cls);
