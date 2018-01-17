@@ -76,11 +76,11 @@ if not hasattr(clang.CXXRecordDecl, 'is_copyable'):
 
 def wrapper(f):
     @wraps(f)
-    def is_this_declaration_a_definition(self, sema):
+    def is_this_declaration_a_definition(self):
         try:
             return f(self)
         except:
-            return len(self.get_children(sema)) > 0
+            return len(self.get_children()) > 0
     return is_this_declaration_a_definition 
             
 clang.ClassTemplateDecl.is_this_declaration_a_definition = wrapper(clang.ClassTemplateDecl.is_this_declaration_a_definition)
@@ -88,9 +88,9 @@ del wrapper
 
 def wrapper(f):
     @wraps(f)
-    def get_children(self, sema):
+    def get_children(self):
         try:
-            return f(self, sema)
+            return f(self)
         except:
             return []
     return get_children
