@@ -24,6 +24,7 @@ requirements:
     - python-toolchain
     - libclanglite 3.8.1
     - clang 3.8.1
+    - python
   run:
     - python
 
