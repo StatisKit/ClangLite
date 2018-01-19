@@ -48,6 +48,7 @@ requirements:
     - libboost_python-dev
     - python-toolchain
     - libclanglite 4.0.1
+    - python
   run:
     - python
 
