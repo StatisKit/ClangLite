@@ -38,6 +38,6 @@ exclude = """
 
 sources = [source for source in pyenv.Glob('*.*') if source.name not in exclude]
 
-targets = pyenv.BoostPythonExtension("clanglite/__clanglite", sources)
+targets = pyenv.BoostPythonExtension("clanglite/__clanglite", sources, preserve_egg_dir=True)
 Alias("py", targets)
 Alias("install", targets)
