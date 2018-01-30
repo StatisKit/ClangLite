@@ -5,10 +5,24 @@ from autowig.asg import *
 from autowig._parser import pre_processing, post_processing
 from clanglite import *
 
+MSVCFLAGS = {'/O1' : '-O1',
+             '/O2' : '-O2'}
+
 def autowig_parser(asg, headers, flags, inline=True, permissive=True, **kwargs):
     header = pre_processing(asg, headers, flags, **kwargs)
     if header:
-        tu = clang.tooling.build_ast_from_code_with_args(header, flags)
+        _flags = []
+        for flag in flags:
+            if flag.startswith('/'):
+                if flag in MSVCFLAGS:
+                    _flags.append(MSVCFLAGS[flag])
+                elif flag.startswith('/D'):
+                    _flags.append(flag.replace('/D', '-D'))
+                elif flag.startswith('/I'):
+                    _flags.append(flag.replace('/I', '-I'))
+            else:
+                _flags.append(flag)
+        tu = clang.tooling.build_ast_from_code_with_args(header, _flags)
         read_translation_unit(asg, tu, inline, permissive)
     post_processing(asg, flags, **kwargs)
     return asg
