@@ -51,6 +51,7 @@ requirements:
     - python
   run:
     - python
+    - libclanglite 4.0.1
 
 test:   
   imports:
