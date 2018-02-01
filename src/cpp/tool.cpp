@@ -22,6 +22,7 @@
 // permissions and limitations under the License.                        //
 
 #include <clanglite/tool.h>
+#include <boost/algorithm/string/replace.hpp>
 
 namespace clanglite
 {
@@ -132,7 +133,11 @@ namespace clanglite
     { return static_cast< clang::EnumDecl * >(decl); }
 
     boost::python::str get_name(clang::NamedDecl * decl)
-    { return boost::python::str(decl->getNameAsString()); }
+    { 
+        std::string res = decl->getNameAsString();
+        res.erase(std::remove_if(res.begin(), res.end(), detail::invalid_char), res.end());
+        return boost::python::str(res);
+    }
 
     /*void set_as_written(std::map< clang::ClassTemplateSpecializationDecl*, clang::TypeSourceInfo* >& mapping, clang::ClassTemplateSpecializationDecl* spec)
     {
@@ -177,6 +182,12 @@ namespace clanglite
         }
     }*/
 
+    namespace detail 
+    {
+        bool invalid_char(char c) 
+        { return !(c>=0 && c <128); }
+    } 
+
     boost::python::str get_name(clang::ClassTemplateSpecializationDecl * decl)
     {
         // std::map< clang::ClassTemplateSpecializationDecl*, clang::TypeSourceInfo* > mapping;
@@ -195,6 +206,8 @@ namespace clanglite
                                                                   policy);
         std::string res = os.str();
         // set_as_written(mapping, decl);        
+        std::cout << res << std::endl;
+        res.erase(std::remove_if(res.begin(), res.end(), detail::invalid_char), res.end());
         return boost::python::str(res);
     }
 
@@ -209,7 +222,9 @@ namespace clanglite
         policy.SuppressScope = false;
         policy.SuppressUnwrittenScope = true;        
         ta->print(policy, os);
-        return boost::python::str(os.str());
+        std::string res = os.str();
+        res.erase(std::remove_if(res.begin(), res.end(), detail::invalid_char), res.end());
+        return boost::python::str(res);
     }
 
     boost::python::str str(clang::StringRef* sref)
