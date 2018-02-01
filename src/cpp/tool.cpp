@@ -206,7 +206,6 @@ namespace clanglite
                                                                   policy);
         std::string res = os.str();
         // set_as_written(mapping, decl);        
-        std::cout << res << std::endl;
         res.erase(std::remove_if(res.begin(), res.end(), detail::invalid_char), res.end());
         return boost::python::str(res);
     }
