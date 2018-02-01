@@ -446,6 +446,10 @@ namespace clanglite
     CLANGLITE_API boost::python::str str(clang::StringRef* sref);
 
     CLANGLITE_API boost::python::str get_mangling(clang::FunctionDecl * decl);
+
+    namespace detail
+    { CLANGLITE_API bool invalid_char(char c); }
+
 }
 
 #endif
