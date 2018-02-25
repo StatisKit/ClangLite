@@ -50,7 +50,8 @@ requirements:
     - libclanglite 4.0.1
   run:
     - python
+    - libclanglite 4.0.1
 
-test:   
+test:
   imports:
     - clanglite
