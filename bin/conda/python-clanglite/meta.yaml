@@ -23,10 +23,11 @@ requirements:
     - libboost_python-dev
     - python-toolchain
     - libclanglite 3.8.1
-    - clang 3.8.1
     - python
   run:
     - python
+    - libboost_python
+    - libclanglite 3.8.1
 
 test:   
   imports:

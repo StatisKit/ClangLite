@@ -31,6 +31,7 @@ requirements:
     - 7za                            [win]
   run:
     - llvm 3.8.1
+    - libtoolchain
 
 test:
   commands:
