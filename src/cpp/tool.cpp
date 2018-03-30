@@ -1,4 +1,5 @@
 #include <clanglite/tool.h>
+#include <stdexcept>
 
 namespace clanglite
 {
@@ -10,6 +11,8 @@ namespace clanglite
         std::string __code = boost::python::extract< std::string >(_code);
         llvm::Twine code(__code);
         clang::ASTUnit* tu = clang::tooling::buildASTFromCodeWithArgs(code, args).release();
+        if(!tu)
+        { throw std::runtime_error("source code parsing failed"); }
         clang::LangOptions lang;
         lang.CPlusPlus = true;
         clang::PrintingPolicy policy(lang);
