@@ -31,18 +31,18 @@ env:
     CONDA_VERSION=3
 
 matrix:
-  allow_failures:
-    - os: linux
-      env: CONDA_RECIPE=bin/conda/llvm
-           TRAVIS_WAIT=50
-    - os: linux
-      env: CONDA_RECIPE=bin/conda/clang
-    - os: linux
-      env: CONDA_RECIPE=bin/conda/python-clanglite
-           CONDA_VERSION=2
-    - os: linux
-      env: CONDA_RECIPE=bin/conda/python-clanglite
-           CONDA_VERSION=3
+  # allow_failures:
+  #   - os: linux
+  #     env: CONDA_RECIPE=bin/conda/llvm
+  #          TRAVIS_WAIT=50
+  #   - os: linux
+  #     env: CONDA_RECIPE=bin/conda/clang
+  #   - os: linux
+  #     env: CONDA_RECIPE=bin/conda/python-clanglite
+  #          CONDA_VERSION=2
+  #   - os: linux
+  #     env: CONDA_RECIPE=bin/conda/python-clanglite
+  #          CONDA_VERSION=3
   exclude:
     - os: osx
       env: CONDA_RECIPE=bin/conda/llvm
