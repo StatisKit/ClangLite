@@ -34,6 +34,8 @@ namespace clanglite
         std::string __code = boost::python::extract< std::string >(_code);
         llvm::Twine code(__code);
         clang::ASTUnit* tu = clang::tooling::buildASTFromCodeWithArgs(code, args).release();
+        if(!tu)
+        { throw std::runtime_error("code parsing failed, no translation unit returned by clang"); }
         clang::LangOptions lang;
         lang.CPlusPlus = true;
         clang::PrintingPolicy policy(lang);
