@@ -1,3 +1,26 @@
+// Copyright [2017-2018] UMR MISTEA INRA, UMR LEPSE INRA,                //
+//                       UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+// Copyright [2015-2016] UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+//                                                                       //
+// This file is part of the AutoWIG project. More information can be     //
+// found at                                                              //
+//                                                                       //
+//     http://autowig.rtfd.io                                            //
+//                                                                       //
+// The Apache Software Foundation (ASF) licenses this file to you under  //
+// the Apache License, Version 2.0 (the "License"); you may not use this //
+// file except in compliance with the License. You should have received  //
+// a copy of the Apache License, Version 2.0 along with this file; see   //
+// the file LICENSE. If not, you may obtain a copy of the License at     //
+//                                                                       //
+//     http://www.apache.org/licenses/LICENSE-2.0                        //
+//                                                                       //
+// Unless required by applicable law or agreed to in writing, software   //
+// distributed under the License is distributed on an "AS IS" BASIS,     //
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or       //
+// mplied. See the License for the specific language governing           //
+// permissions and limitations under the License.                        //
+
 #include "_clanglite.h"
 
 
@@ -46,6 +69,7 @@ void wrapper_14c4bbdd8f0a57b0a17277a678e9b9df()
     bool  (::clang::EnumDecl::*method_pointer_432e7d98c3435af78697b45f1f286645)() const = &::clang::EnumDecl::isScopedUsingClassTag;
     bool  (::clang::EnumDecl::*method_pointer_9362618f44875115945452b1b3ea4103)() const = &::clang::EnumDecl::isFixed;
     bool  (::clang::EnumDecl::*method_pointer_641892e48321594d842c92f653495c1e)() const = &::clang::EnumDecl::isComplete;
+    class ::clang::EnumDecl * (::clang::EnumDecl::*method_pointer_e85efe0eb8cb559dbbaeeae6919bd88d)() const = &::clang::EnumDecl::getTemplateInstantiationPattern;
     class ::clang::EnumDecl * (::clang::EnumDecl::*method_pointer_eacdccf0aee1568e9dca6ad293546ad6)() const = &::clang::EnumDecl::getInstantiatedFromMemberEnum;
     bool  (*method_pointer_87d46405e2395cdeaf15a56c54b08219)(class ::clang::Decl const *) = ::clang::EnumDecl::classof;
     bool  (*method_pointer_7839896a7e0d5ab7ae779b2bbe61f0ea)(enum ::clang::Decl::Kind ) = ::clang::EnumDecl::classofKind;
@@ -71,6 +95,7 @@ void wrapper_14c4bbdd8f0a57b0a17277a678e9b9df()
     class_14c4bbdd8f0a57b0a17277a678e9b9df.def("is_scoped_using_class_tag", method_pointer_432e7d98c3435af78697b45f1f286645, "Returns true if this is a C++11 scoped enumeration.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_14c4bbdd8f0a57b0a17277a678e9b9df.def("is_fixed", method_pointer_9362618f44875115945452b1b3ea4103, "Returns true if this is an Objective-C, C++11, or Microsoft-style\nenumeration with a fixed underlying type.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_14c4bbdd8f0a57b0a17277a678e9b9df.def("is_complete", method_pointer_641892e48321594d842c92f653495c1e, "Returns true if this can be considered a complete type.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_14c4bbdd8f0a57b0a17277a678e9b9df.def("get_template_instantiation_pattern", method_pointer_e85efe0eb8cb559dbbaeeae6919bd88d, boost::python::return_value_policy< boost::python::reference_existing_object >(), "Retrieve the enum definition from which this enumeration could be\ninstantiated, if it is an instantiation (rather than a non-template).\n\n:Return Type:\n    :py:class:`clanglite.clang.EnumDecl`\n\n");
     class_14c4bbdd8f0a57b0a17277a678e9b9df.def("get_instantiated_from_member_enum", method_pointer_eacdccf0aee1568e9dca6ad293546ad6, boost::python::return_value_policy< boost::python::reference_existing_object >(), "Returns the enumeration (declared within the template) from which this\nenumeration type was instantiated, or NULL if this enumeration was not\ninstantiated from any template.\n\n:Return Type:\n    :py:class:`clanglite.clang.EnumDecl`\n\n");
     class_14c4bbdd8f0a57b0a17277a678e9b9df.def("classof", method_pointer_87d46405e2395cdeaf15a56c54b08219, "");
     class_14c4bbdd8f0a57b0a17277a678e9b9df.def("classof_kind", method_pointer_7839896a7e0d5ab7ae779b2bbe61f0ea, "");

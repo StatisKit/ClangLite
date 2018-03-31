@@ -1,3 +1,26 @@
+// Copyright [2017-2018] UMR MISTEA INRA, UMR LEPSE INRA,                //
+//                       UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+// Copyright [2015-2016] UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+//                                                                       //
+// This file is part of the AutoWIG project. More information can be     //
+// found at                                                              //
+//                                                                       //
+//     http://autowig.rtfd.io                                            //
+//                                                                       //
+// The Apache Software Foundation (ASF) licenses this file to you under  //
+// the Apache License, Version 2.0 (the "License"); you may not use this //
+// file except in compliance with the License. You should have received  //
+// a copy of the Apache License, Version 2.0 along with this file; see   //
+// the file LICENSE. If not, you may obtain a copy of the License at     //
+//                                                                       //
+//     http://www.apache.org/licenses/LICENSE-2.0                        //
+//                                                                       //
+// Unless required by applicable law or agreed to in writing, software   //
+// distributed under the License is distributed on an "AS IS" BASIS,     //
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or       //
+// mplied. See the License for the specific language governing           //
+// permissions and limitations under the License.                        //
+
 #include "_clanglite.h"
 
 
@@ -38,9 +61,6 @@ void wrapper_3980f13801db50f498b55d818463d500()
     bool  (::clang::ObjCObjectType::*method_pointer_0d433cdc8861568d85d40c47b27d8440)() const = &::clang::ObjCObjectType::isSpecializedAsWritten;
     bool  (::clang::ObjCObjectType::*method_pointer_aa9b30a497095803888da24abb604ea2)() const = &::clang::ObjCObjectType::isUnspecialized;
     bool  (::clang::ObjCObjectType::*method_pointer_d2f54aa11206546d80d7e9e1f7426cf3)() const = &::clang::ObjCObjectType::isUnspecializedAsWritten;
-    bool  (::clang::ObjCObjectType::*method_pointer_9f49fe0c04635403a681b20b8d72ccd8)() const = &::clang::ObjCObjectType::qual_empty;
-    unsigned int  (::clang::ObjCObjectType::*method_pointer_fa7bb1b8881255a4ba03fd384d409160)() const = &::clang::ObjCObjectType::getNumProtocols;
-    class ::clang::ObjCProtocolDecl * (::clang::ObjCObjectType::*method_pointer_107df971673a5030aed281ead6c5760c)(unsigned int ) const = &::clang::ObjCObjectType::getProtocol;
     bool  (::clang::ObjCObjectType::*method_pointer_e188053337f85044a06ea083108bdb3c)() const = &::clang::ObjCObjectType::isKindOfTypeAsWritten;
     bool  (::clang::ObjCObjectType::*method_pointer_f45d07ed55af5bc985b14a2234e6c983)() const = &::clang::ObjCObjectType::isKindOfType;
     class ::clang::QualType  (::clang::ObjCObjectType::*method_pointer_f9a1b4534b5d52db9f1da0ca89604e85)() const = &::clang::ObjCObjectType::getSuperClassType;
@@ -61,9 +81,6 @@ void wrapper_3980f13801db50f498b55d818463d500()
     class_3980f13801db50f498b55d818463d500.def("is_specialized_as_written", method_pointer_0d433cdc8861568d85d40c47b27d8440, ":Return Type:\n    :cpp:any:`bool`\n\n");
     class_3980f13801db50f498b55d818463d500.def("is_unspecialized", method_pointer_aa9b30a497095803888da24abb604ea2, ":Return Type:\n    :cpp:any:`bool`\n\n");
     class_3980f13801db50f498b55d818463d500.def("is_unspecialized_as_written", method_pointer_d2f54aa11206546d80d7e9e1f7426cf3, ":Return Type:\n    :cpp:any:`bool`\n\n");
-    class_3980f13801db50f498b55d818463d500.def("qual_empty", method_pointer_9f49fe0c04635403a681b20b8d72ccd8, "");
-    class_3980f13801db50f498b55d818463d500.def("get_num_protocols", method_pointer_fa7bb1b8881255a4ba03fd384d409160, ":Return Type:\n    :cpp:any:`unsigned` int\n\n");
-    class_3980f13801db50f498b55d818463d500.def("get_protocol", method_pointer_107df971673a5030aed281ead6c5760c, boost::python::return_value_policy< boost::python::reference_existing_object >(), ":Parameter:\n    `I` (:cpp:any:`unsigned` int) - Undocumented\n\n:Return Type:\n    :py:class:`clanglite.clang.ObjCProtocolDecl`\n\n");
     class_3980f13801db50f498b55d818463d500.def("is_kind_of_type_as_written", method_pointer_e188053337f85044a06ea083108bdb3c, ":Return Type:\n    :cpp:any:`bool`\n\n");
     class_3980f13801db50f498b55d818463d500.def("is_kind_of_type", method_pointer_f45d07ed55af5bc985b14a2234e6c983, ":Return Type:\n    :cpp:any:`bool`\n\n");
     class_3980f13801db50f498b55d818463d500.def("get_super_class_type", method_pointer_f9a1b4534b5d52db9f1da0ca89604e85, ":Return Type:\n    :py:class:`clanglite.clang.QualType`\n\n");

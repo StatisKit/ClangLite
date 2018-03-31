@@ -1,3 +1,26 @@
+// Copyright [2017-2018] UMR MISTEA INRA, UMR LEPSE INRA,                //
+//                       UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+// Copyright [2015-2016] UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+//                                                                       //
+// This file is part of the AutoWIG project. More information can be     //
+// found at                                                              //
+//                                                                       //
+//     http://autowig.rtfd.io                                            //
+//                                                                       //
+// The Apache Software Foundation (ASF) licenses this file to you under  //
+// the Apache License, Version 2.0 (the "License"); you may not use this //
+// file except in compliance with the License. You should have received  //
+// a copy of the Apache License, Version 2.0 along with this file; see   //
+// the file LICENSE. If not, you may obtain a copy of the License at     //
+//                                                                       //
+//     http://www.apache.org/licenses/LICENSE-2.0                        //
+//                                                                       //
+// Unless required by applicable law or agreed to in writing, software   //
+// distributed under the License is distributed on an "AS IS" BASIS,     //
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or       //
+// mplied. See the License for the specific language governing           //
+// permissions and limitations under the License.                        //
+
 #include "_clanglite.h"
 
 
@@ -25,8 +48,6 @@ void wrapper_7fe14ac9706f5b4d9d341b651fb0117a()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    class ::clang::SourceLocation  (::clang::TagDecl::*method_pointer_41f73b493cdb5f6f8530a93b5723623e)() const = &::clang::TagDecl::getRBraceLoc;
-    void  (::clang::TagDecl::*method_pointer_46737bbb1c655bed9e2004ff1c400dbc)(class ::clang::SourceLocation ) = &::clang::TagDecl::setRBraceLoc;
     class ::clang::SourceLocation  (::clang::TagDecl::*method_pointer_91063acdb6a657809e31db60bee855a0)() const = &::clang::TagDecl::getInnerLocStart;
     class ::clang::SourceLocation  (::clang::TagDecl::*method_pointer_7429f4c956395561bfb83eb3a9e16211)() const = &::clang::TagDecl::getOuterLocStart;
     class ::clang::TagDecl * (::clang::TagDecl::*method_pointer_e1f5d460e22f5d75878b52a29aa08ddd)() = &::clang::TagDecl::getCanonicalDecl;
@@ -59,8 +80,6 @@ void wrapper_7fe14ac9706f5b4d9d341b651fb0117a()
     class ::clang::DeclContext * (*method_pointer_20386fde103153f0976e66182ecdc534)(class ::clang::TagDecl const *) = ::clang::TagDecl::castToDeclContext;
     class ::clang::TagDecl * (*method_pointer_454ec384924b5c669322c8105ac99300)(class ::clang::DeclContext const *) = ::clang::TagDecl::castFromDeclContext;
     boost::python::class_< class ::clang::TagDecl, autowig::Held< class ::clang::TagDecl >::Type, boost::python::bases< class ::clang::TypeDecl, class ::clang::DeclContext >, boost::noncopyable > class_7fe14ac9706f5b4d9d341b651fb0117a("TagDecl", "", boost::python::no_init);
-    class_7fe14ac9706f5b4d9d341b651fb0117a.def("get_r_brace_loc", method_pointer_41f73b493cdb5f6f8530a93b5723623e, "");
-    class_7fe14ac9706f5b4d9d341b651fb0117a.def("set_r_brace_loc", method_pointer_46737bbb1c655bed9e2004ff1c400dbc, "");
     class_7fe14ac9706f5b4d9d341b651fb0117a.def("get_inner_loc_start", method_pointer_91063acdb6a657809e31db60bee855a0, ":Return Type:\n    :py:class:`clanglite.clang.SourceLocation`\n\n");
     class_7fe14ac9706f5b4d9d341b651fb0117a.def("get_outer_loc_start", method_pointer_7429f4c956395561bfb83eb3a9e16211, ":Return Type:\n    :py:class:`clanglite.clang.SourceLocation`\n\n");
     class_7fe14ac9706f5b4d9d341b651fb0117a.def("get_canonical_decl", method_pointer_e1f5d460e22f5d75878b52a29aa08ddd, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");

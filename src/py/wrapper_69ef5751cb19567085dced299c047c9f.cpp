@@ -1,3 +1,26 @@
+// Copyright [2017-2018] UMR MISTEA INRA, UMR LEPSE INRA,                //
+//                       UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+// Copyright [2015-2016] UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+//                                                                       //
+// This file is part of the AutoWIG project. More information can be     //
+// found at                                                              //
+//                                                                       //
+//     http://autowig.rtfd.io                                            //
+//                                                                       //
+// The Apache Software Foundation (ASF) licenses this file to you under  //
+// the Apache License, Version 2.0 (the "License"); you may not use this //
+// file except in compliance with the License. You should have received  //
+// a copy of the Apache License, Version 2.0 along with this file; see   //
+// the file LICENSE. If not, you may obtain a copy of the License at     //
+//                                                                       //
+//     http://www.apache.org/licenses/LICENSE-2.0                        //
+//                                                                       //
+// Unless required by applicable law or agreed to in writing, software   //
+// distributed under the License is distributed on an "AS IS" BASIS,     //
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or       //
+// mplied. See the License for the specific language governing           //
+// permissions and limitations under the License.                        //
+
 #include "_clanglite.h"
 
 
@@ -25,7 +48,7 @@ void wrapper_69ef5751cb19567085dced299c047c9f()
     boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
     boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
     boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    class ::clang::CXXConstructorDecl * (*method_pointer_14ccbf116dd5586098d20bdda66a6c58)(class ::clang::ASTContext &, unsigned int ) = ::clang::CXXConstructorDecl::CreateDeserialized;
+    class ::clang::CXXConstructorDecl * (*method_pointer_704898e9dd8b5724b599549aac4b65e0)(class ::clang::ASTContext &, unsigned int , bool ) = ::clang::CXXConstructorDecl::CreateDeserialized;
     bool  (::clang::CXXConstructorDecl::*method_pointer_436d8e0f25ad5f86b5250c3e83b67df6)() const = &::clang::CXXConstructorDecl::isExplicitSpecified;
     bool  (::clang::CXXConstructorDecl::*method_pointer_2a420bc1202c520da699e3439e9e2335)() const = &::clang::CXXConstructorDecl::isExplicit;
     unsigned int  (::clang::CXXConstructorDecl::*method_pointer_848581732eed58c9954fe9c77e2af5e2)() const = &::clang::CXXConstructorDecl::getNumCtorInitializers;
@@ -41,14 +64,13 @@ void wrapper_69ef5751cb19567085dced299c047c9f()
     bool  (::clang::CXXConstructorDecl::*method_pointer_a696f27374b459edbdc706c253a8ac42)() const = &::clang::CXXConstructorDecl::isCopyOrMoveConstructor;
     bool  (::clang::CXXConstructorDecl::*method_pointer_805b15ae6ed55633b4d32a0f2ae96127)(bool ) const = &::clang::CXXConstructorDecl::isConvertingConstructor;
     bool  (::clang::CXXConstructorDecl::*method_pointer_ef2f912b098f5489a049b915206b20b3)() const = &::clang::CXXConstructorDecl::isSpecializationCopyingObject;
-    class ::clang::CXXConstructorDecl const * (::clang::CXXConstructorDecl::*method_pointer_f69c08fa4aa05c0d89bd6174a9663714)() const = &::clang::CXXConstructorDecl::getInheritedConstructor;
-    void  (::clang::CXXConstructorDecl::*method_pointer_6d29d1cc4c8557ad98882c49ae5d882e)(class ::clang::CXXConstructorDecl const *) = &::clang::CXXConstructorDecl::setInheritedConstructor;
+    bool  (::clang::CXXConstructorDecl::*method_pointer_823a2b81a91257cd89f753e83f7e1c36)() const = &::clang::CXXConstructorDecl::isInheritingConstructor;
     class ::clang::CXXConstructorDecl * (::clang::CXXConstructorDecl::*method_pointer_b20e3e2e82e25a42bec5d7236cf25da6)() = &::clang::CXXConstructorDecl::getCanonicalDecl;
     class ::clang::CXXConstructorDecl const * (::clang::CXXConstructorDecl::*method_pointer_eb929aa62f8d531986921295245a7b76)() const = &::clang::CXXConstructorDecl::getCanonicalDecl;
     bool  (*method_pointer_20196d97cf25588c96e8ebbe1eaca97b)(class ::clang::Decl const *) = ::clang::CXXConstructorDecl::classof;
     bool  (*method_pointer_25cdcd0db32050a9abe13e3b4062ca7b)(enum ::clang::Decl::Kind ) = ::clang::CXXConstructorDecl::classofKind;
     boost::python::class_< class ::clang::CXXConstructorDecl, autowig::Held< class ::clang::CXXConstructorDecl >::Type, boost::python::bases< class ::clang::CXXMethodDecl >, boost::noncopyable > class_69ef5751cb19567085dced299c047c9f("CXXConstructorDecl", "Represents a C++ constructor within a class.\n\nFor example:\n\n", boost::python::no_init);
-    class_69ef5751cb19567085dced299c047c9f.def("create_deserialized", method_pointer_14ccbf116dd5586098d20bdda66a6c58, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    class_69ef5751cb19567085dced299c047c9f.def("create_deserialized", method_pointer_704898e9dd8b5724b599549aac4b65e0, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
     class_69ef5751cb19567085dced299c047c9f.def("is_explicit_specified", method_pointer_436d8e0f25ad5f86b5250c3e83b67df6, "Determine whether this constructor declaration has the\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_69ef5751cb19567085dced299c047c9f.def("is_explicit", method_pointer_2a420bc1202c520da699e3439e9e2335, "Determine whether this constructor was marked 'explicit' or not.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_69ef5751cb19567085dced299c047c9f.def("get_num_ctor_initializers", method_pointer_848581732eed58c9954fe9c77e2af5e2, "Determine the number of arguments used to initialize the member or base.\n\n:Return Type:\n    :cpp:any:`unsigned` int\n\n");
@@ -64,8 +86,7 @@ void wrapper_69ef5751cb19567085dced299c047c9f()
     class_69ef5751cb19567085dced299c047c9f.def("is_copy_or_move_constructor", method_pointer_a696f27374b459edbdc706c253a8ac42, "Determine whether this a copy or move constructor.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_69ef5751cb19567085dced299c047c9f.def("is_converting_constructor", method_pointer_805b15ae6ed55633b4d32a0f2ae96127, ":Parameter:\n    `AllowExplicit` (:cpp:any:`bool`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_69ef5751cb19567085dced299c047c9f.def("is_specialization_copying_object", method_pointer_ef2f912b098f5489a049b915206b20b3, "Determine whether this is a member template specialization that would\ncopy the object to itself. Such constructors are never used to copy an\nobject.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
-    class_69ef5751cb19567085dced299c047c9f.def("get_inherited_constructor", method_pointer_f69c08fa4aa05c0d89bd6174a9663714, boost::python::return_value_policy< boost::python::reference_existing_object >(), "Get the constructor that this inheriting constructor is based on.\n\n:Return Type:\n    :py:class:`clanglite.clang.CXXConstructorDecl`\n\n");
-    class_69ef5751cb19567085dced299c047c9f.def("set_inherited_constructor", method_pointer_6d29d1cc4c8557ad98882c49ae5d882e, "Set the constructor that this inheriting constructor is based on.\n\n:Parameter:\n    `BaseCtor` (:py:class:`clanglite.clang.CXXConstructorDecl`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
+    class_69ef5751cb19567085dced299c047c9f.def("is_inheriting_constructor", method_pointer_823a2b81a91257cd89f753e83f7e1c36, "Determine whether this is an implicit constructor synthesized to model a\ncall to a constructor inherited from a base class.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_69ef5751cb19567085dced299c047c9f.def("get_canonical_decl", method_pointer_b20e3e2e82e25a42bec5d7236cf25da6, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
     class_69ef5751cb19567085dced299c047c9f.def("get_canonical_decl", method_pointer_eb929aa62f8d531986921295245a7b76, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
     class_69ef5751cb19567085dced299c047c9f.def("classof", method_pointer_20196d97cf25588c96e8ebbe1eaca97b, "");

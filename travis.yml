@@ -17,10 +17,10 @@ env:
   - CONDA_RECIPE=bin/conda/llvm
     TRAVIS_WAIT=50
   - CONDA_RECIPE=bin/conda/clang
-  - CONDA_RECIPE=bin/conda/python-clang
-    CONDA_VERSION=2
-  - CONDA_RECIPE=bin/conda/python-clang
-    CONDA_VERSION=3
+  # - CONDA_RECIPE=bin/conda/python-clang
+  #   CONDA_VERSION=2
+  # - CONDA_RECIPE=bin/conda/python-clang
+  #   CONDA_VERSION=3
   - CONDA_RECIPE=bin/conda/libclanglite
     CONDA_VERSION=2
   - CONDA_RECIPE=bin/conda/libclanglite
@@ -29,6 +29,26 @@ env:
     CONDA_VERSION=2
   - CONDA_RECIPE=bin/conda/python-clanglite
     CONDA_VERSION=3
+
+matrix:
+  allow_failures:
+    - os: linux
+      env: CONDA_RECIPE=bin/conda/llvm
+           TRAVIS_WAIT=50
+    - os: linux
+      env: CONDA_RECIPE=bin/conda/clang
+    - os: linux
+      env: CONDA_RECIPE=bin/conda/python-clanglite
+           CONDA_VERSION=2
+    - os: linux
+      env: CONDA_RECIPE=bin/conda/python-clanglite
+           CONDA_VERSION=3
+  exclude:
+    - os: osx
+      env: CONDA_RECIPE=bin/conda/llvm
+           TRAVIS_WAIT=50
+    - os: osx
+      env: CONDA_RECIPE=bin/conda/clang
 
 install:
   - git clone https://github.com/StatisKit/travis-ci.git travis-ci
@@ -56,7 +76,7 @@ deploy:
   script: bash deploy_script.sh
   on:
     all_branches: true
-    
+
 after_deploy:
   - source after_deploy.sh
 

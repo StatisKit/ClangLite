@@ -1,3 +1,26 @@
+// Copyright [2017-2018] UMR MISTEA INRA, UMR LEPSE INRA,                //
+//                       UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+// Copyright [2015-2016] UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+//                                                                       //
+// This file is part of the AutoWIG project. More information can be     //
+// found at                                                              //
+//                                                                       //
+//     http://autowig.rtfd.io                                            //
+//                                                                       //
+// The Apache Software Foundation (ASF) licenses this file to you under  //
+// the Apache License, Version 2.0 (the "License"); you may not use this //
+// file except in compliance with the License. You should have received  //
+// a copy of the Apache License, Version 2.0 along with this file; see   //
+// the file LICENSE. If not, you may obtain a copy of the License at     //
+//                                                                       //
+//     http://www.apache.org/licenses/LICENSE-2.0                        //
+//                                                                       //
+// Unless required by applicable law or agreed to in writing, software   //
+// distributed under the License is distributed on an "AS IS" BASIS,     //
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or       //
+// mplied. See the License for the specific language governing           //
+// permissions and limitations under the License.                        //
+
 #include "_clanglite.h"
 
 
@@ -18,6 +41,7 @@ void wrapper_4bd154797c5c544abd201e6b7c018504()
     enum_4bd154797c5c544abd201e6b7c018504.value("CAPTURED", ::clang::Decl::Captured);
     enum_4bd154797c5c544abd201e6b7c018504.value("CLASS_SCOPE_FUNCTION_SPECIALIZATION", ::clang::Decl::ClassScopeFunctionSpecialization);
     enum_4bd154797c5c544abd201e6b7c018504.value("EMPTY", ::clang::Decl::Empty);
+    enum_4bd154797c5c544abd201e6b7c018504.value("EXPORT", ::clang::Decl::Export);
     enum_4bd154797c5c544abd201e6b7c018504.value("EXTERN_C_CONTEXT", ::clang::Decl::ExternCContext);
     enum_4bd154797c5c544abd201e6b7c018504.value("FILE_SCOPE_ASM", ::clang::Decl::FileScopeAsm);
     enum_4bd154797c5c544abd201e6b7c018504.value("FRIEND", ::clang::Decl::Friend);
@@ -73,7 +97,12 @@ void wrapper_4bd154797c5c544abd201e6b7c018504()
     enum_4bd154797c5c544abd201e6b7c018504.value("LAST_TYPE", ::clang::Decl::lastType);
     enum_4bd154797c5c544abd201e6b7c018504.value("USING", ::clang::Decl::Using);
     enum_4bd154797c5c544abd201e6b7c018504.value("USING_DIRECTIVE", ::clang::Decl::UsingDirective);
+    enum_4bd154797c5c544abd201e6b7c018504.value("USING_PACK", ::clang::Decl::UsingPack);
     enum_4bd154797c5c544abd201e6b7c018504.value("USING_SHADOW", ::clang::Decl::UsingShadow);
+    enum_4bd154797c5c544abd201e6b7c018504.value("CONSTRUCTOR_USING_SHADOW", ::clang::Decl::ConstructorUsingShadow);
+    enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_USING_SHADOW", ::clang::Decl::firstUsingShadow);
+    enum_4bd154797c5c544abd201e6b7c018504.value("LAST_USING_SHADOW", ::clang::Decl::lastUsingShadow);
+    enum_4bd154797c5c544abd201e6b7c018504.value("BINDING", ::clang::Decl::Binding);
     enum_4bd154797c5c544abd201e6b7c018504.value("FIELD", ::clang::Decl::Field);
     enum_4bd154797c5c544abd201e6b7c018504.value("OBJ_C_AT_DEFS_FIELD", ::clang::Decl::ObjCAtDefsField);
     enum_4bd154797c5c544abd201e6b7c018504.value("OBJ_C_IVAR", ::clang::Decl::ObjCIvar);
@@ -91,7 +120,9 @@ void wrapper_4bd154797c5c544abd201e6b7c018504()
     enum_4bd154797c5c544abd201e6b7c018504.value("MS_PROPERTY", ::clang::Decl::MSProperty);
     enum_4bd154797c5c544abd201e6b7c018504.value("NON_TYPE_TEMPLATE_PARM", ::clang::Decl::NonTypeTemplateParm);
     enum_4bd154797c5c544abd201e6b7c018504.value("VAR", ::clang::Decl::Var);
+    enum_4bd154797c5c544abd201e6b7c018504.value("DECOMPOSITION", ::clang::Decl::Decomposition);
     enum_4bd154797c5c544abd201e6b7c018504.value("IMPLICIT_PARAM", ::clang::Decl::ImplicitParam);
+    enum_4bd154797c5c544abd201e6b7c018504.value("OMP_CAPTURED_EXPR", ::clang::Decl::OMPCapturedExpr);
     enum_4bd154797c5c544abd201e6b7c018504.value("PARM_VAR", ::clang::Decl::ParmVar);
     enum_4bd154797c5c544abd201e6b7c018504.value("VAR_TEMPLATE_SPECIALIZATION", ::clang::Decl::VarTemplateSpecialization);
     enum_4bd154797c5c544abd201e6b7c018504.value("VAR_TEMPLATE_PARTIAL_SPECIALIZATION", ::clang::Decl::VarTemplatePartialSpecialization);
@@ -103,6 +134,7 @@ void wrapper_4bd154797c5c544abd201e6b7c018504()
     enum_4bd154797c5c544abd201e6b7c018504.value("LAST_DECLARATOR", ::clang::Decl::lastDeclarator);
     enum_4bd154797c5c544abd201e6b7c018504.value("ENUM_CONSTANT", ::clang::Decl::EnumConstant);
     enum_4bd154797c5c544abd201e6b7c018504.value("INDIRECT_FIELD", ::clang::Decl::IndirectField);
+    enum_4bd154797c5c544abd201e6b7c018504.value("OMP_DECLARE_REDUCTION", ::clang::Decl::OMPDeclareReduction);
     enum_4bd154797c5c544abd201e6b7c018504.value("UNRESOLVED_USING_VALUE", ::clang::Decl::UnresolvedUsingValue);
     enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_VALUE", ::clang::Decl::firstValue);
     enum_4bd154797c5c544abd201e6b7c018504.value("LAST_VALUE", ::clang::Decl::lastValue);
@@ -110,6 +142,8 @@ void wrapper_4bd154797c5c544abd201e6b7c018504()
     enum_4bd154797c5c544abd201e6b7c018504.value("LAST_NAMED", ::clang::Decl::lastNamed);
     enum_4bd154797c5c544abd201e6b7c018504.value("OMP_THREAD_PRIVATE", ::clang::Decl::OMPThreadPrivate);
     enum_4bd154797c5c544abd201e6b7c018504.value("OBJ_C_PROPERTY_IMPL", ::clang::Decl::ObjCPropertyImpl);
+    enum_4bd154797c5c544abd201e6b7c018504.value("PRAGMA_COMMENT", ::clang::Decl::PragmaComment);
+    enum_4bd154797c5c544abd201e6b7c018504.value("PRAGMA_DETECT_MISMATCH", ::clang::Decl::PragmaDetectMismatch);
     enum_4bd154797c5c544abd201e6b7c018504.value("STATIC_ASSERT", ::clang::Decl::StaticAssert);
     enum_4bd154797c5c544abd201e6b7c018504.value("TRANSLATION_UNIT", ::clang::Decl::TranslationUnit);
     enum_4bd154797c5c544abd201e6b7c018504.value("FIRST_DECL", ::clang::Decl::firstDecl);

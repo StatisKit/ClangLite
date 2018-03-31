@@ -1,19 +1,46 @@
+## Copyright [2017-2018] UMR MISTEA INRA, UMR LEPSE INRA,                ##
+##                       UMR AGAP CIRAD, EPI Virtual Plants Inria        ##
+## Copyright [2015-2016] UMR AGAP CIRAD, EPI Virtual Plants Inria        ##
+##                                                                       ##
+## This file is part of the AutoWIG project. More information can be     ##
+## found at                                                              ##
+##                                                                       ##
+##     http://autowig.rtfd.io                                            ##
+##                                                                       ##
+## The Apache Software Foundation (ASF) licenses this file to you under  ##
+## the Apache License, Version 2.0 (the "License"); you may not use this ##
+## file except in compliance with the License. You should have received  ##
+## a copy of the Apache License, Version 2.0 along with this file; see   ##
+## the file LICENSE. If not, you may obtain a copy of the License at     ##
+##                                                                       ##
+##     http://www.apache.org/licenses/LICENSE-2.0                        ##
+##                                                                       ##
+## Unless required by applicable law or agreed to in writing, software   ##
+## distributed under the License is distributed on an "AS IS" BASIS,     ##
+## WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or       ##
+## mplied. See the License for the specific language governing           ##
+## permissions and limitations under the License.                        ##
+
 package:
   name: clang
-  version: "3.8.1"
+  version: "4.0.1"
     
 source:
-  fn: cfe-3.8.1.src.tar.xz
-  url: http://llvm.org/releases/3.8.1/cfe-3.8.1.src.tar.xz
-  sha256: 4cd3836dfb4b88b597e075341cae86d61c63ce3963e45c7fe6a8bf59bb382cdf
+  fn: cfe-4.0.1.src.tar.xz
+  url: http://llvm.org/releases/4.0.1/cfe-4.0.1.src.tar.xz
+  patches:
+    - 0001-Allow-disabling-libXML.patch
+    - 0002-add-conda-specific-env-var-CONDA_BUILD_SYSROOT.patch
+    - 0003-Fix-normalizeProgramName-s-handling-of-dots-ou.patch
+    - 0004-Fix-B0-to-BBO-in-ThreadSafetyTraverse.patch
   
 build:
   number: 0
   skip: True        [osx]
   features:
-    - vc12                [win]
+    - vc14                 [win]
   track_features:
-    - vc12                 [win]
+    - vc14                 [win]
 
 about:
   home: http://www.llvm.org/
@@ -22,17 +49,17 @@ about:
 
 requirements:
   build:
+    - llvm 4.0.1
     - libtoolchain
     - python
-    - llvm 3.8.1
     - cmake
     - zlib
     - m2w64-xz                       [py27 and win]
     - 7za                            [win]
   run:
-    - llvm 3.8.1
+    - llvm 4.0.1
     - libtoolchain
-
+    
 test:
   commands:
   - clang++ -x c++ -v -E /dev/null   [not win]

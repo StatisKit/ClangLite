@@ -1,3 +1,26 @@
+// Copyright [2017-2018] UMR MISTEA INRA, UMR LEPSE INRA,                //
+//                       UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+// Copyright [2015-2016] UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+//                                                                       //
+// This file is part of the AutoWIG project. More information can be     //
+// found at                                                              //
+//                                                                       //
+//     http://autowig.rtfd.io                                            //
+//                                                                       //
+// The Apache Software Foundation (ASF) licenses this file to you under  //
+// the Apache License, Version 2.0 (the "License"); you may not use this //
+// file except in compliance with the License. You should have received  //
+// a copy of the Apache License, Version 2.0 along with this file; see   //
+// the file LICENSE. If not, you may obtain a copy of the License at     //
+//                                                                       //
+//     http://www.apache.org/licenses/LICENSE-2.0                        //
+//                                                                       //
+// Unless required by applicable law or agreed to in writing, software   //
+// distributed under the License is distributed on an "AS IS" BASIS,     //
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or       //
+// mplied. See the License for the specific language governing           //
+// permissions and limitations under the License.                        //
+
 #include "_clanglite.h"
 
 
@@ -60,6 +83,8 @@ void wrapper_a6aedb4654a55a40aeecf4b1dc5fcc98()
     bool  (::clang::Decl::*method_pointer_d7523d52622c5385a59ed18d838e345f)() const = &::clang::Decl::isTopLevelDeclInObjCContainer;
     void  (::clang::Decl::*method_pointer_f8fc53f0bc815b5a9778af8ea1f7dda3)(bool ) = &::clang::Decl::setTopLevelDeclInObjCContainer;
     bool  (::clang::Decl::*method_pointer_a4715cf5b2a45aa4b355e98d648895a9)() const = &::clang::Decl::isModulePrivate;
+    bool  (::clang::Decl::*method_pointer_59d81836d34058d6956c09c61d56fb18)() const = &::clang::Decl::isExported;
+    bool  (::clang::Decl::*method_pointer_673bc6d09d685239a965581addbbf169)() const = &::clang::Decl::hasDefiningAttr;
     bool  (::clang::Decl::*method_pointer_a65e9199c1d9525dbd9d9dc7f89bf008)() const = &::clang::Decl::isWeakImported;
     bool  (::clang::Decl::*method_pointer_6f80afe072315ce1b45ef93ea9b2d031)(bool &) const = &::clang::Decl::canBeWeakImported;
     bool  (::clang::Decl::*method_pointer_f52c203a75175c788f3399ced5ffa007)() const = &::clang::Decl::isFromASTFile;
@@ -97,6 +122,7 @@ void wrapper_a6aedb4654a55a40aeecf4b1dc5fcc98()
     bool  (::clang::Decl::*method_pointer_8cb9e7bf27345697867be65dcd93bc39)() const = &::clang::Decl::isParameterPack;
     bool  (::clang::Decl::*method_pointer_25e5a8172591544490abc4c9c4cc60ad)() const = &::clang::Decl::isTemplateDecl;
     bool  (::clang::Decl::*method_pointer_dbb385c504525229ad02ade7d5639d89)() const = &::clang::Decl::isFunctionOrFunctionTemplate;
+    class ::clang::TemplateDecl * (::clang::Decl::*method_pointer_30db276d72ca5ce8988b2c0e7656ecae)() const = &::clang::Decl::getDescribedTemplate;
     class ::clang::FunctionDecl * (::clang::Decl::*method_pointer_c7d5f907692c500bbc1d8ff3baa19cb2)() = &::clang::Decl::getAsFunction;
     class ::clang::FunctionDecl const * (::clang::Decl::*method_pointer_dd16cb1f2e4451108e4f5a6f28197288)() const = &::clang::Decl::getAsFunction;
     void  (::clang::Decl::*method_pointer_c34f7130b9ca521190da602d802e5451)() = &::clang::Decl::setLocalExternDecl;
@@ -141,8 +167,8 @@ void wrapper_a6aedb4654a55a40aeecf4b1dc5fcc98()
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("is_invalid_decl", method_pointer_b231bae89a1f5d4b9b40566fb7236710, "");
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("is_implicit", method_pointer_fb599948919559ca9bafb0803da1b763, ":Return Type:\n    :cpp:any:`bool`\n\n");
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("set_implicit", method_pointer_18f44eafa01757158ab3b25c40fcb969, "");
-    class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("is_used", method_pointer_4df2e39dadbd569a90de83ff1eca879b, "Whether this declaration was used, meaning that a definition is\nrequired.\n\n:Parameter:\n    `CheckUsedAttr` (:cpp:any:`bool`) - When true, also consider the 'used' attribute (in addition to the 'used'\n                                        bit set by :raw-latex:`\\c s`etUsed()) when determining whether the\n                                        function is used.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
-    class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("set_is_used", method_pointer_1eb55c2797705b1e903f62a88513cef3, "Set whether the declaration is used, in the sense of odr-use.\n\nThis should only be used immediately after creating a declaration.\n\n:Return Type:\n    :cpp:any:`void`\n\n");
+    class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("is_used", method_pointer_4df2e39dadbd569a90de83ff1eca879b, "Whether *any* (re-)declaration of the entity was used, meaning that a\ndefinition is required.\n\n:Parameter:\n    `CheckUsedAttr` (:cpp:any:`bool`) - When true, also consider the 'used' attribute (in addition to the 'used'\n                                        bit set by :raw-latex:`\\c s`etUsed()) when determining whether the\n                                        function is used.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("set_is_used", method_pointer_1eb55c2797705b1e903f62a88513cef3, "Set whether the declaration is used, in the sense of odr-use.\n\nThis should only be used immediately after creating a declaration. It\nintentionally doesn't notify any listeners.\n\n:Return Type:\n    :cpp:any:`void`\n\n");
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("mark_used", method_pointer_4647df50c1df56ca9a3bce9055b75e92, "Mark the declaration used, in the sense of odr-use.\n\nThis notifies any mutation listeners in addition to setting a bit\nindicating the declaration is used.\n\n:Parameter:\n    `C` (:py:class:`clanglite.clang.ASTContext`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("is_referenced", method_pointer_351865f12a2950888b45ddb1169f58d7, "Whether any declaration of this entity was referenced.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("is_this_declaration_referenced", method_pointer_23d3fabc8c7f52278c694053bbe190f3, "Whether this declaration was referenced. This should not be relied upon\nfor anything other than debugging.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
@@ -150,6 +176,8 @@ void wrapper_a6aedb4654a55a40aeecf4b1dc5fcc98()
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("is_top_level_decl_in_obj_c_container", method_pointer_d7523d52622c5385a59ed18d838e345f, "Whether this declaration is a top-level declaration (function, global\nvariable, etc.) that is lexically inside an objc container definition.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("set_top_level_decl_in_obj_c_container", method_pointer_f8fc53f0bc815b5a9778af8ea1f7dda3, "");
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("is_module_private", method_pointer_a4715cf5b2a45aa4b355e98d648895a9, "Whether this declaration was marked as being private to the module in\nwhich it was defined.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("is_exported", method_pointer_59d81836d34058d6956c09c61d56fb18, "Whether this declaration is exported (by virtue of being lexically\nwithin an ExportDecl or by being a NamespaceDecl).\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("has_defining_attr", method_pointer_673bc6d09d685239a965581addbbf169, ":Return Type:\n    :cpp:any:`bool`\n\n");
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("is_weak_imported", method_pointer_a65e9199c1d9525dbd9d9dc7f89bf008, "Determine whether this is a weak-imported symbol.\n\nWeak-imported symbols are typically marked with the 'weak\\_import'\nattribute, but may also be marked with an 'availability' attribute where\nwe're targing a platform prior to the introduction of this feature.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("can_be_weak_imported", method_pointer_6f80afe072315ce1b45ef93ea9b2d031, "Determines whether this symbol can be weak-imported, e.g., whether it\nwould be well-formed to add the weak\\_import attribute.\n\n:Parameter:\n    `IsDefinition` (:cpp:any:`bool`) - Set to :raw-latex:`\\c t`rue to indicate that this declaration cannot be\n                                       weak-imported because it has a definition.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("is_from_ast_file", method_pointer_f52c203a75175c788f3399ced5ffa007, "Determine whether this declaration came from an AST file (such as a\nprecompiled header or module) rather than having been parsed.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
@@ -187,6 +215,7 @@ void wrapper_a6aedb4654a55a40aeecf4b1dc5fcc98()
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("is_parameter_pack", method_pointer_8cb9e7bf27345697867be65dcd93bc39, "Whether this declaration is a parameter pack.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("is_template_decl", method_pointer_25e5a8172591544490abc4c9c4cc60ad, "returns true if this declaration is a template\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("is_function_or_function_template", method_pointer_dbb385c504525229ad02ade7d5639d89, "Whether this declaration is a function or function template.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("get_described_template", method_pointer_30db276d72ca5ce8988b2c0e7656ecae, boost::python::return_value_policy< boost::python::reference_existing_object >(), "If this is a declaration that describes some template, this method\nreturns that template declaration.\n\n:Return Type:\n    :py:class:`clanglite.clang.TemplateDecl`\n\n");
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("get_as_function", method_pointer_c7d5f907692c500bbc1d8ff3baa19cb2, boost::python::return_value_policy< boost::python::reference_existing_object >(), "Returns the function itself, or the templated function if this is a\nfunction template.\n\n:Return Type:\n    :py:class:`clanglite.clang.FunctionDecl`\n\n");
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("get_as_function", method_pointer_dd16cb1f2e4451108e4f5a6f28197288, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("set_local_extern_decl", method_pointer_c34f7130b9ca521190da602d802e5451, "Changes the namespace of this declaration to reflect that it's a\nfunction-local extern declaration.\n\nThese declarations appear in the lexical context of the extern\ndeclaration, but in the semantic context of the enclosing namespace\nscope.\n\n:Return Type:\n    :cpp:any:`void`\n\n");

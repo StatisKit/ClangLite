@@ -1,3 +1,26 @@
+## Copyright [2017-2018] UMR MISTEA INRA, UMR LEPSE INRA,                ##
+##                       UMR AGAP CIRAD, EPI Virtual Plants Inria        ##
+## Copyright [2015-2016] UMR AGAP CIRAD, EPI Virtual Plants Inria        ##
+##                                                                       ##
+## This file is part of the AutoWIG project. More information can be     ##
+## found at                                                              ##
+##                                                                       ##
+##     http://autowig.rtfd.io                                            ##
+##                                                                       ##
+## The Apache Software Foundation (ASF) licenses this file to you under  ##
+## the Apache License, Version 2.0 (the "License"); you may not use this ##
+## file except in compliance with the License. You should have received  ##
+## a copy of the Apache License, Version 2.0 along with this file; see   ##
+## the file LICENSE. If not, you may obtain a copy of the License at     ##
+##                                                                       ##
+##     http://www.apache.org/licenses/LICENSE-2.0                        ##
+##                                                                       ##
+## Unless required by applicable law or agreed to in writing, software   ##
+## distributed under the License is distributed on an "AS IS" BASIS,     ##
+## WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or       ##
+## mplied. See the License for the specific language governing           ##
+## permissions and limitations under the License.                        ##
+
 # -*-python-*-
 
 import os
@@ -68,17 +91,18 @@ env.AppendUnique(LIBS=['clangIndex',
 import subprocess
 process = subprocess.Popen(['llvm-config', '--libs'], stdout=subprocess.PIPE)
 out, err = process.communicate()
-print("llvm-config --libs")
-print(out.decode('ascii', 'ignore').strip())
-env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split('-l') if lib])
-
+if not SYSTEM == 'win':
+    env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split('-l') if lib])
+else:
+    env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split(' ') if lib])
 
 process = subprocess.Popen(['llvm-config', '--system-libs'], stdout=subprocess.PIPE)
 out, err = process.communicate()
-print("llvm-config --system-libs")
-print(out.decode('ascii', 'ignore').strip())
-env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split('-l') if lib])
-
+if not SYSTEM == 'win':
+    env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split('-l') if lib])
+else:
+    env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split(' ') if lib])
+    env.AppendUnique(LIBS=["version.lib"])
 # env.AppendUnique(RPATH=['$PREFIX/lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0',
 #                        '$PREFIX/x86_64-conda_cos6-linux-gnu/sysroot/lib',
 #                        '$PREFIX/x86_64-conda_cos6-linux-gnu/lib',
