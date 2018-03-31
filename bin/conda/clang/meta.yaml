@@ -58,7 +58,8 @@ requirements:
     - 7za                            [win]
   run:
     - llvm 4.0.1
-
+    - libtoolchain
+    
 test:
   commands:
   - clang++ -x c++ -v -E /dev/null   [not win]

@@ -34,8 +34,6 @@ build:
     - vc14                 [win]
   track_features:
     - vc14                 [win]
-  run_exports:
-    - libclanglite
     
 about:
   home: http://autowig.rtfd.io/
@@ -52,3 +50,4 @@ requirements:
   run:
     - python
     - clang 4.0.1
+    - libboost_python

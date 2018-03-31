@@ -23,6 +23,7 @@
 
 #include <clanglite/tool.h>
 #include <boost/algorithm/string/replace.hpp>
+#include <stdexcept>
 
 namespace clanglite
 {
