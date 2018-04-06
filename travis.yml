@@ -35,8 +35,8 @@ matrix:
     - os: linux
       env: CONDA_RECIPE=bin/conda/llvm
            TRAVIS_WAIT=50
-  #   - os: linux
-  #     env: CONDA_RECIPE=bin/conda/clang
+    - os: linux
+      env: CONDA_RECIPE=bin/conda/clang
   #   - os: linux
   #     env: CONDA_RECIPE=bin/conda/python-clanglite
   #          CONDA_VERSION=2
