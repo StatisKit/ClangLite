@@ -683,7 +683,7 @@ def read_tag(asg, decl, inline, permissive, out=True):
                 asg._nodes[spelling]['_comment'] = decl.get_comment()
         asg._read.add(spelling)
         try:
-            if not asg[spelling].is_complete:
+            if not asg[spelling]._is_complete:
                 asg._syntax_edges[scope].remove(spelling)
                 asg._syntax_edges[scope].append(spelling)
                 if isinstance(decl, clang.CXXRecordDecl):
