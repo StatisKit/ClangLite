@@ -47,6 +47,7 @@ def autowig_parser(asg, headers, flags, inline=True, permissive=True, **kwargs):
             else:
                 _flags.append(flag)
         if six.PY2:
+            header = str(header)
             _flags = [str(flag) for flag in _flags]
         tu = clang.tooling.build_ast_from_code_with_args(header, _flags)
         read_translation_unit(asg, tu, inline, permissive)
