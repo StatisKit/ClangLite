@@ -21,6 +21,7 @@
 ## mplied. See the License for the specific language governing           ##
 ## permissions and limitations under the License.                        ##
 
+import six
 import warnings
 import uuid
 from path import Path
@@ -45,6 +46,8 @@ def autowig_parser(asg, headers, flags, inline=True, permissive=True, **kwargs):
                     _flags.append(flag.replace('/I', '-I'))
             else:
                 _flags.append(flag)
+        if six.PY2:
+            _flags = [str(flag) for flag in _flags]
         tu = clang.tooling.build_ast_from_code_with_args(header, _flags)
         read_translation_unit(asg, tu, inline, permissive)
     post_processing(asg, flags, **kwargs)
