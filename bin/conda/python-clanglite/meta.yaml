@@ -46,14 +46,12 @@ requirements:
   build:
     - libtoolchain
     - libboost-dev
-    - libboost
     - libboost_python
     - python-toolchain
     - libclanglite 4.0.1
     - python
   run:
     - python
-    - libboost
     - libboost_python
     - libclanglite 4.0.1
 
