@@ -44,10 +44,13 @@ requirements:
   build:
     - libtoolchain
     - python-toolchain
-    - libboost_python-dev
+    - libboost-dev
+    - libboost
+    - libboost_python
     - clang 4.0.1
     - python
   run:
     - python
     - clang 4.0.1
+    - libboost
     - libboost_python
