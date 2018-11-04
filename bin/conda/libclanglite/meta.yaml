@@ -23,9 +23,11 @@ requirements:
   build:
     - libtoolchain
     - python-toolchain
-    - libboost_python-dev
+    - libboost-dev
+    - libboost_python
     - clang 3.8.1
     - python
   run:
     - python
+    - libboost_python
     - clang 3.8.1

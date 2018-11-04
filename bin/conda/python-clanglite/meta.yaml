@@ -20,13 +20,15 @@ about:
 requirements:
   build:
     - libtoolchain
-    - libboost_python-dev
+    - libboost-dev
+    - libboost_python
     - python-toolchain
     - libclanglite 3.8.1
     - clang 3.8.1
     - python
   run:
     - python
+    - libboost_python
 
 test:   
   imports:
