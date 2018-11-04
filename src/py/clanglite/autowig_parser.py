@@ -1,3 +1,27 @@
+## Copyright [2017-2018] UMR MISTEA INRA, UMR LEPSE INRA,                ##
+##                       UMR AGAP CIRAD, EPI Virtual Plants Inria        ##
+## Copyright [2015-2016] UMR AGAP CIRAD, EPI Virtual Plants Inria        ##
+##                                                                       ##
+## This file is part of the AutoWIG project. More information can be     ##
+## found at                                                              ##
+##                                                                       ##
+##     http://autowig.rtfd.io                                            ##
+##                                                                       ##
+## The Apache Software Foundation (ASF) licenses this file to you under  ##
+## the Apache License, Version 2.0 (the "License"); you may not use this ##
+## file except in compliance with the License. You should have received  ##
+## a copy of the Apache License, Version 2.0 along with this file; see   ##
+## the file LICENSE. If not, you may obtain a copy of the License at     ##
+##                                                                       ##
+##     http://www.apache.org/licenses/LICENSE-2.0                        ##
+##                                                                       ##
+## Unless required by applicable law or agreed to in writing, software   ##
+## distributed under the License is distributed on an "AS IS" BASIS,     ##
+## WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or       ##
+## mplied. See the License for the specific language governing           ##
+## permissions and limitations under the License.                        ##
+
+import six
 import warnings
 import uuid
 from path import Path
@@ -22,6 +46,9 @@ def autowig_parser(asg, headers, flags, inline=True, permissive=True, **kwargs):
                     _flags.append(flag.replace('/I', '-I'))
             else:
                 _flags.append(flag)
+        if six.PY2:
+            header = str(header)
+            _flags = [str(flag) for flag in _flags]
         tu = clang.tooling.build_ast_from_code_with_args(header, _flags)
         read_translation_unit(asg, tu, inline, permissive)
     post_processing(asg, flags, **kwargs)
@@ -660,7 +687,7 @@ def read_tag(asg, decl, inline, permissive, out=True):
                 asg._nodes[spelling]['_comment'] = decl.get_comment()
         asg._read.add(spelling)
         try:
-            if not asg[spelling].is_complete:
+            if not asg[spelling]._is_complete:
                 asg._syntax_edges[scope].remove(spelling)
                 asg._syntax_edges[scope].append(spelling)
                 if isinstance(decl, clang.CXXRecordDecl):

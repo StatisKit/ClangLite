@@ -1,3 +1,26 @@
+// Copyright [2017-2018] UMR MISTEA INRA, UMR LEPSE INRA,                //
+//                       UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+// Copyright [2015-2016] UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+//                                                                       //
+// This file is part of the AutoWIG project. More information can be     //
+// found at                                                              //
+//                                                                       //
+//     http://autowig.rtfd.io                                            //
+//                                                                       //
+// The Apache Software Foundation (ASF) licenses this file to you under  //
+// the Apache License, Version 2.0 (the "License"); you may not use this //
+// file except in compliance with the License. You should have received  //
+// a copy of the Apache License, Version 2.0 along with this file; see   //
+// the file LICENSE. If not, you may obtain a copy of the License at     //
+//                                                                       //
+//     http://www.apache.org/licenses/LICENSE-2.0                        //
+//                                                                       //
+// Unless required by applicable law or agreed to in writing, software   //
+// distributed under the License is distributed on an "AS IS" BASIS,     //
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or       //
+// mplied. See the License for the specific language governing           //
+// permissions and limitations under the License.                        //
+
 #include "_clanglite.h"
 
 
@@ -56,7 +79,7 @@ void wrapper_9e52028d1c305f31bd87257e6d3ccc53()
     bool  (::clang::SourceManager::*method_pointer_d002d383b3e859d4ba5975ee27d382af)(class ::clang::SourceLocation ) const = &::clang::SourceManager::isWrittenInMainFile;
     bool  (::clang::SourceManager::*method_pointer_8eafef25a987554c9bfa9f4fc4790eb0)(class ::clang::SourceLocation ) const = &::clang::SourceManager::isInSystemHeader;
     bool  (::clang::SourceManager::*method_pointer_381e63121be15ec69fcda40b932866b1)(class ::clang::SourceLocation ) const = &::clang::SourceManager::isInExternCSystemHeader;
-    bool  (::clang::SourceManager::*method_pointer_c5bd61f438905f68ae78199548474042)(class ::clang::SourceLocation ) = &::clang::SourceManager::isInSystemMacro;
+    bool  (::clang::SourceManager::*method_pointer_da216020da7650ec948547c9b3682471)(class ::clang::SourceLocation ) const = &::clang::SourceManager::isInSystemMacro;
     unsigned int  (::clang::SourceManager::*method_pointer_018e2a3de51253ba928a8f2ca7bfc5a6)(class ::clang::FileID ) const = &::clang::SourceManager::getFileIDSize;
     unsigned int  (::clang::SourceManager::*method_pointer_f33915280379596fa88d82d55ac1e419)(class ::llvm::StringRef ) = &::clang::SourceManager::getLineTableFilenameID;
     void  (::clang::SourceManager::*method_pointer_788f0ba866bf53ac9d83a6b12fbc84db)(class ::clang::SourceLocation , unsigned int , int ) = &::clang::SourceManager::AddLineNote;
@@ -111,7 +134,7 @@ void wrapper_9e52028d1c305f31bd87257e6d3ccc53()
     class_9e52028d1c305f31bd87257e6d3ccc53.def("is_written_in_main_file", method_pointer_d002d383b3e859d4ba5975ee27d382af, "Returns true if the spelling location for the given location is in the\nmain file buffer.\n\nThis check ignores line marker directives.\n\n:Parameter:\n    `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_9e52028d1c305f31bd87257e6d3ccc53.def("is_in_system_header", method_pointer_8eafef25a987554c9bfa9f4fc4790eb0, "Returns if a SourceLocation is in a system header.\n\n:Parameter:\n    `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_9e52028d1c305f31bd87257e6d3ccc53.def("is_in_extern_c_system_header", method_pointer_381e63121be15ec69fcda40b932866b1, "Returns if a SourceLocation is in an 'extern C' system header.\n\n:Parameter:\n    `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
-    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_in_system_macro", method_pointer_c5bd61f438905f68ae78199548474042, "Returns whether :raw-latex:`\\p `Loc is expanded from a macro in a system\nheader.\n\n:Parameter:\n    `loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
+    class_9e52028d1c305f31bd87257e6d3ccc53.def("is_in_system_macro", method_pointer_da216020da7650ec948547c9b3682471, "Returns whether :raw-latex:`\\p `Loc is expanded from a macro in a system\nheader.\n\n:Parameter:\n    `loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_9e52028d1c305f31bd87257e6d3ccc53.def("get_file_id_size", method_pointer_018e2a3de51253ba928a8f2ca7bfc5a6, "The size of the SLocEntry that :raw-latex:`\\p `FID represents.\n\n:Parameter:\n    `FID` (:py:class:`clanglite.clang.FileID`) - Undocumented\n\n:Return Type:\n    :cpp:any:`unsigned` int\n\n");
     class_9e52028d1c305f31bd87257e6d3ccc53.def("get_line_table_filename_id", method_pointer_f33915280379596fa88d82d55ac1e419, "Return the uniqued ID for the specified filename.\n\n:Parameter:\n    `Str` (:py:class:`clanglite.llvm.StringRef`) - Undocumented\n\n:Return Type:\n    :cpp:any:`unsigned` int\n\n");
     class_9e52028d1c305f31bd87257e6d3ccc53.def("add_line_note", method_pointer_788f0ba866bf53ac9d83a6b12fbc84db, "Add a line note to the line table for the FileID and offset specified by\nLoc.\n\nIf FilenameID is -1, it is considered to be unspecified.\n\n:Parameters:\n  - `Loc` (:py:class:`clanglite.clang.SourceLocation`) - Undocumented\n  - `LineNo` (:cpp:any:`unsigned` int) - Undocumented\n  - `FilenameID` (:cpp:any:`int`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");

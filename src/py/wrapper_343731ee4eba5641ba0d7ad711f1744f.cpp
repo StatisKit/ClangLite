@@ -1,3 +1,26 @@
+// Copyright [2017-2018] UMR MISTEA INRA, UMR LEPSE INRA,                //
+//                       UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+// Copyright [2015-2016] UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+//                                                                       //
+// This file is part of the AutoWIG project. More information can be     //
+// found at                                                              //
+//                                                                       //
+//     http://autowig.rtfd.io                                            //
+//                                                                       //
+// The Apache Software Foundation (ASF) licenses this file to you under  //
+// the Apache License, Version 2.0 (the "License"); you may not use this //
+// file except in compliance with the License. You should have received  //
+// a copy of the Apache License, Version 2.0 along with this file; see   //
+// the file LICENSE. If not, you may obtain a copy of the License at     //
+//                                                                       //
+//     http://www.apache.org/licenses/LICENSE-2.0                        //
+//                                                                       //
+// Unless required by applicable law or agreed to in writing, software   //
+// distributed under the License is distributed on an "AS IS" BASIS,     //
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or       //
+// mplied. See the License for the specific language governing           //
+// permissions and limitations under the License.                        //
+
 #include "_clanglite.h"
 
 
@@ -31,7 +54,7 @@ void wrapper_343731ee4eba5641ba0d7ad711f1744f()
     class ::clang::QualType  (::clang::AutoType::*method_pointer_29c74fdc996b586d8e0c97a9801cc064)() const = &::clang::AutoType::getDeducedType;
     bool  (::clang::AutoType::*method_pointer_727dc1f261325c19b899b5076259e761)() const = &::clang::AutoType::isDeduced;
     bool  (*method_pointer_c30808f8af3a5cf2a526472cb1fc6d79)(class ::clang::Type const *) = ::clang::AutoType::classof;
-    boost::python::class_< class ::clang::AutoType, autowig::Held< class ::clang::AutoType >::Type, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_343731ee4eba5641ba0d7ad711f1744f("AutoType", "Represents a C++11 auto or C++14 decltype(auto) type.\n\nThese types are usually a placeholder for a deduced type. However,\nbefore the initializer is attached, or if the initializer is\ntype-dependent, there is no deduced type and an auto type is canonical.\nIn the latter case, it is also a dependent type.\n\n", boost::python::no_init);
+    boost::python::class_< class ::clang::AutoType, autowig::Held< class ::clang::AutoType >::Type, boost::python::bases< class ::clang::Type >, boost::noncopyable > class_343731ee4eba5641ba0d7ad711f1744f("AutoType", "Represents a C++11 auto or C++14 decltype(auto) type.\n\nThese types are usually a placeholder for a deduced type. However,\nbefore the initializer is attached, or (usually) if the initializer is\ntype-dependent, there is no deduced type and an auto type is canonical.\nIn the latter case, it is also a dependent type.\n\n", boost::python::no_init);
     class_343731ee4eba5641ba0d7ad711f1744f.def("is_decltype_auto", method_pointer_de0a3b96d4815be7b60dacb054abd96b, "");
     class_343731ee4eba5641ba0d7ad711f1744f.def("is_sugared", method_pointer_5b463201522750ee986f1f1558fa5caa, "");
     class_343731ee4eba5641ba0d7ad711f1744f.def("desugar", method_pointer_60eb018b23e2515aaa4a7ce2831e6f3f, "");

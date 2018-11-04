@@ -1,28 +1,44 @@
+## Copyright [2017-2018] UMR MISTEA INRA, UMR LEPSE INRA,                ##
+##                       UMR AGAP CIRAD, EPI Virtual Plants Inria        ##
+## Copyright [2015-2016] UMR AGAP CIRAD, EPI Virtual Plants Inria        ##
+##                                                                       ##
+## This file is part of the AutoWIG project. More information can be     ##
+## found at                                                              ##
+##                                                                       ##
+##     http://autowig.rtfd.io                                            ##
+##                                                                       ##
+## The Apache Software Foundation (ASF) licenses this file to you under  ##
+## the Apache License, Version 2.0 (the "License"); you may not use this ##
+## file except in compliance with the License. You should have received  ##
+## a copy of the Apache License, Version 2.0 along with this file; see   ##
+## the file LICENSE. If not, you may obtain a copy of the License at     ##
+##                                                                       ##
+##     http://www.apache.org/licenses/LICENSE-2.0                        ##
+##                                                                       ##
+## Unless required by applicable law or agreed to in writing, software   ##
+## distributed under the License is distributed on an "AS IS" BASIS,     ##
+## WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or       ##
+## mplied. See the License for the specific language governing           ##
+## permissions and limitations under the License.                        ##
+
 package:
   name: llvm
-  version: "3.8.1"
+  version: "4.0.1"
 
 source:
-  fn: llvm-3.8.1.src.tar.xz
-  url: http://llvm.org/releases/3.8.1/llvm-3.8.1.src.tar.xz
-  sha256: 6e82ce4adb54ff3afc18053d6981b6aed1406751b8742582ed50f04b5ab475f9
+  fn: llvm-4.0.1.src.tar.xz
+  url: http://llvm.org/releases/4.0.1/llvm-4.0.1.src.tar.xz
+  sha256: da783db1f82d516791179fe103c71706046561f7972b18f0049242dee6712b51
   patches:
-    # https://llvm.org/bugs/show_bug.cgi?id=15356                 
-    - {{ RECIPE_DIR }}/llvm-elf-relocation.patch                  [not x86 and not win]
-    # https://llvm.org/bugs/show_bug.cgi?id=25788
-    - {{ RECIPE_DIR }}/llvm-parse-fp-constants.patch              [not x86 and not win]
-    # https://llvm.org/bugs/show_bug.cgi?id=25565
-    - {{ RECIPE_DIR }}/llvm-build-race-condition.patch            [not x86 and not win]
-    # http://lists.llvm.org/pipermail/llvm-dev/2016-January/094520.html
-    - {{ RECIPE_DIR }}/llvm-lto-static.patch                      [not x86 and win]
-    
+    - 0001-Remove-decltype-STLExtras.patch
+
 build:
   number: 0
   skip: True               [osx]
   features:
-    - vc12                 [win]
+    - vc14                 [win]
   track_features:
-    - vc12                 [win]
+    - vc14                 [win]
     
 about:
   home: http://www.llvm.org/

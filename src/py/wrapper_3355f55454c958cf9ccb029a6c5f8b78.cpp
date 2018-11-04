@@ -1,3 +1,26 @@
+// Copyright [2017-2018] UMR MISTEA INRA, UMR LEPSE INRA,                //
+//                       UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+// Copyright [2015-2016] UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+//                                                                       //
+// This file is part of the AutoWIG project. More information can be     //
+// found at                                                              //
+//                                                                       //
+//     http://autowig.rtfd.io                                            //
+//                                                                       //
+// The Apache Software Foundation (ASF) licenses this file to you under  //
+// the Apache License, Version 2.0 (the "License"); you may not use this //
+// file except in compliance with the License. You should have received  //
+// a copy of the Apache License, Version 2.0 along with this file; see   //
+// the file LICENSE. If not, you may obtain a copy of the License at     //
+//                                                                       //
+//     http://www.apache.org/licenses/LICENSE-2.0                        //
+//                                                                       //
+// Unless required by applicable law or agreed to in writing, software   //
+// distributed under the License is distributed on an "AS IS" BASIS,     //
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or       //
+// mplied. See the License for the specific language governing           //
+// permissions and limitations under the License.                        //
+
 #include "_clanglite.h"
 
 
@@ -56,6 +79,7 @@ void wrapper_3355f55454c958cf9ccb029a6c5f8b78()
     unsigned int  (::clang::ASTUnit::*method_pointer_31509b6e5aa3516982986f740f3358f4)() const = &::clang::ASTUnit::cached_completion_size;
     bool  (::clang::ASTUnit::*method_pointer_7d7f1255f5ed57feb65b2158e3f1fab5)() = &::clang::ASTUnit::isModuleFile;
     bool  (::clang::ASTUnit::*method_pointer_621316ea48f3511fa390cb0c4fac7657)(class ::llvm::StringRef ) = &::clang::ASTUnit::Save;
+
     struct function_group
     {
         static class ::boost::python::list  function_d39550f58a685797a3dc2b5a02ccf049(class ::clang::ASTUnit & parameter_0)

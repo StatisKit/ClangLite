@@ -1,3 +1,26 @@
+// Copyright [2017-2018] UMR MISTEA INRA, UMR LEPSE INRA,                //
+//                       UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+// Copyright [2015-2016] UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+//                                                                       //
+// This file is part of the AutoWIG project. More information can be     //
+// found at                                                              //
+//                                                                       //
+//     http://autowig.rtfd.io                                            //
+//                                                                       //
+// The Apache Software Foundation (ASF) licenses this file to you under  //
+// the Apache License, Version 2.0 (the "License"); you may not use this //
+// file except in compliance with the License. You should have received  //
+// a copy of the Apache License, Version 2.0 along with this file; see   //
+// the file LICENSE. If not, you may obtain a copy of the License at     //
+//                                                                       //
+//     http://www.apache.org/licenses/LICENSE-2.0                        //
+//                                                                       //
+// Unless required by applicable law or agreed to in writing, software   //
+// distributed under the License is distributed on an "AS IS" BASIS,     //
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or       //
+// mplied. See the License for the specific language governing           //
+// permissions and limitations under the License.                        //
+
 #include "_clanglite.h"
 
 void wrapper_0c11b148868f50d9aba81b8d12b3ed37();
@@ -25,11 +48,14 @@ void wrapper_40fbba8dfa075307bb51cf2b9b55fe29();
 void wrapper_5578de9a4833559791574e29dbc59084();
 void wrapper_5bfc55543ee4569b9b6f1d945bfacbbb();
 void wrapper_693db0b37725552a85ff783087528c5b();
+void wrapper_6cf5fc1ba526524098edbb6432f5752d();
 void wrapper_902a9bb2e95657b784deb3b4e5d5526b();
 void wrapper_9e2974d2ed6b5833946cd12a4205bb14();
 void wrapper_9e52028d1c305f31bd87257e6d3ccc53();
 void wrapper_a049632b742a55ecb3317bc028db1124();
+void wrapper_a60596ded37e539999a00c7eddb373aa();
 void wrapper_b968379b40f8521d806301d873d53080();
+void wrapper_d3534ea59fd550feac0100e9ad39d4ca();
 void wrapper_e536a5cae34e54058d1fe69715937f7a();
 void wrapper_e763e0d8384558ef98fffcc5e4c39e65();
 void wrapper_e8de972362795c73b92c7a53a3029be0();
@@ -54,6 +80,7 @@ void wrapper_3bff763d917f5a62bc6b705f9eb6fdba();
 void wrapper_3c36278b447559a3a5d2a8e223d530d9();
 void wrapper_4b0c303b863250cda7e3852025001de0();
 void wrapper_566b7f2eb62955db8f0e90ccbfe7d271();
+void wrapper_618b3948d49e54c0ab874eb91d982c59();
 void wrapper_63dc6750407a5028aa2e82229f8ea352();
 void wrapper_69d409490fc05f00af970e471a94279a();
 void wrapper_6ad42784eaff547697796c119fd8c30f();
@@ -81,11 +108,14 @@ void wrapper_e0f3aeacd4b75f1a90a27af45ebd888b();
 void wrapper_e1bf2afb60925357a415152f90671c83();
 void wrapper_e7b3b4e4c9fa5685aa128e57eb78adb2();
 void wrapper_f549ce8f1b295099974aaf1951f7fd53();
+void wrapper_fb096fe49e3450f3b997520c4a6283ec();
 void wrapper_fcccd64b80075599a0a8ea554051b540();
 void wrapper_055e36c244395ee3a248c7839b4485ca();
 void wrapper_179220ac78145becbf9b283ff6879c57();
+void wrapper_1826ae426a86563c999d176eb03c6750();
 void wrapper_289d20f99a245c299406a081a1259a49();
 void wrapper_2cee44285ee85f019f99b9a11d8414aa();
+void wrapper_345632bb56275b51ac3b5487f472ba13();
 void wrapper_38c4ce0111b15a6cb3ab07a527312f9a();
 void wrapper_411e70b105bb5141b394c3e9e429e0b0();
 void wrapper_434f2e3471bb55ffb2ed175a1ab61e17();
@@ -94,6 +124,7 @@ void wrapper_498c623c598c5706b5ea24c85168e827();
 void wrapper_6fe8ea7f48fd5aec8c83607b627eef0d();
 void wrapper_71391b5023a057ca94506c6564b06c2a();
 void wrapper_77869ea344e0552885031daa303806b9();
+void wrapper_7a4ec52d516e59b3a51f6b4a2ec3dedc();
 void wrapper_7fe14ac9706f5b4d9d341b651fb0117a();
 void wrapper_80ca55a3e7785ce48e982c583ad333f5();
 void wrapper_82889ac35d675fc9a65f0285105ee4d5();
@@ -107,6 +138,7 @@ void wrapper_a17549d1336953b08ed02070ee0558cb();
 void wrapper_b348446fe4565d159b9283397730fb76();
 void wrapper_c2665c86b07b57a395ff46c8699e82ba();
 void wrapper_ca60b4fc83ce57b1b8f217896573c57c();
+void wrapper_ceecf94166465be786199d84d9487f07();
 void wrapper_d0a4d455ddf25a6eaff261924ecb6a85();
 void wrapper_d1031962618550cc8286398791b05794();
 void wrapper_d780ee1f9c3953908579ad420a07a673();
@@ -123,7 +155,6 @@ void wrapper_185117225e1a5743866dee867a4d2c40();
 void wrapper_19f2e9be2a19546ea2b5c16dcb943e36();
 void wrapper_4b8444f6e9695ad99a1ccdbf56dc74ac();
 void wrapper_4fb4fd6ff1345ebb9986bbeba504830c();
-void wrapper_6bc87a1668d653eba3c26946758eb6dc();
 void wrapper_7289d815af725e0c81cacbe193055c17();
 void wrapper_72a947d59e2e5194bab98d04fc2841fb();
 void wrapper_744be89803015d4fa974827041a9835a();
@@ -140,8 +171,10 @@ void wrapper_6d094fa53b15516db85a0d4b3b7fd665();
 void wrapper_7a0922211d1a5f6bb52def66e2db78ad();
 void wrapper_7a8dbb57ea425a4ca4c5329f099a1ce8();
 void wrapper_90fba55bcadf52088b0326eb2a205040();
+void wrapper_94b1c6686dee517f91069de2c8314c4c();
 void wrapper_ca8ac52d86e758baac4c0aab82cfaeb8();
 void wrapper_cdfef35342885d34aab4762243178440();
+void wrapper_dc571eff37b95ae9b2dec9805c38004c();
 void wrapper_fffc00a4de905ab4bf23b7321e62f698();
 void wrapper_69ef5751cb19567085dced299c047c9f();
 void wrapper_dcc054c796b75900b6320f767d12d934();
@@ -179,11 +212,14 @@ BOOST_PYTHON_MODULE(__clanglite)
     wrapper_5578de9a4833559791574e29dbc59084();
     wrapper_5bfc55543ee4569b9b6f1d945bfacbbb();
     wrapper_693db0b37725552a85ff783087528c5b();
+    wrapper_6cf5fc1ba526524098edbb6432f5752d();
     wrapper_902a9bb2e95657b784deb3b4e5d5526b();
     wrapper_9e2974d2ed6b5833946cd12a4205bb14();
     wrapper_9e52028d1c305f31bd87257e6d3ccc53();
     wrapper_a049632b742a55ecb3317bc028db1124();
+    wrapper_a60596ded37e539999a00c7eddb373aa();
     wrapper_b968379b40f8521d806301d873d53080();
+    wrapper_d3534ea59fd550feac0100e9ad39d4ca();
     wrapper_e536a5cae34e54058d1fe69715937f7a();
     wrapper_e763e0d8384558ef98fffcc5e4c39e65();
     wrapper_e8de972362795c73b92c7a53a3029be0();
@@ -208,6 +244,7 @@ BOOST_PYTHON_MODULE(__clanglite)
     wrapper_3c36278b447559a3a5d2a8e223d530d9();
     wrapper_4b0c303b863250cda7e3852025001de0();
     wrapper_566b7f2eb62955db8f0e90ccbfe7d271();
+    wrapper_618b3948d49e54c0ab874eb91d982c59();
     wrapper_63dc6750407a5028aa2e82229f8ea352();
     wrapper_69d409490fc05f00af970e471a94279a();
     wrapper_6ad42784eaff547697796c119fd8c30f();
@@ -235,11 +272,14 @@ BOOST_PYTHON_MODULE(__clanglite)
     wrapper_e1bf2afb60925357a415152f90671c83();
     wrapper_e7b3b4e4c9fa5685aa128e57eb78adb2();
     wrapper_f549ce8f1b295099974aaf1951f7fd53();
+    wrapper_fb096fe49e3450f3b997520c4a6283ec();
     wrapper_fcccd64b80075599a0a8ea554051b540();
     wrapper_055e36c244395ee3a248c7839b4485ca();
     wrapper_179220ac78145becbf9b283ff6879c57();
+    wrapper_1826ae426a86563c999d176eb03c6750();
     wrapper_289d20f99a245c299406a081a1259a49();
     wrapper_2cee44285ee85f019f99b9a11d8414aa();
+    wrapper_345632bb56275b51ac3b5487f472ba13();
     wrapper_38c4ce0111b15a6cb3ab07a527312f9a();
     wrapper_411e70b105bb5141b394c3e9e429e0b0();
     wrapper_434f2e3471bb55ffb2ed175a1ab61e17();
@@ -248,6 +288,7 @@ BOOST_PYTHON_MODULE(__clanglite)
     wrapper_6fe8ea7f48fd5aec8c83607b627eef0d();
     wrapper_71391b5023a057ca94506c6564b06c2a();
     wrapper_77869ea344e0552885031daa303806b9();
+    wrapper_7a4ec52d516e59b3a51f6b4a2ec3dedc();
     wrapper_7fe14ac9706f5b4d9d341b651fb0117a();
     wrapper_80ca55a3e7785ce48e982c583ad333f5();
     wrapper_82889ac35d675fc9a65f0285105ee4d5();
@@ -261,6 +302,7 @@ BOOST_PYTHON_MODULE(__clanglite)
     wrapper_b348446fe4565d159b9283397730fb76();
     wrapper_c2665c86b07b57a395ff46c8699e82ba();
     wrapper_ca60b4fc83ce57b1b8f217896573c57c();
+    wrapper_ceecf94166465be786199d84d9487f07();
     wrapper_d0a4d455ddf25a6eaff261924ecb6a85();
     wrapper_d1031962618550cc8286398791b05794();
     wrapper_d780ee1f9c3953908579ad420a07a673();
@@ -277,7 +319,6 @@ BOOST_PYTHON_MODULE(__clanglite)
     wrapper_19f2e9be2a19546ea2b5c16dcb943e36();
     wrapper_4b8444f6e9695ad99a1ccdbf56dc74ac();
     wrapper_4fb4fd6ff1345ebb9986bbeba504830c();
-    wrapper_6bc87a1668d653eba3c26946758eb6dc();
     wrapper_7289d815af725e0c81cacbe193055c17();
     wrapper_72a947d59e2e5194bab98d04fc2841fb();
     wrapper_744be89803015d4fa974827041a9835a();
@@ -294,8 +335,10 @@ BOOST_PYTHON_MODULE(__clanglite)
     wrapper_7a0922211d1a5f6bb52def66e2db78ad();
     wrapper_7a8dbb57ea425a4ca4c5329f099a1ce8();
     wrapper_90fba55bcadf52088b0326eb2a205040();
+    wrapper_94b1c6686dee517f91069de2c8314c4c();
     wrapper_ca8ac52d86e758baac4c0aab82cfaeb8();
     wrapper_cdfef35342885d34aab4762243178440();
+    wrapper_dc571eff37b95ae9b2dec9805c38004c();
     wrapper_fffc00a4de905ab4bf23b7321e62f698();
     wrapper_69ef5751cb19567085dced299c047c9f();
     wrapper_dcc054c796b75900b6320f767d12d934();

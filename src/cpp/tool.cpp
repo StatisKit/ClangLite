@@ -1,4 +1,29 @@
+// Copyright [2017-2018] UMR MISTEA INRA, UMR LEPSE INRA,                //
+//                       UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+// Copyright [2015-2016] UMR AGAP CIRAD, EPI Virtual Plants Inria        //
+//                                                                       //
+// This file is part of the AutoWIG project. More information can be     //
+// found at                                                              //
+//                                                                       //
+//     http://autowig.rtfd.io                                            //
+//                                                                       //
+// The Apache Software Foundation (ASF) licenses this file to you under  //
+// the Apache License, Version 2.0 (the "License"); you may not use this //
+// file except in compliance with the License. You should have received  //
+// a copy of the Apache License, Version 2.0 along with this file; see   //
+// the file LICENSE. If not, you may obtain a copy of the License at     //
+//                                                                       //
+//     http://www.apache.org/licenses/LICENSE-2.0                        //
+//                                                                       //
+// Unless required by applicable law or agreed to in writing, software   //
+// distributed under the License is distributed on an "AS IS" BASIS,     //
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or       //
+// mplied. See the License for the specific language governing           //
+// permissions and limitations under the License.                        //
+
 #include <clanglite/tool.h>
+#include <boost/algorithm/string/replace.hpp>
+#include <stdexcept>
 
 namespace clanglite
 {
@@ -10,6 +35,8 @@ namespace clanglite
         std::string __code = boost::python::extract< std::string >(_code);
         llvm::Twine code(__code);
         clang::ASTUnit* tu = clang::tooling::buildASTFromCodeWithArgs(code, args).release();
+        if(!tu)
+        { throw std::runtime_error("code parsing failed, no translation unit returned by clang"); }
         clang::LangOptions lang;
         lang.CPlusPlus = true;
         clang::PrintingPolicy policy(lang);
@@ -109,9 +136,13 @@ namespace clanglite
     { return static_cast< clang::EnumDecl * >(decl); }
 
     boost::python::str get_name(clang::NamedDecl * decl)
-    { return boost::python::str(decl->getNameAsString()); }
+    { 
+        std::string res = decl->getNameAsString();
+        res.erase(std::remove_if(res.begin(), res.end(), detail::invalid_char), res.end());
+        return boost::python::str(res);
+    }
 
-    void set_as_written(std::map< clang::ClassTemplateSpecializationDecl*, clang::TypeSourceInfo* >& mapping, clang::ClassTemplateSpecializationDecl* spec)
+    /*void set_as_written(std::map< clang::ClassTemplateSpecializationDecl*, clang::TypeSourceInfo* >& mapping, clang::ClassTemplateSpecializationDecl* spec)
     {
         spec->setTypeAsWritten(mapping[spec]);
         const clang::TemplateArgumentList &args = spec->getTemplateArgs();        
@@ -152,7 +183,13 @@ namespace clanglite
                 }
             }
         }
-    }
+    }*/
+
+    namespace detail 
+    {
+        bool invalid_char(char c) 
+        { return !(c>=0 && c <128); }
+    } 
 
     boost::python::str get_name(clang::ClassTemplateSpecializationDecl * decl)
     {
@@ -168,11 +205,11 @@ namespace clanglite
         policy.SuppressSpecifiers = false;
         policy.SuppressScope = false;
         policy.SuppressUnwrittenScope = true;
-        clang::TemplateSpecializationType::PrintTemplateArgumentList(os, args.data(),
-                                                                  args.size(),
+        clang::TemplateSpecializationType::PrintTemplateArgumentList(os, args.asArray(),
                                                                   policy);
         std::string res = os.str();
         // set_as_written(mapping, decl);        
+        res.erase(std::remove_if(res.begin(), res.end(), detail::invalid_char), res.end());
         return boost::python::str(res);
     }
 
@@ -187,7 +224,9 @@ namespace clanglite
         policy.SuppressScope = false;
         policy.SuppressUnwrittenScope = true;        
         ta->print(policy, os);
-        return boost::python::str(os.str());
+        std::string res = os.str();
+        res.erase(std::remove_if(res.begin(), res.end(), detail::invalid_char), res.end());
+        return boost::python::str(res);
     }
 
     boost::python::str str(clang::StringRef* sref)

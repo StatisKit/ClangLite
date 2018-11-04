@@ -1,0 +1,13 @@
+diff --git a/include/clang/Analysis/Analyses/ThreadSafetyTraverse.h b/include/clang/Analysis/Analyses/ThreadSafetyTraverse.h
+index 705fe91..9b2156b 100644
+--- a/include/clang/Analysis/Analyses/ThreadSafetyTraverse.h
++++ b/include/clang/Analysis/Analyses/ThreadSafetyTraverse.h
+@@ -236,7 +236,7 @@ public:
+   R_SExpr reduceGoto(Goto &Orig, BasicBlock *B) {
+     return true;
+   }
+-  R_SExpr reduceBranch(Branch &O, R_SExpr C, BasicBlock *B0, BasicBlock *B1) {
++  R_SExpr reduceBranch(Branch &O, R_SExpr C, BasicBlock *BB0, BasicBlock *B1) {
+     return C;
+   }
+   R_SExpr reduceReturn(Return &O, R_SExpr E) {
