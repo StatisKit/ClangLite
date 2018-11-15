@@ -49,6 +49,6 @@ requirements:
     - clang 4.0.1
     - python
   run:
-    - python
-    - clang 4.0.1
     - libboost_python
+    - clang 4.0.1
+    - python
