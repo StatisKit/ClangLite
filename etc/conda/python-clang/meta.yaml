@@ -32,9 +32,9 @@ source:
 build:
   number: 0
   features:
-    - vc12                [win]
+    - vc14                 [win]
   track_features:
-    - vc12                 [win]
+    - vc14                 [win]
     
 about:
   home: http://www.llvm.org/
