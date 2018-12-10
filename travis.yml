@@ -1,48 +1,54 @@
+
 branches:
   except:
-    - fp17
-
+    - doc
+  
 language: cpp
+
+sudo: required
+
+git:
+  depth: false
+  
+services:
+  - docker
 
 os:
   - linux
   - osx
+  - windows
 
-sudo: required
+dist: trusty
+osx_image: xcode8.3
 
-services:
-  - docker
-  
 env:
-  - CONDA_RECIPE=bin/conda/llvm
+  - CONDA_RECIPE=etc/conda/llvm
     TRAVIS_WAIT=50
-  - CONDA_RECIPE=bin/conda/clang
-  # - CONDA_RECIPE=bin/conda/python-clang
-  #   CONDA_VERSION=2
-  # - CONDA_RECIPE=bin/conda/python-clang
-  #   CONDA_VERSION=3
-  - CONDA_RECIPE=bin/conda/libclanglite
-  - CONDA_RECIPE=bin/conda/python-clanglite
+  - CONDA_RECIPE=etc/conda/clang
+  - CONDA_RECIPE=etc/conda/python-clang
+    CONDA_VERSION=3
+  - CONDA_RECIPE=etc/conda/libclanglite
+  - CONDA_RECIPE=etc/conda/python-clanglite
 
 matrix:
   allow_failures:
     - os: linux
-      env: CONDA_RECIPE=bin/conda/llvm
+      env: CONDA_RECIPE=etc/conda/llvm
            TRAVIS_WAIT=50
     - os: linux
-      env: CONDA_RECIPE=bin/conda/clang
-  #   - os: linux
-  #     env: CONDA_RECIPE=bin/conda/python-clanglite
-  #          CONDA_VERSION=2
-  #   - os: linux
-  #     env: CONDA_RECIPE=bin/conda/python-clanglite
-  #          CONDA_VERSION=3
+      env: CONDA_RECIPE=etc/conda/clang
+    - os: linux
+      env: CONDA_RECIPE=etc/conda/python-clanglite
+           CONDA_VERSION=2
+    - os: linux
+      env: CONDA_RECIPE=etc/conda/python-clanglite
+           CONDA_VERSION=3
   exclude:
     - os: osx
-      env: CONDA_RECIPE=bin/conda/llvm
+      env: CONDA_RECIPE=etc/conda/llvm
            TRAVIS_WAIT=50
     - os: osx
-      env: CONDA_RECIPE=bin/conda/clang
+      env: CONDA_RECIPE=etc/conda/clang
 
 install:
   - git clone https://github.com/StatisKit/travis-ci.git travis-ci
