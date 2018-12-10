@@ -26,7 +26,6 @@ env:
     TRAVIS_WAIT=50
   - CONDA_RECIPE=etc/conda/clang
   - CONDA_RECIPE=etc/conda/python-clang
-    CONDA_VERSION=3
   - CONDA_RECIPE=etc/conda/libclanglite
   - CONDA_RECIPE=etc/conda/python-clanglite
 
@@ -39,10 +38,8 @@ matrix:
       env: CONDA_RECIPE=etc/conda/clang
     - os: linux
       env: CONDA_RECIPE=etc/conda/python-clanglite
-           CONDA_VERSION=2
     - os: linux
       env: CONDA_RECIPE=etc/conda/python-clanglite
-           CONDA_VERSION=3
   exclude:
     - os: osx
       env: CONDA_RECIPE=etc/conda/llvm
