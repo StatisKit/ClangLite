@@ -30,12 +30,8 @@ source:
   url: http://llvm.org/releases/4.0.1/cfe-4.0.1.src.tar.xz
 
 build:
-  number: 0
-  features:
-    - vc14                 [win]
-  track_features:
-    - vc14                 [win]
-    
+  number: {{ GIT_DESCRIBE_NUMBER }}
+  
 about:
   home: http://www.llvm.org/
   license: The University of Illinois/NCSA Open Source License
@@ -43,12 +39,14 @@ about:
 
 requirements:
   build:
-    - python
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - libtoolchain
     - python-toolchain
+  build:
     - clang 4.0.1
+    - python
     - zlib
-    - xz                         [unix]
-    - m2w64-xz                   [win]
   run:
     - python
     - clang

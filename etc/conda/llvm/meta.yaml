@@ -33,13 +33,8 @@ source:
     - 0001-Remove-decltype-STLExtras.patch
 
 build:
-  number: 0
-  skip: True               [osx]
-  features:
-    - vc14                 [win]
-  track_features:
-    - vc14                 [win]
-    
+  number: {{ GIT_DESCRIBE_NUMBER }}
+
 about:
   home: http://www.llvm.org/
   license: The University of Illinois/NCSA Open Source License
@@ -47,12 +42,14 @@ about:
 
 requirements:
   build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - libtoolchain
     - cmake
-    - zlib
-    - m2w64-xz          [py27 and win]
     - 7za               [win]
     - patch             [win]
+  host:
+    - zlib
     - python
   run:
     - libtoolchain

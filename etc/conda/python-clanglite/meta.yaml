@@ -31,12 +31,8 @@ source:
   #   - 0001-Correct-Wrapper-for-ASTUnit-top_level_size.patch
 
 build:
-  number: 0
-  features:
-    - vc14                 [win]
-  track_features:
-    - vc14                 [win]
-
+  number: {{ GIT_DESCRIBE_NUMBER }}
+  
 about:
   home: http://autowig.rtfd.io/
   license: Apache License 2.0
@@ -44,10 +40,13 @@ about:
 
 requirements:
   build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - libtoolchain
+    - python-toolchain
+  build:
     - libboost-dev
     - libboost_python
-    - python-toolchain
     - libclanglite 4.0.1
     - python
   run:

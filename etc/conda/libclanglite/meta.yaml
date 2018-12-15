@@ -29,11 +29,7 @@ source:
   path: ../../..
 
 build:
-  number: 
-  features:
-    - vc14                 [win]
-  track_features:
-    - vc14                 [win]
+  number: {{ GIT_DESCRIBE_NUMBER }}
     
 about:
   home: http://autowig.rtfd.io/
@@ -42,8 +38,11 @@ about:
 
 requirements:
   build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - libtoolchain
     - python-toolchain
+  host:
     - libboost-dev
     - libboost_python
     - clang 4.0.1

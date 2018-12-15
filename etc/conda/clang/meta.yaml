@@ -35,12 +35,8 @@ source:
     - 0004-Fix-B0-to-BBO-in-ThreadSafetyTraverse.patch
   
 build:
-  number: 0
+  number: {{ GIT_DESCRIBE_NUMBER }}
   skip: True        [osx]
-  features:
-    - vc14                 [win]
-  track_features:
-    - vc14                 [win]
 
 about:
   home: http://www.llvm.org/
@@ -49,16 +45,19 @@ about:
 
 requirements:
   build:
-    - llvm 4.0.1
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - libtoolchain
-    - python
     - cmake
-    - zlib
-    - m2w64-xz                       [py27 and win]
     - 7za                            [win]
+    - patch             [win]
+  host:
+    - llvm 4.0.1
+    - python
+    - zlib
+
   run:
     - llvm 4.0.1
-    - libtoolchain
     
 test:
   commands:
