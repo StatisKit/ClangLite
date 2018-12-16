@@ -35,7 +35,7 @@ cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=${GCC} \
                           -DCMAKE_INSTALL_PREFIX=${PREFIX} \
                           -DCMAKE_BUILD_TYPE=Release \
                           -DLLVM_TARGETS_TO_BUILD=host \
-                          $SRC_DIR;
+                          ..;
 make -j$CPU_COUNT VERBOSE=1
 make install
 
