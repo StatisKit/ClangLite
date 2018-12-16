@@ -51,7 +51,7 @@ requirements:
     - make
     - cmake
     - 7za                            [win]
-    - patch             [win]
+    - patch                          [win]
   host:
     - llvm 4.0.1
     - python
