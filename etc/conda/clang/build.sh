@@ -9,31 +9,28 @@ rm -rf tools/c-index-test
 mkdir build_clang
 cd build_clang
 
-unset CXXFLAGS
-unset CPPFLAGS
-unset CFLAGS
-unset LDFLAGS
-unset LDFLAGS_CC
-unset DEBUG_CFLAGS
-unset DEBUG_CXXFLAGS
+# unset CXXFLAGS
+# unset CPPFLAGS
+# unset CFLAGS
+# unset LDFLAGS
+# unset LDFLAGS_CC
+# unset DEBUG_CFLAGS
+# unset DEBUG_CXXFLAGS
 
-$GCC -x c++ -E -v /dev/null &> config.txt
-export CFLAGS=`python $RECIPE_DIR/flags.py`
-TMP_C_LINK_FLAGS=`python $RECIPE_DIR/link_flags.py`
-echo $TMP_C_LINK_FLAGS
+# $GCC -x c++ -E -v /dev/null &> config.txt
+# export CFLAGS=`python $RECIPE_DIR/flags.py`
+# TMP_C_LINK_FLAGS=`python $RECIPE_DIR/link_flags.py`
+# echo $TMP_C_LINK_FLAGS
 
-$GXX -x c++ -E -v /dev/null &> config.txt
-export CXXFLAGS=`python $RECIPE_DIR/flags.py`
-TMP_CXX_LINK_FLAGS=`python $RECIPE_DIR/link_flags.py`
-echo $TMP_CXX_LINK_FLAGS
+# $GXX -x c++ -E -v /dev/null &> config.txt
+# export CXXFLAGS=`python $RECIPE_DIR/flags.py`
+# TMP_CXX_LINK_FLAGS=`python $RECIPE_DIR/link_flags.py`
+# echo $TMP_CXX_LINK_FLAGS
 
 cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=${GCC} \
                           -DCMAKE_CXX_COMPILER=${GXX} \
                           -DCMAKE_LINKER=${LD} \
                           -DLLVM_USE_LINKER={$LD} \
-                          -DCMAKE_EXE_LINKER_FLAGS="${TMP_C_LINK_FLAGS}" \
-                          -DCMAKE_C_LINK_FLAGS="${TMP_C_LINK_FLAGS}" \
-                          -DCMAKE_CXX_LINK_FLAGS="${TMP_CXX_LINK_FLAGS}" \
                           -DBUILD_SHARED_LIBS=ON \
                           -DLLVM_INCLUDE_TESTS=OFF \
                           -DLLVM_INCLUDE_UTILS=OFF \
@@ -49,3 +46,7 @@ make -j$CPU_COUNT VERBOSE=1
 make install
 
 set +ve
+
+#                          -DCMAKE_EXE_LINKER_FLAGS="${TMP_C_LINK_FLAGS}" \
+#                          -DCMAKE_C_LINK_FLAGS="${TMP_C_LINK_FLAGS}" \
+#                          -DCMAKE_CXX_LINK_FLAGS="${TMP_CXX_LINK_FLAGS}" \
