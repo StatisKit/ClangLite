@@ -25,7 +25,7 @@ cd build
 # TMP_CXX_LINK_FLAGS="${TMP_CXX_LINK_FLAGS} -L${PREFIX}/lib"
 # echo ${TMP_CXX_LINK_FLAGS}
 
-export LDFLAGS=${LDFLAGS}" -L${PREFIX}/lib"
+export LDFLAGS=${LDFLAGS}" -L${PREFIX}/lib -Wl,-V"
 export CFLAGS=${CFLAGS}" -I${PREFIX}/include"
 export CXXFLAGS=${CXXFLAGS}" -I${PREFIX}/include"
 
