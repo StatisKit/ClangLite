@@ -32,6 +32,7 @@ for line in output:
         line = line.lstrip('LIBRARY_PATH=').strip()
         LIBRARY_PATH.extend(line.split(':'))
 LIBRARY_PATH = {os.path.realpath(library_path) for library_path in LIBRARY_PATH}
-LIBRARY_PATH = {os.path.realpath(library_path).replace(os.environ.get('BUILD_PREFIX', '${PREFIX}')) for library_path in LIBRARY_PATH}
-LIBRARY_PATH = {os.path.realpath(library_path).replace(os.environ.get('PREFIX', '${PREFIX}')) for library_path in LIBRARY_PATH}
+LIBRARY_PATH = {os.path.realpath(library_path).replace(os.environ.get('BUILD_PREFIX', 'BUILD_PREFIX'), '${PREFIX}') for library_path in LIBRARY_PATH}
+LIBRARY_PATH = {os.path.realpath(library_path).replace(os.environ.get('PREFIX', 'PREFIX'), '${PREFIX}') for library_path in LIBRARY_PATH}
+LIBRARY_PATH = {os.path.realpath(library_path).replace('$$', '$') for library_path in LIBRARY_PATH}
 print(" ".join(["-Wl,-rpath," + library_path + " -L" + library_path for library_path in LIBRARY_PATH]))
