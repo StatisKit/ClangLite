@@ -14,12 +14,16 @@ ls ${PREFIX}/lib
 ${GCC} -x c++ -E -v /dev/null &> config.txt
 export CFLAGS="$(python $RECIPE_DIR/flags.py) ${CFLAGS}"
 TMP_C_LINK_FLAGS=`python $RECIPE_DIR/link_flags.py`
+
+TMP_C_LINK_FLAGS="${TMP_CXX_LINK_FLAGS} -L${PREFIX}/lib"
 echo ${TMP_C_LINK_FLAGS}
 
 ${GXX} -x c++ -E -v /dev/null &> config.txt
 export CXXFLAGS="$(python $RECIPE_DIR/flags.py) ${CXXFLAGS}"
 TMP_CXX_LINK_FLAGS=`python $RECIPE_DIR/link_flags.py`
-echo ${TMP_C_LINK_FLAGS}
+
+TMP_CXX_LINK_FLAGS="${TMP_CXX_LINK_FLAGS} -L${PREFIX}/lib"
+echo ${TMP_CXX_LINK_FLAGS}
 
 cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=${GCC} \
                           -DCMAKE_CXX_COMPILER=${GXX} \
