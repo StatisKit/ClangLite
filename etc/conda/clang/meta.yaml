@@ -28,7 +28,7 @@ package:
 source:
   fn: cfe-4.0.1.src.tar.xz
   url: http://llvm.org/releases/4.0.1/cfe-4.0.1.src.tar.xz
-  sha256: a
+  sha256: 61738a735852c23c3bdbe52d035488cdb2083013f384d67c1ba36fabebd8769b
   patches:
     - 0001-Allow-disabling-libXML.patch
     - 0002-add-conda-specific-env-var-CONDA_BUILD_SYSROOT.patch
