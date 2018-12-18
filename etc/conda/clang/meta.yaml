@@ -48,7 +48,6 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - libtoolchain
     - make
     - cmake
     - 7za                            [win]
