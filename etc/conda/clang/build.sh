@@ -9,6 +9,8 @@ rm -rf tools/c-index-test
 mkdir build
 cd build
 
+ls ${PREFIX}/lib
+
 ${GCC} -x c++ -E -v /dev/null &> config.txt
 export CFLAGS="$(python $RECIPE_DIR/flags.py) ${CFLAGS}"
 TMP_C_LINK_FLAGS=`python $RECIPE_DIR/link_flags.py`
