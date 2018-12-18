@@ -34,4 +34,8 @@ for line in output:
         read = False
     elif read:
         INCLUDE_DIRS.add(os.path.realpath(line.strip()))
-print('-I' + ' -I'.join(INCLUDE_DIRS))
+INCLUDE_DIRS = {os.path.realpath(include_dir) for include_dir in INCLUDE_DIRS}
+INCLUDE_DIRS = {os.path.realpath(include_dir).replace(os.environ.get('BUILD_PREFIX', 'BUILD_PREFIX'), '${PREFIX}') for include_dir in INCLUDE_DIRS}
+INCLUDE_DIRS = {os.path.realpath(include_dir).replace(os.environ.get('PREFIX', 'PREFIX'), '${PREFIX}') for library_path in INCLUDE_DIRS}
+INCLUDE_DIRS = {os.path.realpath(include_dir).replace('$$', '$') for include_dir in INCLUDE_DIRS}
+print(' '.join('-I' + include_dir for include_dir in INCLUDE_DIRS))
