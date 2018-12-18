@@ -15,7 +15,6 @@ cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=${GCC} \
                           -DCMAKE_CXX_COMPILER=${GXX} \
                           -DCMAKE_LINKER=${LD} \
                           -DLLVM_USE_LINKER={$LD} \
-                          -DCMAKE_EXE_LINKER_FLAGS=${TMP_C_LINK_FLAGS} \
                           -DCMAKE_C_LINK_FLAGS=${TMP_C_LINK_FLAGS} \
                           -DCMAKE_CXX_LINK_FLAGS=${TMP_CXX_LINK_FLAGS} \
                           -DBUILD_SHARED_LIBS=ON \
