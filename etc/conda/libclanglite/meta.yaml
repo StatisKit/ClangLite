@@ -21,9 +21,10 @@
 ## mplied. See the License for the specific language governing           ##
 ## permissions and limitations under the License.                        ##
 
+{% set version = "4.0.1" %}
 package:
   name: libclanglite
-  version: "4.0.1"
+  version: {{ version }}
 
 source:
   path: ../../..
@@ -45,9 +46,9 @@ requirements:
   host:
     - libboost-dev
     - libboost_python
-    - clang 4.0.1
+    - llvm-suite {{ version }}
     - python
   run:
-    - libboost_python
-    - clang 4.0.1
+    - {{ pin_compatible('libboost_python') }}
+    - {{ pin_compatible('llvm-suite') }}
     - python
