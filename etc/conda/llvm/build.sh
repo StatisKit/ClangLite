@@ -1,21 +1,11 @@
 set -ve
 
+rm -rf tools/clang/tools/libclang
+rm -rf tools/clang/tools/c-arcmt-test
+rm -rf tools/clang/tools/c-index-test
+
 mkdir build
 cd build
-
-# ${GCC} -x c++ -E -v /dev/null &> config.txt
-# export CFLAGS="$(python $RECIPE_DIR/flags.py) ${CFLAGS}"
-# TMP_C_LINK_FLAGS=`python $RECIPE_DIR/link_flags.py`
-
-# TMP_C_LINK_FLAGS="${TMP_CXX_LINK_FLAGS} -L${PREFIX}/lib"
-# echo ${TMP_C_LINK_FLAGS}
-
-# ${GXX} -x c++ -E -v /dev/null &> config.txt
-# export CXXFLAGS="$(python $RECIPE_DIR/flags.py) ${CXXFLAGS}"
-# TMP_CXX_LINK_FLAGS=`python $RECIPE_DIR/link_flags.py`
-
-# TMP_CXX_LINK_FLAGS="${TMP_CXX_LINK_FLAGS} -L${PREFIX}/lib"
-# echo ${TMP_CXX_LINK_FLAGS}
 
 export LDFLAGS=${LDFLAGS}" -L${PREFIX}/lib"
 export CFLAGS=${CFLAGS}" -I${PREFIX}/include"
@@ -36,7 +26,9 @@ cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=${CC} \
                           -DCMAKE_BUILD_TYPE=Release \
                           -DLLVM_TARGETS_TO_BUILD=host \
                           ..;
+
 make -j$CPU_COUNT VERBOSE=1
+
 make install
 
 set +ve

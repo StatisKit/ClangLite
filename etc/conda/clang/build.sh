@@ -25,19 +25,16 @@ cd build
 # TMP_CXX_LINK_FLAGS="${TMP_CXX_LINK_FLAGS} -L${PREFIX}/lib"
 # echo ${TMP_CXX_LINK_FLAGS}
 
-export LDFLAGS=${LDFLAGS}" -L${PREFIX}/lib -Wl,-V"
+export LDFLAGS=${LDFLAGS}" -L${PREFIX}/lib"
 export CFLAGS=${CFLAGS}" -I${PREFIX}/include"
 export CXXFLAGS=${CXXFLAGS}" -I${PREFIX}/include"
 
-cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=${GCC} \
-                          -DCMAKE_CXX_COMPILER=${GXX} \
+cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=${CC} \
+                          -DCMAKE_CXX_COMPILER=${CXX} \
                           -DCMAKE_LINKER=${LD} \
-                          -DLLVM_USE_LINKER=${LD} \
                           -DBUILD_SHARED_LIBS=ON \
                           -DLLVM_INCLUDE_TESTS=OFF \
-                          -DLLVM_INCLUDE_UTILS=OFF \
                           -DLLVM_INCLUDE_DOCS=OFF \
-                          -DLLVM_INCLUDE_EXAMPLES=OFF \
                           -DLLVM_ENABLE_TERMINFO=OFF \
                           -DLLVM_ENABLE_RTTI=ON \
                           -DCMAKE_INSTALL_PREFIX=${PREFIX} \
