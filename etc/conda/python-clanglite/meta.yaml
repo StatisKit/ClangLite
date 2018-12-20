@@ -54,7 +54,7 @@ requirements:
   run:
     - python
     - {{ pin_compatible('libboost_python') }}
-    - libclanglite {{ version }}
+    - {{ pin_compatible('libclanglite', min_pin='x.x', max_pin='x.x') }}
 
 test:   
   imports:
