@@ -51,6 +51,7 @@ requirements:
     - libboost_python
     - libclanglite {{ version }}
     - python
+    - six
   run:
     - python
     - {{ pin_compatible('libboost_python') }}
