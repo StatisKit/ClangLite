@@ -1,0 +1,74 @@
+## Copyright [2017-2018] UMR MISTEA INRA, UMR LEPSE INRA,                ##
+##                       UMR AGAP CIRAD, EPI Virtual Plants Inria        ##
+## Copyright [2015-2016] UMR AGAP CIRAD, EPI Virtual Plants Inria        ##
+##                                                                       ##
+## This file is part of the AutoWIG project. More information can be     ##
+## found at                                                              ##
+##                                                                       ##
+##     http://autowig.rtfd.io                                            ##
+##                                                                       ##
+## The Apache Software Foundation (ASF) licenses this file to you under  ##
+## the Apache License, Version 2.0 (the "License"); you may not use this ##
+## file except in compliance with the License. You should have received  ##
+## a copy of the Apache License, Version 2.0 along with this file; see   ##
+## the file LICENSE. If not, you may obtain a copy of the License at     ##
+##                                                                       ##
+##     http://www.apache.org/licenses/LICENSE-2.0                        ##
+##                                                                       ##
+## Unless required by applicable law or agreed to in writing, software   ##
+## distributed under the License is distributed on an "AS IS" BASIS,     ##
+## WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or       ##
+## mplied. See the License for the specific language governing           ##
+## permissions and limitations under the License.                        ##
+
+{% set version = "4.0.1" %}
+{% set llvm_sha256 =  "da783db1f82d516791179fe103c71706046561f7972b18f0049242dee6712b51" %}
+{% set clang_sha256="61738a735852c23c3bdbe52d035488cdb2083013f384d67c1ba36fabebd8769b" %}
+
+package:
+  name: clang
+  version: {{ version }}
+
+source:
+  - url: http://llvm.org/releases/{{ version }}/llvm-{{ version }}.src.tar.xz
+    sha256: {{ llvm_sha256 }}
+    patches:
+      - 0001-llvm-Remove-decltype-STLExtras.patch
+  - url: http://llvm.org/releases/{{ version }}/cfe-{{ version }}.src.tar.xz
+    sha256: {{ clang_sha256 }}
+    folder: tools/clang
+    patches:
+      - 0001-clang-Allow-disabling-libXML.patch
+      - 0002-clang-add-conda-specific-env-var-CONDA_BUILD_SYSROOT.patch
+      - 0003-clang-Fix-normalizeProgramName-s-handling-of-dots-ou.patch
+      - 0004-clang-Fix-B0-to-BBO-in-ThreadSafetyTraverse.patch
+  
+build:
+  number: {{ GIT_DESCRIBE_NUMBER }}
+
+about:
+  home: http://www.llvm.org/
+  license: The University of Illinois/NCSA Open Source License
+  summary: The LLVM Project is a collection of modular and reusable compiler and toolchain technologies. Despite its name, LLVM has little to do with traditional virtual machines. The name "LLVM" itself is not an acronym; it is the full name of the project.
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - make
+    - cmake
+    - 7za               [win]
+    - patch             [win]
+  host:
+    - llvm {{ version }}
+    - zlib
+    - python
+  run:
+    - {{ pin_compatible('llvm', min_pin='x.x', max_pin='x.x') }}
+
+test:
+  commands:
+  - clang++ -x c++ -v -E /dev/null   [not win]
+  - clang -x c -v -E /dev/null       [not win]
+  - clang++ -x c++ -v -E nul         [win]
+  - clang -x c -v -E nul             [win]

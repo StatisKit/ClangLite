@@ -1,0 +1,13 @@
+diff --git a/include/llvm/ADT/STLExtras.h b/include/llvm/ADT/STLExtras.h
+index ec121e0..d5b6a69 100644
+--- a/include/llvm/ADT/STLExtras.h
++++ b/include/llvm/ADT/STLExtras.h
+@@ -367,7 +367,7 @@ private:
+     return value_type(*std::get<Ns>(iterators)...);
+   }
+ 
+-  template <size_t... Ns> decltype(iterators) tup_inc(index_sequence<Ns...>) {
++  template <size_t... Ns> std::tuple<Iters...> tup_inc(index_sequence<Ns...>) {
+     return std::tuple<Iters...>(std::next(std::get<Ns>(iterators))...);
+   }
+ 
