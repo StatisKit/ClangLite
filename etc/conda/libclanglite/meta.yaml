@@ -51,5 +51,5 @@ requirements:
     - python
   run:
     - {{ pin_compatible('libboost_python') }}
-    - {{ pin_compatible('llvm-suite', min_pin='x.x', max_pin='x.x') }}
+    - {{ pin_compatible('clang', min_pin='x.x', max_pin='x.x') }}
     - python
