@@ -25,7 +25,6 @@ env:
   - CONDA_RECIPE=etc/conda/llvm
     TRAVIS_WAIT=50
   - CONDA_RECIPE=etc/conda/clang
-  - CONDA_RECIPE=etc/conda/python-clang
   - CONDA_RECIPE=etc/conda/libclanglite
   - CONDA_RECIPE=etc/conda/python-clanglite
 
