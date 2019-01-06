@@ -45,7 +45,10 @@ def autowig_parser(asg, headers, flags, inline=True, permissive=True, **kwargs):
                 elif flag.startswith('/I'):
                     _flags.append(flag.replace('/I', '-I'))
             else:
-                _flags.append(flag)
+                if flag in ['-std=c1z', '-std=c++17']:
+                    _flags.append('-std=c++11')
+                elif flag not in ['-fno-plt', '-Wl,--no-undefined']:
+                    _flags.append(flag)
         if six.PY2:
             header = str(header)
             _flags = [str(flag) for flag in _flags]
