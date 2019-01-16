@@ -36,8 +36,6 @@ matrix:
     - os: linux
       env: CONDA_RECIPE=etc/conda/clang
     - os: osx
-      env: CONDA_RECIPE=etc/conda/libclanglite
-    - os: osx
       env: CONDA_RECIPE=etc/conda/python-clanglite
     - os: windows
       env: CONDA_RECIPE=etc/conda/llvm
