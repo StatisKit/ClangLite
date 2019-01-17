@@ -15,21 +15,21 @@ namespace autowig
             virtual void  printName(class ::llvm::raw_ostream & param_0) const { PYBIND11_OVERLOAD(void , ::clang::RedeclarableTemplateDecl, printName, param_0); };
             virtual bool  hasBody() const { PYBIND11_OVERLOAD(bool , ::clang::RedeclarableTemplateDecl, hasBody, ); };
             virtual class ::clang::Stmt * getBody() const { PYBIND11_OVERLOAD(class ::clang::Stmt *, ::clang::RedeclarableTemplateDecl, getBody, ); };
-            virtual class ::clang::Decl * getCanonicalDecl() { PYBIND11_OVERLOAD(class ::clang::Decl *, ::clang::RedeclarableTemplateDecl, getCanonicalDecl, ); };
+            // virtual class ::clang::Decl * getCanonicalDecl() { PYBIND11_OVERLOAD(class ::clang::Decl *, ::clang::RedeclarableTemplateDecl, getCanonicalDecl, ); };
             virtual bool  isOutOfLine() const { PYBIND11_OVERLOAD(bool , ::clang::RedeclarableTemplateDecl, isOutOfLine, ); };
 
-        protected:
+        // protected:
             
-            virtual struct ::clang::RedeclarableTemplateDecl::CommonBase * newCommon(class ::clang::ASTContext & param_0) const { PYBIND11_OVERLOAD_PURE(struct ::clang::RedeclarableTemplateDecl::CommonBase *, ::clang::RedeclarableTemplateDecl, newCommon, param_0); };
-            virtual class ::clang::Decl * getMostRecentDeclImpl() { PYBIND11_OVERLOAD(class ::clang::Decl *, ::clang::RedeclarableTemplateDecl, getMostRecentDeclImpl, ); };
-            virtual class ::clang::Decl * getPreviousDeclImpl() { PYBIND11_OVERLOAD(class ::clang::Decl *, ::clang::RedeclarableTemplateDecl, getPreviousDeclImpl, ); };
-            virtual class ::clang::Decl * getNextRedeclarationImpl() { PYBIND11_OVERLOAD(class ::clang::Decl *, ::clang::RedeclarableTemplateDecl, getNextRedeclarationImpl, ); };
+        //     virtual struct ::clang::RedeclarableTemplateDecl::CommonBase * newCommon(class ::clang::ASTContext & param_0) const { PYBIND11_OVERLOAD_PURE(struct ::clang::RedeclarableTemplateDecl::CommonBase *, ::clang::RedeclarableTemplateDecl, newCommon, param_0); };
+        //     virtual class ::clang::Decl * getMostRecentDeclImpl() { PYBIND11_OVERLOAD(class ::clang::Decl *, ::clang::RedeclarableTemplateDecl, getMostRecentDeclImpl, ); };
+        //     virtual class ::clang::Decl * getPreviousDeclImpl() { PYBIND11_OVERLOAD(class ::clang::Decl *, ::clang::RedeclarableTemplateDecl, getPreviousDeclImpl, ); };
+        //     virtual class ::clang::Decl * getNextRedeclarationImpl() { PYBIND11_OVERLOAD(class ::clang::Decl *, ::clang::RedeclarableTemplateDecl, getNextRedeclarationImpl, ); };
 
-        private:
+        // private:
             
-            virtual class ::clang::RedeclarableTemplateDecl * getMostRecentDeclImpl() { PYBIND11_OVERLOAD(class ::clang::RedeclarableTemplateDecl *, ::clang::RedeclarableTemplateDecl, getMostRecentDeclImpl, ); };
-            virtual class ::clang::RedeclarableTemplateDecl * getPreviousDeclImpl() { PYBIND11_OVERLOAD(class ::clang::RedeclarableTemplateDecl *, ::clang::RedeclarableTemplateDecl, getPreviousDeclImpl, ); };
-            virtual class ::clang::RedeclarableTemplateDecl * getNextRedeclarationImpl() { PYBIND11_OVERLOAD(class ::clang::RedeclarableTemplateDecl *, ::clang::RedeclarableTemplateDecl, getNextRedeclarationImpl, ); };
+        //     virtual class ::clang::RedeclarableTemplateDecl * getMostRecentDeclImpl() { PYBIND11_OVERLOAD(class ::clang::RedeclarableTemplateDecl *, ::clang::RedeclarableTemplateDecl, getMostRecentDeclImpl, ); };
+        //     virtual class ::clang::RedeclarableTemplateDecl * getPreviousDeclImpl() { PYBIND11_OVERLOAD(class ::clang::RedeclarableTemplateDecl *, ::clang::RedeclarableTemplateDecl, getPreviousDeclImpl, ); };
+        //     virtual class ::clang::RedeclarableTemplateDecl * getNextRedeclarationImpl() { PYBIND11_OVERLOAD(class ::clang::RedeclarableTemplateDecl *, ::clang::RedeclarableTemplateDecl, getNextRedeclarationImpl, ); };
 
     };
 }

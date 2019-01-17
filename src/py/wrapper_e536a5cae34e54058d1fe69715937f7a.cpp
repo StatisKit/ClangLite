@@ -439,17 +439,17 @@ void wrapper_e536a5cae34e54058d1fe69715937f7a(pybind11::module& module)
     class_e536a5cae34e54058d1fe69715937f7a.def_readwrite("comments_loaded", &::clang::ASTContext::CommentsLoaded, "");
     class_e536a5cae34e54058d1fe69715937f7a.def_readwrite("auto_deduct_ty", &::clang::ASTContext::AutoDeductTy, "");
     class_e536a5cae34e54058d1fe69715937f7a.def_readwrite("auto_r_ref_deduct_ty", &::clang::ASTContext::AutoRRefDeductTy, "");
-    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_default_constructors", ::clang::ASTContext::NumImplicitDefaultConstructors, "");
-    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_default_constructors_declared", ::clang::ASTContext::NumImplicitDefaultConstructorsDeclared, "");
-    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_copy_constructors", ::clang::ASTContext::NumImplicitCopyConstructors, "");
-    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_copy_constructors_declared", ::clang::ASTContext::NumImplicitCopyConstructorsDeclared, "");
-    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_move_constructors", ::clang::ASTContext::NumImplicitMoveConstructors, "");
-    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_move_constructors_declared", ::clang::ASTContext::NumImplicitMoveConstructorsDeclared, "");
-    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_copy_assignment_operators", ::clang::ASTContext::NumImplicitCopyAssignmentOperators, "");
-    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_copy_assignment_operators_declared", ::clang::ASTContext::NumImplicitCopyAssignmentOperatorsDeclared, "");
-    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_move_assignment_operators", ::clang::ASTContext::NumImplicitMoveAssignmentOperators, "");
-    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_move_assignment_operators_declared", ::clang::ASTContext::NumImplicitMoveAssignmentOperatorsDeclared, "");
-    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_destructors", ::clang::ASTContext::NumImplicitDestructors, "");
-    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_destructors_declared", ::clang::ASTContext::NumImplicitDestructorsDeclared, "");
+    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_default_constructors", &::clang::ASTContext::NumImplicitDefaultConstructors, "");
+    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_default_constructors_declared", &::clang::ASTContext::NumImplicitDefaultConstructorsDeclared, "");
+    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_copy_constructors", &::clang::ASTContext::NumImplicitCopyConstructors, "");
+    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_copy_constructors_declared", &::clang::ASTContext::NumImplicitCopyConstructorsDeclared, "");
+    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_move_constructors", &::clang::ASTContext::NumImplicitMoveConstructors, "");
+    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_move_constructors_declared", &::clang::ASTContext::NumImplicitMoveConstructorsDeclared, "");
+    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_copy_assignment_operators", &::clang::ASTContext::NumImplicitCopyAssignmentOperators, "");
+    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_copy_assignment_operators_declared", &::clang::ASTContext::NumImplicitCopyAssignmentOperatorsDeclared, "");
+    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_move_assignment_operators", &::clang::ASTContext::NumImplicitMoveAssignmentOperators, "");
+    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_move_assignment_operators_declared", &::clang::ASTContext::NumImplicitMoveAssignmentOperatorsDeclared, "");
+    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_destructors", &::clang::ASTContext::NumImplicitDestructors, "");
+    class_e536a5cae34e54058d1fe69715937f7a.def_readwrite_static("num_implicit_destructors_declared", &::clang::ASTContext::NumImplicitDestructorsDeclared, "");
 
 }

@@ -116,6 +116,6 @@ void wrapper_349b01a7525f5245a8ca7e0497dd56cd(pybind11::module& module)
     class_349b01a7525f5245a8ca7e0497dd56cd.def("trim", method_pointer_b57fed64c88b59e8a9057e46481cdf69, ":Parameter:\n    `Chars` (:cpp:class:`::llvm::StringRef`) - Undocumented\n\n:Return Type:\n    :cpp:class:`::llvm::StringRef`\n\n");
     class_349b01a7525f5245a8ca7e0497dd56cd.def("get_as_integer", method_pointer_c60bcf59b4e55b4db8aeb41b11fb6258, "");
     class_349b01a7525f5245a8ca7e0497dd56cd.def("str", function_group::function_c0557a2c1ef45ce68e69cdb8c80c8383, "");
-    class_349b01a7525f5245a8ca7e0497dd56cd.def_readonly_static("npos", ::llvm::StringRef::npos, "");
+    class_349b01a7525f5245a8ca7e0497dd56cd.def_readonly_static("npos", &::llvm::StringRef::npos, "");
 
 }
