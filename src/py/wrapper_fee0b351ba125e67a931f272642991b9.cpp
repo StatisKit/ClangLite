@@ -1,41 +1,10 @@
-// Copyright [2017-2018] UMR MISTEA INRA, UMR LEPSE INRA,                //
-//                       UMR AGAP CIRAD, EPI Virtual Plants Inria        //
-// Copyright [2015-2016] UMR AGAP CIRAD, EPI Virtual Plants Inria        //
-//                                                                       //
-// This file is part of the AutoWIG project. More information can be     //
-// found at                                                              //
-//                                                                       //
-//     http://autowig.rtfd.io                                            //
-//                                                                       //
-// The Apache Software Foundation (ASF) licenses this file to you under  //
-// the Apache License, Version 2.0 (the "License"); you may not use this //
-// file except in compliance with the License. You should have received  //
-// a copy of the Apache License, Version 2.0 along with this file; see   //
-// the file LICENSE. If not, you may obtain a copy of the License at     //
-//                                                                       //
-//     http://www.apache.org/licenses/LICENSE-2.0                        //
-//                                                                       //
-// Unless required by applicable law or agreed to in writing, software   //
-// distributed under the License is distributed on an "AS IS" BASIS,     //
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or       //
-// mplied. See the License for the specific language governing           //
-// permissions and limitations under the License.                        //
-
 #include "_clanglite.h"
 
 
-void wrapper_fee0b351ba125e67a931f272642991b9()
+void wrapper_fee0b351ba125e67a931f272642991b9(pybind11::module& module)
 {
 
-    std::string name_7bbff48d109853e88270b3595c663a99 = boost::python::extract< std::string >(boost::python::scope().attr("__name__") + ".clang");
-    boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
-    boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
-    boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    std::string name_fa70cbf14eb958718b2fd94051e17863 = boost::python::extract< std::string >(boost::python::scope().attr("__name__") + "._type");
-    boost::python::object module_fa70cbf14eb958718b2fd94051e17863(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_fa70cbf14eb958718b2fd94051e17863.c_str()))));
-    boost::python::scope().attr("_type") = module_fa70cbf14eb958718b2fd94051e17863;
-    boost::python::scope scope_fa70cbf14eb958718b2fd94051e17863 = module_fa70cbf14eb958718b2fd94051e17863;
-    boost::python::enum_< enum ::clang::Type::TypeClass > enum_fee0b351ba125e67a931f272642991b9("type_class");
+    pybind11::enum_< enum ::clang::Type::TypeClass > enum_fee0b351ba125e67a931f272642991b9(module, "type_class");
     enum_fee0b351ba125e67a931f272642991b9.value("BUILTIN", ::clang::Type::Builtin);
     enum_fee0b351ba125e67a931f272642991b9.value("COMPLEX", ::clang::Type::Complex);
     enum_fee0b351ba125e67a931f272642991b9.value("POINTER", ::clang::Type::Pointer);
@@ -83,5 +52,6 @@ void wrapper_fee0b351ba125e67a931f272642991b9()
     enum_fee0b351ba125e67a931f272642991b9.value("TYPE_LAST", ::clang::Type::TypeLast);
     enum_fee0b351ba125e67a931f272642991b9.value("TAG_FIRST", ::clang::Type::TagFirst);
     enum_fee0b351ba125e67a931f272642991b9.value("TAG_LAST", ::clang::Type::TagLast);
+    enum_fee0b351ba125e67a931f272642991b9.export_values();
 
 }

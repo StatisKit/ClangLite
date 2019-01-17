@@ -1,94 +1,60 @@
-// Copyright [2017-2018] UMR MISTEA INRA, UMR LEPSE INRA,                //
-//                       UMR AGAP CIRAD, EPI Virtual Plants Inria        //
-// Copyright [2015-2016] UMR AGAP CIRAD, EPI Virtual Plants Inria        //
-//                                                                       //
-// This file is part of the AutoWIG project. More information can be     //
-// found at                                                              //
-//                                                                       //
-//     http://autowig.rtfd.io                                            //
-//                                                                       //
-// The Apache Software Foundation (ASF) licenses this file to you under  //
-// the Apache License, Version 2.0 (the "License"); you may not use this //
-// file except in compliance with the License. You should have received  //
-// a copy of the Apache License, Version 2.0 along with this file; see   //
-// the file LICENSE. If not, you may obtain a copy of the License at     //
-//                                                                       //
-//     http://www.apache.org/licenses/LICENSE-2.0                        //
-//                                                                       //
-// Unless required by applicable law or agreed to in writing, software   //
-// distributed under the License is distributed on an "AS IS" BASIS,     //
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or       //
-// mplied. See the License for the specific language governing           //
-// permissions and limitations under the License.                        //
-
 #include "_clanglite.h"
-
-
 
 namespace autowig
 {
-    class Wrap_2cee44285ee85f019f99b9a11d8414aa : public ::clang::RedeclarableTemplateDecl, public boost::python::wrapper< class ::clang::RedeclarableTemplateDecl >
+    class Wrap_2cee44285ee85f019f99b9a11d8414aa : public ::clang::RedeclarableTemplateDecl
     {
         public:
+            using ::clang::RedeclarableTemplateDecl::RedeclarableTemplateDecl;
+
+        public:
             
+            virtual class ::clang::RedeclarableTemplateDecl * getCanonicalDecl() { PYBIND11_OVERLOAD(class ::clang::RedeclarableTemplateDecl *, ::clang::RedeclarableTemplateDecl, getCanonicalDecl, ); };
+            virtual class ::clang::SourceRange  getSourceRange() const { PYBIND11_OVERLOAD(class ::clang::SourceRange , ::clang::RedeclarableTemplateDecl, getSourceRange, ); };
+            virtual void  getNameForDiagnostic(class ::llvm::raw_ostream & param_0, struct ::clang::PrintingPolicy const & param_1, bool  param_2) const { PYBIND11_OVERLOAD(void , ::clang::RedeclarableTemplateDecl, getNameForDiagnostic, param_0, param_1, param_2); };
+            virtual void  printName(class ::llvm::raw_ostream & param_0) const { PYBIND11_OVERLOAD(void , ::clang::RedeclarableTemplateDecl, printName, param_0); };
+            virtual bool  hasBody() const { PYBIND11_OVERLOAD(bool , ::clang::RedeclarableTemplateDecl, hasBody, ); };
+            virtual class ::clang::Stmt * getBody() const { PYBIND11_OVERLOAD(class ::clang::Stmt *, ::clang::RedeclarableTemplateDecl, getBody, ); };
+            virtual class ::clang::Decl * getCanonicalDecl() { PYBIND11_OVERLOAD(class ::clang::Decl *, ::clang::RedeclarableTemplateDecl, getCanonicalDecl, ); };
+            virtual bool  isOutOfLine() const { PYBIND11_OVERLOAD(bool , ::clang::RedeclarableTemplateDecl, isOutOfLine, ); };
 
         protected:
             
-            virtual struct ::clang::RedeclarableTemplateDecl::CommonBase * newCommon(class ::clang::ASTContext & param_0) const
-            { return this->get_override("newCommon")(param_0); }
-                        
+            virtual struct ::clang::RedeclarableTemplateDecl::CommonBase * newCommon(class ::clang::ASTContext & param_0) const { PYBIND11_OVERLOAD_PURE(struct ::clang::RedeclarableTemplateDecl::CommonBase *, ::clang::RedeclarableTemplateDecl, newCommon, param_0); };
+            virtual class ::clang::Decl * getMostRecentDeclImpl() { PYBIND11_OVERLOAD(class ::clang::Decl *, ::clang::RedeclarableTemplateDecl, getMostRecentDeclImpl, ); };
+            virtual class ::clang::Decl * getPreviousDeclImpl() { PYBIND11_OVERLOAD(class ::clang::Decl *, ::clang::RedeclarableTemplateDecl, getPreviousDeclImpl, ); };
+            virtual class ::clang::Decl * getNextRedeclarationImpl() { PYBIND11_OVERLOAD(class ::clang::Decl *, ::clang::RedeclarableTemplateDecl, getNextRedeclarationImpl, ); };
 
         private:
             
+            virtual class ::clang::RedeclarableTemplateDecl * getMostRecentDeclImpl() { PYBIND11_OVERLOAD(class ::clang::RedeclarableTemplateDecl *, ::clang::RedeclarableTemplateDecl, getMostRecentDeclImpl, ); };
+            virtual class ::clang::RedeclarableTemplateDecl * getPreviousDeclImpl() { PYBIND11_OVERLOAD(class ::clang::RedeclarableTemplateDecl *, ::clang::RedeclarableTemplateDecl, getPreviousDeclImpl, ); };
+            virtual class ::clang::RedeclarableTemplateDecl * getNextRedeclarationImpl() { PYBIND11_OVERLOAD(class ::clang::RedeclarableTemplateDecl *, ::clang::RedeclarableTemplateDecl, getNextRedeclarationImpl, ); };
 
     };
-
 }
 
-#if defined(_MSC_VER)
-    #if (_MSC_VER == 1900)
-namespace boost
-{
-    template <> autowig::Wrap_2cee44285ee85f019f99b9a11d8414aa const volatile * get_pointer<autowig::Wrap_2cee44285ee85f019f99b9a11d8414aa const volatile >(autowig::Wrap_2cee44285ee85f019f99b9a11d8414aa const volatile *c) { return c; }
-    template <> class ::clang::RedeclarableTemplateDecl const volatile * get_pointer<class ::clang::RedeclarableTemplateDecl const volatile >(class ::clang::RedeclarableTemplateDecl const volatile *c) { return c; }
-}
-    #endif
-#endif
+class ::clang::RedeclarableTemplateDecl * (::clang::RedeclarableTemplateDecl::*method_pointer_80e2758ee46d54edaf143f0c564e2d26)()= &::clang::RedeclarableTemplateDecl::getCanonicalDecl;
+class ::clang::RedeclarableTemplateDecl const * (::clang::RedeclarableTemplateDecl::*method_pointer_ebdc5c7340dc5fb68213fcd24ceb5322)()const= &::clang::RedeclarableTemplateDecl::getCanonicalDecl;
+bool  (::clang::RedeclarableTemplateDecl::*method_pointer_8f558e12bd1c54a08119423b9af7226a)()const= &::clang::RedeclarableTemplateDecl::isMemberSpecialization;
+void  (::clang::RedeclarableTemplateDecl::*method_pointer_d7124c92758e53a3b184af16e6118664)()= &::clang::RedeclarableTemplateDecl::setMemberSpecialization;
+class ::clang::RedeclarableTemplateDecl * (::clang::RedeclarableTemplateDecl::*method_pointer_c5db5557e5da5873ab1fa1c6136b0e56)()const= &::clang::RedeclarableTemplateDecl::getInstantiatedFromMemberTemplate;
+void  (::clang::RedeclarableTemplateDecl::*method_pointer_f052c6d51f1159f4b48a8a6d31384a85)(class ::clang::RedeclarableTemplateDecl *)= &::clang::RedeclarableTemplateDecl::setInstantiatedFromMemberTemplate;
+bool  (*method_pointer_5d80981664a85a318b967946bc66ac2f)(class ::clang::Decl const *)= ::clang::RedeclarableTemplateDecl::classof;
+bool  (*method_pointer_0f68e86a64c65ab1a06da308f99b0f4f)(enum ::clang::Decl::Kind )= ::clang::RedeclarableTemplateDecl::classofKind;
 
 
-
-void wrapper_2cee44285ee85f019f99b9a11d8414aa()
+void wrapper_2cee44285ee85f019f99b9a11d8414aa(pybind11::module& module)
 {
 
-    std::string name_7bbff48d109853e88270b3595c663a99 = boost::python::extract< std::string >(boost::python::scope().attr("__name__") + ".clang");
-    boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
-    boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
-    boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    class ::clang::RedeclarableTemplateDecl * (::clang::RedeclarableTemplateDecl::*method_pointer_80e2758ee46d54edaf143f0c564e2d26)() = &::clang::RedeclarableTemplateDecl::getCanonicalDecl;
-    class ::clang::RedeclarableTemplateDecl const * (::clang::RedeclarableTemplateDecl::*method_pointer_ebdc5c7340dc5fb68213fcd24ceb5322)() const = &::clang::RedeclarableTemplateDecl::getCanonicalDecl;
-    bool  (::clang::RedeclarableTemplateDecl::*method_pointer_8f558e12bd1c54a08119423b9af7226a)() const = &::clang::RedeclarableTemplateDecl::isMemberSpecialization;
-    void  (::clang::RedeclarableTemplateDecl::*method_pointer_d7124c92758e53a3b184af16e6118664)() = &::clang::RedeclarableTemplateDecl::setMemberSpecialization;
-    class ::clang::RedeclarableTemplateDecl * (::clang::RedeclarableTemplateDecl::*method_pointer_c5db5557e5da5873ab1fa1c6136b0e56)() const = &::clang::RedeclarableTemplateDecl::getInstantiatedFromMemberTemplate;
-    void  (::clang::RedeclarableTemplateDecl::*method_pointer_f052c6d51f1159f4b48a8a6d31384a85)(class ::clang::RedeclarableTemplateDecl *) = &::clang::RedeclarableTemplateDecl::setInstantiatedFromMemberTemplate;
-    bool  (*method_pointer_5d80981664a85a318b967946bc66ac2f)(class ::clang::Decl const *) = ::clang::RedeclarableTemplateDecl::classof;
-    bool  (*method_pointer_0f68e86a64c65ab1a06da308f99b0f4f)(enum ::clang::Decl::Kind ) = ::clang::RedeclarableTemplateDecl::classofKind;
-    boost::python::class_< autowig::Wrap_2cee44285ee85f019f99b9a11d8414aa, autowig::Held< autowig::Wrap_2cee44285ee85f019f99b9a11d8414aa >::Type, boost::python::bases< class ::clang::TemplateDecl >, boost::noncopyable > class_2cee44285ee85f019f99b9a11d8414aa("RedeclarableTemplateDecl", "", boost::python::no_init);
-    class_2cee44285ee85f019f99b9a11d8414aa.def("get_canonical_decl", method_pointer_80e2758ee46d54edaf143f0c564e2d26, boost::python::return_value_policy< boost::python::reference_existing_object >(), "Retrieves the canonical declaration of this template.\n\n:Return Type:\n    :py:class:`clanglite.clang.RedeclarableTemplateDecl`\n\n");
-    class_2cee44285ee85f019f99b9a11d8414aa.def("get_canonical_decl", method_pointer_ebdc5c7340dc5fb68213fcd24ceb5322, boost::python::return_value_policy< boost::python::reference_existing_object >(), "");
+    pybind11::class_<class ::clang::RedeclarableTemplateDecl, autowig::Wrap_2cee44285ee85f019f99b9a11d8414aa, autowig::HolderType< class ::clang::RedeclarableTemplateDecl >::Type, class ::clang::TemplateDecl > class_2cee44285ee85f019f99b9a11d8414aa(module, "RedeclarableTemplateDecl", "");
+    class_2cee44285ee85f019f99b9a11d8414aa.def("get_canonical_decl", method_pointer_80e2758ee46d54edaf143f0c564e2d26, pybind11::return_value_policy::reference_internal, "Retrieves the canonical declaration of this template.\n\n:Return Type:\n    :cpp:class:`::clang::RedeclarableTemplateDecl`\n\n");
+    class_2cee44285ee85f019f99b9a11d8414aa.def("get_canonical_decl", method_pointer_ebdc5c7340dc5fb68213fcd24ceb5322, pybind11::return_value_policy::reference_internal, "");
     class_2cee44285ee85f019f99b9a11d8414aa.def("is_member_specialization", method_pointer_8f558e12bd1c54a08119423b9af7226a, "Determines whether this template was a specialization of a member\ntemplate.\n\nIn the following example, the function template :raw-latex:`\\c X`::f and\nthe member template :raw-latex:`\\c X`::Inner are member specializations.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_2cee44285ee85f019f99b9a11d8414aa.def("set_member_specialization", method_pointer_d7124c92758e53a3b184af16e6118664, "Note that this member template is a specialization.\n\n:Return Type:\n    :cpp:any:`void`\n\n");
-    class_2cee44285ee85f019f99b9a11d8414aa.def("get_instantiated_from_member_template", method_pointer_c5db5557e5da5873ab1fa1c6136b0e56, boost::python::return_value_policy< boost::python::reference_existing_object >(), "Retrieve the member template from which this template was instantiated,\nor NULL if this template was not instantiated from a member template.\n\nA template is instantiated from a member template when the member\ntemplate itself is part of a class template (or member thereof). For\nexample, given\n\n:Return Type:\n    :py:class:`clanglite.clang.RedeclarableTemplateDecl`\n\n");
+    class_2cee44285ee85f019f99b9a11d8414aa.def("get_instantiated_from_member_template", method_pointer_c5db5557e5da5873ab1fa1c6136b0e56, pybind11::return_value_policy::reference_internal, "Retrieve the member template from which this template was instantiated,\nor NULL if this template was not instantiated from a member template.\n\nA template is instantiated from a member template when the member\ntemplate itself is part of a class template (or member thereof). For\nexample, given\n\n:Return Type:\n    :cpp:class:`::clang::RedeclarableTemplateDecl`\n\n");
     class_2cee44285ee85f019f99b9a11d8414aa.def("set_instantiated_from_member_template", method_pointer_f052c6d51f1159f4b48a8a6d31384a85, "");
-    class_2cee44285ee85f019f99b9a11d8414aa.def("classof", method_pointer_5d80981664a85a318b967946bc66ac2f, "");
-    class_2cee44285ee85f019f99b9a11d8414aa.def("classof_kind", method_pointer_0f68e86a64c65ab1a06da308f99b0f4f, "");
-    class_2cee44285ee85f019f99b9a11d8414aa.staticmethod("classof_kind");
-    class_2cee44285ee85f019f99b9a11d8414aa.staticmethod("classof");
-
-    if(autowig::Held< class ::clang::RedeclarableTemplateDecl >::is_class)
-    {
-        boost::python::implicitly_convertible< autowig::Held< autowig::Wrap_2cee44285ee85f019f99b9a11d8414aa >::Type, autowig::Held< class ::clang::RedeclarableTemplateDecl >::Type >();
-        boost::python::register_ptr_to_python< autowig::Held< class ::clang::RedeclarableTemplateDecl >::Type >();
-        boost::python::implicitly_convertible< autowig::Held< class ::clang::RedeclarableTemplateDecl >::Type, autowig::Held< class ::clang::TemplateDecl >::Type >();
-    }
+    class_2cee44285ee85f019f99b9a11d8414aa.def_static("classof", method_pointer_5d80981664a85a318b967946bc66ac2f, "");
+    class_2cee44285ee85f019f99b9a11d8414aa.def_static("classof_kind", method_pointer_0f68e86a64c65ab1a06da308f99b0f4f, "");
 
 }

@@ -1,41 +1,10 @@
-// Copyright [2017-2018] UMR MISTEA INRA, UMR LEPSE INRA,                //
-//                       UMR AGAP CIRAD, EPI Virtual Plants Inria        //
-// Copyright [2015-2016] UMR AGAP CIRAD, EPI Virtual Plants Inria        //
-//                                                                       //
-// This file is part of the AutoWIG project. More information can be     //
-// found at                                                              //
-//                                                                       //
-//     http://autowig.rtfd.io                                            //
-//                                                                       //
-// The Apache Software Foundation (ASF) licenses this file to you under  //
-// the Apache License, Version 2.0 (the "License"); you may not use this //
-// file except in compliance with the License. You should have received  //
-// a copy of the Apache License, Version 2.0 along with this file; see   //
-// the file LICENSE. If not, you may obtain a copy of the License at     //
-//                                                                       //
-//     http://www.apache.org/licenses/LICENSE-2.0                        //
-//                                                                       //
-// Unless required by applicable law or agreed to in writing, software   //
-// distributed under the License is distributed on an "AS IS" BASIS,     //
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or       //
-// mplied. See the License for the specific language governing           //
-// permissions and limitations under the License.                        //
-
 #include "_clanglite.h"
 
 
-void wrapper_f651c14028675908a3d30652316d9859()
+void wrapper_f651c14028675908a3d30652316d9859(pybind11::module& module)
 {
 
-    std::string name_7bbff48d109853e88270b3595c663a99 = boost::python::extract< std::string >(boost::python::scope().attr("__name__") + ".clang");
-    boost::python::object module_7bbff48d109853e88270b3595c663a99(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_7bbff48d109853e88270b3595c663a99.c_str()))));
-    boost::python::scope().attr("clang") = module_7bbff48d109853e88270b3595c663a99;
-    boost::python::scope scope_7bbff48d109853e88270b3595c663a99 = module_7bbff48d109853e88270b3595c663a99;
-    std::string name_306b968f39b7549b8ac1af6424e98129 = boost::python::extract< std::string >(boost::python::scope().attr("__name__") + "._builtin_type");
-    boost::python::object module_306b968f39b7549b8ac1af6424e98129(boost::python::handle<  >(boost::python::borrowed(PyImport_AddModule(name_306b968f39b7549b8ac1af6424e98129.c_str()))));
-    boost::python::scope().attr("_builtin_type") = module_306b968f39b7549b8ac1af6424e98129;
-    boost::python::scope scope_306b968f39b7549b8ac1af6424e98129 = module_306b968f39b7549b8ac1af6424e98129;
-    boost::python::enum_< enum ::clang::BuiltinType::Kind > enum_f651c14028675908a3d30652316d9859("kind");
+    pybind11::enum_< enum ::clang::BuiltinType::Kind > enum_f651c14028675908a3d30652316d9859(module, "kind");
     enum_f651c14028675908a3d30652316d9859.value("OCL_IMAGE_1D_RO", ::clang::BuiltinType::OCLImage1dRO);
     enum_f651c14028675908a3d30652316d9859.value("OCL_IMAGE_1D_ARRAY_RO", ::clang::BuiltinType::OCLImage1dArrayRO);
     enum_f651c14028675908a3d30652316d9859.value("OCL_IMAGE_1D_BUFFER_RO", ::clang::BuiltinType::OCLImage1dBufferRO);
@@ -116,5 +85,6 @@ void wrapper_f651c14028675908a3d30652316d9859()
     enum_f651c14028675908a3d30652316d9859.value("ARC_UNBRIDGED_CAST", ::clang::BuiltinType::ARCUnbridgedCast);
     enum_f651c14028675908a3d30652316d9859.value("OMP_ARRAY_SECTION", ::clang::BuiltinType::OMPArraySection);
     enum_f651c14028675908a3d30652316d9859.value("LAST_KIND", ::clang::BuiltinType::LastKind);
+    enum_f651c14028675908a3d30652316d9859.export_values();
 
 }

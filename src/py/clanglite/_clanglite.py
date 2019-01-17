@@ -1,37 +1,14 @@
-## Copyright [2017-2018] UMR MISTEA INRA, UMR LEPSE INRA,                ##
-##                       UMR AGAP CIRAD, EPI Virtual Plants Inria        ##
-## Copyright [2015-2016] UMR AGAP CIRAD, EPI Virtual Plants Inria        ##
-##                                                                       ##
-## This file is part of the AutoWIG project. More information can be     ##
-## found at                                                              ##
-##                                                                       ##
-##     http://autowig.rtfd.io                                            ##
-##                                                                       ##
-## The Apache Software Foundation (ASF) licenses this file to you under  ##
-## the Apache License, Version 2.0 (the "License"); you may not use this ##
-## file except in compliance with the License. You should have received  ##
-## a copy of the Apache License, Version 2.0 along with this file; see   ##
-## the file LICENSE. If not, you may obtain a copy of the License at     ##
-##                                                                       ##
-##     http://www.apache.org/licenses/LICENSE-2.0                        ##
-##                                                                       ##
-## Unless required by applicable law or agreed to in writing, software   ##
-## distributed under the License is distributed on an "AS IS" BASIS,     ##
-## WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or       ##
-## mplied. See the License for the specific language governing           ##
-## permissions and limitations under the License.                        ##
-
 __all__ = []
 
 
 # Import Boost.Python module
-from . import __clanglite
+from . import _clanglite
 
 # Resolve scopes
-__clanglite.clang.LinkageSpecDecl.language_i_ds = __clanglite.clang._linkage_spec_decl.language_i_ds
-__clanglite.clang.Decl.kind = __clanglite.clang._decl.kind
-__clanglite.clang.TemplateArgument.arg_kind = __clanglite.clang._template_argument.arg_kind
-__clanglite.clang.BuiltinType.kind = __clanglite.clang._builtin_type.kind
-__clanglite.clang.Type.type_class = __clanglite.clang._type.type_class
+_clanglite.clang.LinkageSpecDecl.language_i_ds = _clanglite.clang._linkage_spec_decl.language_i_ds
+_clanglite.clang.Decl.kind = _clanglite.clang._decl.kind
+_clanglite.clang.TemplateArgument.arg_kind = _clanglite.clang._template_argument.arg_kind
+_clanglite.clang.BuiltinType.kind = _clanglite.clang._builtin_type.kind
+_clanglite.clang.Type.type_class = _clanglite.clang._type.type_class
 
 
