@@ -65,7 +65,7 @@ else:
                             '/we4238', '-w14062', '/Zc:inline'])
     
 env.Append(CPPDEFINES = ['_GNU_SOURCE', '__STDC_CONSTANT_MACROS',
-                         '__STDC_FORMAT_MACROS', '__STDC_LIMIT_MACROS'])
+                         '__STDC_FORMAT_MACROS', '__STDC_LIMIT_MACROS', 'PYBIND11_GENERATOR'])
 
 env.AppendUnique(LIBS=['clangIndex',
                        'clangARCMigrate',

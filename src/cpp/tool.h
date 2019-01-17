@@ -24,7 +24,12 @@
 #ifndef CLANGLITE_TOOL_H
 #define CLANGLITE_TOOL_H
 
+#ifdef BOOST_PYTHON_GENERATOR
 #include <boost/python.hpp>
+#endif
+#ifdef PYBIND11_GENERATOR
+#include <pybind11/pybind11.h>
+#endif
 #include <iostream>
 #include <clang/ARCMigrate/ARCMT.h>
 #include <clang/ARCMigrate/ARCMTActions.h>
@@ -416,6 +421,7 @@
 
 namespace clanglite
 {
+#ifdef BOOST_PYTHON_GENERATOR
     CLANGLITE_API clang::ASTUnit* build_ast_from_code_with_args(boost::python::object _code, boost::python::object _args);
 
     CLANGLITE_API boost::python::str get_comment(clang::Decl* decl);
@@ -424,20 +430,10 @@ namespace clanglite
     CLANGLITE_API boost::python::list get_children(clang::DeclContext& decl);
     CLANGLITE_API boost::python::list get_children(clang::ClassTemplateDecl& cls);
     CLANGLITE_API boost::python::list get_children(clang::FunctionDecl& cls);
-
-    CLANGLITE_API clang::TemplateArgumentList* get_template_args(clang::ClassTemplateSpecializationDecl& cls);
-    
     CLANGLITE_API boost::python::list get_constructors(clang::CXXRecordDecl& decl);
 
     CLANGLITE_API boost::python::list get_bases(clang::CXXRecordDecl& decl);
     CLANGLITE_API boost::python::list get_virtual_bases(clang::CXXRecordDecl& decl);
-
-    CLANGLITE_API clang::TypedefNameDecl * get_as_typedef_name_decl(clang::Type& type);
-
-    CLANGLITE_API clang::TranslationUnitDecl * as_translation_unit(clang::DeclContext * decl);
-    CLANGLITE_API clang::NamespaceDecl * as_namespace(clang::DeclContext * decl);
-    CLANGLITE_API clang::RecordDecl * as_record(clang::DeclContext * decl);
-    CLANGLITE_API clang::EnumDecl * as_enum(clang::DeclContext * decl);
 
     CLANGLITE_API boost::python::str get_name(clang::NamedDecl * decl);
     CLANGLITE_API boost::python::str get_name(clang::ClassTemplateSpecializationDecl * decl);
@@ -446,6 +442,38 @@ namespace clanglite
     CLANGLITE_API boost::python::str str(clang::StringRef* sref);
 
     CLANGLITE_API boost::python::str get_mangling(clang::FunctionDecl * decl);
+#endif
+#ifdef PYBIND11_GENERATOR
+    CLANGLITE_API clang::ASTUnit* build_ast_from_code_with_args(pybind11::object _code, pybind11::object _args);
+
+    CLANGLITE_API pybind11::str get_comment(clang::Decl* decl);
+
+    CLANGLITE_API pybind11::list get_children(clang::ASTUnit& ast);
+    CLANGLITE_API pybind11::list get_children(clang::DeclContext& decl);
+    CLANGLITE_API pybind11::list get_children(clang::ClassTemplateDecl& cls);
+    CLANGLITE_API pybind11::list get_children(clang::FunctionDecl& cls);
+    CLANGLITE_API pybind11::list get_constructors(clang::CXXRecordDecl& decl);
+
+    CLANGLITE_API pybind11::list get_bases(clang::CXXRecordDecl& decl);
+    CLANGLITE_API pybind11::list get_virtual_bases(clang::CXXRecordDecl& decl);
+
+    CLANGLITE_API pybind11::str get_name(clang::NamedDecl * decl);
+    CLANGLITE_API pybind11::str get_name(clang::ClassTemplateSpecializationDecl * decl);
+    CLANGLITE_API pybind11::str get_name(clang::TemplateArgument* ta);
+
+    CLANGLITE_API pybind11::str str(clang::StringRef* sref);
+
+    CLANGLITE_API pybind11::str get_mangling(clang::FunctionDecl * decl);
+#endif
+    CLANGLITE_API clang::TemplateArgumentList* get_template_args(clang::ClassTemplateSpecializationDecl& cls);
+    
+
+    CLANGLITE_API clang::TypedefNameDecl * get_as_typedef_name_decl(clang::Type& type);
+
+    CLANGLITE_API clang::TranslationUnitDecl * as_translation_unit(clang::DeclContext * decl);
+    CLANGLITE_API clang::NamespaceDecl * as_namespace(clang::DeclContext * decl);
+    CLANGLITE_API clang::RecordDecl * as_record(clang::DeclContext * decl);
+    CLANGLITE_API clang::EnumDecl * as_enum(clang::DeclContext * decl);
 
     namespace detail
     { CLANGLITE_API bool invalid_char(char c); }

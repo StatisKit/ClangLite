@@ -47,16 +47,27 @@ Alias("cpp", targets)
 Alias("autowig", targets)
 Alias("install", targets)
 try:
-    wigenv = cppenv.Clone(tools = ['wig'])
+    # wigenv = cppenv.Clone(tools = ['boost_python_wig'])
 
-    targets = wigenv.BoostPythonWIG('clanglite', [target for target in targets if target.name.endswith('.h')],
+    # targets = wigenv.BoostPythonWIG('clanglite', [target for target in targets if target.name.endswith('.h')],
+    #                                 module='../py/_clanglite.cpp',
+    #                                 decorator='../py/clanglite/_clanglite.py',
+    #                                 parser_bootstrap=False,
+    #                                 controller='AutoWIG.py',
+    #                                 generator='boost_python_pattern',
+    #                                 generator_closure=False,
+    #                                 depends=[])
+    wigenv = cppenv.Clone(tools = ['pybind11_wig'])
+
+    targets = wigenv.PyBind11WIG('clanglite', [target for target in targets if target.name.endswith('.h')],
                                     module='../py/_clanglite.cpp',
                                     decorator='../py/clanglite/_clanglite.py',
                                     parser_bootstrap=False,
                                     controller='AutoWIG.py',
-                                    generator='boost_python_pattern',
+                                    generator='pybind11_pattern',
                                     generator_closure=False,
                                     depends=[])
+
     Alias("autowig", targets)
     wigenv.Depends(targets, "cpp-dev")
 except EnvironmentError:
