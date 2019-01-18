@@ -40,12 +40,9 @@ sources = [source for source in cppenv.Glob('*.h*') if not source.name in exclud
 targets = cppenv.CppDev("clanglite", sources)
 Alias("cpp-dev", targets)
 Alias("cpp", targets)
-Alias("install", targets)
-
-Alias("cpp-dev", targets)
-Alias("cpp", targets)
 Alias("autowig", targets)
 Alias("install", targets)
+
 try:
     # wigenv = cppenv.Clone(tools = ['boost_python_wig'])
 

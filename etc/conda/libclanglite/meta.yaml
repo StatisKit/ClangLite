@@ -45,11 +45,9 @@ requirements:
     - libtoolchain
     - python-toolchain
   host:
-    - libboost-dev
-    - libboost_python
+    - libpybind11-dev
     - clang {{ version }}
     - python
   run:
-    - {{ pin_compatible('libboost_python') }}
-    - {{ pin_compatible('clang', min_pin='x.x', max_pin='x.x') }}
+    - clang {{ version }}
     - python

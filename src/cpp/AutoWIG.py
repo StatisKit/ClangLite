@@ -171,7 +171,6 @@ def controller(asg):
         
     #     return asg
     # elif autowig.generator.plugin.startswith('pybind11'):
-
     for node in asg.classes():
         node.pybind11_export = False
     for node in asg.functions(free=True):
@@ -300,5 +299,4 @@ def controller(asg):
     else:
         for header in (Path(sys.prefix)/'include'/'clang').walkfiles('*.h'):
             asg[header.abspath()].is_external_dependency = False
-    
     return asg

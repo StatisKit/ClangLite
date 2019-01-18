@@ -26,9 +26,12 @@
 import os
 from SCons import Errors
 
+if not 'PREFIX' in os.environ:
+  os.environ['PREFIX'] = os.environ['CONDA_PREFIX']
+  
 env = Environment(tools = ['system',
                            'toolchain',
-                           'boost_python'])
+                           'pybind11'])
 
 SYSTEM = env['SYSTEM']
 
