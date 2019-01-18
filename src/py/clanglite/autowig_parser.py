@@ -32,6 +32,12 @@ from clanglite import *
 MSVCFLAGS = {'/O1' : '-O1',
              '/O2' : '-O2'}
 
+def get_name(name):
+    if isinstance(name, llvm.StringRef):
+        return name.str()
+    else:
+        return name
+
 def autowig_parser(asg, headers, flags, inline=True, permissive=True, **kwargs):
     header = pre_processing(asg, headers, flags, **kwargs)
     if header:
@@ -196,13 +202,13 @@ def read_spelling(asg, decl, inline):
             parent = read_syntaxic_parent(asg, parent)
     if isinstance(parent, clang.TranslationUnitDecl):
         scope = '::'
-        spelling = scope + decl.get_name()
+        spelling = scope + get_name(decl.get_name())
     else:
         scope = read_decl(asg, parent, out=False, permissive=True, inline=inline)
         if not len(scope) == 1:
             raise NotImplementedError('parent not found')
         scope = scope.pop()
-        spelling = scope + '::' + decl.get_name()
+        spelling = scope + '::' + get_name(decl.get_name())
         if spelling.startswith('enum '):
             spelling = spelling[5:]
         elif spelling.startswith('class '):
@@ -214,18 +220,18 @@ def read_spelling(asg, decl, inline):
     return scope, spelling
 
 def read_access(asg, access, *args):
-    if access is clang.access_specifier.AS__PUBLIC:
+    if str(access) == str(clang.access_specifier.AS__PUBLIC):
         for arg in args:
             asg._nodes[arg]['_access'] = 'public'
-    elif access is clang.access_specifier.AS__PROTECTED:
+    elif str(access) == str(clang.access_specifier.AS__PROTECTED):
         for arg in args:
             asg._nodes[arg]['_access'] = 'protected'
-    elif access is clang.access_specifier.AS__PRIVATE:
+    elif str(access) == str(clang.access_specifier.AS__PRIVATE):
         for arg in args:
             asg._nodes[arg]['_access'] = 'private'
 
 def read_enum(asg, decl, inline, permissive, out=True):
-    if decl.get_name() == '':
+    if get_name(decl.get_name()) == '':
         children = []
         decls = []
         for child in decl.get_children():
@@ -299,7 +305,7 @@ def read_variable(asg, decl, inline, permissive):
             return []
         else:
             raise NotImplementedError('\'' + decl.__class__.__name__ + '\'')
-    elif decl.get_type().get_type_ptr_or_null().get_type_class() is clang.Type.type_class.TEMPLATE_TYPE_PARM:
+    elif str(decl.get_type().get_type_ptr_or_null().get_type_class()) == str(clang.Type.type_class.TEMPLATE_TYPE_PARM):
         if permissive:
             return []
         else:
@@ -345,10 +351,12 @@ def read_function(asg, decl, inline, permissive):
             return []
         else:
             raise NotImplementedError('\'' + decl.__class__.__name__ + '\'')
-    elif decl.get_name() == '':
+    elif not isinstance(decl, (clang.CXXConstructorDecl, clang.CXXDestructorDecl)) and get_name(decl.get_name()) == '':
         return []
     try:
         scope, spelling = read_spelling(asg, decl, inline=inline)
+        if get_name(decl.get_name()) == '':
+            spelling += "~" * isinstance(decl, clang.CXXDestructorDecl) + scope.split('::')[-1]
     except NotImplementedError:
         if permissive:
             return []
@@ -379,7 +387,7 @@ def read_function(asg, decl, inline, permissive):
                         try:
                             for index, child in enumerate(decl.get_children()):
                                 target, qualifiers = read_qualified_type(asg, child.get_type(), inline=inline)
-                                asg._parameter_edges[spelling].append(dict(name=child.get_name(), target=target, qualifiers=qualifiers))
+                                asg._parameter_edges[spelling].append(dict(name=get_name(child.get_name()), target=target, qualifiers=qualifiers))
                         except NotImplementedError:
                             if permissive:
                                 asg._parameter_edges.pop(spelling, None)
@@ -430,7 +438,7 @@ def read_function(asg, decl, inline, permissive):
                 try:
                     for index, child in enumerate(decl.get_children()):
                         target, qualifiers = read_qualified_type(asg, child.get_type(), inline=inline)
-                        asg._parameter_edges[spelling].append(dict(name=child.get_name(), target=target, qualifiers=qualifiers))
+                        asg._parameter_edges[spelling].append(dict(name=get_name(child.get_name()), target=target, qualifiers=qualifiers))
                 except NotImplementedError:
                     if permissive:
                         asg._parameter_edges.pop(spelling)
@@ -459,7 +467,7 @@ def read_function(asg, decl, inline, permissive):
             return [spelling]
 
 def read_field(asg, decl, inline, permissive):
-    if decl.get_name() == '':
+    if get_name(decl.get_name()) == '':
         return []
     try:
         scope, spelling = read_spelling(asg, decl, inline=inline)
@@ -581,15 +589,15 @@ def read_tag(asg, decl, inline, permissive, out=True):
                 templates = decl.get_template_args()
                 template_names = []
                 for template in [templates.get(index) for index in range(len(templates))]:
-                    if template.get_kind() is clang.TemplateArgument.arg_kind.TYPE:
+                    if str(template.get_kind()) == str(clang.TemplateArgument.arg_kind.TYPE):
                         target, qualifiers = read_qualified_type(asg, template.get_as_type(), inline=inline)
                         template_names.append(target.strip('::') + qualifiers)
-                    elif template.get_kind() is clang.TemplateArgument.arg_kind.DECLARATION:
+                    elif str(template.get_kind()) == str(clang.TemplateArgument.arg_kind.DECLARATION):
                         target, qualifiers = read_qualified_type(asg, template.get_as_decl().get_type(), inline=inline)
                         template_names.append(target.strip('::') + qualifiers)
-                    elif template.get_kind() is clang.TemplateArgument.arg_kind.INTEGRAL:
+                    elif str(template.get_kind()) == str(clang.TemplateArgument.arg_kind.INTEGRAL):
                         target, qualifiers = read_qualified_type(asg, template.get_integral_type(), inline=inline)
-                        template_names.append(template.get_name())
+                        template_names.append(get_name(template.get_name()))
                     else:
                         raise NotImplementedError(str(template.get_kind()))
                 spelling = _spelling + '< ' + ', '.join(template_names) + ' >'
@@ -600,10 +608,10 @@ def read_tag(asg, decl, inline, permissive, out=True):
                 raise
         else:
             if not decl.get_typedef_name_for_anon_decl() is None:
-                if not decl.get_name() == '':
+                if not get_name(decl.get_name()) == '':
                     spelling = '::'.join(spelling.split('::')[:-1]) + '::'
-                spelling += decl.get_typedef_name_for_anon_decl().get_name()
-            elif decl.get_name() == '':
+                spelling += get_name(decl.get_typedef_name_for_anon_decl().get_name())
+            elif get_name(decl.get_name()) == '':
                 return []
             else:
                 if decl.is_class():
@@ -631,13 +639,13 @@ def read_tag(asg, decl, inline, permissive, out=True):
                         templates = decl.get_template_args()
                         template_edges = []
                         for template in [templates.get(index) for index in range(len(templates))]:
-                            if template.get_kind() is clang.TemplateArgument.arg_kind.TYPE:
+                            if str(template.get_kind()) == str(clang.TemplateArgument.arg_kind.TYPE):
                                 target, qualifiers = read_qualified_type(asg, template.get_as_type(), inline=inline)
                                 template_edges.append(dict(target = target, qualifiers = qualifiers))
-                            elif template.get_kind() is clang.TemplateArgument.arg_kind.DECLARATION:
+                            elif str(template.get_kind()) == str(clang.TemplateArgument.arg_kind.DECLARATION):
                                 target, qualifiers = read_qualified_type(asg, template.get_as_decl().get_type(), inline=inline)
                                 template_edges.append(dict(target = target, qualifiers = qualifiers))
-                            elif template.get_kind() is clang.TemplateArgument.arg_kind.INTEGRAL:
+                            elif str(template.get_kind()) == str(clang.TemplateArgument.arg_kind.INTEGRAL):
                                 target, qualifiers = read_qualified_type(asg, template.get_integral_type(), inline=inline)
                                 template_edges.append(dict(target = target, qualifiers = qualifiers))
                             else:
@@ -706,7 +714,7 @@ def read_tag(asg, decl, inline, permissive, out=True):
                     try:
                         basespelling, qualifiers = read_qualified_type(asg, base.get_type(), inline=inline)
                         asg._base_edges[spelling].append(dict(base=asg[basespelling]._node,
-                            _access=str(base.get_access_specifier()).strip('AS_').lower(),
+                            _access=str(base.get_access_specifier()).split('.')[-1].strip('AS_').lower(),
                             _is_virtual=False))
                     except NotImplementedError:
                         if not permissive:
@@ -715,7 +723,7 @@ def read_tag(asg, decl, inline, permissive, out=True):
                     try:
                         basespelling, qualifiers = read_qualified_type(asg, base.get_type(), inline=inline)
                         asg._base_edges[spelling].append(dict(base=asg[basespelling]._node,
-                            _access=str(base.get_access_specifier()).strip('AS_').lower(),
+                            _access=str(base.get_access_specifier()).split('.')[-1].strip('AS_').lower(),
                             _is_virtual=True))
                     except NotImplementedError:
                         if not permissive:
@@ -761,7 +769,7 @@ def read_typedef(asg, decl, inline, permissive):
         return [spelling]
 
 def read_namespace(asg, decl, inline, permissive, out=True):
-    if decl.get_name() == '' or inline and decl.is_inline():
+    if get_name(decl.get_name()) == '' or inline and decl.is_inline():
         children = []
         for child in decl.get_children():
             try:
@@ -808,7 +816,7 @@ def read_decl(asg, decl, **kwargs):
     """
     if isinstance(decl, clang.LinkageSpecDecl):
         language = asg._language
-        if decl.get_language() is clang.LinkageSpecDecl.language_ids.LANG_C:
+        if str(decl.get_language()) == str(clang.LinkageSpecDecl.language_ids.LANG_C):
             asg._language = 'c++'
         else:
             asg._language = 'c++'
@@ -866,25 +874,25 @@ def read_context_parent(asg, decl):
     return read_parent(asg, decl.get_decl_context())
 
 def read_parent(asg, parent):
-    kind = parent.get_decl_kind()
-    if kind is clang.Decl.kind.NAMESPACE:
+    kind = str(parent.get_decl_kind())
+    if kind == str(clang.Decl.kind.NAMESPACE):
         parent = parent.as_namespace()
-        if parent.get_name() == '':
+        if get_name(parent.get_name()) == '':
             parent = read_parent(asg, parent.get_parent())
         return parent
-    elif kind in [clang.Decl.kind.CXX_RECORD, clang.Decl.kind.RECORD, clang.Decl.kind.FIRST_CXX_RECORD, clang.Decl.kind.FIRST_CLASS_TEMPLATE_SPECIALIZATION, clang.Decl.kind.FIRST_RECORD]:
+    elif kind in [str(clang.Decl.kind.CXX_RECORD), str(clang.Decl.kind.RECORD), str(clang.Decl.kind.FIRST_CXX_RECORD), str(clang.Decl.kind.FIRST_CLASS_TEMPLATE_SPECIALIZATION), str(clang.Decl.kind.FIRST_RECORD)]:
         parent = parent.as_record()
         return parent
-    elif kind in [clang.Decl.kind.ENUM]:
+    elif kind in [str(clang.Decl.kind.ENUM)]:
         parent = parent.as_enum()
-        if parent.get_name() == '':
+        if get_name(parent.get_name()) == '':
             parent = read_parent(asg, parent.get_parent())
         return parent
-    elif kind is clang.Decl.kind.LINKAGE_SPEC:
+    elif kind == str(clang.Decl.kind.LINKAGE_SPEC):
         return read_parent(asg, read_parent(asg, parent.get_parent()))
-    elif kind in [clang.Decl.kind.TRANSLATION_UNIT, clang.Decl.kind.LAST_DECL]:
+    elif kind in [str(clang.Decl.kind.TRANSLATION_UNIT), str(clang.Decl.kind.LAST_DECL)]:
         return parent.as_translation_unit()
-    elif kind in [clang.Decl.kind.CLASS_TEMPLATE_PARTIAL_SPECIALIZATION, clang.Decl.kind.FIRST_TEMPLATE, clang.Decl.kind.FIRST_VAR_TEMPLATE_SPECIALIZATION, clang.Decl.kind.LAST_TAG, clang.Decl.kind.LAST_REDECLARABLE_TEMPLATE, clang.Decl.kind.LAST_TEMPLATE]:
+    elif kind in [str(clang.Decl.kind.CLASS_TEMPLATE_PARTIAL_SPECIALIZATION), str(clang.Decl.kind.FIRST_TEMPLATE), str(clang.Decl.kind.FIRST_VAR_TEMPLATE_SPECIALIZATION), str(clang.Decl.kind.LAST_TAG), str(clang.Decl.kind.LAST_REDECLARABLE_TEMPLATE), str(clang.Decl.kind.LAST_TEMPLATE)]:
         warnings.warn('', Warning)
     else:
         warnings.warn(str(kind), Warning)
