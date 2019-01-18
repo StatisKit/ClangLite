@@ -15,6 +15,8 @@ class ::clang::ObjCProtocolDecl const * (::clang::ObjCProtocolDecl::*method_poin
 bool  (*method_pointer_3f36db1e71f6528f85b0dea78bb19f75)(class ::clang::Decl const *)= ::clang::ObjCProtocolDecl::classof;
 bool  (*method_pointer_5b86596707c651c0aab3efb4bc4c9877)(enum ::clang::Decl::Kind )= ::clang::ObjCProtocolDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_179220ac78145becbf9b283ff6879c57(pybind11::module& module)
 {

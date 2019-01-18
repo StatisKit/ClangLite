@@ -4,6 +4,8 @@ bool  (::clang::RValueReferenceType::*method_pointer_1ae5834ea12b53f6a176efd14d4
 class ::clang::QualType  (::clang::RValueReferenceType::*method_pointer_6852eaf3b71758da9fa0c162078568f8)()const= &::clang::RValueReferenceType::desugar;
 bool  (*method_pointer_9161c083b2455549b2c22476becabef9)(class ::clang::Type const *)= ::clang::RValueReferenceType::classof;
 
+namespace autowig {
+}
 
 void wrapper_a17549d1336953b08ed02070ee0558cb(pybind11::module& module)
 {

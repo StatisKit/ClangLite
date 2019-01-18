@@ -5,6 +5,8 @@ class ::clang::EmptyDecl * (*method_pointer_e4ffaecfef875632965f6cf7b5ff48a8)(cl
 bool  (*method_pointer_5871ed0c15a855a494a69982aa277c43)(class ::clang::Decl const *)= ::clang::EmptyDecl::classof;
 bool  (*method_pointer_3327eb78307e56a6a564fd33593a9925)(enum ::clang::Decl::Kind )= ::clang::EmptyDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_5bfc55543ee4569b9b6f1d945bfacbbb(pybind11::module& module)
 {

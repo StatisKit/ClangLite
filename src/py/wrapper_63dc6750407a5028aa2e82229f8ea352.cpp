@@ -6,6 +6,8 @@ class ::clang::QualType  (::clang::UnaryTransformType::*method_pointer_3d6493ce4
 class ::clang::QualType  (::clang::UnaryTransformType::*method_pointer_e7e8d907935b506ba1b104b8b26073d8)()const= &::clang::UnaryTransformType::getBaseType;
 bool  (*method_pointer_dcde29071db95e3aa112a23257a0be84)(class ::clang::Type const *)= ::clang::UnaryTransformType::classof;
 
+namespace autowig {
+}
 
 void wrapper_63dc6750407a5028aa2e82229f8ea352(pybind11::module& module)
 {

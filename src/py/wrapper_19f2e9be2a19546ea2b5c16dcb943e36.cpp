@@ -10,6 +10,8 @@ class ::clang::TypeAliasTemplateDecl * (*method_pointer_21f40cbf27c3543c841f243e
 bool  (*method_pointer_f308a8e811215c80a130624632513b04)(class ::clang::Decl const *)= ::clang::TypeAliasTemplateDecl::classof;
 bool  (*method_pointer_9364c7fed91c5b769f6378f3d4e0391a)(enum ::clang::Decl::Kind )= ::clang::TypeAliasTemplateDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_19f2e9be2a19546ea2b5c16dcb943e36(pybind11::module& module)
 {

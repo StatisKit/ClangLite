@@ -8,6 +8,8 @@ class ::clang::SourceLocation  (::clang::SourceLocation::*method_pointer_5da0f95
 unsigned int  (::clang::SourceLocation::*method_pointer_5da491564f50546982618486de33b742)()const= &::clang::SourceLocation::getRawEncoding;
 class ::clang::SourceLocation  (*method_pointer_ca91b7d4c2745be58c5d73e9cf326ceb)(unsigned int )= ::clang::SourceLocation::getFromRawEncoding;
 
+namespace autowig {
+}
 
 void wrapper_3bb72e110333506a85ff3706c82d0672(pybind11::module& module)
 {

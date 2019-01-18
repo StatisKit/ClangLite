@@ -55,6 +55,8 @@ void  (::clang::VarDecl::*method_pointer_80a2949922b7527dbfa4ed56ef8ee155)(class
 bool  (*method_pointer_2bb7b63f440a5487b5abac0e072d15b6)(class ::clang::Decl const *)= ::clang::VarDecl::classof;
 bool  (*method_pointer_cb9ee02e541f552cae20ad3610e565da)(enum ::clang::Decl::Kind )= ::clang::VarDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_99d3396ee242572bbeaada83b5e83165(pybind11::module& module)
 {

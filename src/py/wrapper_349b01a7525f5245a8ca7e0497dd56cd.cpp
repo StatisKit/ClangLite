@@ -53,6 +53,8 @@ class ::llvm::StringRef  (::llvm::StringRef::*method_pointer_f6375b8b319c5e3fa2e
 class ::llvm::StringRef  (::llvm::StringRef::*method_pointer_b57fed64c88b59e8a9057e46481cdf69)(class ::llvm::StringRef )const= &::llvm::StringRef::trim;
 bool  (::llvm::StringRef::*method_pointer_c60bcf59b4e55b4db8aeb41b11fb6258)(unsigned int , unsigned int &)const= &::llvm::StringRef::getAsInteger;
 
+namespace autowig {
+}
 
 void wrapper_349b01a7525f5245a8ca7e0497dd56cd(pybind11::module& module)
 {

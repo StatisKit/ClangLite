@@ -5,6 +5,8 @@ bool  (::clang::ParenType::*method_pointer_a7b287453222500aa4c939e3ba0d9d20)()co
 class ::clang::QualType  (::clang::ParenType::*method_pointer_740de9d7c372547c91ca3a2f93b00248)()const= &::clang::ParenType::desugar;
 bool  (*method_pointer_21be3abf0c1659f09cf5241140a41abb)(class ::clang::Type const *)= ::clang::ParenType::classof;
 
+namespace autowig {
+}
 
 void wrapper_e0f3aeacd4b75f1a90a27af45ebd888b(pybind11::module& module)
 {

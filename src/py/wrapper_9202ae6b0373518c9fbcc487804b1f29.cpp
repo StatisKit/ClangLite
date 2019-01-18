@@ -13,6 +13,8 @@ bool  (::clang::TemplateTypeParmDecl::*method_pointer_738b0a3394425a348028ad1797
 bool  (*method_pointer_d3225609ff4b5b75b018705f7c97a40d)(class ::clang::Decl const *)= ::clang::TemplateTypeParmDecl::classof;
 bool  (*method_pointer_b5e30d0b734a5efba3df5db450414310)(enum ::clang::Decl::Kind )= ::clang::TemplateTypeParmDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_9202ae6b0373518c9fbcc487804b1f29(pybind11::module& module)
 {

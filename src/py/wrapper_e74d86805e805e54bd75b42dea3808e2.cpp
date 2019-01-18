@@ -6,6 +6,8 @@ class ::clang::FunctionDecl const * (::clang::CXXDestructorDecl::*method_pointer
 bool  (*method_pointer_3897906730a05a9e8fbbec332c0f5765)(class ::clang::Decl const *)= ::clang::CXXDestructorDecl::classof;
 bool  (*method_pointer_6790c11d18f453f38e3e15b87ef4dbdc)(enum ::clang::Decl::Kind )= ::clang::CXXDestructorDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_e74d86805e805e54bd75b42dea3808e2(pybind11::module& module)
 {

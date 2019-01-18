@@ -9,6 +9,8 @@ bool  (::clang::AttributedType::*method_pointer_3776f362fc9d5531a94d59477f5871a5
 bool  (::clang::AttributedType::*method_pointer_7f4e0c93278d5cbeb45e6bb8910e623e)()const= &::clang::AttributedType::isCallingConv;
 bool  (*method_pointer_dbc4e9e8f9de5e0ab1170774fe2ea3c9)(class ::clang::Type const *)= ::clang::AttributedType::classof;
 
+namespace autowig {
+}
 
 void wrapper_1d580556003654da9f00e93300e8c7d9(pybind11::module& module)
 {

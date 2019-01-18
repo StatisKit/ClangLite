@@ -7,6 +7,8 @@ void  (::clang::FileScopeAsmDecl::*method_pointer_7b61a7d3fef85657aec0eadcc09163
 bool  (*method_pointer_11c3f54f369d505db42f7099519a66a5)(class ::clang::Decl const *)= ::clang::FileScopeAsmDecl::classof;
 bool  (*method_pointer_752a12b1cf6e5656a57a1fd2fd1b4b65)(enum ::clang::Decl::Kind )= ::clang::FileScopeAsmDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_f962c9f0723d5c5fa0f3eb20b8b2a111(pybind11::module& module)
 {

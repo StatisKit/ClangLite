@@ -8,6 +8,8 @@ bool  (*method_pointer_669c1dea49e6536e9e11ec37484979ac)(enum ::clang::Decl::Kin
 class ::clang::DeclContext * (*method_pointer_3af69c3efb7c57cdacb0e8e509b0d186)(class ::clang::OMPDeclareReductionDecl const *)= ::clang::OMPDeclareReductionDecl::castToDeclContext;
 class ::clang::OMPDeclareReductionDecl * (*method_pointer_eee1d3d0c952508ab94e14a1ef2dc0a8)(class ::clang::DeclContext const *)= ::clang::OMPDeclareReductionDecl::castFromDeclContext;
 
+namespace autowig {
+}
 
 void wrapper_7a4ec52d516e59b3a51f6b4a2ec3dedc(pybind11::module& module)
 {

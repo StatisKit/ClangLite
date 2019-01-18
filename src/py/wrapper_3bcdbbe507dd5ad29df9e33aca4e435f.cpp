@@ -51,6 +51,8 @@ bool  (::clang::QualType::*method_pointer_adfb1e7876575909bf814bca23f18342)()con
 bool  (::clang::QualType::*method_pointer_a0ad4ed8e5a05b72bb2693a73ad1840e)()const= &::clang::QualType::isCForbiddenLValueType;
 class ::clang::QualType  (::clang::QualType::*method_pointer_75c8ad27e61f50dabd0994e59f945bf3)()const= &::clang::QualType::getAtomicUnqualifiedType;
 
+namespace autowig {
+}
 
 void wrapper_3bcdbbe507dd5ad29df9e33aca4e435f(pybind11::module& module)
 {

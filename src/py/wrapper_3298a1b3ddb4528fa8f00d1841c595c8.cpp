@@ -7,6 +7,8 @@ unsigned int  (::clang::FriendTemplateDecl::*method_pointer_8b9f981fff44566d841c
 bool  (*method_pointer_768f934959b856668a1665b00bd4b374)(class ::clang::Decl const *)= ::clang::FriendTemplateDecl::classof;
 bool  (*method_pointer_df37ab77f6e451ff8e1e436f02b5fd94)(enum ::clang::Decl::Kind )= ::clang::FriendTemplateDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_3298a1b3ddb4528fa8f00d1841c595c8(pybind11::module& module)
 {

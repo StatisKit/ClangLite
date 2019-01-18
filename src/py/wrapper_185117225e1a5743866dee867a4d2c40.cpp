@@ -25,6 +25,8 @@ bool  (*method_pointer_2dc64ca2060e550c9379afa560a10b84)(enum ::clang::Decl::Kin
 bool  (::clang::RecordDecl::*method_pointer_79712d6cdaf5557796c713cf1960587f)(bool )const= &::clang::RecordDecl::mayInsertExtraPadding;
 class ::clang::FieldDecl const * (::clang::RecordDecl::*method_pointer_d6c3aaa90049542c8aded907ed8a5b23)()const= &::clang::RecordDecl::findFirstNamedDataMember;
 
+namespace autowig {
+}
 
 void wrapper_185117225e1a5743866dee867a4d2c40(pybind11::module& module)
 {

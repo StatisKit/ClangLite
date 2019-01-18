@@ -41,7 +41,6 @@ bool  (::clang::Sema::*method_pointer_434e85f81c1c5e9bb14809af58c0edf6)(class ::
 bool  (::clang::Sema::*method_pointer_f51212f0c723581f9a13e8e3c9e0a397)(class ::clang::SourceLocation , class ::clang::QualType , unsigned int )= &::clang::Sema::RequireLiteralType;
 void  (::clang::Sema::*method_pointer_5220603aadb454d1a2316df88e16b3de)()= &::clang::Sema::DiagnoseUseOfUnimplementedSelectors;
 void  (::clang::Sema::*method_pointer_2f2283e263b653be8f688bd3aef4f2f4)(unsigned int , unsigned int , class ::clang::SourceLocation , class ::clang::SourceLocation , class ::clang::SourceLocation , class ::clang::SourceLocation , class ::clang::SourceLocation , class ::clang::SourceLocation )= &::clang::Sema::diagnoseIgnoredQualifiers;
-bool  (*method_pointer_299032c189815e51b001d0991e92b027)(class ::clang::DeclContext * &)= ::clang::Sema::adjustContextForLocalExternDecl;
 void  (::clang::Sema::*method_pointer_2ff3226eb2795771b92c991f971a262f)(class ::clang::TagDecl *, class ::clang::TypedefNameDecl *)= &::clang::Sema::setTagNameForLinkagePurposes;
 void  (::clang::Sema::*method_pointer_4c6080be1dfc5bbbaa3051294a12ad26)(class ::clang::VarDecl *)= &::clang::Sema::CheckVariableDeclarationType;
 void  (::clang::Sema::*method_pointer_5849a47130b257d2a730a3dc7e93fefa)(class ::clang::VarDecl *)= &::clang::Sema::CheckCompleteVariableDeclaration;
@@ -122,7 +121,6 @@ void  (::clang::Sema::*method_pointer_a0dcf68b09cc5d78a2242041c4fdc8b3)(class ::
 void  (::clang::Sema::*method_pointer_ecac7ffad47a5b05bc642ceb52443fd6)(class ::clang::ObjCMethodDecl *, class ::clang::ObjCMethodDecl *, bool )= &::clang::Sema::WarnExactTypedMethods;
 void  (::clang::Sema::*method_pointer_f18a4cd89b3b5d4da43e85ad693d6bc7)(class ::clang::ObjCImplDecl const *)= &::clang::Sema::diagnoseNullResettableSynthesizedSetters;
 bool  (::clang::Sema::*method_pointer_081057693242578f92a376ccfc136e53)(class ::clang::ObjCInterfaceDecl *, class ::clang::ObjCMethodDecl *, class ::clang::ObjCIvarDecl *)= &::clang::Sema::IvarBacksCurrentMethodAccessor;
-class ::clang::ObjCIvarDecl * (::clang::Sema::*method_pointer_c15a6e4dc19a5929a5d6cb36cea541d5)(class ::clang::ObjCMethodDecl const *, class ::clang::ObjCPropertyDecl const * &)const= &::clang::Sema::GetIvarBackingPropertyAccessor;
 void  (::clang::Sema::*method_pointer_1a4b557df35759ae9a8cb1af076a9095)(class ::clang::ObjCImplDecl *, class ::clang::ObjCInterfaceDecl *)= &::clang::Sema::AtomicPropertySetterGetterRules;
 void  (::clang::Sema::*method_pointer_c23e4d1f837f53099e8a4f9a48b9ed1b)(class ::clang::ObjCImplementationDecl const *)= &::clang::Sema::DiagnoseOwningPropertyGetterSynthesis;
 void  (::clang::Sema::*method_pointer_5bdde8ed23e85bf38e951cf15f1d742b)(class ::clang::ObjCImplementationDecl const *, class ::clang::ObjCInterfaceDecl const *)= &::clang::Sema::DiagnoseMissingDesignatedInitOverrides;
@@ -134,7 +132,6 @@ void  (::clang::Sema::*method_pointer_7a7dd7e0a5005b6a8f6503dd87859b71)(class ::
 void  (::clang::Sema::*method_pointer_89e10a22b2e85a8294059e5e75876046)()= &::clang::Sema::ActOnStartOfCompoundStmt;
 void  (::clang::Sema::*method_pointer_7df5a55591925233b6e9dc803b609522)()= &::clang::Sema::ActOnFinishOfCompoundStmt;
 void  (::clang::Sema::*method_pointer_b421eae7cee1516bb99fccc7a3ef9f39)()= &::clang::Sema::ActOnCapturedRegionError;
-class ::clang::RecordDecl * (::clang::Sema::*method_pointer_d99126414055519b888d4ac70ed1ee51)(class ::clang::CapturedDecl * &, class ::clang::SourceLocation , unsigned int )= &::clang::Sema::CreateCapturedStmtRecordDecl;
 bool  (::clang::Sema::*method_pointer_179de9075ca4578bb873da4e5d991649)(class ::clang::QualType , class ::clang::VarDecl const *, bool )= &::clang::Sema::isCopyElisionCandidate;
 bool  (::clang::Sema::*method_pointer_7b8ae8b3e84d5422bb7e9626781f3c93)(class ::llvm::StringRef , class ::llvm::StringRef , unsigned int &, class ::clang::SourceLocation )= &::clang::Sema::LookupInlineAsmField;
 class ::clang::LabelDecl * (::clang::Sema::*method_pointer_af33d563a66859389a3991f978a313dc)(class ::llvm::StringRef , class ::clang::SourceLocation , bool )= &::clang::Sema::GetOrCreateMSAsmLabel;
@@ -242,7 +239,6 @@ void  (::clang::Sema::*method_pointer_cc3fc19ca18758b19a1e6d7077e904ce)(class ::
 bool  (::clang::Sema::*method_pointer_bee820d4efdb5459bd34ceed0a14750d)(class ::clang::FunctionDecl *)= &::clang::Sema::CheckOverloadedOperatorDeclaration;
 bool  (::clang::Sema::*method_pointer_ec10fd1ecb795b1b8877580ea8b67415)(class ::clang::FunctionDecl *)= &::clang::Sema::CheckLiteralOperatorDeclaration;
 void  (::clang::Sema::*method_pointer_152230b9b793543eb074f05f3c70b456)(class ::clang::SourceLocation , class ::clang::Decl *)= &::clang::Sema::DiagnoseTemplateParameterShadow;
-class ::clang::TemplateDecl * (::clang::Sema::*method_pointer_dc02bfc9946d555faf44f89079be0882)(class ::clang::Decl * &)= &::clang::Sema::AdjustDeclIfTemplate;
 class ::clang::QualType  (::clang::Sema::*method_pointer_6fc58efc4bb85838bcee343458c8dbd4)(class ::clang::QualType , class ::clang::SourceLocation )= &::clang::Sema::CheckNonTypeTemplateParameterType;
 void  (::clang::Sema::*method_pointer_031a4088bf7e5e72a905d08a04885d0b)(class ::clang::ClassTemplatePartialSpecializationDecl *)= &::clang::Sema::CheckTemplatePartialSpecialization;
 void  (::clang::Sema::*method_pointer_8b25f1b103235b1cac944dc0a783474a)(class ::clang::VarTemplatePartialSpecializationDecl *)= &::clang::Sema::CheckTemplatePartialSpecialization;
@@ -266,7 +262,6 @@ void  (::clang::Sema::*method_pointer_68e5811c60115312b678049fafde528d)(class ::
 bool  (::clang::Sema::*method_pointer_b79fb18c5dda579097a9d2bc91a05734)(class ::clang::ObjCMethodDecl *)= &::clang::Sema::CheckARCMethodDecl;
 bool  (::clang::Sema::*method_pointer_5d1dba6d02075cf3a4d60f90d664fabd)(class ::clang::ValueDecl *)= &::clang::Sema::inferObjCARCLifetime;
 class ::clang::ObjCMethodDecl * (::clang::Sema::*method_pointer_fd3bc3c173a957afaac278054832009f)(class ::clang::SourceLocation )= &::clang::Sema::tryCaptureObjCSelf;
-bool  (::clang::Sema::*method_pointer_0c27c41a36a555a797740d6a6d9218fc)(class ::clang::SourceLocation , class ::clang::QualType , class ::clang::QualType , class ::clang::ObjCInterfaceDecl * &, class ::clang::ObjCMethodDecl * &, class ::clang::ObjCMethodDecl * &, class ::clang::TypedefNameDecl * &, bool , bool )= &::clang::Sema::checkObjCBridgeRelatedComponents;
 bool  (::clang::Sema::*method_pointer_accf16fc4cd15596bd3a6fd14c271ccc)(class ::clang::ObjCMethodDecl *, class ::clang::QualType )= &::clang::Sema::checkInitMethod;
 void  (::clang::Sema::*method_pointer_e3040b002f3153e0ba129f26bb3759a0)(class ::clang::ObjCMethodDecl *, class ::clang::ObjCMethodDecl const *)= &::clang::Sema::CheckObjCMethodOverride;
 bool  (::clang::Sema::*method_pointer_b5dabcc6a6b2579db20ec55ae953d60b)(class ::llvm::StringRef , int , class ::clang::DeclaratorDecl *)= &::clang::Sema::UnifySection;
@@ -274,7 +269,7 @@ bool  (::clang::Sema::*method_pointer_68f120ef072c57c89c3e7490cb611fd1)(class ::
 void  (::clang::Sema::*method_pointer_7381cc0469215302b46368f576bf3a16)(class ::clang::SourceLocation , class ::llvm::StringRef , class ::llvm::StringRef )= &::clang::Sema::ActOnPragmaDetectMismatch;
 void  (::clang::Sema::*method_pointer_11bbf744254e51848144d97d38a28fbd)(class ::clang::RecordDecl *)= &::clang::Sema::AddAlignmentAttributesForRecord;
 void  (::clang::Sema::*method_pointer_0e46198a43a15deeb30b1d1fa315448d)(class ::clang::RecordDecl *)= &::clang::Sema::AddMsStructLayoutForRecord;
-void  (::clang::Sema::*method_pointer_3f1db22e81835aca9b208a18d07c5c94)()= &::clang::Sema::FreePackedContext;
+// void  (::clang::Sema::*method_pointer_3f1db22e81835aca9b208a18d07c5c94)()= &::clang::Sema::FreePackedContext;
 void  (::clang::Sema::*method_pointer_9045e2ad93c053dbaec4b93c4b50e1d9)(class ::clang::Decl *)= &::clang::Sema::AddPushedVisibilityAttribute;
 void  (::clang::Sema::*method_pointer_ba20403dcbb5519382a98d145490248b)(bool , class ::clang::SourceLocation )= &::clang::Sema::PopPragmaVisibility;
 void  (::clang::Sema::*method_pointer_9b4538195e455b4baae0cc784b59639d)()= &::clang::Sema::FreeVisContext;
@@ -324,6 +319,8 @@ class ::clang::DeclContext const * (::clang::Sema::*method_pointer_6d5ef056b03b5
 bool  (*method_pointer_7b151e77b874548ca22ddaa1035592bd)(::size_t , ::size_t , bool )= ::clang::Sema::TooManyArguments;
 void  (::clang::Sema::*method_pointer_1d7cb1c1ea555470afa2ab76c07cff9d)()= &::clang::Sema::DiagnoseMisalignedMembers;
 
+namespace autowig {
+}
 
 void wrapper_334dd7441b7b543eae5426f290fe3a91(pybind11::module& module)
 {
@@ -370,7 +367,6 @@ void wrapper_334dd7441b7b543eae5426f290fe3a91(pybind11::module& module)
     class_334dd7441b7b543eae5426f290fe3a91.def("require_literal_type", method_pointer_f51212f0c723581f9a13e8e3c9e0a397, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("diagnose_use_of_unimplemented_selectors", method_pointer_5220603aadb454d1a2316df88e16b3de, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("diagnose_ignored_qualifiers", method_pointer_2f2283e263b653be8f688bd3aef4f2f4, "");
-    // class_334dd7441b7b543eae5426f290fe3a91.def_static("adjust_context_for_local_extern_decl", method_pointer_299032c189815e51b001d0991e92b027, "", pybind11::return_value_policy::move);
     class_334dd7441b7b543eae5426f290fe3a91.def("set_tag_name_for_linkage_purposes", method_pointer_2ff3226eb2795771b92c991f971a262f, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("check_variable_declaration_type", method_pointer_4c6080be1dfc5bbbaa3051294a12ad26, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("check_complete_variable_declaration", method_pointer_5849a47130b257d2a730a3dc7e93fefa, "");
@@ -451,7 +447,6 @@ void wrapper_334dd7441b7b543eae5426f290fe3a91(pybind11::module& module)
     class_334dd7441b7b543eae5426f290fe3a91.def("warn_exact_typed_methods", method_pointer_ecac7ffad47a5b05bc642ceb52443fd6, ":Parameters:\n  - `Method` (:cpp:class:`::clang::ObjCMethodDecl`) - Undocumented\n  - `MethodDecl` (:cpp:class:`::clang::ObjCMethodDecl`) - Undocumented\n  - `IsProtocolMethodDecl` (:cpp:any:`bool`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
     class_334dd7441b7b543eae5426f290fe3a91.def("diagnose_null_resettable_synthesized_setters", method_pointer_f18a4cd89b3b5d4da43e85ad693d6bc7, ":Parameter:\n    `impDecl` (:cpp:class:`::clang::ObjCImplDecl`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
     class_334dd7441b7b543eae5426f290fe3a91.def("ivar_backs_current_method_accessor", method_pointer_081057693242578f92a376ccfc136e53, ":Parameters:\n  - `IFace` (:cpp:class:`::clang::ObjCInterfaceDecl`) - Undocumented\n  - `Method` (:cpp:class:`::clang::ObjCMethodDecl`) - Undocumented\n  - `IV` (:cpp:class:`::clang::ObjCIvarDecl`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
-    // class_334dd7441b7b543eae5426f290fe3a91.def("get_ivar_backing_property_accessor", method_pointer_c15a6e4dc19a5929a5d6cb36cea541d5, pybind11::return_value_policy::reference_internal, ":Parameters:\n  - `Method` (:cpp:class:`::clang::ObjCMethodDecl`) - Undocumented\n  - `PDecl` (:cpp:class:`::clang::ObjCPropertyDecl`) - Undocumented\n\n:Return Type:\n    :cpp:class:`::clang::ObjCIvarDecl`\n\n");
     class_334dd7441b7b543eae5426f290fe3a91.def("atomic_property_setter_getter_rules", method_pointer_1a4b557df35759ae9a8cb1af076a9095, ":Parameters:\n  - `IMPDecl` (:cpp:class:`::clang::ObjCImplDecl`) - Undocumented\n  - `IDecl` (:cpp:class:`::clang::ObjCInterfaceDecl`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
     class_334dd7441b7b543eae5426f290fe3a91.def("diagnose_owning_property_getter_synthesis", method_pointer_c23e4d1f837f53099e8a4f9a48b9ed1b, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("diagnose_missing_designated_init_overrides", method_pointer_5bdde8ed23e85bf38e951cf15f1d742b, "");
@@ -463,7 +458,6 @@ void wrapper_334dd7441b7b543eae5426f290fe3a91(pybind11::module& module)
     class_334dd7441b7b543eae5426f290fe3a91.def("act_on_start_of_compound_stmt", method_pointer_89e10a22b2e85a8294059e5e75876046, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("act_on_finish_of_compound_stmt", method_pointer_7df5a55591925233b6e9dc803b609522, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("act_on_captured_region_error", method_pointer_b421eae7cee1516bb99fccc7a3ef9f39, "");
-    // class_334dd7441b7b543eae5426f290fe3a91.def("create_captured_stmt_record_decl", method_pointer_d99126414055519b888d4ac70ed1ee51, pybind11::return_value_policy::reference_internal, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("is_copy_elision_candidate", method_pointer_179de9075ca4578bb873da4e5d991649, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("lookup_inline_asm_field", method_pointer_7b8ae8b3e84d5422bb7e9626781f3c93, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("get_or_create_ms_asm_label", method_pointer_af33d563a66859389a3991f978a313dc, pybind11::return_value_policy::reference_internal, "");
@@ -571,7 +565,6 @@ void wrapper_334dd7441b7b543eae5426f290fe3a91(pybind11::module& module)
     class_334dd7441b7b543eae5426f290fe3a91.def("check_overloaded_operator_declaration", method_pointer_bee820d4efdb5459bd34ceed0a14750d, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("check_literal_operator_declaration", method_pointer_ec10fd1ecb795b1b8877580ea8b67415, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("diagnose_template_parameter_shadow", method_pointer_152230b9b793543eb074f05f3c70b456, "");
-    // class_334dd7441b7b543eae5426f290fe3a91.def("adjust_decl_if_template", method_pointer_dc02bfc9946d555faf44f89079be0882, pybind11::return_value_policy::reference_internal, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("check_non_type_template_parameter_type", method_pointer_6fc58efc4bb85838bcee343458c8dbd4, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("check_template_partial_specialization", method_pointer_031a4088bf7e5e72a905d08a04885d0b, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("check_template_partial_specialization", method_pointer_8b25f1b103235b1cac944dc0a783474a, "");
@@ -595,7 +588,6 @@ void wrapper_334dd7441b7b543eae5426f290fe3a91(pybind11::module& module)
     class_334dd7441b7b543eae5426f290fe3a91.def("check_arc_method_decl", method_pointer_b79fb18c5dda579097a9d2bc91a05734, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("infer_obj_carc_lifetime", method_pointer_5d1dba6d02075cf3a4d60f90d664fabd, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("try_capture_obj_c_self", method_pointer_fd3bc3c173a957afaac278054832009f, pybind11::return_value_policy::reference_internal, "");
-    // class_334dd7441b7b543eae5426f290fe3a91.def("check_obj_c_bridge_related_components", method_pointer_0c27c41a36a555a797740d6a6d9218fc, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("check_init_method", method_pointer_accf16fc4cd15596bd3a6fd14c271ccc, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("check_obj_c_method_override", method_pointer_e3040b002f3153e0ba129f26bb3759a0, "Check whether the given new method is a valid override of the given\noverridden method, and set any properties that should be inherited.\n\n:Parameters:\n  - `NewMethod` (:cpp:class:`::clang::ObjCMethodDecl`) - Undocumented\n  - `Overridden` (:cpp:class:`::clang::ObjCMethodDecl`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
     class_334dd7441b7b543eae5426f290fe3a91.def("unify_section", method_pointer_b5dabcc6a6b2579db20ec55ae953d60b, "");
@@ -603,7 +595,7 @@ void wrapper_334dd7441b7b543eae5426f290fe3a91(pybind11::module& module)
     class_334dd7441b7b543eae5426f290fe3a91.def("act_on_pragma_detect_mismatch", method_pointer_7381cc0469215302b46368f576bf3a16, ":Parameters:\n  - `Loc` (:cpp:class:`::clang::SourceLocation`) - Undocumented\n  - `Name` (:cpp:class:`::llvm::StringRef`) - Undocumented\n  - `Value` (:cpp:class:`::llvm::StringRef`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
     class_334dd7441b7b543eae5426f290fe3a91.def("add_alignment_attributes_for_record", method_pointer_11bbf744254e51848144d97d38a28fbd, ":Parameter:\n    `RD` (:cpp:class:`::clang::RecordDecl`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
     class_334dd7441b7b543eae5426f290fe3a91.def("add_ms_struct_layout_for_record", method_pointer_0e46198a43a15deeb30b1d1fa315448d, ":Parameter:\n    `RD` (:cpp:class:`::clang::RecordDecl`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
-    class_334dd7441b7b543eae5426f290fe3a91.def("free_packed_context", method_pointer_3f1db22e81835aca9b208a18d07c5c94, ":Return Type:\n    :cpp:any:`void`\n\n");
+    // class_334dd7441b7b543eae5426f290fe3a91.def("free_packed_context", method_pointer_3f1db22e81835aca9b208a18d07c5c94, ":Return Type:\n    :cpp:any:`void`\n\n");
     class_334dd7441b7b543eae5426f290fe3a91.def("add_pushed_visibility_attribute", method_pointer_9045e2ad93c053dbaec4b93c4b50e1d9, ":Parameter:\n    `RD` (:cpp:class:`::clang::Decl`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
     class_334dd7441b7b543eae5426f290fe3a91.def("pop_pragma_visibility", method_pointer_ba20403dcbb5519382a98d145490248b, ":Parameters:\n  - `IsNamespaceEnd` (:cpp:any:`bool`) - Undocumented\n  - `EndLoc` (:cpp:class:`::clang::SourceLocation`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
     class_334dd7441b7b543eae5426f290fe3a91.def("free_vis_context", method_pointer_9b4538195e455b4baae0cc784b59639d, ":Return Type:\n    :cpp:any:`void`\n\n");
@@ -655,7 +647,7 @@ void wrapper_334dd7441b7b543eae5426f290fe3a91(pybind11::module& module)
     class_334dd7441b7b543eae5426f290fe3a91.def_readwrite("collect_stats", &::clang::Sema::CollectStats, "");
     class_334dd7441b7b543eae5426f290fe3a91.def_readwrite("ms_struct_pragma_on", &::clang::Sema::MSStructPragmaOn, "");
     class_334dd7441b7b543eae5426f290fe3a91.def_readwrite("implicit_ms_inheritance_attr_loc", &::clang::Sema::ImplicitMSInheritanceAttrLoc, "");
-    class_334dd7441b7b543eae5426f290fe3a91.def_readonly_static("k_mac_6_8k_alignment_sentinel", &::clang::Sema::kMac68kAlignmentSentinel, "");
+    // class_334dd7441b7b543eae5426f290fe3a91.def_readonly_static("k_mac_6_8k_alignment_sentinel", &::clang::Sema::kMac68kAlignmentSentinel, "");
     class_334dd7441b7b543eae5426f290fe3a91.def_readwrite("cur_init_seg_loc", &::clang::Sema::CurInitSegLoc, "");
     class_334dd7441b7b543eae5426f290fe3a91.def_readwrite("optimize_off_pragma_location", &::clang::Sema::OptimizeOffPragmaLocation, "");
     class_334dd7441b7b543eae5426f290fe3a91.def_readwrite("is_building_recovery_call_expr", &::clang::Sema::IsBuildingRecoveryCallExpr, "");

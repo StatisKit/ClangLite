@@ -42,6 +42,8 @@ void  (::clang::ObjCInterfaceDecl::*method_pointer_c192f97db7f75feeae82a70f8345b
 bool  (*method_pointer_8762c55a639b58338bb50df1de571f29)(class ::clang::Decl const *)= ::clang::ObjCInterfaceDecl::classof;
 bool  (*method_pointer_00d8ac5a16075c2b97c6b443fcefddbc)(enum ::clang::Decl::Kind )= ::clang::ObjCInterfaceDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_6fe8ea7f48fd5aec8c83607b627eef0d(pybind11::module& module)
 {

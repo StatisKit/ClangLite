@@ -9,6 +9,8 @@ class ::clang::IndirectFieldDecl const * (::clang::IndirectFieldDecl::*method_po
 bool  (*method_pointer_20a5982871cd59398677bf2d15aa4f49)(class ::clang::Decl const *)= ::clang::IndirectFieldDecl::classof;
 bool  (*method_pointer_9cd107317cef5e6a99765f8046e7727e)(enum ::clang::Decl::Kind )= ::clang::IndirectFieldDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_055e36c244395ee3a248c7839b4485ca(pybind11::module& module)
 {

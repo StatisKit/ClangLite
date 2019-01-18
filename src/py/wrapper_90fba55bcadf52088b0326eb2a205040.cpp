@@ -4,6 +4,8 @@ class ::clang::ObjCAtDefsFieldDecl * (*method_pointer_83c5fa6f39485e8f901598dba3
 bool  (*method_pointer_d221044262765a60acaf9e3b81cca3c6)(class ::clang::Decl const *)= ::clang::ObjCAtDefsFieldDecl::classof;
 bool  (*method_pointer_149b9040920c5fffbdec7c6fceea3d15)(enum ::clang::Decl::Kind )= ::clang::ObjCAtDefsFieldDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_90fba55bcadf52088b0326eb2a205040(pybind11::module& module)
 {

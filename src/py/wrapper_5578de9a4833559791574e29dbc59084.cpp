@@ -9,6 +9,8 @@ class ::clang::AccessSpecDecl * (*method_pointer_e3442be0485f5b7fb521e0e4ca2f912
 bool  (*method_pointer_b35a84cc20405c778fd4d0e3cd52e5ae)(class ::clang::Decl const *)= ::clang::AccessSpecDecl::classof;
 bool  (*method_pointer_7b0bfaa783db544b8041dc1cd346f3f2)(enum ::clang::Decl::Kind )= ::clang::AccessSpecDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_5578de9a4833559791574e29dbc59084(pybind11::module& module)
 {

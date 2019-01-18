@@ -1,6 +1,8 @@
 #include "_clanglite.h"
 
 
+namespace autowig {
+}
 
 void wrapper_289d20f99a245c299406a081a1259a49(pybind11::module& module)
 {

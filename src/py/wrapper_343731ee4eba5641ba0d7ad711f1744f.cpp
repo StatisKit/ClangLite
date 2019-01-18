@@ -7,6 +7,8 @@ class ::clang::QualType  (::clang::AutoType::*method_pointer_29c74fdc996b586d8e0
 bool  (::clang::AutoType::*method_pointer_727dc1f261325c19b899b5076259e761)()const= &::clang::AutoType::isDeduced;
 bool  (*method_pointer_c30808f8af3a5cf2a526472cb1fc6d79)(class ::clang::Type const *)= ::clang::AutoType::classof;
 
+namespace autowig {
+}
 
 void wrapper_343731ee4eba5641ba0d7ad711f1744f(pybind11::module& module)
 {

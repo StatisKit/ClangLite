@@ -8,6 +8,8 @@ bool  (::clang::CXXConversionDecl::*method_pointer_8e165126c20a5a07a4ce8507d498e
 bool  (*method_pointer_72c075270ab55948a64a14f23390aeb9)(class ::clang::Decl const *)= ::clang::CXXConversionDecl::classof;
 bool  (*method_pointer_c5688187cda35852bb303e549692e958)(enum ::clang::Decl::Kind )= ::clang::CXXConversionDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_f985630f6d5d5a2083b01d182b863d7a(pybind11::module& module)
 {

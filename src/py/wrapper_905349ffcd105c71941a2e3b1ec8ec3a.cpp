@@ -9,6 +9,8 @@ class ::clang::SourceLocation  (::clang::DeclaratorDecl::*method_pointer_3622957
 bool  (*method_pointer_b3658cce40755fe6a7e7dd4b54ddeef3)(class ::clang::Decl const *)= ::clang::DeclaratorDecl::classof;
 bool  (*method_pointer_7233360e90415f578f404b7256c33ffb)(enum ::clang::Decl::Kind )= ::clang::DeclaratorDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_905349ffcd105c71941a2e3b1ec8ec3a(pybind11::module& module)
 {

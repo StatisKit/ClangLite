@@ -88,6 +88,8 @@ void  (::clang::Decl::*method_pointer_4b9883849bb558dfae26d1c60e23a0e0)()const= 
 void  (::clang::Decl::*method_pointer_ff1c53521cfa52cab55c2de557d129a8)()const= &::clang::Decl::dumpColor;
 class ::clang::FunctionType const * (::clang::Decl::*method_pointer_874687c60a895c038f1c888a79ede56a)(bool )const= &::clang::Decl::getFunctionType;
 
+namespace autowig {
+}
 
 void wrapper_a6aedb4654a55a40aeecf4b1dc5fcc98(pybind11::module& module)
 {

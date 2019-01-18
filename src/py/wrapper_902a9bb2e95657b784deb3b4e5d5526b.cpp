@@ -9,6 +9,8 @@ void  (::clang::FriendDecl::*method_pointer_b8260f1b5684520db53ab443ff976b0c)(bo
 bool  (*method_pointer_9c6213a019b65e60ad27d703fbd785c5)(class ::clang::Decl const *)= ::clang::FriendDecl::classof;
 bool  (*method_pointer_81efb23d1246509e8074c1574b4f25f1)(enum ::clang::Decl::Kind )= ::clang::FriendDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_902a9bb2e95657b784deb3b4e5d5526b(pybind11::module& module)
 {

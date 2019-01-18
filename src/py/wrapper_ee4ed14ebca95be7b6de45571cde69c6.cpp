@@ -25,6 +25,8 @@ bool  (::clang::FunctionProtoType::*method_pointer_4431c239cb0b5c79b5e1961ff59c3
 class ::clang::QualType  (::clang::FunctionProtoType::*method_pointer_3e4352de276d5f02a21bec41024815e6)()const= &::clang::FunctionProtoType::desugar;
 bool  (*method_pointer_90cd2e9fa2ab58c7b3af7a31371c9b11)(class ::clang::Type const *)= ::clang::FunctionProtoType::classof;
 
+namespace autowig {
+}
 
 void wrapper_ee4ed14ebca95be7b6de45571cde69c6(pybind11::module& module)
 {

@@ -14,6 +14,8 @@ class ::clang::QualType  (::clang::NonTypeTemplateParmDecl::*method_pointer_6c73
 bool  (*method_pointer_858e9a2bc4e15d0cb47b0a7f613714cc)(class ::clang::Decl const *)= ::clang::NonTypeTemplateParmDecl::classof;
 bool  (*method_pointer_ebe00001997a58fd960a8483ad9d1fc4)(enum ::clang::Decl::Kind )= ::clang::NonTypeTemplateParmDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_b1fd1e019724544297cacfa9f9dcfbac(pybind11::module& module)
 {

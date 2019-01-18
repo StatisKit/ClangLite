@@ -9,6 +9,8 @@ void  (::clang::ObjCImplDecl::*method_pointer_9a9faeaaf2dc57b9859ef949a9b9b184)(
 bool  (*method_pointer_31dfaf4c51e25e258f17baa0c2a2b9ee)(class ::clang::Decl const *)= ::clang::ObjCImplDecl::classof;
 bool  (*method_pointer_136f3f3567be5fd09ad1a161d3992c67)(enum ::clang::Decl::Kind )= ::clang::ObjCImplDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_82889ac35d675fc9a65f0285105ee4d5(pybind11::module& module)
 {

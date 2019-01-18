@@ -5,6 +5,8 @@ class ::llvm::StringRef  (::clang::PragmaCommentDecl::*method_pointer_8fb106cdce
 bool  (*method_pointer_635d7c7dedb2550d8da58b6125a67596)(class ::clang::Decl const *)= ::clang::PragmaCommentDecl::classof;
 bool  (*method_pointer_c97acc823f615730a8d58ff8f8f6ee2b)(enum ::clang::Decl::Kind )= ::clang::PragmaCommentDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_d3534ea59fd550feac0100e9ad39d4ca(pybind11::module& module)
 {

@@ -4,6 +4,8 @@ class ::clang::QualType  (::clang::TypeOfExprType::*method_pointer_2986677fb5cc5
 bool  (::clang::TypeOfExprType::*method_pointer_127a875d8a4c5167aaee7d8cad487479)()const= &::clang::TypeOfExprType::isSugared;
 bool  (*method_pointer_ca4b7c018479539fac03fd4863c9fa9d)(class ::clang::Type const *)= ::clang::TypeOfExprType::classof;
 
+namespace autowig {
+}
 
 void wrapper_3bff763d917f5a62bc6b705f9eb6fdba(pybind11::module& module)
 {

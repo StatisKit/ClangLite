@@ -12,6 +12,8 @@ enum ::clang::AccessSpecifier  (::clang::CXXBaseSpecifier::*method_pointer_85a57
 enum ::clang::AccessSpecifier  (::clang::CXXBaseSpecifier::*method_pointer_a2a99055813757b791073c3913d86f8e)()const= &::clang::CXXBaseSpecifier::getAccessSpecifierAsWritten;
 class ::clang::QualType  (::clang::CXXBaseSpecifier::*method_pointer_dae61ee019e45bb69a652468baf9999d)()const= &::clang::CXXBaseSpecifier::getType;
 
+namespace autowig {
+}
 
 void wrapper_d838cd6dfd2c51dfaa64ce4e68e945ec(pybind11::module& module)
 {

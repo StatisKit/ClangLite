@@ -7,6 +7,8 @@ class ::llvm::StringRef  (::clang::ObjCCategoryImplDecl::*method_pointer_ccd7794
 bool  (*method_pointer_d07e3837cce45cf595502401f42f8d42)(class ::clang::Decl const *)= ::clang::ObjCCategoryImplDecl::classof;
 bool  (*method_pointer_e9441865e5ad5cf8a8f5f57b71dee532)(enum ::clang::Decl::Kind )= ::clang::ObjCCategoryImplDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_7289d815af725e0c81cacbe193055c17(pybind11::module& module)
 {

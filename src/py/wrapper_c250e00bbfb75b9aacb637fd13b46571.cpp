@@ -6,6 +6,8 @@ class ::clang::QualType  (::clang::ReferenceType::*method_pointer_160344a51e7b5a
 class ::clang::QualType  (::clang::ReferenceType::*method_pointer_8620fa47fb275d07b12daca1cfdc9743)()const= &::clang::ReferenceType::getPointeeType;
 bool  (*method_pointer_81835e39dcd75ddeac44000b376fd6e9)(class ::clang::Type const *)= ::clang::ReferenceType::classof;
 
+namespace autowig {
+}
 
 void wrapper_c250e00bbfb75b9aacb637fd13b46571(pybind11::module& module)
 {

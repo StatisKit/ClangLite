@@ -21,6 +21,8 @@ bool  (::clang::TemplateArgument::*method_pointer_fc30acfd0a5853babf8e9517bd1117
 class ::clang::TemplateArgument  (::clang::TemplateArgument::*method_pointer_a43fc2d3f9a85c4e91cc8ab97327dd36)()const= &::clang::TemplateArgument::getPackExpansionPattern;
 void  (::clang::TemplateArgument::*method_pointer_6a4502d4bd075c7eaf34b8ea67cb1784)()const= &::clang::TemplateArgument::dump;
 
+namespace autowig {
+}
 
 void wrapper_c135a712d4ea5ecca5fd38e224a91e4a(pybind11::module& module)
 {

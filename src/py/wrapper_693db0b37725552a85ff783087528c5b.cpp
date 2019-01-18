@@ -15,6 +15,8 @@ bool  (*method_pointer_9afdd8ad7f1c53a4b68de15c3650941c)(enum ::clang::Decl::Kin
 class ::clang::DeclContext * (*method_pointer_ba25c54dae0d52ebaf9bc1df6f785748)(class ::clang::LinkageSpecDecl const *)= ::clang::LinkageSpecDecl::castToDeclContext;
 class ::clang::LinkageSpecDecl * (*method_pointer_0e1b6b7c0dcc550b865cceef38a0f79c)(class ::clang::DeclContext const *)= ::clang::LinkageSpecDecl::castFromDeclContext;
 
+namespace autowig {
+}
 
 void wrapper_693db0b37725552a85ff783087528c5b(pybind11::module& module)
 {

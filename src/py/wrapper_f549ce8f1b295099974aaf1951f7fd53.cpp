@@ -7,6 +7,8 @@ bool  (::clang::VectorType::*method_pointer_7b0d5ea7849b530ba95ee64a0ae7cf99)()c
 class ::clang::QualType  (::clang::VectorType::*method_pointer_b4ac00710d675f7b9b91549eec4bc982)()const= &::clang::VectorType::desugar;
 bool  (*method_pointer_2240ddb2f68f58d6a74904d9d1da833f)(class ::clang::Type const *)= ::clang::VectorType::classof;
 
+namespace autowig {
+}
 
 void wrapper_f549ce8f1b295099974aaf1951f7fd53(pybind11::module& module)
 {

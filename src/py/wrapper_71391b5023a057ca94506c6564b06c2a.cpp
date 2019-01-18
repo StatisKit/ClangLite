@@ -8,6 +8,8 @@ class ::clang::TagDecl * (::clang::TypedefNameDecl::*method_pointer_5e787220b638
 bool  (*method_pointer_d1684748675b5484af41e78ec7cd0b6c)(class ::clang::Decl const *)= ::clang::TypedefNameDecl::classof;
 bool  (*method_pointer_1530aa9c98af5fcb97830a08b09c9659)(enum ::clang::Decl::Kind )= ::clang::TypedefNameDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_71391b5023a057ca94506c6564b06c2a(pybind11::module& module)
 {

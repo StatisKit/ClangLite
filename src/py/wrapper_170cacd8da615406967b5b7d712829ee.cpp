@@ -14,6 +14,8 @@ class ::clang::FunctionTemplateDecl * (*method_pointer_1aa0bf8c011d52918b3086f3b
 bool  (*method_pointer_ec8e2de8b65d5585bf38a81b41501d30)(class ::clang::Decl const *)= ::clang::FunctionTemplateDecl::classof;
 bool  (*method_pointer_75074d7c261e514fad79157b259a6074)(enum ::clang::Decl::Kind )= ::clang::FunctionTemplateDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_170cacd8da615406967b5b7d712829ee(pybind11::module& module)
 {

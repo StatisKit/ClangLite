@@ -9,6 +9,8 @@ bool  (::clang::DependentTemplateSpecializationType::*method_pointer_203b5d22fc4
 class ::clang::QualType  (::clang::DependentTemplateSpecializationType::*method_pointer_4b9387990b81543389290f78b5e9639e)()const= &::clang::DependentTemplateSpecializationType::desugar;
 bool  (*method_pointer_4a1c60cb16d95a8d8474395526fbf6fc)(class ::clang::Type const *)= ::clang::DependentTemplateSpecializationType::classof;
 
+namespace autowig {
+}
 
 void wrapper_9e743a2cacb25baaabcd1704a696efe3(pybind11::module& module)
 {

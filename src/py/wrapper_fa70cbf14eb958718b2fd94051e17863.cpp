@@ -211,6 +211,8 @@ class ::clang::FunctionType const * (::clang::Type::*method_pointer_b6b31461c480
 class ::clang::PackExpansionType const * (::clang::Type::*method_pointer_d99c89744fd2533b8f32e7ccd94b69ca)()const= &::clang::Type::getAs;
 class ::clang::UnresolvedUsingType const * (::clang::Type::*method_pointer_65e8c7dae6025317865d70b53cb4d421)()const= &::clang::Type::getAs;
 
+namespace autowig {
+}
 
 void wrapper_fa70cbf14eb958718b2fd94051e17863(pybind11::module& module)
 {

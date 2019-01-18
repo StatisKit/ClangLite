@@ -132,6 +132,9 @@ class ::clang::QualType  (::clang::ASTContext::*method_pointer_789fabd2903f56379
 bool  (::clang::ASTContext::*method_pointer_60c7ffc75630596490329cd4d98c4f5c)(class ::clang::QualType , class ::clang::QualType )= &::clang::ASTContext::areCompatibleVectorTypes;
 bool  (*method_pointer_ec47b42127d352d1911910bb60ce2ca3)(class ::clang::QualType )= ::clang::ASTContext::isObjCNSObjectType;
 unsigned int  (::clang::ASTContext::*method_pointer_8ccf1fdd329e5ca38df9d337819ba149)(class ::clang::QualType )const= &::clang::ASTContext::getOpenMPDefaultSimdAlign;
+::uint64_t  (::clang::ASTContext::*method_pointer_eab024e3b04b585ebe7ba2a10732772f)(class ::clang::QualType )const= &::clang::ASTContext::getTypeSize;
+::uint64_t  (::clang::ASTContext::*method_pointer_44823d61323e516ab3d42f75aac72802)(class ::clang::Type const *)const= &::clang::ASTContext::getTypeSize;
+::uint64_t  (::clang::ASTContext::*method_pointer_680a50488f905df48272bc2cc9ce179a)()const= &::clang::ASTContext::getCharWidth;
 unsigned int  (::clang::ASTContext::*method_pointer_53b4a82f08575b9b89054cd348b6008f)(class ::clang::QualType )const= &::clang::ASTContext::getTypeAlign;
 unsigned int  (::clang::ASTContext::*method_pointer_015a7ae272e058afb12946607a1b2626)(class ::clang::Type const *)const= &::clang::ASTContext::getTypeAlign;
 unsigned int  (::clang::ASTContext::*method_pointer_b8d243a3559c59f28e9676e6edd9bd4c)(class ::clang::QualType )const= &::clang::ASTContext::getTypeAlignIfKnown;
@@ -142,6 +145,7 @@ unsigned int  (::clang::ASTContext::*method_pointer_9d5a964e96e05aaca7dd1c934427
 unsigned int  (::clang::ASTContext::*method_pointer_1a0ff67e1f1f5cff88daba41ff65225e)(class ::clang::QualType )const= &::clang::ASTContext::getAlignOfGlobalVar;
 class ::clang::CXXMethodDecl const * (::clang::ASTContext::*method_pointer_5d9de18a88845471a16f1f86ca9f5634)(class ::clang::CXXRecordDecl const *)= &::clang::ASTContext::getCurrentKeyFunction;
 void  (::clang::ASTContext::*method_pointer_879ebd3726395fbc858da278231cecd9)(class ::clang::CXXMethodDecl const *)= &::clang::ASTContext::setNonKeyFunction;
+::uint64_t  (::clang::ASTContext::*method_pointer_ca4c425b671f555fb4aefa1738b07881)(class ::clang::ValueDecl const *)const= &::clang::ASTContext::getFieldOffset;
 bool  (::clang::ASTContext::*method_pointer_011f3383a573510687349d8fd7a8fbd8)(class ::clang::CXXRecordDecl const *)const= &::clang::ASTContext::isNearlyEmpty;
 unsigned int  (::clang::ASTContext::*method_pointer_28fe2fe6e07e54afa38b411137fef131)(class ::clang::ObjCInterfaceDecl const *)const= &::clang::ASTContext::CountNonClassIvars;
 class ::clang::Type const * (::clang::ASTContext::*method_pointer_01eef2ba10a151baa57cc07c9dfc42dc)(class ::clang::Type const *)const= &::clang::ASTContext::getCanonicalType;
@@ -159,6 +163,7 @@ class ::clang::IncompleteArrayType const * (::clang::ASTContext::*method_pointer
 class ::clang::DependentSizedArrayType const * (::clang::ASTContext::*method_pointer_7ac75fc4fdf251a0a9624b6e8958f405)(class ::clang::QualType )const= &::clang::ASTContext::getAsDependentSizedArrayType;
 class ::clang::QualType  (::clang::ASTContext::*method_pointer_78c633f7fe91561083e873d2a2c90f73)(class ::clang::ArrayType const *)const= &::clang::ASTContext::getBaseElementType;
 class ::clang::QualType  (::clang::ASTContext::*method_pointer_7c6b08fcd81e54dcaf45010f65f2b79e)(class ::clang::QualType )const= &::clang::ASTContext::getBaseElementType;
+::uint64_t  (::clang::ASTContext::*method_pointer_bfb3f6f9b9ea55a389aed6873988deff)(class ::clang::ConstantArrayType const *)const= &::clang::ASTContext::getConstantArrayElementCount;
 class ::clang::QualType  (::clang::ASTContext::*method_pointer_ccd61f86b0e651e28aa558389b188ca5)(class ::clang::QualType )const= &::clang::ASTContext::getAdjustedParameterType;
 class ::clang::QualType  (::clang::ASTContext::*method_pointer_4cd79936245d5e2b91b3982d0d8bdfa0)(class ::clang::QualType )const= &::clang::ASTContext::getSignatureParameterType;
 class ::clang::QualType  (::clang::ASTContext::*method_pointer_d7f4c137df9d576eb3feb69ed043b44d)(class ::clang::QualType )const= &::clang::ASTContext::getExceptionObjectType;
@@ -169,6 +174,7 @@ int  (::clang::ASTContext::*method_pointer_c756a542d64259ae83664fe8711de24b)(cla
 class ::clang::QualType  (::clang::ASTContext::*method_pointer_838667b67a8257e8899889a4692fb622)(class ::clang::QualType , class ::clang::QualType )const= &::clang::ASTContext::getFloatingTypeOfSizeWithinDomain;
 unsigned int  (::clang::ASTContext::*method_pointer_a772164d5abf51e9b18515d0d0392183)(class ::clang::QualType )const= &::clang::ASTContext::getTargetAddressSpace;
 unsigned int  (::clang::ASTContext::*method_pointer_82e7a8dae1215bdab28e1691b40c714f)(unsigned int )const= &::clang::ASTContext::getTargetAddressSpace;
+::uint64_t  (::clang::ASTContext::*method_pointer_d331242abe175343a8c5bdd5b7366971)(class ::clang::QualType )const= &::clang::ASTContext::getTargetNullPointerValue;
 bool  (::clang::ASTContext::*method_pointer_f4090256fd385c85962b8af0558c08b8)(unsigned int )const= &::clang::ASTContext::addressSpaceMapManglingFor;
 bool  (::clang::ASTContext::*method_pointer_990cd3f174935e75a0b310041f0181bf)(class ::clang::QualType , class ::clang::QualType , bool )= &::clang::ASTContext::typesAreCompatible;
 bool  (::clang::ASTContext::*method_pointer_3d40f2b9818f55b8bd7b8da0df7281df)(class ::clang::QualType , class ::clang::QualType )= &::clang::ASTContext::propertyTypesAreCompatible;
@@ -216,6 +222,8 @@ void  (::clang::ASTContext::*method_pointer_e1aa19fd218e5e6e84888c3e73783ef7)(cl
 unsigned int  (::clang::ASTContext::*method_pointer_2c265b4e960c5d28938caf7a69be5542)(class ::clang::ParmVarDecl const *)const= &::clang::ASTContext::getParameterIndex;
 bool  (::clang::ASTContext::*method_pointer_ebe6224e69915352836fbc78c46cc590)(class ::clang::VarDecl const *)const= &::clang::ASTContext::isMSStaticDataMemberInlineDefinition;
 
+namespace autowig {
+}
 
 void wrapper_e536a5cae34e54058d1fe69715937f7a(pybind11::module& module)
 {
@@ -353,6 +361,9 @@ void wrapper_e536a5cae34e54058d1fe69715937f7a(pybind11::module& module)
     class_e536a5cae34e54058d1fe69715937f7a.def("are_compatible_vector_types", method_pointer_60c7ffc75630596490329cd4d98c4f5c, "Return true if the given vector types are of the same unqualified type\nor if they are equivalent to the same GCC vector type.\n\n:Parameters:\n  - `FirstVec` (:cpp:class:`::clang::QualType`) - Undocumented\n  - `SecondVec` (:cpp:class:`::clang::QualType`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n.. note::\n\n    This ignores whether they are target-specific (AltiVec or Neon) types.\n\n");
     class_e536a5cae34e54058d1fe69715937f7a.def_static("is_obj_cns_object_type", method_pointer_ec47b42127d352d1911910bb60ce2ca3, "Return true if this is an\n:raw-latex:`\\c NSObject object with its \\c NSObject\nattribute set.`\n\n:Parameter:\n    `Ty` (:cpp:class:`::clang::QualType`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_e536a5cae34e54058d1fe69715937f7a.def("get_open_mp_default_simd_align", method_pointer_8ccf1fdd329e5ca38df9d337819ba149, "Get default simd alignment of the specified complete type in bits.\n\n:Parameter:\n    `T` (:cpp:class:`::clang::QualType`) - Undocumented\n\n:Return Type:\n    :cpp:any:`unsigned` int\n\n");
+    class_e536a5cae34e54058d1fe69715937f7a.def("get_type_size", method_pointer_eab024e3b04b585ebe7ba2a10732772f, "Return the size of the specified (complete) type :raw-latex:`\\p `T, in\nbits.\n\n:Parameter:\n    `T` (:cpp:class:`::clang::QualType`) - Undocumented\n\n:Return Type:\n    :cpp:any:`unsigned` long int\n\n");
+    class_e536a5cae34e54058d1fe69715937f7a.def("get_type_size", method_pointer_44823d61323e516ab3d42f75aac72802, "");
+    class_e536a5cae34e54058d1fe69715937f7a.def("get_char_width", method_pointer_680a50488f905df48272bc2cc9ce179a, "Return the size of the character type, in bits.\n\n:Return Type:\n    :cpp:any:`unsigned` long int\n\n");
     class_e536a5cae34e54058d1fe69715937f7a.def("get_type_align", method_pointer_53b4a82f08575b9b89054cd348b6008f, "Return the ABI-specified alignment of a (complete) type\n:raw-latex:`\\p `T, in bits.\n\n:Parameter:\n    `T` (:cpp:class:`::clang::QualType`) - Undocumented\n\n:Return Type:\n    :cpp:any:`unsigned` int\n\n");
     class_e536a5cae34e54058d1fe69715937f7a.def("get_type_align", method_pointer_015a7ae272e058afb12946607a1b2626, "");
     class_e536a5cae34e54058d1fe69715937f7a.def("get_type_align_if_known", method_pointer_b8d243a3559c59f28e9676e6edd9bd4c, "Return the ABI-specified alignment of a type, in bits, or 0 if the type\nis incomplete and we cannot determine the alignment (for example, from\nalignment attributes).\n\n:Parameter:\n    `T` (:cpp:class:`::clang::QualType`) - Undocumented\n\n:Return Type:\n    :cpp:any:`unsigned` int\n\n");
@@ -363,6 +374,7 @@ void wrapper_e536a5cae34e54058d1fe69715937f7a(pybind11::module& module)
     class_e536a5cae34e54058d1fe69715937f7a.def("get_align_of_global_var", method_pointer_1a0ff67e1f1f5cff88daba41ff65225e, "Return the alignment in bits that should be given to a global variable\nwith type :raw-latex:`\\p `T.\n\n:Parameter:\n    `T` (:cpp:class:`::clang::QualType`) - Undocumented\n\n:Return Type:\n    :cpp:any:`unsigned` int\n\n");
     class_e536a5cae34e54058d1fe69715937f7a.def("get_current_key_function", method_pointer_5d9de18a88845471a16f1f86ca9f5634, pybind11::return_value_policy::reference_internal, "Get our current best idea for the key function of the given record decl,\nor NULL if there isn’t one.\n\nThe key function is, according to the Itanium C++ ABI section 5.2.3:\n…the first non-pure virtual function that is not inline at the point of\nclass definition.\n\nOther ABIs use the same idea. However, the ARM C++ ABI ignores virtual\nfunctions that are defined ‘inline’, which means that the result of this\ncomputation can change.\n\n:Parameter:\n    `RD` (:cpp:class:`::clang::CXXRecordDecl`) - Undocumented\n\n:Return Type:\n    :cpp:class:`::clang::CXXMethodDecl`\n\n");
     class_e536a5cae34e54058d1fe69715937f7a.def("set_non_key_function", method_pointer_879ebd3726395fbc858da278231cecd9, "Observe that the given method cannot be a key function. Checks the\nkey-function cache for the method’s class and clears it if matches the\ngiven declaration.\n\nThis is used in ABIs where out-of-line definitions marked inline are not\nconsidered to be key functions.\n\n:Parameter:\n    `method` (:cpp:class:`::clang::CXXMethodDecl`) - should be the declaration from the class definition\n\n:Return Type:\n    :cpp:any:`void`\n\n");
+    class_e536a5cae34e54058d1fe69715937f7a.def("get_field_offset", method_pointer_ca4c425b671f555fb4aefa1738b07881, ":Parameter:\n    `FD` (:cpp:class:`::clang::ValueDecl`) - Undocumented\n\n:Return Type:\n    :cpp:any:`unsigned` long int\n\n");
     class_e536a5cae34e54058d1fe69715937f7a.def("is_nearly_empty", method_pointer_011f3383a573510687349d8fd7a8fbd8, "");
     class_e536a5cae34e54058d1fe69715937f7a.def("count_non_class_ivars", method_pointer_28fe2fe6e07e54afa38b411137fef131, "");
     class_e536a5cae34e54058d1fe69715937f7a.def("get_canonical_type", method_pointer_01eef2ba10a151baa57cc07c9dfc42dc, pybind11::return_value_policy::reference_internal, "");
@@ -380,6 +392,7 @@ void wrapper_e536a5cae34e54058d1fe69715937f7a(pybind11::module& module)
     class_e536a5cae34e54058d1fe69715937f7a.def("get_as_dependent_sized_array_type", method_pointer_7ac75fc4fdf251a0a9624b6e8958f405, pybind11::return_value_policy::reference_internal, "");
     class_e536a5cae34e54058d1fe69715937f7a.def("get_base_element_type", method_pointer_78c633f7fe91561083e873d2a2c90f73, "Return the innermost element type of an array type.\n\nFor example, will return “int” for int[m][n]\n\n:Parameter:\n    `VAT` (:cpp:class:`::clang::ArrayType`) - Undocumented\n\n:Return Type:\n    :cpp:class:`::clang::QualType`\n\n");
     class_e536a5cae34e54058d1fe69715937f7a.def("get_base_element_type", method_pointer_7c6b08fcd81e54dcaf45010f65f2b79e, "Return the innermost element type of a type (which needn’t actually be\nan array type).\n\n:Parameter:\n    `QT` (:cpp:class:`::clang::QualType`) - Undocumented\n\n:Return Type:\n    :cpp:class:`::clang::QualType`\n\n");
+    class_e536a5cae34e54058d1fe69715937f7a.def("get_constant_array_element_count", method_pointer_bfb3f6f9b9ea55a389aed6873988deff, "Return number of constant array elements.\n\n:Parameter:\n    `CA` (:cpp:class:`::clang::ConstantArrayType`) - Undocumented\n\n:Return Type:\n    :cpp:any:`unsigned` long int\n\n");
     class_e536a5cae34e54058d1fe69715937f7a.def("get_adjusted_parameter_type", method_pointer_ccd61f86b0e651e28aa558389b188ca5, "Perform adjustment on the parameter type of a function.\n\nThis routine adjusts the given parameter type @p T to the actual\nparameter type used by semantic analysis (C99 6.7.5.3p[7,8], C++\n[dcl.fct]p3). The adjusted parameter type is returned.\n\n:Parameter:\n    `T` (:cpp:class:`::clang::QualType`) - Undocumented\n\n:Return Type:\n    :cpp:class:`::clang::QualType`\n\n");
     class_e536a5cae34e54058d1fe69715937f7a.def("get_signature_parameter_type", method_pointer_4cd79936245d5e2b91b3982d0d8bdfa0, "Retrieve the parameter type as adjusted for use in the signature of a\nfunction, decaying array and function types and removing top-level\ncv-qualifiers.\n\n:Parameter:\n    `T` (:cpp:class:`::clang::QualType`) - Undocumented\n\n:Return Type:\n    :cpp:class:`::clang::QualType`\n\n");
     class_e536a5cae34e54058d1fe69715937f7a.def("get_exception_object_type", method_pointer_d7f4c137df9d576eb3feb69ed043b44d, "");
@@ -390,6 +403,7 @@ void wrapper_e536a5cae34e54058d1fe69715937f7a(pybind11::module& module)
     class_e536a5cae34e54058d1fe69715937f7a.def("get_floating_type_of_size_within_domain", method_pointer_838667b67a8257e8899889a4692fb622, "Return a real floating point or a complex type (based on\n\n:Parameters:\n  - `typeSize` (:cpp:class:`::clang::QualType`) - a real floating point or complex type.\n  - `typeDomain` (:cpp:class:`::clang::QualType`) - a real floating point or complex type.\n\n:Return Type:\n    :cpp:class:`::clang::QualType`\n\n");
     class_e536a5cae34e54058d1fe69715937f7a.def("get_target_address_space", method_pointer_a772164d5abf51e9b18515d0d0392183, "");
     class_e536a5cae34e54058d1fe69715937f7a.def("get_target_address_space", method_pointer_82e7a8dae1215bdab28e1691b40c714f, "");
+    class_e536a5cae34e54058d1fe69715937f7a.def("get_target_null_pointer_value", method_pointer_d331242abe175343a8c5bdd5b7366971, ":Parameter:\n    `QT` (:cpp:class:`::clang::QualType`) - Undocumented\n\n:Return Type:\n    :cpp:any:`unsigned` long int\n\n");
     class_e536a5cae34e54058d1fe69715937f7a.def("address_space_map_mangling_for", method_pointer_f4090256fd385c85962b8af0558c08b8, "");
     class_e536a5cae34e54058d1fe69715937f7a.def("types_are_compatible", method_pointer_990cd3f174935e75a0b310041f0181bf, ":Parameters:\n  - `T1` (:cpp:class:`::clang::QualType`) - Undocumented\n  - `T2` (:cpp:class:`::clang::QualType`) - Undocumented\n  - `CompareUnqualified` (:cpp:any:`bool`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_e536a5cae34e54058d1fe69715937f7a.def("property_types_are_compatible", method_pointer_3d40f2b9818f55b8bd7b8da0df7281df, "");

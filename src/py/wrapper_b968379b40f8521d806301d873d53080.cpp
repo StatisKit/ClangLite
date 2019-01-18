@@ -9,6 +9,8 @@ bool  (*method_pointer_c98df1610ef05283a599f30ef2c955e8)(enum ::clang::Decl::Kin
 class ::clang::DeclContext * (*method_pointer_15cf6962e6c457daa799f6cfbadf8f56)(class ::clang::TranslationUnitDecl const *)= ::clang::TranslationUnitDecl::castToDeclContext;
 class ::clang::TranslationUnitDecl * (*method_pointer_0ad4e62f603d574bb7ff20e01d34ce03)(class ::clang::DeclContext const *)= ::clang::TranslationUnitDecl::castFromDeclContext;
 
+namespace autowig {
+}
 
 void wrapper_b968379b40f8521d806301d873d53080(pybind11::module& module)
 {

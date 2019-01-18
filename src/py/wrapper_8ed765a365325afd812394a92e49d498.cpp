@@ -11,6 +11,8 @@ class ::clang::UsingShadowDecl * (::clang::UsingShadowDecl::*method_pointer_2b62
 bool  (*method_pointer_de2c137bcfb552189e09c4a983129224)(class ::clang::Decl const *)= ::clang::UsingShadowDecl::classof;
 bool  (*method_pointer_ecff7f40a4e458e5a1ebb9e899cc97ec)(enum ::clang::Decl::Kind )= ::clang::UsingShadowDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_8ed765a365325afd812394a92e49d498(pybind11::module& module)
 {

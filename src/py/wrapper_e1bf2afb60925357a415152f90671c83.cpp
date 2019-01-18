@@ -6,6 +6,8 @@ bool  (::clang::SubstTemplateTypeParmType::*method_pointer_ceb6ae8c6fc4507ebdf12
 class ::clang::QualType  (::clang::SubstTemplateTypeParmType::*method_pointer_65a5d58ce4c35411bdcdd4125582ef59)()const= &::clang::SubstTemplateTypeParmType::desugar;
 bool  (*method_pointer_6199bb15e058531bb780b59f98613138)(class ::clang::Type const *)= ::clang::SubstTemplateTypeParmType::classof;
 
+namespace autowig {
+}
 
 void wrapper_e1bf2afb60925357a415152f90671c83(pybind11::module& module)
 {

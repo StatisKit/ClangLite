@@ -5,6 +5,8 @@ bool  (*method_pointer_7c23f58f6b59552a8401fbe90c98b36c)(enum ::clang::Decl::Kin
 class ::clang::DeclContext * (*method_pointer_176e548cecf25eac8b3a2fba8df60d4d)(class ::clang::ExternCContextDecl const *)= ::clang::ExternCContextDecl::castToDeclContext;
 class ::clang::ExternCContextDecl * (*method_pointer_721300149021541b9a6d3b05c2704914)(class ::clang::DeclContext const *)= ::clang::ExternCContextDecl::castFromDeclContext;
 
+namespace autowig {
+}
 
 void wrapper_2c0e35bd45075f9c8d8dfc0dec5fe74e(pybind11::module& module)
 {

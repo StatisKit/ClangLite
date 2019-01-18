@@ -22,6 +22,8 @@ class ::clang::QualType  (::clang::ObjCObjectPointerType::*method_pointer_eaf7b6
 class ::clang::QualType  (::clang::ObjCObjectPointerType::*method_pointer_85190767ffbd5a6986845e4654059a45)()const= &::clang::ObjCObjectPointerType::getSuperClassType;
 bool  (*method_pointer_b0103a852d4b51f2beb2b474c106f78a)(class ::clang::Type const *)= ::clang::ObjCObjectPointerType::classof;
 
+namespace autowig {
+}
 
 void wrapper_282d613855865c408950cce436839a1f(pybind11::module& module)
 {

@@ -20,6 +20,8 @@ bool  (*method_pointer_99417e0748bd590d8f82ab4cb81c4003)(enum ::clang::Decl::Kin
 class ::clang::DeclContext * (*method_pointer_6b2fc75bb7af5c53b00e47cc0612b57d)(class ::clang::NamespaceDecl const *)= ::clang::NamespaceDecl::castToDeclContext;
 class ::clang::NamespaceDecl * (*method_pointer_fa71452dc9e75467ae8e92c9a071d970)(class ::clang::DeclContext const *)= ::clang::NamespaceDecl::castFromDeclContext;
 
+namespace autowig {
+}
 
 void wrapper_9a20f9773af45c788737982cd20471fd(pybind11::module& module)
 {

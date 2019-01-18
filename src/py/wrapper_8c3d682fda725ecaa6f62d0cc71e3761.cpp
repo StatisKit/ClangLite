@@ -6,6 +6,8 @@ class ::clang::QualType  (::clang::SubstTemplateTypeParmPackType::*method_pointe
 class ::clang::TemplateArgument  (::clang::SubstTemplateTypeParmPackType::*method_pointer_2c5f487b719c5c99aea2ed69b3e96137)()const= &::clang::SubstTemplateTypeParmPackType::getArgumentPack;
 bool  (*method_pointer_82c9b3a123945f5eb1fac41ee0810bae)(class ::clang::Type const *)= ::clang::SubstTemplateTypeParmPackType::classof;
 
+namespace autowig {
+}
 
 void wrapper_8c3d682fda725ecaa6f62d0cc71e3761(pybind11::module& module)
 {

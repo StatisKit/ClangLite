@@ -10,26 +10,6 @@ namespace autowig
         public:
             
             virtual class ::clang::RedeclarableTemplateDecl * getCanonicalDecl() { PYBIND11_OVERLOAD(class ::clang::RedeclarableTemplateDecl *, ::clang::RedeclarableTemplateDecl, getCanonicalDecl, ); };
-            virtual class ::clang::SourceRange  getSourceRange() const { PYBIND11_OVERLOAD(class ::clang::SourceRange , ::clang::RedeclarableTemplateDecl, getSourceRange, ); };
-            virtual void  getNameForDiagnostic(class ::llvm::raw_ostream & param_0, struct ::clang::PrintingPolicy const & param_1, bool  param_2) const { PYBIND11_OVERLOAD(void , ::clang::RedeclarableTemplateDecl, getNameForDiagnostic, param_0, param_1, param_2); };
-            virtual void  printName(class ::llvm::raw_ostream & param_0) const { PYBIND11_OVERLOAD(void , ::clang::RedeclarableTemplateDecl, printName, param_0); };
-            virtual bool  hasBody() const { PYBIND11_OVERLOAD(bool , ::clang::RedeclarableTemplateDecl, hasBody, ); };
-            virtual class ::clang::Stmt * getBody() const { PYBIND11_OVERLOAD(class ::clang::Stmt *, ::clang::RedeclarableTemplateDecl, getBody, ); };
-            // virtual class ::clang::Decl * getCanonicalDecl() { PYBIND11_OVERLOAD(class ::clang::Decl *, ::clang::RedeclarableTemplateDecl, getCanonicalDecl, ); };
-            virtual bool  isOutOfLine() const { PYBIND11_OVERLOAD(bool , ::clang::RedeclarableTemplateDecl, isOutOfLine, ); };
-
-        // protected:
-            
-        //     virtual struct ::clang::RedeclarableTemplateDecl::CommonBase * newCommon(class ::clang::ASTContext & param_0) const { PYBIND11_OVERLOAD_PURE(struct ::clang::RedeclarableTemplateDecl::CommonBase *, ::clang::RedeclarableTemplateDecl, newCommon, param_0); };
-        //     virtual class ::clang::Decl * getMostRecentDeclImpl() { PYBIND11_OVERLOAD(class ::clang::Decl *, ::clang::RedeclarableTemplateDecl, getMostRecentDeclImpl, ); };
-        //     virtual class ::clang::Decl * getPreviousDeclImpl() { PYBIND11_OVERLOAD(class ::clang::Decl *, ::clang::RedeclarableTemplateDecl, getPreviousDeclImpl, ); };
-        //     virtual class ::clang::Decl * getNextRedeclarationImpl() { PYBIND11_OVERLOAD(class ::clang::Decl *, ::clang::RedeclarableTemplateDecl, getNextRedeclarationImpl, ); };
-
-        // private:
-            
-        //     virtual class ::clang::RedeclarableTemplateDecl * getMostRecentDeclImpl() { PYBIND11_OVERLOAD(class ::clang::RedeclarableTemplateDecl *, ::clang::RedeclarableTemplateDecl, getMostRecentDeclImpl, ); };
-        //     virtual class ::clang::RedeclarableTemplateDecl * getPreviousDeclImpl() { PYBIND11_OVERLOAD(class ::clang::RedeclarableTemplateDecl *, ::clang::RedeclarableTemplateDecl, getPreviousDeclImpl, ); };
-        //     virtual class ::clang::RedeclarableTemplateDecl * getNextRedeclarationImpl() { PYBIND11_OVERLOAD(class ::clang::RedeclarableTemplateDecl *, ::clang::RedeclarableTemplateDecl, getNextRedeclarationImpl, ); };
 
     };
 }
@@ -43,6 +23,8 @@ void  (::clang::RedeclarableTemplateDecl::*method_pointer_f052c6d51f1159f4b48a8a
 bool  (*method_pointer_5d80981664a85a318b967946bc66ac2f)(class ::clang::Decl const *)= ::clang::RedeclarableTemplateDecl::classof;
 bool  (*method_pointer_0f68e86a64c65ab1a06da308f99b0f4f)(enum ::clang::Decl::Kind )= ::clang::RedeclarableTemplateDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_2cee44285ee85f019f99b9a11d8414aa(pybind11::module& module)
 {

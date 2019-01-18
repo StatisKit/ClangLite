@@ -6,6 +6,8 @@ bool  (::clang::DependentSizedArrayType::*method_pointer_ab751aa73f695031971b64f
 class ::clang::QualType  (::clang::DependentSizedArrayType::*method_pointer_8ac7367c465551a38f93999defacfd6d)()const= &::clang::DependentSizedArrayType::desugar;
 bool  (*method_pointer_d3e800454abd5db3937147a6bfd4d680)(class ::clang::Type const *)= ::clang::DependentSizedArrayType::classof;
 
+namespace autowig {
+}
 
 void wrapper_47d43e4eda7252d2bec0204a93977671(pybind11::module& module)
 {

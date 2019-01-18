@@ -7,6 +7,8 @@ void  (::clang::ObjCCompatibleAliasDecl::*method_pointer_a4fc81752fc656dd92bc656
 bool  (*method_pointer_83d8544900995e1ca1ad69621bb5ecb0)(class ::clang::Decl const *)= ::clang::ObjCCompatibleAliasDecl::classof;
 bool  (*method_pointer_dc8b4e40d0fc5a32b1f61208b1f32da2)(enum ::clang::Decl::Kind )= ::clang::ObjCCompatibleAliasDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_39040e7b8b3d52478768b96bddf0e676(pybind11::module& module)
 {

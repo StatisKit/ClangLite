@@ -42,12 +42,15 @@ void  (::clang::ObjCMethodDecl::*method_pointer_c455bfe9fabb5a75b8e27d12a366bd26
 class ::clang::ObjCPropertyDecl const * (::clang::ObjCMethodDecl::*method_pointer_405aa6bcc91051698f19948d8279781b)(bool )const= &::clang::ObjCMethodDecl::findPropertyDecl;
 bool  (::clang::ObjCMethodDecl::*method_pointer_8420ffaf52d65404b0384fab9d242727)()const= &::clang::ObjCMethodDecl::isOptional;
 bool  (::clang::ObjCMethodDecl::*method_pointer_0c5680823e0e501ca84bd0c596c1ec93)()const= &::clang::ObjCMethodDecl::isThisDeclarationADesignatedInitializer;
+void  (::clang::ObjCMethodDecl::*method_pointer_c7b8373f45c45499bf3c88c886b07533)(::uint64_t )= &::clang::ObjCMethodDecl::setLazyBody;
 bool  (::clang::ObjCMethodDecl::*method_pointer_d8ed3e88970a598f94acd89f07ddcaad)()const= &::clang::ObjCMethodDecl::isThisDeclarationADefinition;
 bool  (*method_pointer_3a6f31083fe85ba0b400a6a5e23315e0)(class ::clang::Decl const *)= ::clang::ObjCMethodDecl::classof;
 bool  (*method_pointer_e8a5d894383f57c1a984fe68cdc5d167)(enum ::clang::Decl::Kind )= ::clang::ObjCMethodDecl::classofKind;
 class ::clang::DeclContext * (*method_pointer_b09b55ea13c55d2fa871839370bf2659)(class ::clang::ObjCMethodDecl const *)= ::clang::ObjCMethodDecl::castToDeclContext;
 class ::clang::ObjCMethodDecl * (*method_pointer_44a6cb4985cd523490ee4ab71229abf2)(class ::clang::DeclContext const *)= ::clang::ObjCMethodDecl::castFromDeclContext;
 
+namespace autowig {
+}
 
 void wrapper_7130d3fcb2735f6eb2eb3ef44aefdbc3(pybind11::module& module)
 {
@@ -95,6 +98,7 @@ void wrapper_7130d3fcb2735f6eb2eb3ef44aefdbc3(pybind11::module& module)
     class_7130d3fcb2735f6eb2eb3ef44aefdbc3.def("find_property_decl", method_pointer_405aa6bcc91051698f19948d8279781b, pybind11::return_value_policy::reference_internal, "Returns the property associated with this method’s selector.\n\nNote that even if this particular method is not marked as a property\naccessor, it is still possible for it to match a property declared in a\nsuperclass. Pass\n:raw-latex:`\\c false if you only want to check the current class.`\n\n:Parameter:\n    `CheckOverrides` (:cpp:any:`bool`) - Undocumented\n\n:Return Type:\n    :cpp:class:`::clang::ObjCPropertyDecl`\n\n");
     class_7130d3fcb2735f6eb2eb3ef44aefdbc3.def("is_optional", method_pointer_8420ffaf52d65404b0384fab9d242727, "");
     class_7130d3fcb2735f6eb2eb3ef44aefdbc3.def("is_this_declaration_a_designated_initializer", method_pointer_0c5680823e0e501ca84bd0c596c1ec93, ":Return Type:\n    :cpp:any:`bool`\n\n");
+    class_7130d3fcb2735f6eb2eb3ef44aefdbc3.def("set_lazy_body", method_pointer_c7b8373f45c45499bf3c88c886b07533, "");
     class_7130d3fcb2735f6eb2eb3ef44aefdbc3.def("is_this_declaration_a_definition", method_pointer_d8ed3e88970a598f94acd89f07ddcaad, "Returns whether this specific method is a definition.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_7130d3fcb2735f6eb2eb3ef44aefdbc3.def_static("classof", method_pointer_3a6f31083fe85ba0b400a6a5e23315e0, "");
     class_7130d3fcb2735f6eb2eb3ef44aefdbc3.def_static("classof_kind", method_pointer_e8a5d894383f57c1a984fe68cdc5d167, "");

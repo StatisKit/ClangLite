@@ -5,6 +5,8 @@ bool  (*method_pointer_98aab06bbdfc5233a07b7c4d386f4615)(class ::clang::Decl con
 bool  (::clang::MSPropertyDecl::*method_pointer_dbe6cfbd0e235d23b939ebc4281f4a7d)()const= &::clang::MSPropertyDecl::hasGetter;
 bool  (::clang::MSPropertyDecl::*method_pointer_78607d937d5b5a9e8a0ec9e4b30bca30)()const= &::clang::MSPropertyDecl::hasSetter;
 
+namespace autowig {
+}
 
 void wrapper_4fb4fd6ff1345ebb9986bbeba504830c(pybind11::module& module)
 {

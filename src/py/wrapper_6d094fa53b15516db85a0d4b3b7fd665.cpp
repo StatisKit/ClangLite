@@ -120,6 +120,8 @@ bool  (::clang::CXXRecordDecl::*method_pointer_0e059ab545d757438c27dfb74bb471d7)
 bool  (*method_pointer_415df47dc8dd5a0abe2ff9bf5c9032f6)(class ::clang::Decl const *)= ::clang::CXXRecordDecl::classof;
 bool  (*method_pointer_28ada20362ec5a3693bf05f9091caeee)(enum ::clang::Decl::Kind )= ::clang::CXXRecordDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_6d094fa53b15516db85a0d4b3b7fd665(pybind11::module& module)
 {

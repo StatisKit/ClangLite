@@ -6,6 +6,8 @@ bool  (*method_pointer_30e71c321ace5ff8975bf710816334b8)(enum ::clang::Decl::Kin
 bool  (::clang::TemplateDecl::*method_pointer_38cefaeeea8859c0ad8032b409a12ae6)()const= &::clang::TemplateDecl::isConcept;
 void  (::clang::TemplateDecl::*method_pointer_48fa123fd5f556f2b8d8305debb15cc6)()= &::clang::TemplateDecl::setConcept;
 
+namespace autowig {
+}
 
 void wrapper_6ad42784eaff547697796c119fd8c30f(pybind11::module& module)
 {

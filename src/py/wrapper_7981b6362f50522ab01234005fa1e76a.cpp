@@ -4,6 +4,8 @@ class ::clang::QualType  (::clang::ArrayType::*method_pointer_b97e156b94cf50cda5
 unsigned int  (::clang::ArrayType::*method_pointer_e6278be9114a53939cf3c5aebfcfedfb)()const= &::clang::ArrayType::getIndexTypeCVRQualifiers;
 bool  (*method_pointer_0af6cded331f51059bbaf1cbb4f8e66a)(class ::clang::Type const *)= ::clang::ArrayType::classof;
 
+namespace autowig {
+}
 
 void wrapper_7981b6362f50522ab01234005fa1e76a(pybind11::module& module)
 {

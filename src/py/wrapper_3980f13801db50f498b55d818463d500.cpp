@@ -20,6 +20,8 @@ bool  (::clang::ObjCObjectType::*method_pointer_f7deeb3ca61354c29a87ffd037b7487c
 class ::clang::QualType  (::clang::ObjCObjectType::*method_pointer_a8aec2ecab005157a4efb112ad7ccb05)()const= &::clang::ObjCObjectType::desugar;
 bool  (*method_pointer_e33cfc74b7cf5b00b73240047090d9f2)(class ::clang::Type const *)= ::clang::ObjCObjectType::classof;
 
+namespace autowig {
+}
 
 void wrapper_3980f13801db50f498b55d818463d500(pybind11::module& module)
 {

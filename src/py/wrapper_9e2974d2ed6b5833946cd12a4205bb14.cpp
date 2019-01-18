@@ -6,6 +6,8 @@ bool  (::clang::OMPThreadPrivateDecl::*method_pointer_2319219169d85a93a23d9b18c4
 bool  (*method_pointer_5209c5362ad558f683e2da4c1d95f174)(class ::clang::Decl const *)= ::clang::OMPThreadPrivateDecl::classof;
 bool  (*method_pointer_c62dc7ff539456679abd95c24df2ddd8)(enum ::clang::Decl::Kind )= ::clang::OMPThreadPrivateDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_9e2974d2ed6b5833946cd12a4205bb14(pybind11::module& module)
 {

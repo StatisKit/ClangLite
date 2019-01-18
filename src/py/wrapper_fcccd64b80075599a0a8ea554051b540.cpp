@@ -13,6 +13,8 @@ class ::clang::UsingDirectiveDecl * (*method_pointer_ac59574b74b75234a9f3c2c108e
 bool  (*method_pointer_067da93903645928a49f46a27b914b3d)(class ::clang::Decl const *)= ::clang::UsingDirectiveDecl::classof;
 bool  (*method_pointer_b0c8f3edfc2e52ed9a9b202314979a2e)(enum ::clang::Decl::Kind )= ::clang::UsingDirectiveDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_fcccd64b80075599a0a8ea554051b540(pybind11::module& module)
 {

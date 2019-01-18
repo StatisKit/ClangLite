@@ -5,6 +5,8 @@ class ::clang::QualType  (::clang::DecltypeType::*method_pointer_c5ef3c79017a5e4
 bool  (::clang::DecltypeType::*method_pointer_332f7fd0693658a0b28d4d16ae3cfaca)()const= &::clang::DecltypeType::isSugared;
 bool  (*method_pointer_57f6791f71475947af8ba2d46d7f31a4)(class ::clang::Type const *)= ::clang::DecltypeType::classof;
 
+namespace autowig {
+}
 
 void wrapper_973074796ca857b3a9a2c7a922cd35ae(pybind11::module& module)
 {

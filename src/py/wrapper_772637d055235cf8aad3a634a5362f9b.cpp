@@ -23,6 +23,8 @@ class ::clang::ObjCIvarDecl * (::clang::ObjCPropertyDecl::*method_pointer_76b5e9
 bool  (*method_pointer_87c687736bee551b8ddb11b6f326bf8b)(class ::clang::Decl const *)= ::clang::ObjCPropertyDecl::classof;
 bool  (*method_pointer_5d0ad4eda83f5ee9b25693c6cf4933c3)(enum ::clang::Decl::Kind )= ::clang::ObjCPropertyDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_772637d055235cf8aad3a634a5362f9b(pybind11::module& module)
 {

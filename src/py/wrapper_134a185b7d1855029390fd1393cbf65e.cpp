@@ -5,6 +5,8 @@ bool  (::clang::PackExpansionType::*method_pointer_28f749ff5d9f530cb0c6d2693caed
 class ::clang::QualType  (::clang::PackExpansionType::*method_pointer_5629ef6e9abe572ba60f32a22b9f4ba0)()const= &::clang::PackExpansionType::desugar;
 bool  (*method_pointer_713aa00810ab5a67843d281bbfaa4da5)(class ::clang::Type const *)= ::clang::PackExpansionType::classof;
 
+namespace autowig {
+}
 
 void wrapper_134a185b7d1855029390fd1393cbf65e(pybind11::module& module)
 {

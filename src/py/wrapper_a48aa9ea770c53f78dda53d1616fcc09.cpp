@@ -16,6 +16,8 @@ class ::clang::VarTemplatePartialSpecializationDecl * (::clang::VarTemplateDecl:
 bool  (*method_pointer_5b2375b928d75b7b9776173f625040b6)(class ::clang::Decl const *)= ::clang::VarTemplateDecl::classof;
 bool  (*method_pointer_3381c8ce5aa6575b996a7f957098fde9)(enum ::clang::Decl::Kind )= ::clang::VarTemplateDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_a48aa9ea770c53f78dda53d1616fcc09(pybind11::module& module)
 {

@@ -56,6 +56,8 @@ bool  (*method_pointer_087c6fc3b75e5f48901abdda8b340374)(class ::clang::DeclCont
 void  (::clang::DeclContext::*method_pointer_3bac27b9e0b150bb82b23903f60371aa)()const= &::clang::DeclContext::dumpDeclContext;
 void  (::clang::DeclContext::*method_pointer_e2e0e643137b5163a6888ed2dd63ffdb)()const= &::clang::DeclContext::dumpLookups;
 
+namespace autowig {
+}
 
 void wrapper_b97237ef74ad5566bc5ae85fdde5a9b6(pybind11::module& module)
 {

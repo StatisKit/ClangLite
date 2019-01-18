@@ -6,6 +6,8 @@ class ::llvm::StringRef  (::clang::PragmaDetectMismatchDecl::*method_pointer_e32
 bool  (*method_pointer_0deb0b6177aa53a9b6a8b53a5a905822)(class ::clang::Decl const *)= ::clang::PragmaDetectMismatchDecl::classof;
 bool  (*method_pointer_2b97473c6638509c8faf841cbff23e25)(enum ::clang::Decl::Kind )= ::clang::PragmaDetectMismatchDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_6cf5fc1ba526524098edbb6432f5752d(pybind11::module& module)
 {

@@ -12,6 +12,8 @@ bool  (::clang::BuiltinType::*method_pointer_ffea49b93ca25bdbb9f51a39efb57b9e)()
 bool  (::clang::BuiltinType::*method_pointer_bc0e1f2e01a2531f9fa833758bce8e94)()const= &::clang::BuiltinType::isNonOverloadPlaceholderType;
 bool  (*method_pointer_d23fb10d8a45585998ed63b8061521b7)(class ::clang::Type const *)= ::clang::BuiltinType::classof;
 
+namespace autowig {
+}
 
 void wrapper_306b968f39b7549b8ac1af6424e98129(pybind11::module& module)
 {

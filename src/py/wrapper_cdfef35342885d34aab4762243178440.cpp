@@ -4,6 +4,8 @@ class ::clang::ImplicitParamDecl * (*method_pointer_f3b6f7c41a01501ea64acd30079c
 bool  (*method_pointer_669a0ce239dc5388b30594acfd7facad)(class ::clang::Decl const *)= ::clang::ImplicitParamDecl::classof;
 bool  (*method_pointer_683aa3e3a13b5281bef113dddd666a5d)(enum ::clang::Decl::Kind )= ::clang::ImplicitParamDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_cdfef35342885d34aab4762243178440(pybind11::module& module)
 {

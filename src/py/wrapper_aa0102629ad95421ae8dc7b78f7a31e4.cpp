@@ -8,6 +8,8 @@ bool  (::clang::TemplateTypeParmType::*method_pointer_dd2e3cd08d2f5b469895f9b2d8
 class ::clang::QualType  (::clang::TemplateTypeParmType::*method_pointer_97a651b6302e52dcb70019799a1bc803)()const= &::clang::TemplateTypeParmType::desugar;
 bool  (*method_pointer_7941f0c121e75eacbbc1b0266fe13c77)(class ::clang::Type const *)= ::clang::TemplateTypeParmType::classof;
 
+namespace autowig {
+}
 
 void wrapper_aa0102629ad95421ae8dc7b78f7a31e4(pybind11::module& module)
 {

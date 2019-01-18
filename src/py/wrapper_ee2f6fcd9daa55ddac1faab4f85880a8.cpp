@@ -6,6 +6,8 @@ class ::clang::ClassScopeFunctionSpecializationDecl * (*method_pointer_40a50a683
 bool  (*method_pointer_05b77dabb1cd5d6590df8ed269e2591f)(class ::clang::Decl const *)= ::clang::ClassScopeFunctionSpecializationDecl::classof;
 bool  (*method_pointer_12845d4376a352f5bb1259b0f8ec055f)(enum ::clang::Decl::Kind )= ::clang::ClassScopeFunctionSpecializationDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_ee2f6fcd9daa55ddac1faab4f85880a8(pybind11::module& module)
 {

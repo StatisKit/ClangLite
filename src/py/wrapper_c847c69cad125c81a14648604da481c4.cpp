@@ -5,6 +5,8 @@ class ::clang::TemplateArgument const & (::clang::TemplateArgumentList::*method_
 unsigned int  (::clang::TemplateArgumentList::*method_pointer_44b86487c7b254408d02b63768cb5d1d)()const= &::clang::TemplateArgumentList::size;
 class ::clang::TemplateArgument const * (::clang::TemplateArgumentList::*method_pointer_19dd48bb15e85005a4b9de189e5f4dd5)()const= &::clang::TemplateArgumentList::data;
 
+namespace autowig {
+}
 
 void wrapper_c847c69cad125c81a14648604da481c4(pybind11::module& module)
 {

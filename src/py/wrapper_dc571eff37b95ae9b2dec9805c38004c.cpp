@@ -4,6 +4,8 @@ class ::clang::DecompositionDecl * (*method_pointer_c58a9e1353b0544b8424320841d6
 bool  (*method_pointer_edd4a175743959229790327667d8cd37)(class ::clang::Decl const *)= ::clang::DecompositionDecl::classof;
 bool  (*method_pointer_505ddc8044a35ce0a7087e7069165665)(enum ::clang::Decl::Kind )= ::clang::DecompositionDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_dc571eff37b95ae9b2dec9805c38004c(pybind11::module& module)
 {

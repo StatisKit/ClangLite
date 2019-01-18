@@ -55,6 +55,8 @@ bool  (::clang::SourceManager::*method_pointer_8e376db816e75a609d9b5f20908df717)
 bool  (::clang::SourceManager::*method_pointer_4dbf76cf40c555b48e785abb98e6d4be)(class ::clang::FileID )const= &::clang::SourceManager::isLocalFileID;
 class ::clang::SourceLocation  (::clang::SourceManager::*method_pointer_c1b60f27bdb6570ab52fedb62de8d824)(class ::clang::SourceLocation )const= &::clang::SourceManager::getImmediateMacroCallerLoc;
 
+namespace autowig {
+}
 
 void wrapper_9e52028d1c305f31bd87257e6d3ccc53(pybind11::module& module)
 {

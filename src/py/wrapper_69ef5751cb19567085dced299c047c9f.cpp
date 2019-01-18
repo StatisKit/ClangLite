@@ -22,6 +22,8 @@ class ::clang::CXXConstructorDecl const * (::clang::CXXConstructorDecl::*method_
 bool  (*method_pointer_20196d97cf25588c96e8ebbe1eaca97b)(class ::clang::Decl const *)= ::clang::CXXConstructorDecl::classof;
 bool  (*method_pointer_25cdcd0db32050a9abe13e3b4062ca7b)(enum ::clang::Decl::Kind )= ::clang::CXXConstructorDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_69ef5751cb19567085dced299c047c9f(pybind11::module& module)
 {

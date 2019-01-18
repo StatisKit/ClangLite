@@ -6,6 +6,8 @@ class ::clang::EnumConstantDecl const * (::clang::EnumConstantDecl::*method_poin
 bool  (*method_pointer_c6facb55ea055be89a37290c16131f64)(class ::clang::Decl const *)= ::clang::EnumConstantDecl::classof;
 bool  (*method_pointer_61c982bc91ed548cba4bd09086cec134)(enum ::clang::Decl::Kind )= ::clang::EnumConstantDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_80ca55a3e7785ce48e982c583ad333f5(pybind11::module& module)
 {

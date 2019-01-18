@@ -6,6 +6,8 @@ bool  (::clang::RecordType::*method_pointer_a8f2356e34e651bdb3c5627c71db89cb)()c
 class ::clang::QualType  (::clang::RecordType::*method_pointer_f1d2a98a449159dcaf9735dac348000a)()const= &::clang::RecordType::desugar;
 bool  (*method_pointer_1510631969c3579ba251a32c10d01ef3)(class ::clang::Type const *)= ::clang::RecordType::classof;
 
+namespace autowig {
+}
 
 void wrapper_ec9ca573ec45549fa9da5c3f72552e8f(pybind11::module& module)
 {

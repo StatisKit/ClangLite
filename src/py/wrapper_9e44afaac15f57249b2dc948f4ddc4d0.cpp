@@ -10,6 +10,8 @@ class ::clang::UnresolvedUsingTypenameDecl const * (::clang::UnresolvedUsingType
 bool  (*method_pointer_af92266bff3352da98249ac9cc72b42e)(class ::clang::Decl const *)= ::clang::UnresolvedUsingTypenameDecl::classof;
 bool  (*method_pointer_1b5fbae185a65c99aa6bfd0a22ec5a2e)(enum ::clang::Decl::Kind )= ::clang::UnresolvedUsingTypenameDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_9e44afaac15f57249b2dc948f4ddc4d0(pybind11::module& module)
 {

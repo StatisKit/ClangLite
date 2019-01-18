@@ -9,6 +9,8 @@ bool  (::clang::FunctionType::*method_pointer_45026dbd52fd5b19ace7dbe6d779f203)(
 bool  (::clang::FunctionType::*method_pointer_193af7ab1ee953b09db6e9251c7e701d)()const= &::clang::FunctionType::isRestrict;
 bool  (*method_pointer_4233a67989755f32aa6b5c0a5db22548)(class ::clang::Type const *)= ::clang::FunctionType::classof;
 
+namespace autowig {
+}
 
 void wrapper_808dfaeb3c825011b508a4347f0e64a5(pybind11::module& module)
 {

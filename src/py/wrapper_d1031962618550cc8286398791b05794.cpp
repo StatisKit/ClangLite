@@ -4,6 +4,8 @@ class ::clang::QualType  (::clang::DecayedType::*method_pointer_cec1c366d3a459be
 class ::clang::QualType  (::clang::DecayedType::*method_pointer_298e7b2b057e5755bb7df878dccb05c3)()const= &::clang::DecayedType::getPointeeType;
 bool  (*method_pointer_e841445e72b15e719a53fd5a9c37aaf3)(class ::clang::Type const *)= ::clang::DecayedType::classof;
 
+namespace autowig {
+}
 
 void wrapper_d1031962618550cc8286398791b05794(pybind11::module& module)
 {

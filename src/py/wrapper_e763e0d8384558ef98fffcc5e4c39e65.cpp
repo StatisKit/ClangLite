@@ -4,6 +4,8 @@ class ::clang::ImportDecl * (*method_pointer_3c7757bf88d5591db6887fcc818cc3b1)(c
 bool  (*method_pointer_9dc80c40e3a95b5d8ba62f6ede304db5)(class ::clang::Decl const *)= ::clang::ImportDecl::classof;
 bool  (*method_pointer_cae6e150d22355168f0e9a9ce5befff8)(enum ::clang::Decl::Kind )= ::clang::ImportDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_e763e0d8384558ef98fffcc5e4c39e65(pybind11::module& module)
 {

@@ -5,6 +5,8 @@ bool  (::clang::EnumType::*method_pointer_18da273eda295f78a61b3e77c15b228e)()con
 class ::clang::QualType  (::clang::EnumType::*method_pointer_af776cb35ddd5f469d1adc1e6fad1851)()const= &::clang::EnumType::desugar;
 bool  (*method_pointer_2e170401af7f57e69168a4c65968da36)(class ::clang::Type const *)= ::clang::EnumType::classof;
 
+namespace autowig {
+}
 
 void wrapper_434f2e3471bb55ffb2ed175a1ab61e17(pybind11::module& module)
 {

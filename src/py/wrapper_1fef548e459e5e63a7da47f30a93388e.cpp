@@ -11,6 +11,8 @@ void  (::clang::LabelDecl::*method_pointer_93323077c03d5db08fc761650151f23a)()= 
 bool  (*method_pointer_e2fb4a8d1a165c1996da4bce6a930325)(class ::clang::Decl const *)= ::clang::LabelDecl::classof;
 bool  (*method_pointer_bb2d7350e4065ba9b961db310d043fd9)(enum ::clang::Decl::Kind )= ::clang::LabelDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_1fef548e459e5e63a7da47f30a93388e(pybind11::module& module)
 {

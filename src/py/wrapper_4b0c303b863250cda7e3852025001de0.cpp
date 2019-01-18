@@ -6,6 +6,8 @@ class ::clang::QualType  (::clang::PipeType::*method_pointer_7689b76cdf4e5a77b71
 bool  (*method_pointer_81a6d05534945367b64c62d70e0e00cb)(class ::clang::Type const *)= ::clang::PipeType::classof;
 bool  (::clang::PipeType::*method_pointer_61145c82bd4f5972bc8ab737f729e741)()const= &::clang::PipeType::isReadOnly;
 
+namespace autowig {
+}
 
 void wrapper_4b0c303b863250cda7e3852025001de0(pybind11::module& module)
 {

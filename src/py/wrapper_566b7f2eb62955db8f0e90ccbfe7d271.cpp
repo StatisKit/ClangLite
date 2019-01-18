@@ -3,6 +3,8 @@
 class ::clang::QualType  (::clang::LocInfoType::*method_pointer_17ad20496426564296186df2d35a6ec8)()const= &::clang::LocInfoType::getType;
 bool  (*method_pointer_da558ebce5c65d4db67332b50c26fe29)(class ::clang::Type const *)= ::clang::LocInfoType::classof;
 
+namespace autowig {
+}
 
 void wrapper_566b7f2eb62955db8f0e90ccbfe7d271(pybind11::module& module)
 {

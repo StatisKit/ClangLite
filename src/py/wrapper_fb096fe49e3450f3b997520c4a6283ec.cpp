@@ -5,6 +5,8 @@ class ::clang::QualType  (::clang::ObjCTypeParamType::*method_pointer_6096034074
 bool  (*method_pointer_2479339096ef5751bf5c8c9dbeedc791)(class ::clang::Type const *)= ::clang::ObjCTypeParamType::classof;
 class ::clang::ObjCTypeParamDecl * (::clang::ObjCTypeParamType::*method_pointer_e6b8591b3caa5f608c2368b460108cd7)()const= &::clang::ObjCTypeParamType::getDecl;
 
+namespace autowig {
+}
 
 void wrapper_fb096fe49e3450f3b997520c4a6283ec(pybind11::module& module)
 {

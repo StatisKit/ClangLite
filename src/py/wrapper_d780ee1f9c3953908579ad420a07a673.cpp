@@ -3,6 +3,8 @@
 bool  (*method_pointer_506c844dcb83509993e2b5e7946fc3a6)(class ::clang::Decl const *)= ::clang::BuiltinTemplateDecl::classof;
 bool  (*method_pointer_e05f0673de745da787d6cf12afe97356)(enum ::clang::Decl::Kind )= ::clang::BuiltinTemplateDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_d780ee1f9c3953908579ad420a07a673(pybind11::module& module)
 {

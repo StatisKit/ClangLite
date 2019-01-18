@@ -4,6 +4,8 @@ bool  (::clang::IncompleteArrayType::*method_pointer_32b3f2d111aa59c5b48174d2330
 class ::clang::QualType  (::clang::IncompleteArrayType::*method_pointer_fba3184af93a55d9a0d7167dbdd5a6f9)()const= &::clang::IncompleteArrayType::desugar;
 bool  (*method_pointer_a617b10eec4d5582a668071a32513c2e)(class ::clang::Type const *)= ::clang::IncompleteArrayType::classof;
 
+namespace autowig {
+}
 
 void wrapper_e6f4659cd31f536d8a173fe6b97a9e5a(pybind11::module& module)
 {

@@ -7,6 +7,8 @@ class ::clang::UsingPackDecl const * (::clang::UsingPackDecl::*method_pointer_16
 bool  (*method_pointer_d373c20bb78957daa2654bc2928b87b3)(class ::clang::Decl const *)= ::clang::UsingPackDecl::classof;
 bool  (*method_pointer_2fd2eebf49d65449b10b37013e233a41)(enum ::clang::Decl::Kind )= ::clang::UsingPackDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_618b3948d49e54c0ab874eb91d982c59(pybind11::module& module)
 {

@@ -2,14 +2,13 @@
 
 class ::clang::FunctionDecl * (*method_pointer_0d7be7e1692f59e0b685dba612bcbca1)(class ::clang::ASTContext &, unsigned int )= ::clang::FunctionDecl::CreateDeserialized;
 void  (::clang::FunctionDecl::*method_pointer_bb34093cfd975c6fb0cf3a9a0cb980db)(class ::clang::SourceLocation )= &::clang::FunctionDecl::setRangeEnd;
-bool  (::clang::FunctionDecl::*method_pointer_2a7c5e641b9c5092bcd5b35c9052076e)(class ::clang::FunctionDecl const * &)const= &::clang::FunctionDecl::hasBody;
 bool  (::clang::FunctionDecl::*method_pointer_3a2a42c9f55b5f0da2cdf21c15d4832e)()const= &::clang::FunctionDecl::hasTrivialBody;
-bool  (::clang::FunctionDecl::*method_pointer_f66fb7d7eae3551c9ea2415cd35018c5)(class ::clang::FunctionDecl const * &)const= &::clang::FunctionDecl::isDefined;
 bool  (::clang::FunctionDecl::*method_pointer_01f84be8d34e52de8a6bb4d8a5fb6a47)()const= &::clang::FunctionDecl::isDefined;
 class ::clang::FunctionDecl * (::clang::FunctionDecl::*method_pointer_716f3ae386f75a8d9db3a6928886c41c)()= &::clang::FunctionDecl::getDefinition;
 class ::clang::FunctionDecl const * (::clang::FunctionDecl::*method_pointer_d30dfca1fd3f5fb98965466e1c69dc8a)()const= &::clang::FunctionDecl::getDefinition;
 bool  (::clang::FunctionDecl::*method_pointer_d7d6bb381d535e66abf93ca9d953816f)()const= &::clang::FunctionDecl::isThisDeclarationADefinition;
 bool  (::clang::FunctionDecl::*method_pointer_a2a8a75f3cff541fb0b62f3320ea13f3)()const= &::clang::FunctionDecl::doesThisDeclarationHaveABody;
+void  (::clang::FunctionDecl::*method_pointer_aaadac25ed1c5b3796f61958d5ede888)(::uint64_t )= &::clang::FunctionDecl::setLazyBody;
 bool  (::clang::FunctionDecl::*method_pointer_913e44da536452b0826fd985003eb847)()const= &::clang::FunctionDecl::isVariadic;
 bool  (::clang::FunctionDecl::*method_pointer_d7df48f1616c5618b9cb5d38736d1d3f)()const= &::clang::FunctionDecl::isVirtualAsWritten;
 void  (::clang::FunctionDecl::*method_pointer_1392cc9de151585ebdc9c248eedb1093)(bool )= &::clang::FunctionDecl::setVirtualAsWritten;
@@ -87,6 +86,8 @@ bool  (*method_pointer_b6c736d181745390a0d3ad3e96b1393b)(enum ::clang::Decl::Kin
 class ::clang::DeclContext * (*method_pointer_e18d2a295c1151cab6faeb357a2a6337)(class ::clang::FunctionDecl const *)= ::clang::FunctionDecl::castToDeclContext;
 class ::clang::FunctionDecl * (*method_pointer_9c81b74a4c0a527f9f2d5275486ee482)(class ::clang::DeclContext const *)= ::clang::FunctionDecl::castFromDeclContext;
 
+namespace autowig {
+}
 
 void wrapper_e90b60b39fbc5f209cecad897014de3b(pybind11::module& module)
 {
@@ -101,14 +102,13 @@ void wrapper_e90b60b39fbc5f209cecad897014de3b(pybind11::module& module)
     pybind11::class_<class ::clang::FunctionDecl, autowig::HolderType< class ::clang::FunctionDecl >::Type, class ::clang::DeclaratorDecl, class ::clang::DeclContext > class_e90b60b39fbc5f209cecad897014de3b(module, "FunctionDecl", "");
     class_e90b60b39fbc5f209cecad897014de3b.def_static("create_deserialized", method_pointer_0d7be7e1692f59e0b685dba612bcbca1, pybind11::return_value_policy::reference_internal, "");
     class_e90b60b39fbc5f209cecad897014de3b.def("set_range_end", method_pointer_bb34093cfd975c6fb0cf3a9a0cb980db, "");
-    // class_e90b60b39fbc5f209cecad897014de3b.def("has_body", method_pointer_2a7c5e641b9c5092bcd5b35c9052076e, "Returns true if the function has a body (definition). The function body\nmight be in any of the (re-)declarations of this function. The variant\nthat accepts a FunctionDecl pointer will set that function declaration\nto the actual declaration containing the body (if there is one).\n\n:Parameter:\n    `Definition` (:cpp:class:`::clang::FunctionDecl`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_e90b60b39fbc5f209cecad897014de3b.def("has_trivial_body", method_pointer_3a2a42c9f55b5f0da2cdf21c15d4832e, ":Return Type:\n    :cpp:any:`bool`\n\n");
-    // class_e90b60b39fbc5f209cecad897014de3b.def("is_defined", method_pointer_f66fb7d7eae3551c9ea2415cd35018c5, ":Parameter:\n    `Definition` (:cpp:class:`::clang::FunctionDecl`) - Undocumented\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_e90b60b39fbc5f209cecad897014de3b.def("is_defined", method_pointer_01f84be8d34e52de8a6bb4d8a5fb6a47, "");
     class_e90b60b39fbc5f209cecad897014de3b.def("get_definition", method_pointer_716f3ae386f75a8d9db3a6928886c41c, pybind11::return_value_policy::reference_internal, "Get the definition for this declaration.\n\n:Return Type:\n    :cpp:class:`::clang::FunctionDecl`\n\n");
     class_e90b60b39fbc5f209cecad897014de3b.def("get_definition", method_pointer_d30dfca1fd3f5fb98965466e1c69dc8a, pybind11::return_value_policy::reference_internal, "");
     class_e90b60b39fbc5f209cecad897014de3b.def("is_this_declaration_a_definition", method_pointer_d7d6bb381d535e66abf93ca9d953816f, ":Return Type:\n    :cpp:any:`bool`\n\n");
     class_e90b60b39fbc5f209cecad897014de3b.def("does_this_declaration_have_a_body", method_pointer_a2a8a75f3cff541fb0b62f3320ea13f3, ":Return Type:\n    :cpp:any:`bool`\n\n");
+    class_e90b60b39fbc5f209cecad897014de3b.def("set_lazy_body", method_pointer_aaadac25ed1c5b3796f61958d5ede888, "");
     class_e90b60b39fbc5f209cecad897014de3b.def("is_variadic", method_pointer_913e44da536452b0826fd985003eb847, ":Return Type:\n    :cpp:any:`bool`\n\n");
     class_e90b60b39fbc5f209cecad897014de3b.def("is_virtual_as_written", method_pointer_d7df48f1616c5618b9cb5d38736d1d3f, ":Return Type:\n    :cpp:any:`bool`\n\n");
     class_e90b60b39fbc5f209cecad897014de3b.def("set_virtual_as_written", method_pointer_1392cc9de151585ebdc9c248eedb1093, "");

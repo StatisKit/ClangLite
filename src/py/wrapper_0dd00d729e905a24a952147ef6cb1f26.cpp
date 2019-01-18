@@ -6,6 +6,8 @@ class ::clang::SourceLocation  (::clang::StaticAssertDecl::*method_pointer_c4000
 bool  (*method_pointer_ce2a42003f2e58e093275d99c22a2083)(class ::clang::Decl const *)= ::clang::StaticAssertDecl::classof;
 bool  (*method_pointer_066b8f603f1c5898a6bfce4cd6dfd57e)(enum ::clang::Decl::Kind )= ::clang::StaticAssertDecl::classofKind;
 
+namespace autowig {
+}
 
 void wrapper_0dd00d729e905a24a952147ef6cb1f26(pybind11::module& module)
 {
