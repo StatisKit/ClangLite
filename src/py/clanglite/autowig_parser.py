@@ -477,6 +477,9 @@ def read_field(asg, decl, inline, permissive):
         else:
             raise
     else:
+        if spelling == '::clang::Sema::kMac68kAlignmentSentinel':
+            import pdb
+            pdb.set_trace()
         if not spelling in asg._nodes:
             try:
                 target, qualifiers = read_qualified_type(asg, decl.get_type(), inline=inline)
