@@ -320,8 +320,8 @@ bool  (*method_pointer_7b151e77b874548ca22ddaa1035592bd)(::size_t , ::size_t , b
 void  (::clang::Sema::*method_pointer_1d7cb1c1ea555470afa2ab76c07cff9d)()= &::clang::Sema::DiagnoseMisalignedMembers;
 
 namespace autowig {
-    void method_decorator_3236edd388a25058be6c05f55b222fbb(class ::clang::Sema const & instance, const class ::clang::SourceManager & param_out) { instance.getSourceManager() = param_out; }
-    void method_decorator_6322bef8fbf45a2b9ff7efabefbaee64(class ::clang::Sema const & instance, const class ::clang::ASTContext & param_out) { instance.getASTContext() = param_out; }
+    // void method_decorator_3236edd388a25058be6c05f55b222fbb(class ::clang::Sema const & instance, const class ::clang::SourceManager & param_out) { instance.getSourceManager() = param_out; }
+    // void method_decorator_6322bef8fbf45a2b9ff7efabefbaee64(class ::clang::Sema const & instance, const class ::clang::ASTContext & param_out) { instance.getASTContext() = param_out; }
 }
 
 void wrapper_334dd7441b7b543eae5426f290fe3a91(pybind11::module& module)
@@ -333,9 +333,9 @@ void wrapper_334dd7441b7b543eae5426f290fe3a91(pybind11::module& module)
     class_334dd7441b7b543eae5426f290fe3a91.def("add_implicit_typedef", method_pointer_943ef8657bbc571d8c7084825a332db4, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("initialize", method_pointer_7f1b7667472f57e885106db08339caf5, "Perform initialization that occurs after the parser has been initialized\nbut before it parses anything.\n\n:Return Type:\n    :cpp:any:`void`\n\n");
     class_334dd7441b7b543eae5426f290fe3a91.def("get_source_manager", method_pointer_3236edd388a25058be6c05f55b222fbb, pybind11::return_value_policy::reference_internal, "");
-    class_334dd7441b7b543eae5426f290fe3a91.def("get_source_manager", autowig::method_decorator_3236edd388a25058be6c05f55b222fbb);
+    // class_334dd7441b7b543eae5426f290fe3a91.def("get_source_manager", autowig::method_decorator_3236edd388a25058be6c05f55b222fbb);
     class_334dd7441b7b543eae5426f290fe3a91.def("get_ast_context", method_pointer_6322bef8fbf45a2b9ff7efabefbaee64, pybind11::return_value_policy::reference_internal, "");
-    class_334dd7441b7b543eae5426f290fe3a91.def("get_ast_context", autowig::method_decorator_6322bef8fbf45a2b9ff7efabefbaee64);
+    // class_334dd7441b7b543eae5426f290fe3a91.def("get_ast_context", autowig::method_decorator_6322bef8fbf45a2b9ff7efabefbaee64);
     class_334dd7441b7b543eae5426f290fe3a91.def("print_stats", method_pointer_d66ccf302783573e9ec92bda3d5dbf04, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("find_macro_spelling", method_pointer_5504fe0e70605e56b5eb41879dbcf28d, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("get_loc_for_end_of_token", method_pointer_d03dac7c85e4510cbe943273020f3349, "Calls :raw-latex:`\\c Lexer::getLocForEndOfToken()`\n\n:Parameters:\n  - `Loc` (:cpp:class:`::clang::SourceLocation`) - Undocumented\n  - `Offset` (:cpp:any:`unsigned` int) - Undocumented\n\n:Return Type:\n    :cpp:class:`::clang::SourceLocation`\n\n");

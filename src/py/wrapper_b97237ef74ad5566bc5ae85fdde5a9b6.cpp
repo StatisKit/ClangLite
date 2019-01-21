@@ -57,7 +57,7 @@ void  (::clang::DeclContext::*method_pointer_3bac27b9e0b150bb82b23903f60371aa)()
 void  (::clang::DeclContext::*method_pointer_e2e0e643137b5163a6888ed2dd63ffdb)()const= &::clang::DeclContext::dumpLookups;
 
 namespace autowig {
-    void method_decorator_51c0154e0e1a52b8aaf13c194a57ded6(class ::clang::DeclContext const & instance, const class ::clang::ASTContext & param_out) { instance.getParentASTContext() = param_out; }
+    // void method_decorator_51c0154e0e1a52b8aaf13c194a57ded6(class ::clang::DeclContext const & instance, const class ::clang::ASTContext & param_out) { instance.getParentASTContext() = param_out; }
 }
 
 void wrapper_b97237ef74ad5566bc5ae85fdde5a9b6(pybind11::module& module)
@@ -85,7 +85,7 @@ void wrapper_b97237ef74ad5566bc5ae85fdde5a9b6(pybind11::module& module)
     class_b97237ef74ad5566bc5ae85fdde5a9b6.def("get_lookup_parent", method_pointer_6eb9e90e04945afe9d0aff4930583974, pybind11::return_value_policy::reference_internal, "");
     class_b97237ef74ad5566bc5ae85fdde5a9b6.def("get_lookup_parent", method_pointer_5cf289bd6dd15670ac8b98ec479f3460, pybind11::return_value_policy::reference_internal, "");
     class_b97237ef74ad5566bc5ae85fdde5a9b6.def("get_parent_ast_context", method_pointer_51c0154e0e1a52b8aaf13c194a57ded6, pybind11::return_value_policy::reference_internal, "");
-    class_b97237ef74ad5566bc5ae85fdde5a9b6.def("get_parent_ast_context", autowig::method_decorator_51c0154e0e1a52b8aaf13c194a57ded6);
+    // class_b97237ef74ad5566bc5ae85fdde5a9b6.def("get_parent_ast_context", autowig::method_decorator_51c0154e0e1a52b8aaf13c194a57ded6);
     class_b97237ef74ad5566bc5ae85fdde5a9b6.def("is_closure", method_pointer_779387bd412f5d01815abd9b9d5b1683, "");
     class_b97237ef74ad5566bc5ae85fdde5a9b6.def("is_obj_c_container", method_pointer_41aa2e34744f5f56a92984e6cd392253, "");
     class_b97237ef74ad5566bc5ae85fdde5a9b6.def("is_function_or_method", method_pointer_ff8e73fae6aa589eb56ba979262c1612, "");

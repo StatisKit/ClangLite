@@ -33,9 +33,9 @@ bool  (::clang::ASTUnit::*method_pointer_7d7f1255f5ed57feb65b2158e3f1fab5)()= &:
 bool  (::clang::ASTUnit::*method_pointer_621316ea48f3511fa390cb0c4fac7657)(class ::llvm::StringRef )= &::clang::ASTUnit::Save;
 
 namespace autowig {
-    void method_decorator_2bc88580735c57cda4bf1e0d30679c6c(class ::clang::ASTUnit & instance, const class ::clang::SourceManager & param_out) { instance.getSourceManager() = param_out; }
-    void method_decorator_ea14f5ae96675765975ead790e270a74(class ::clang::ASTUnit & instance, const class ::clang::ASTContext & param_out) { instance.getASTContext() = param_out; }
-    void method_decorator_719bf62003a95ebf8b711f657099b4cc(class ::clang::ASTUnit const & instance, const class ::clang::Sema & param_out) { instance.getSema() = param_out; }
+    // void method_decorator_2bc88580735c57cda4bf1e0d30679c6c(class ::clang::ASTUnit & instance, const class ::clang::SourceManager & param_out) { instance.getSourceManager() = param_out; }
+    // void method_decorator_ea14f5ae96675765975ead790e270a74(class ::clang::ASTUnit & instance, const class ::clang::ASTContext & param_out) { instance.getASTContext() = param_out; }
+    // void method_decorator_719bf62003a95ebf8b711f657099b4cc(class ::clang::ASTUnit const & instance, const class ::clang::Sema & param_out) { instance.getSema() = param_out; }
     void method_decorator_aedb3f1eaf985ea082f16cdeb84c469d(class ::clang::ASTUnit & instance, unsigned int param_out) { instance.getCurrentTopLevelHashValue() = param_out; }
 }
 
@@ -52,13 +52,13 @@ void wrapper_3355f55454c958cf9ccb029a6c5f8b78(pybind11::module& module)
     class_3355f55454c958cf9ccb029a6c5f8b78.def("is_unsafe_to_free", method_pointer_5ab42ee56d0a5514abb4121f1eb2a619, "");
     class_3355f55454c958cf9ccb029a6c5f8b78.def("set_unsafe_to_free", method_pointer_cd308b04f8055866b779f8510a89a287, "");
     class_3355f55454c958cf9ccb029a6c5f8b78.def("get_source_manager", method_pointer_2bc88580735c57cda4bf1e0d30679c6c, pybind11::return_value_policy::reference_internal, "");
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("get_source_manager", autowig::method_decorator_2bc88580735c57cda4bf1e0d30679c6c);
+    // class_3355f55454c958cf9ccb029a6c5f8b78.def("get_source_manager", autowig::method_decorator_2bc88580735c57cda4bf1e0d30679c6c);
     class_3355f55454c958cf9ccb029a6c5f8b78.def("get_ast_context", method_pointer_ea14f5ae96675765975ead790e270a74, pybind11::return_value_policy::reference_internal, "");
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("get_ast_context", autowig::method_decorator_ea14f5ae96675765975ead790e270a74);
+    // class_3355f55454c958cf9ccb029a6c5f8b78.def("get_ast_context", autowig::method_decorator_ea14f5ae96675765975ead790e270a74);
     class_3355f55454c958cf9ccb029a6c5f8b78.def("set_ast_context", method_pointer_5cdb2ffff70c5481bcfeff5266da6ce9, "");
     class_3355f55454c958cf9ccb029a6c5f8b78.def("has_sema", method_pointer_347bb4013e7b5ed894b0c35fc38d0420, "");
     class_3355f55454c958cf9ccb029a6c5f8b78.def("get_sema", method_pointer_719bf62003a95ebf8b711f657099b4cc, pybind11::return_value_policy::reference_internal, "");
-    class_3355f55454c958cf9ccb029a6c5f8b78.def("get_sema", autowig::method_decorator_719bf62003a95ebf8b711f657099b4cc);
+    // class_3355f55454c958cf9ccb029a6c5f8b78.def("get_sema", autowig::method_decorator_719bf62003a95ebf8b711f657099b4cc);
     class_3355f55454c958cf9ccb029a6c5f8b78.def("get_original_source_file_name", method_pointer_b66ea5075322543caaaaf5fd73439ecd, "");
     class_3355f55454c958cf9ccb029a6c5f8b78.def("add_temporary_file", method_pointer_461b830151f757c98a422c4714f066e3, "Add a temporary file that the ASTUnit depends on.\n\nThis file will be erased when the ASTUnit is destroyed.\n\n:Parameter:\n    `TempFile` (:cpp:class:`::llvm::StringRef`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
     class_3355f55454c958cf9ccb029a6c5f8b78.def("get_only_local_decls", method_pointer_7c6cd4d1d54b55cb9be9d43a4f2f950b, "");
