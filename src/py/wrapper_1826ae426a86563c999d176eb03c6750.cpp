@@ -9,8 +9,8 @@ class ::clang::ConstructorUsingShadowDecl * (::clang::ConstructorUsingShadowDecl
 class ::clang::CXXRecordDecl * (::clang::ConstructorUsingShadowDecl::*method_pointer_8fef68184f2c588497447f16d34d765c)()const= &::clang::ConstructorUsingShadowDecl::getNominatedBaseClass;
 class ::clang::CXXRecordDecl * (::clang::ConstructorUsingShadowDecl::*method_pointer_f8b32b454cbd5e3baf27e2ddc1f9b1f1)()const= &::clang::ConstructorUsingShadowDecl::getConstructedBaseClass;
 bool  (::clang::ConstructorUsingShadowDecl::*method_pointer_09d6ab552a86507f97e3f12c80b9eec6)()const= &::clang::ConstructorUsingShadowDecl::constructsVirtualBase;
-class ::clang::CXXConstructorDecl * (::clang::ConstructorUsingShadowDecl::*method_pointer_e9ef33993a8057d49e9f2c89634b4f54)()const= &::clang::ConstructorUsingShadowDecl::getConstructor;
-void  (::clang::ConstructorUsingShadowDecl::*method_pointer_f75d716b070c54d79b7e1d919edfb0c5)(class ::clang::NamedDecl *)= &::clang::ConstructorUsingShadowDecl::setConstructor;
+// class ::clang::CXXConstructorDecl * (::clang::ConstructorUsingShadowDecl::*method_pointer_e9ef33993a8057d49e9f2c89634b4f54)()const= &::clang::ConstructorUsingShadowDecl::getConstructor;
+// void  (::clang::ConstructorUsingShadowDecl::*method_pointer_f75d716b070c54d79b7e1d919edfb0c5)(class ::clang::NamedDecl *)= &::clang::ConstructorUsingShadowDecl::setConstructor;
 bool  (*method_pointer_fe76d27284825a60ba2aa933194150a9)(class ::clang::Decl const *)= ::clang::ConstructorUsingShadowDecl::classof;
 bool  (*method_pointer_28c10fe860ff54d49cd2f9581f46232c)(enum ::clang::Decl::Kind )= ::clang::ConstructorUsingShadowDecl::classofKind;
 
@@ -30,8 +30,8 @@ void wrapper_1826ae426a86563c999d176eb03c6750(pybind11::module& module)
     class_1826ae426a86563c999d176eb03c6750.def("get_nominated_base_class", method_pointer_8fef68184f2c588497447f16d34d765c, pybind11::return_value_policy::reference_internal, "Get the base class that was named in the using declaration. This can be\ndifferent for each redeclaration of this same shadow decl.\n\n:Return Type:\n    :cpp:class:`::clang::CXXRecordDecl`\n\n");
     class_1826ae426a86563c999d176eb03c6750.def("get_constructed_base_class", method_pointer_f8b32b454cbd5e3baf27e2ddc1f9b1f1, pybind11::return_value_policy::reference_internal, "Get the base class whose constructor or constructor shadow declaration\nis passed the constructor arguments.\n\n:Return Type:\n    :cpp:class:`::clang::CXXRecordDecl`\n\n");
     class_1826ae426a86563c999d176eb03c6750.def("constructs_virtual_base", method_pointer_09d6ab552a86507f97e3f12c80b9eec6, "Returns\n:raw-latex:`\\c true if the constructed base class is a virtual base\nclass subobject of this declaration's class.`\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
-    class_1826ae426a86563c999d176eb03c6750.def("get_constructor", method_pointer_e9ef33993a8057d49e9f2c89634b4f54, pybind11::return_value_policy::reference_internal, "Get the constructor or constructor template in the derived class\ncorrespnding to this using shadow declaration, if it has been implicitly\ndeclared already.\n\n:Return Type:\n    :cpp:class:`::clang::CXXConstructorDecl`\n\n");
-    class_1826ae426a86563c999d176eb03c6750.def("set_constructor", method_pointer_f75d716b070c54d79b7e1d919edfb0c5, "");
+    // class_1826ae426a86563c999d176eb03c6750.def("get_constructor", method_pointer_e9ef33993a8057d49e9f2c89634b4f54, pybind11::return_value_policy::reference_internal, "Get the constructor or constructor template in the derived class\ncorrespnding to this using shadow declaration, if it has been implicitly\ndeclared already.\n\n:Return Type:\n    :cpp:class:`::clang::CXXConstructorDecl`\n\n");
+    // class_1826ae426a86563c999d176eb03c6750.def("set_constructor", method_pointer_f75d716b070c54d79b7e1d919edfb0c5, "");
     class_1826ae426a86563c999d176eb03c6750.def_static("classof", method_pointer_fe76d27284825a60ba2aa933194150a9, "");
     class_1826ae426a86563c999d176eb03c6750.def_static("classof_kind", method_pointer_28c10fe860ff54d49cd2f9581f46232c, "");
 
