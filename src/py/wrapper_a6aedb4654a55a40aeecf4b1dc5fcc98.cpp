@@ -89,6 +89,7 @@ void  (::clang::Decl::*method_pointer_ff1c53521cfa52cab55c2de557d129a8)()const= 
 class ::clang::FunctionType const * (::clang::Decl::*method_pointer_874687c60a895c038f1c888a79ede56a)(bool )const= &::clang::Decl::getFunctionType;
 
 namespace autowig {
+    void method_decorator_32a4cb430a755856b33d5af72e680a0b(class ::clang::Decl const & instance, const class ::clang::ASTContext & param_out) { instance.getASTContext() = param_out; }
 }
 
 void wrapper_a6aedb4654a55a40aeecf4b1dc5fcc98(pybind11::module& module)
@@ -116,6 +117,7 @@ void wrapper_a6aedb4654a55a40aeecf4b1dc5fcc98(pybind11::module& module)
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("is_in_anonymous_namespace", method_pointer_a4d5f25bd89051649611b447e229afdc, "");
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("is_in_std_namespace", method_pointer_bfdacc5f619d5bc2ab3a707f7db04a64, "");
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("get_ast_context", method_pointer_32a4cb430a755856b33d5af72e680a0b, pybind11::return_value_policy::reference_internal, "");
+    class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("get_ast_context", autowig::method_decorator_32a4cb430a755856b33d5af72e680a0b);
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("set_access", method_pointer_c972a057184f5f57bdc823e4a67c1bfa, "");
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("get_access", method_pointer_498eee9b33f75aa885599b361c171ad0, "");
     class_a6aedb4654a55a40aeecf4b1dc5fcc98.def("get_access_unsafe", method_pointer_98f8687293a552cbb77c7e6245b94394, "Retrieve the access specifier for this declaration, even though it may\nnot yet have been properly set.\n\n:Return Type:\n    :cpp:enumerator:`::clang::AccessSpecifier`\n\n");

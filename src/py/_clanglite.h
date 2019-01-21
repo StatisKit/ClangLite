@@ -8,7 +8,7 @@
 namespace autowig
 {
     template<class T> struct HolderType {
-        typedef std::unique_ptr< T, pybind11::nodelete > Type;
+        typedef std::unique_ptr< T > Type;
     };
 
     template<class T> struct NoDeleteHolderType {

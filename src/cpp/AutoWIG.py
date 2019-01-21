@@ -240,6 +240,7 @@ def controller(asg):
         for ctr in cls.constructors():
             ctr.pybind11_export = False
 
+    # subset.append(asg['enum ::clang::Decl::ModuleOwnershipKind'])
     subset.append(asg['enum ::clang::Type::TypeClass'])
     subset.append(asg['enum ::clang::AccessSpecifier'])
     subset.append(asg['enum ::clang::LinkageSpecDecl::LanguageIDs'])

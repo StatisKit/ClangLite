@@ -269,7 +269,7 @@ bool  (::clang::Sema::*method_pointer_68f120ef072c57c89c3e7490cb611fd1)(class ::
 void  (::clang::Sema::*method_pointer_7381cc0469215302b46368f576bf3a16)(class ::clang::SourceLocation , class ::llvm::StringRef , class ::llvm::StringRef )= &::clang::Sema::ActOnPragmaDetectMismatch;
 void  (::clang::Sema::*method_pointer_11bbf744254e51848144d97d38a28fbd)(class ::clang::RecordDecl *)= &::clang::Sema::AddAlignmentAttributesForRecord;
 void  (::clang::Sema::*method_pointer_0e46198a43a15deeb30b1d1fa315448d)(class ::clang::RecordDecl *)= &::clang::Sema::AddMsStructLayoutForRecord;
-// void  (::clang::Sema::*method_pointer_3f1db22e81835aca9b208a18d07c5c94)()= &::clang::Sema::FreePackedContext;
+void  (::clang::Sema::*method_pointer_3f1db22e81835aca9b208a18d07c5c94)()= &::clang::Sema::FreePackedContext;
 void  (::clang::Sema::*method_pointer_9045e2ad93c053dbaec4b93c4b50e1d9)(class ::clang::Decl *)= &::clang::Sema::AddPushedVisibilityAttribute;
 void  (::clang::Sema::*method_pointer_ba20403dcbb5519382a98d145490248b)(bool , class ::clang::SourceLocation )= &::clang::Sema::PopPragmaVisibility;
 void  (::clang::Sema::*method_pointer_9b4538195e455b4baae0cc784b59639d)()= &::clang::Sema::FreeVisContext;
@@ -320,6 +320,8 @@ bool  (*method_pointer_7b151e77b874548ca22ddaa1035592bd)(::size_t , ::size_t , b
 void  (::clang::Sema::*method_pointer_1d7cb1c1ea555470afa2ab76c07cff9d)()= &::clang::Sema::DiagnoseMisalignedMembers;
 
 namespace autowig {
+    void method_decorator_3236edd388a25058be6c05f55b222fbb(class ::clang::Sema const & instance, const class ::clang::SourceManager & param_out) { instance.getSourceManager() = param_out; }
+    void method_decorator_6322bef8fbf45a2b9ff7efabefbaee64(class ::clang::Sema const & instance, const class ::clang::ASTContext & param_out) { instance.getASTContext() = param_out; }
 }
 
 void wrapper_334dd7441b7b543eae5426f290fe3a91(pybind11::module& module)
@@ -331,7 +333,9 @@ void wrapper_334dd7441b7b543eae5426f290fe3a91(pybind11::module& module)
     class_334dd7441b7b543eae5426f290fe3a91.def("add_implicit_typedef", method_pointer_943ef8657bbc571d8c7084825a332db4, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("initialize", method_pointer_7f1b7667472f57e885106db08339caf5, "Perform initialization that occurs after the parser has been initialized\nbut before it parses anything.\n\n:Return Type:\n    :cpp:any:`void`\n\n");
     class_334dd7441b7b543eae5426f290fe3a91.def("get_source_manager", method_pointer_3236edd388a25058be6c05f55b222fbb, pybind11::return_value_policy::reference_internal, "");
+    class_334dd7441b7b543eae5426f290fe3a91.def("get_source_manager", autowig::method_decorator_3236edd388a25058be6c05f55b222fbb);
     class_334dd7441b7b543eae5426f290fe3a91.def("get_ast_context", method_pointer_6322bef8fbf45a2b9ff7efabefbaee64, pybind11::return_value_policy::reference_internal, "");
+    class_334dd7441b7b543eae5426f290fe3a91.def("get_ast_context", autowig::method_decorator_6322bef8fbf45a2b9ff7efabefbaee64);
     class_334dd7441b7b543eae5426f290fe3a91.def("print_stats", method_pointer_d66ccf302783573e9ec92bda3d5dbf04, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("find_macro_spelling", method_pointer_5504fe0e70605e56b5eb41879dbcf28d, "");
     class_334dd7441b7b543eae5426f290fe3a91.def("get_loc_for_end_of_token", method_pointer_d03dac7c85e4510cbe943273020f3349, "Calls :raw-latex:`\\c Lexer::getLocForEndOfToken()`\n\n:Parameters:\n  - `Loc` (:cpp:class:`::clang::SourceLocation`) - Undocumented\n  - `Offset` (:cpp:any:`unsigned` int) - Undocumented\n\n:Return Type:\n    :cpp:class:`::clang::SourceLocation`\n\n");
@@ -595,7 +599,7 @@ void wrapper_334dd7441b7b543eae5426f290fe3a91(pybind11::module& module)
     class_334dd7441b7b543eae5426f290fe3a91.def("act_on_pragma_detect_mismatch", method_pointer_7381cc0469215302b46368f576bf3a16, ":Parameters:\n  - `Loc` (:cpp:class:`::clang::SourceLocation`) - Undocumented\n  - `Name` (:cpp:class:`::llvm::StringRef`) - Undocumented\n  - `Value` (:cpp:class:`::llvm::StringRef`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
     class_334dd7441b7b543eae5426f290fe3a91.def("add_alignment_attributes_for_record", method_pointer_11bbf744254e51848144d97d38a28fbd, ":Parameter:\n    `RD` (:cpp:class:`::clang::RecordDecl`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
     class_334dd7441b7b543eae5426f290fe3a91.def("add_ms_struct_layout_for_record", method_pointer_0e46198a43a15deeb30b1d1fa315448d, ":Parameter:\n    `RD` (:cpp:class:`::clang::RecordDecl`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
-    // class_334dd7441b7b543eae5426f290fe3a91.def("free_packed_context", method_pointer_3f1db22e81835aca9b208a18d07c5c94, ":Return Type:\n    :cpp:any:`void`\n\n");
+    class_334dd7441b7b543eae5426f290fe3a91.def("free_packed_context", method_pointer_3f1db22e81835aca9b208a18d07c5c94, ":Return Type:\n    :cpp:any:`void`\n\n");
     class_334dd7441b7b543eae5426f290fe3a91.def("add_pushed_visibility_attribute", method_pointer_9045e2ad93c053dbaec4b93c4b50e1d9, ":Parameter:\n    `RD` (:cpp:class:`::clang::Decl`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
     class_334dd7441b7b543eae5426f290fe3a91.def("pop_pragma_visibility", method_pointer_ba20403dcbb5519382a98d145490248b, ":Parameters:\n  - `IsNamespaceEnd` (:cpp:any:`bool`) - Undocumented\n  - `EndLoc` (:cpp:class:`::clang::SourceLocation`) - Undocumented\n\n:Return Type:\n    :cpp:any:`void`\n\n");
     class_334dd7441b7b543eae5426f290fe3a91.def("free_vis_context", method_pointer_9b4538195e455b4baae0cc784b59639d, ":Return Type:\n    :cpp:any:`void`\n\n");
@@ -647,7 +651,7 @@ void wrapper_334dd7441b7b543eae5426f290fe3a91(pybind11::module& module)
     class_334dd7441b7b543eae5426f290fe3a91.def_readwrite("collect_stats", &::clang::Sema::CollectStats, "");
     class_334dd7441b7b543eae5426f290fe3a91.def_readwrite("ms_struct_pragma_on", &::clang::Sema::MSStructPragmaOn, "");
     class_334dd7441b7b543eae5426f290fe3a91.def_readwrite("implicit_ms_inheritance_attr_loc", &::clang::Sema::ImplicitMSInheritanceAttrLoc, "");
-    // class_334dd7441b7b543eae5426f290fe3a91.def_readonly_static("k_mac_6_8k_alignment_sentinel", &::clang::Sema::kMac68kAlignmentSentinel, "");
+    class_334dd7441b7b543eae5426f290fe3a91.def_readonly_static("k_mac_6_8k_alignment_sentinel", &::clang::Sema::kMac68kAlignmentSentinel, "");
     class_334dd7441b7b543eae5426f290fe3a91.def_readwrite("cur_init_seg_loc", &::clang::Sema::CurInitSegLoc, "");
     class_334dd7441b7b543eae5426f290fe3a91.def_readwrite("optimize_off_pragma_location", &::clang::Sema::OptimizeOffPragmaLocation, "");
     class_334dd7441b7b543eae5426f290fe3a91.def_readwrite("is_building_recovery_call_expr", &::clang::Sema::IsBuildingRecoveryCallExpr, "");

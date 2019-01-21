@@ -223,6 +223,7 @@ unsigned int  (::clang::ASTContext::*method_pointer_2c265b4e960c5d28938caf7a69be
 bool  (::clang::ASTContext::*method_pointer_ebe6224e69915352836fbc78c46cc590)(class ::clang::VarDecl const *)const= &::clang::ASTContext::isMSStaticDataMemberInlineDefinition;
 
 namespace autowig {
+    void method_decorator_eb00afb4ec6a50b59f04d6e5aa4b6fc4(class ::clang::ASTContext & instance, const class ::clang::SourceManager & param_out) { instance.getSourceManager() = param_out; }
 }
 
 void wrapper_e536a5cae34e54058d1fe69715937f7a(pybind11::module& module)
@@ -230,6 +231,7 @@ void wrapper_e536a5cae34e54058d1fe69715937f7a(pybind11::module& module)
 
     pybind11::class_<class ::clang::ASTContext, autowig::HolderType< class ::clang::ASTContext >::Type > class_e536a5cae34e54058d1fe69715937f7a(module, "ASTContext", "Holds long-lived AST nodes (such as types and decls) that can be\nreferred to throughout the semantic analysis of a file.\n\n");
     class_e536a5cae34e54058d1fe69715937f7a.def("get_source_manager", method_pointer_eb00afb4ec6a50b59f04d6e5aa4b6fc4, pybind11::return_value_policy::reference_internal, "");
+    class_e536a5cae34e54058d1fe69715937f7a.def("get_source_manager", autowig::method_decorator_eb00afb4ec6a50b59f04d6e5aa4b6fc4);
     class_e536a5cae34e54058d1fe69715937f7a.def("get_ast_allocated_memory", method_pointer_3ce614d230255ab5b9b40327b62f169a, ":Return Type:\n    :cpp:any:`unsigned` long int\n\n");
     class_e536a5cae34e54058d1fe69715937f7a.def("get_side_table_allocated_memory", method_pointer_964159248bd85e6d9989f694dc94d25d, ":Return Type:\n    :cpp:any:`unsigned` long int\n\n");
     class_e536a5cae34e54058d1fe69715937f7a.def("get_int_type_for_bitwidth", method_pointer_899e9238c56f5927a724adfb7032d062, ":Parameters:\n  - `DestWidth` (:cpp:any:`unsigned` int) - Undocumented\n  - `Signed` (:cpp:any:`unsigned` int) - Undocumented\n\n:Return Type:\n    :cpp:class:`::clang::QualType`\n\n");
