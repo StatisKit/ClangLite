@@ -158,7 +158,7 @@ void wrapper_f36600d29ca4530a95955d39f3729dd4(pybind11::module& module);
 void wrapper_f985630f6d5d5a2083b01d182b863d7a(pybind11::module& module);
 void wrapper_96d583a082485956938c728f02b79bce(pybind11::module& module);
 
-PYBIND11_MODULE(_clanglite, module_9b5d0e83426e59fe8644dee679bc9dc1)
+PYBIND11_MODULE(__clanglite, module_9b5d0e83426e59fe8644dee679bc9dc1)
 {
 
     pybind11::module module_7bbff48d109853e88270b3595c663a99 = module_9b5d0e83426e59fe8644dee679bc9dc1.def_submodule("clang", "");
