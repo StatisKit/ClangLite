@@ -27,7 +27,13 @@ if [[ "$PY3K" = "1" ]]; then
     2to3 -n -w ${SRC_DIR}/src/py/clanglite
 fi
 
-scons py --prefix=${PREFIX} -j$CPU_COUNT
-${PYTHON} setup.py install --prefix=$PREFIX
+if [[ "${TRAVIS_OS_NAME}" = "osx" ]]
+then
+    scons py --prefix=${PREFIX} -j${CPU_COUNT} --rtti=yes
+else 
+    scons py --prefix=${PREFIX} -j${CPU_COUNT}
+fi
+
+${PYTHON} setup.py install --prefix=${PREFIX}
 
 set +ev

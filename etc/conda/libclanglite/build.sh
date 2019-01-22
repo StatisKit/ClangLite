@@ -23,6 +23,11 @@
 
 set -ev
 
-scons cpp --prefix=$PREFIX -j$CPU_COUNT
+if [[ "${TRAVIS_OS_NAME}" = "osx" ]]
+then
+    scons cpp --prefix=${PREFIX} -j${CPU_COUNT} --rtti=yes
+else 
+    scons cpp --prefix=${PREFIX} -j${CPU_COUNT}
+fi
 
 set +ev
