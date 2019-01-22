@@ -24,6 +24,7 @@
 set -ev
 
 OS_NAME=`uname -s`
+echo ${OS_NAME}
 if [[ "${OS_NAME}" = "Linux" ]]
 then
     scons cpp --prefix=${PREFIX} -j${CPU_COUNT}
