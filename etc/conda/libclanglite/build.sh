@@ -23,11 +23,12 @@
 
 set -ev
 
-if [[ "${TRAVIS_OS_NAME}" = "osx" ]]
+OS_NAME=`uname -s`
+if [[ "${OS_NAME}" = "Linux" ]]
 then
-    scons cpp --prefix=${PREFIX} -j${CPU_COUNT} --rtti=no
-else 
     scons cpp --prefix=${PREFIX} -j${CPU_COUNT}
+else 
+    scons cpp --prefix=${PREFIX} -j${CPU_COUNT} --rtti=no
 fi
 
 set +ev
