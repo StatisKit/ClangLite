@@ -23,13 +23,6 @@
 
 set -ev
 
-OS_NAME=`uname -s`
-echo ${OS_NAME}
-if [[ "${OS_NAME}" = "Linux" ]]
-then
-    scons cpp --prefix=${PREFIX} -j${CPU_COUNT}
-else 
-    scons cpp --prefix=${PREFIX} -j${CPU_COUNT} --rtti=no
-fi
+scons cpp --prefix=${PREFIX} -j${CPU_COUNT}
 
 set +ev

@@ -27,13 +27,7 @@ if [[ "$PY3K" = "1" ]]; then
     2to3 -n -w ${SRC_DIR}/src/py/clanglite
 fi
 
-OS_NAME=`uname -s`
-if [[ "${OS_NAME}" = "Linux" ]]
-then
-    scons py --prefix=${PREFIX} -j${CPU_COUNT}
-else 
-    scons py --prefix=${PREFIX} -j${CPU_COUNT} --rtti=no
-fi
+scons py --prefix=${PREFIX} -j${CPU_COUNT}
 
 ${PYTHON} setup.py install --prefix=${PREFIX}
 
