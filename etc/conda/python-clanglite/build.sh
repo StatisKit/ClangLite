@@ -29,7 +29,7 @@ fi
 
 if [[ "${TRAVIS_OS_NAME}" = "osx" ]]
 then
-    scons py --prefix=${PREFIX} -j${CPU_COUNT} --rtti=yes
+    scons py --prefix=${PREFIX} -j${CPU_COUNT} --rtti=no
 else 
     scons py --prefix=${PREFIX} -j${CPU_COUNT}
 fi
