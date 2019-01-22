@@ -52,7 +52,7 @@ requirements:
     - make
     - cmake
     - 7za               [win]
-    - patch             [win]
+    - m2-patch          [win]
   host:
     - zlib
     - python
