@@ -1,6 +1,5 @@
 #include "_clanglite.h"
 
-class ::llvm::StringRef  (::clang::NamedDecl::*method_pointer_0a5e0dc8c60354c5a9f1dca21da60d9a)()const= &::clang::NamedDecl::getName;
 bool  (::clang::NamedDecl::*method_pointer_03f7e8caf0405893a0eb36f85ae79bea)(class ::clang::NamedDecl *, bool )const= &::clang::NamedDecl::declarationReplaces;
 bool  (::clang::NamedDecl::*method_pointer_25de7ef3ff1757c5b2d2cdea291fb49f)()const= &::clang::NamedDecl::hasLinkage;
 bool  (::clang::NamedDecl::*method_pointer_c9d0322d995e544285eae8cf07bbc3a9)()const= &::clang::NamedDecl::isHidden;
@@ -30,7 +29,6 @@ void wrapper_a049632b742a55ecb3317bc028db1124(pybind11::module& module)
         { return ::clanglite::get_name(parameter_0); }
     };
     pybind11::class_<class ::clang::NamedDecl, autowig::HolderType< class ::clang::NamedDecl >::Type, class ::clang::Decl > class_a049632b742a55ecb3317bc028db1124(module, "NamedDecl", "");
-    class_a049632b742a55ecb3317bc028db1124.def("get_name", method_pointer_0a5e0dc8c60354c5a9f1dca21da60d9a, ":Return Type:\n    :cpp:class:`::llvm::StringRef`\n\n");
     class_a049632b742a55ecb3317bc028db1124.def("declaration_replaces", method_pointer_03f7e8caf0405893a0eb36f85ae79bea, "Determine whether this declaration, if known to be well-formed within\nits context, will replace the declaration OldD if introduced into scope.\nA declaration will replace another declaration if, for example, it is a\nredeclaration of the same variable or function, but not if it is a\ndeclaration of a different kind (function vs. class) or an overloaded\nfunction.\n\n:Parameters:\n  - `OldD` (:cpp:class:`::clang::NamedDecl`) - Undocumented\n  - `IsKnownNewer` (:cpp:any:`bool`) - :raw-latex:`\\c true if this declaration is known to be newer\n                                       than \\p OldD (for instance, if this declaration is newly-created).`\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_a049632b742a55ecb3317bc028db1124.def("has_linkage", method_pointer_25de7ef3ff1757c5b2d2cdea291fb49f, "Determine whether this declaration has linkage.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");
     class_a049632b742a55ecb3317bc028db1124.def("is_hidden", method_pointer_c9d0322d995e544285eae8cf07bbc3a9, "Determine whether this declaration is hidden from name lookup.\n\n:Return Type:\n    :cpp:any:`bool`\n\n");

@@ -286,6 +286,13 @@ def controller(asg):
         for mtd in asg['class ::clang::Decl'].methods():
             if mtd.localname == 'hasAttr':
                 mtd.pybind11_export = False
+
+    for decl in ['class ::clang::NamedDecl',
+                 'class ::clang::ClassTemplateSpecializationDecl',
+                 'class ::clang::TemplateArgument']:
+        for mtd in asg[decl].methods():
+            if mtd.localname == 'getName':
+                mtd.pybind11_export = False
                 
     import sys
     try:
