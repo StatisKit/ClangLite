@@ -35,8 +35,6 @@ matrix:
            TRAVIS_WAIT=50
     - os: linux
       env: CONDA_RECIPE=etc/conda/clang
-    - os: osx
-      env: CONDA_RECIPE=etc/conda/python-clanglite
     - os: windows
       env: CONDA_RECIPE=etc/conda/llvm
            TRAVIS_WAIT=50

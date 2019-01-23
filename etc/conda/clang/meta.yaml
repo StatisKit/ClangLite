@@ -58,13 +58,13 @@ requirements:
     - make
     - cmake
     - 7za               [win]
-    - patch             [win]
+    - m2-patch          [win]
   host:
     - llvm {{ version }}
     - zlib
     - python
   run:
-    - {{ pin_compatible('llvm', min_pin='x.x', max_pin='x.x') }}
+    - {{ pin_compatible('llvm', exact=True) }}
 
 test:
   commands:
