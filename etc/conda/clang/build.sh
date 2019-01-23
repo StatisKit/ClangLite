@@ -1,8 +1,12 @@
 set -ve
 
-rm -rf tools/clang/tools/libclang
-rm -rf tools/clang/tools/c-arcmt-test
-rm -rf tools/clang/tools/c-index-test
+# rm -rf tools/clang/tools/libclang
+# rm -rf tools/clang/tools/c-arcmt-test
+# rm -rf tools/clang/tools/c-index-test
+
+rm -rf tools/libclang
+rm -rf tools/c-arcmt-test
+rm -rf tools/c-index-test
 
 mkdir build
 cd build
