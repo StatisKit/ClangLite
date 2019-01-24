@@ -11,6 +11,7 @@ environment:
 install:
   - git clone https://github.com/StatisKit/appveyor-ci.git
   - cd appveyor-ci
+  - call before_install.bat
   - call install.bat
     
 before_build:
