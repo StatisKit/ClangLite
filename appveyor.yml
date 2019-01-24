@@ -1,0 +1,46 @@
+image: Visual Studio 2015 Update 2
+
+platform:
+  - x64
+
+environment:
+  matrix:
+    - CONDA_RECIPE: etc/conda/llvm
+    - CONDA_RECIPE: etc/conda/clang
+    
+install:
+  - git clone https://github.com/StatisKit/appveyor-ci.git
+  - cd appveyor-ci
+  - call install.bat
+    
+before_build:
+  - call before_build.bat
+
+build_script:
+  - call build_script.bat
+  
+after_build:
+  - call after_build.bat
+
+deploy:
+  provider: Script
+  on:
+    branch: master
+ 
+before_deploy:
+  - call before_deploy.bat
+
+deploy_script:
+  - call deploy_script.bat
+
+after_deploy:
+  - call after_deploy.bat
+
+on_success:
+  - call on_success.bat
+
+on_failure:
+  - call on_failure.bat
+
+on_finish:
+  - call on_finish.bat
