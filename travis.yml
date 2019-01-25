@@ -14,18 +14,18 @@ services:
   - docker
 
 os:
-  # - linux
-  # - osx
+  - linux
+  - osx
   - windows
 
 dist: trusty
 osx_image: xcode8.3
 
 env:
-  # - CONDA_RECIPE=etc/conda/llvm
-  #   TRAVIS_WAIT=50
-  # - CONDA_RECIPE=etc/conda/clang
-  # - CONDA_RECIPE=etc/conda/libclanglite
+  - CONDA_RECIPE=etc/conda/llvm
+    TRAVIS_WAIT=50
+  - CONDA_RECIPE=etc/conda/clang
+  - CONDA_RECIPE=etc/conda/libclanglite
   - CONDA_RECIPE=etc/conda/python-clanglite
 
 matrix:
@@ -46,6 +46,8 @@ matrix:
            TRAVIS_WAIT=50
     - os: windows
       env: CONDA_RECIPE=etc/conda/clang
+    - os: windows
+      env: CONDA_RECIPE=etc/conda/python-clanglite
 
 before_install:
   - git clone https://github.com/StatisKit/travis-ci.git --depth=1

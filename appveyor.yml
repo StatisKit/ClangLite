@@ -5,8 +5,8 @@ platform:
 
 environment:
   matrix:
-    # - CONDA_RECIPE: etc/conda/llvm
-    # - CONDA_RECIPE: etc/conda/clang
+    - CONDA_RECIPE: etc/conda/llvm
+    - CONDA_RECIPE: etc/conda/clang
     - CONDA_RECIPE: etc/conda/python-clanglite
     
 install:
