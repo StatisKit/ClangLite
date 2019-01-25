@@ -92,30 +92,67 @@ env.AppendUnique(LIBS=['clangIndex',
                        'clangBasic'])
 
 import subprocess
-process = subprocess.Popen(['llvm-config', '--libs'], stdout=subprocess.PIPE)
-out, err = process.communicate()
 if not SYSTEM == 'win':
+    process = subprocess.Popen(['llvm-config', '--libs'], stdout=subprocess.PIPE)
+    out, err = process.communicate()
     env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split('-l') if lib])
 else:
-    env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split(' ') if lib])
+    env.AppendUnique(LIBS=['LLVMLTO',
+                           'LLVMObjCARCOpts', 
+                           'LLVMSymbolize',
+                           'LLVMDebugInfoPDB', 
+                           'LLVMDebugInfoDWARF', 
+                           'LLVMMIRParser', 
+                           'LLVMLibDriver', 
+                           'LLVMOption', 
+                           'LLVMTableGen', 
+                           'LLVMOrcJIT', 
+                           'LLVMPasses', 
+                           'LLVMipo', 
+                           'LLVMVectorize', 
+                           'LLVMLinker', 
+                           'LLVMIRReader', 
+                           'LLVMAsmParser', 
+                           'LLVMX86Disassembler', 
+                           'LLVMX86AsmParser', 
+                           'LLVMX86CodeGen', 
+                           'LLVMSelectionDAG', 
+                           'LLVMAsmPrinter', 
+                           'LLVMX86Desc', 
+                           'LLVMMCDisassembler', 
+                           'LLVMX86Info', 
+                           'LLVMX86AsmPrinter', 
+                           'LLVMX86Utils', 
+                           'LLVMMCJIT', 
+                           'LLVMLineEditor', 
+                           'LLVMDebugInfoCodeView', 
+                           'LLVMInterpreter', 
+                           'LLVMExecutionEngine', 
+                           'LLVMRuntimeDyld', 
+                           'LLVMCodeGen', 
+                           'LLVMTarget', 
+                           'LLVMScalarOpts', 
+                           'LLVMInstCombine', 
+                           'LLVMInstrumentation', 
+                           'LLVMProfileData', 
+                           'LLVMObject', 
+                           'LLVMMCParser', 
+                           'LLVMTransformUtils', 
+                           'LLVMMC', 
+                           'LLVMBitWriter', 
+                           'LLVMBitReader', 
+                           'LLVMAnalysis', 
+                           'LLVMCore', 
+                           'LLVMSupport'])
+    # env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split(' ') if lib])
 
-process = subprocess.Popen(['llvm-config', '--system-libs'], stdout=subprocess.PIPE)
 out, err = process.communicate()
 if not SYSTEM == 'win':
+    process = subprocess.Popen(['llvm-config', '--system-libs'], stdout=subprocess.PIPE)
     env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split('-l') if lib])
 else:
-    env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split(' ') if lib])
+    # env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split(' ') if lib])
     env.AppendUnique(LIBS=["version.lib"])
-# env.AppendUnique(RPATH=['$PREFIX/lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0',
-#                        '$PREFIX/x86_64-conda_cos6-linux-gnu/sysroot/lib',
-#                        '$PREFIX/x86_64-conda_cos6-linux-gnu/lib',
-#                        '$PREFIX/x86_64-conda_cos6-linux-gnu/sysroot/usr/lib',
-#                        '$PREFIX/lib/gcc'],
-#                  LIBPATH=['$PREFIX/lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0',
-#                        '$PREFIX/x86_64-conda_cos6-linux-gnu/sysroot/lib',
-#                        '$PREFIX/x86_64-conda_cos6-linux-gnu/lib',
-#                        '$PREFIX/x86_64-conda_cos6-linux-gnu/sysroot/usr/lib',
-#                        '$PREFIX/lib/gcc'])
 
 VariantDir('build', 'src')
 SConscript(os.path.join('build', 'cpp', 'SConscript'), exports="env")
