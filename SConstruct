@@ -146,9 +146,9 @@ else:
                            'LLVMSupport'])
     # env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split(' ') if lib])
 
-out, err = process.communicate()
 if not SYSTEM == 'win':
     process = subprocess.Popen(['llvm-config', '--system-libs'], stdout=subprocess.PIPE)
+    out, err = process.communicate()
     env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split('-l') if lib])
 else:
     # env.AppendUnique(LIBS=[lib.strip() for lib in out.decode('ascii', 'ignore').strip().split(' ') if lib])
