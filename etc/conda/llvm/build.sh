@@ -1,5 +1,14 @@
 set -ve
 
+declare -a CMAKE_PLATFORM_FLAGS
+if [[ ${HOST} =~ .*darwin.* ]]
+then
+    CMAKE_PLATFORM_FLAGS+=(-DCMAKE_OSX_SYSROOT="${CONDA_BUILD_SYSROOT}")
+else if [[ ${HOST} =~ .*linux.* ]]
+then
+    CMAKE_PLATFORM_FLAGS+=(-DCMAKE_TOOLCHAIN_FILE="${RECIPE_DIR}/cross-linux.cmake")
+fi
+
 rm -rf tools/clang/tools/libclang
 rm -rf tools/clang/tools/c-arcmt-test
 rm -rf tools/clang/tools/c-index-test
@@ -25,6 +34,7 @@ cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=${CC} \
                           -DCMAKE_INSTALL_PREFIX=${PREFIX} \
                           -DCMAKE_BUILD_TYPE=Release \
                           -DLLVM_TARGETS_TO_BUILD=host \
+                          ${CMAKE_PLATFORM_FLAGS[@]} \
                           ..;
 
 make -j$CPU_COUNT VERBOSE=1
