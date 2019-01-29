@@ -35,6 +35,10 @@ env = Environment(tools = ['system',
 
 SYSTEM = env['SYSTEM']
 
+if SYSTEM == 'linux':
+  sysroot = ['--sysroot=' + os.path.join(env['PREFIX'], os.environ['HOST'], 'sysroot')]
+  env.AppendUnique(CXXFLAGS=sysroot,
+                   LINKFLAGS=sysroot)
 if not SYSTEM == 'win':
 	env.AppendUnique(CXXFLAGS=['-ffunction-sections',
 		                       '-fdata-sections',
