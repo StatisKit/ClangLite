@@ -30,13 +30,13 @@ package:
   version: {{ version }}
 
 source:
-  # - url: http://llvm.org/releases/{{ version }}/llvm-{{ version }}.src.tar.xz
-  #   sha256: {{ llvm_sha256 }}
-  #   patches:
-  #     - 0001-llvm-Remove-decltype-STLExtras.patch
+  - url: http://llvm.org/releases/{{ version }}/llvm-{{ version }}.src.tar.xz # [linux]
+    sha256: {{ llvm_sha256 }}                                                 # [linux]
+    patches:                                                                  # [linux]
+      - 0001-llvm-Remove-decltype-STLExtras.patch                             # [linux]
   - url: http://llvm.org/releases/{{ version }}/cfe-{{ version }}.src.tar.xz
     sha256: {{ clang_sha256 }}
-    # folder: tools/clang
+    folder: tools/clang                                                       # [linux]
     patches:
       - 0001-clang-Allow-disabling-libXML.patch
       - 0002-clang-add-conda-specific-env-var-CONDA_BUILD_SYSROOT.patch
