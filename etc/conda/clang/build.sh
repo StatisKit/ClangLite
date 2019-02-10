@@ -9,10 +9,6 @@ then
     CMAKE_PLATFORM_FLAGS+=(-DCMAKE_TOOLCHAIN_FILE="${RECIPE_DIR}/cross-linux.cmake")
 fi
 
-# rm -rf tools/libclang
-# rm -rf tools/c-arcmt-test
-# rm -rf tools/c-index-test
-
 mkdir build
 cd build
 
