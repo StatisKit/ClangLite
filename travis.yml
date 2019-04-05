@@ -1,6 +1,7 @@
 branches:
   except:
     - doc
+    - release/fp17
   
 language: cpp
 
